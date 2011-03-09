@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
+		A3A8C5E71327F70100FDB229 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A8C5E61327F70100FDB229 /* MPOAuth.framework */; };
 		A3AE807613274EF9005A18B0 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
-		A3AE807813274EFF005A18B0 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807713274EFF005A18B0 /* MPOAuth.framework */; };
 		A3AE807A13274F07005A18B0 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
-		A3AE807D13274F36005A18B0 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807713274EFF005A18B0 /* MPOAuth.framework */; };
 		A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
 		A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EA27671327461C0072AC66 /* Cocoa.framework */; };
 		A3EA27721327461C0072AC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3EA27701327461C0072AC66 /* InfoPlist.strings */; };
@@ -29,7 +29,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */,
-				A3AE807D13274F36005A18B0 /* MPOAuth.framework in CopyFiles */,
 				A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,8 +36,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
+		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A3A8C5E61327F70100FDB229 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
 		A3AE807513274EF9005A18B0 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
-		A3AE807713274EFF005A18B0 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
 		A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A3EA27631327461C0072AC66 /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EA27671327461C0072AC66 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -50,7 +51,7 @@
 		A3EA27731327461C0072AC66 /* Draftimo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Draftimo-Prefix.pch"; sourceTree = "<group>"; };
 		A3EA27741327461C0072AC66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3EA27771327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		A3EA27791327461C0072AC66 /* DMAppController.h */ = {isa = PBXFileReference; path = DMAppController.h; sourceTree = "<group>"; };
+		A3EA27791327461C0072AC66 /* DMAppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMAppController.h; sourceTree = "<group>"; };
 		A3EA277A1327461C0072AC66 /* DMAppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppController.m; sourceTree = "<group>"; };
 		A3EA277D1327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,8 +63,8 @@
 			files = (
 				A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */,
 				A3AE807613274EF9005A18B0 /* JSON.framework in Frameworks */,
-				A3AE807813274EFF005A18B0 /* MPOAuth.framework in Frameworks */,
 				A3AE807A13274F07005A18B0 /* BWToolkitFramework.framework in Frameworks */,
+				A3A8C5E71327F70100FDB229 /* MPOAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +74,8 @@
 		A3AE807313274EBB005A18B0 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3A8C5E61327F70100FDB229 /* MPOAuth.framework */,
 				A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */,
-				A3AE807713274EFF005A18B0 /* MPOAuth.framework */,
 				A3AE807513274EF9005A18B0 /* JSON.framework */,
 			);
 			name = "Other Frameworks";
@@ -120,6 +121,8 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
+				A36647B31327E9E600052F6D /* DMConstants.h */,
+				A36647B41327E9E600052F6D /* DMConstants.m */,
 				A3EA27791327461C0072AC66 /* DMAppController.h */,
 				A3EA277A1327461C0072AC66 /* DMAppController.m */,
 				A3EA277C1327461C0072AC66 /* MainMenu.xib */,
@@ -203,6 +206,7 @@
 			files = (
 				A3EA27751327461C0072AC66 /* main.m in Sources */,
 				A3EA277B1327461C0072AC66 /* DMAppController.m in Sources */,
+				A36647B51327E9E600052F6D /* DMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
