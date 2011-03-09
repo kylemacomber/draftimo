@@ -17,7 +17,7 @@
 		A3EA27721327461C0072AC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3EA27701327461C0072AC66 /* InfoPlist.strings */; };
 		A3EA27751327461C0072AC66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA27741327461C0072AC66 /* main.m */; };
 		A3EA27781327461C0072AC66 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A3EA27761327461C0072AC66 /* Credits.rtf */; };
-		A3EA277B1327461C0072AC66 /* DraftimoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA277A1327461C0072AC66 /* DraftimoAppDelegate.m */; };
+		A3EA277B1327461C0072AC66 /* DMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA277A1327461C0072AC66 /* DMAppController.m */; };
 		A3EA277E1327461C0072AC66 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EA277C1327461C0072AC66 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +50,8 @@
 		A3EA27731327461C0072AC66 /* Draftimo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Draftimo-Prefix.pch"; sourceTree = "<group>"; };
 		A3EA27741327461C0072AC66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3EA27771327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		A3EA27791327461C0072AC66 /* DraftimoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DraftimoAppDelegate.h; sourceTree = "<group>"; };
-		A3EA277A1327461C0072AC66 /* DraftimoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DraftimoAppDelegate.m; sourceTree = "<group>"; };
+		A3EA27791327461C0072AC66 /* DMAppController.h */ = {isa = PBXFileReference; path = DMAppController.h; sourceTree = "<group>"; };
+		A3EA277A1327461C0072AC66 /* DMAppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppController.m; sourceTree = "<group>"; };
 		A3EA277D1327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,8 +120,8 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
-				A3EA27791327461C0072AC66 /* DraftimoAppDelegate.h */,
-				A3EA277A1327461C0072AC66 /* DraftimoAppDelegate.m */,
+				A3EA27791327461C0072AC66 /* DMAppController.h */,
+				A3EA277A1327461C0072AC66 /* DMAppController.m */,
 				A3EA277C1327461C0072AC66 /* MainMenu.xib */,
 				A3EA276E1327461C0072AC66 /* Supporting Files */,
 			);
@@ -202,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EA27751327461C0072AC66 /* main.m in Sources */,
-				A3EA277B1327461C0072AC66 /* DraftimoAppDelegate.m in Sources */,
+				A3EA277B1327461C0072AC66 /* DMAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

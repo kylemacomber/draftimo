@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "DraftimoAppDelegate.h"
+#import "DMAppController.h"
 
-@implementation DraftimoAppDelegate
+@implementation DMAppController
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

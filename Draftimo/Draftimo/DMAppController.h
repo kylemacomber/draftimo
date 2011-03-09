@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DraftimoAppDelegate : NSObject <NSApplicationDelegate> {
+@interface DMAppController : NSObject <NSApplicationDelegate> {
     
 }
 
