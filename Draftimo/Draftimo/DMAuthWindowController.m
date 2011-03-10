@@ -8,8 +8,12 @@
 
 #import "DMAuthWindowController.h"
 
+@interface DMAuthWindowController ()
+- (void)revealInstruction2Box:(BOOL)reveal;
+@end
 
 @implementation DMAuthWindowController
+@synthesize instruction1Box;
 @synthesize instruction2Box;
 @synthesize verifierTextField;
 @synthesize verifierProgressIndicator;
@@ -19,6 +23,7 @@
 
 - (void)dealloc
 {
+    instruction1Box = nil;
     instruction2Box = nil;
     verifierTextField = nil;
     verifierProgressIndicator = nil;
@@ -49,6 +54,8 @@
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
+    BOOL reveal = [self.instruction2Box isHidden];
+    [self revealInstruction2Box:reveal];
 }
 
 - (IBAction)cancelButtonClicked:(id)sender
@@ -71,6 +78,23 @@
 - (void)controlTextDidEndEditing:(NSNotification *)obj
 {
     DLog(@"%@", obj);
+}
+
+#pragma Private Methods
+
+- (void)revealInstruction2Box:(BOOL)reveal
+{
+    #define INSTRUCTION_BUFFER_HEIGHT 16.0f
+    CGRect frame = [self.window frame];
+    if (reveal) {
+        frame.size.height += [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+        frame.origin.y -= [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+    } else {
+        frame.size.height -= [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+        frame.origin.y += [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+    }
+    [self.window setFrame:frame display:YES animate:YES];
+    [self.instruction2Box setHidden:!reveal]; //!!!:animate this fade in/out
 }
 
 @end

@@ -49,7 +49,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {439, 174}}</string>
+				<string key="NSWindowRect">{{1021, 598}, {439, 174}}</string>
 				<int key="NSWTFlags">544735232</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -473,6 +473,7 @@
 							<string key="NSFrame">{{328, 12}, {97, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="663459846">
 								<int key="NSCellFlags">-1543373312</int>
@@ -588,6 +589,14 @@
 						<reference key="destination" ref="486101851"/>
 					</object>
 					<int key="connectionID">116</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">instruction1Box</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1058088694"/>
+					</object>
+					<int key="connectionID">117</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -935,7 +944,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">116</int>
+			<int key="maxID">117</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -988,6 +997,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>cancelButton</string>
 							<string>continueButton</string>
+							<string>instruction1Box</string>
 							<string>instruction2Box</string>
 							<string>verifierProgressIndicator</string>
 							<string>verifierStatusImageView</string>
@@ -997,6 +1007,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSButton</string>
 							<string>NSButton</string>
+							<string>NSBox</string>
 							<string>NSBox</string>
 							<string>NSProgressIndicator</string>
 							<string>NSImageView</string>
@@ -1009,6 +1020,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>cancelButton</string>
 							<string>continueButton</string>
+							<string>instruction1Box</string>
 							<string>instruction2Box</string>
 							<string>verifierProgressIndicator</string>
 							<string>verifierStatusImageView</string>
@@ -1023,6 +1035,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">continueButton</string>
 								<string key="candidateClassName">NSButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">instruction1Box</string>
+								<string key="candidateClassName">NSBox</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">instruction2Box</string>

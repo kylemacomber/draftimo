@@ -14,6 +14,7 @@
     
 }
 
+@property (nonatomic, assign) IBOutlet NSBox *instruction1Box;
 @property (nonatomic, assign) IBOutlet NSBox *instruction2Box;
 @property (nonatomic, assign) IBOutlet NSTextField *verifierTextField;
 @property (nonatomic, assign) IBOutlet NSProgressIndicator *verifierProgressIndicator;
