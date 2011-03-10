@@ -7,12 +7,36 @@
 //
 
 #import "DMAppController.h"
+#import "DMAuthWindowController.h"
+
+@interface DMAppController ()
+@property (nonatomic, retain) DMAuthWindowController *authWindowController;
+
+- (void)showAuthWindow;
+@end
 
 @implementation DMAppController
+@synthesize authWindowController;
+
+- (void)dealloc
+{
+    [authWindowController release], authWindowController = nil;
+    [super dealloc];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [self showAuthWindow];
+}
+
+- (void)showAuthWindow
+{
+    if (!self.authWindowController) {
+        self.authWindowController = [[[DMAuthWindowController alloc] init] autorelease];
+    }
+    
+    [self.authWindowController.window center];
+    [self.authWindowController showWindow:nil];
 }
 
 @end

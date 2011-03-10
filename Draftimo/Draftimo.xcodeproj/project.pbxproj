@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A351766613284D7300AE4554 /* YahooLogin2.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766313284D7300AE4554 /* YahooLogin2.png */; };
+		A351766713284D7300AE4554 /* YahooLogin3.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766413284D7300AE4554 /* YahooLogin3.png */; };
+		A351766913284F7900AE4554 /* YahooLogin1.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766813284F7900AE4554 /* YahooLogin1.png */; };
+		A351766B132854EE00AE4554 /* Yojimbo.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766A132854EE00AE4554 /* Yojimbo.png */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
 		A3A8C5E71327F70100FDB229 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A8C5E61327F70100FDB229 /* MPOAuth.framework */; };
+		A3A8C5F613280C0F00FDB229 /* DMAuthWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C5F513280C0F00FDB229 /* DMAuthWindowController.m */; };
+		A3A8C5FE13280CD800FDB229 /* DMAuthWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A8C5FD13280CD800FDB229 /* DMAuthWindow.xib */; };
 		A3AE807613274EF9005A18B0 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
 		A3AE807A13274F07005A18B0 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
+		A3E8AB7D13293F7800F31503 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3A8C5E61327F70100FDB229 /* MPOAuth.framework */; };
 		A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EA27671327461C0072AC66 /* Cocoa.framework */; };
 		A3EA27721327461C0072AC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3EA27701327461C0072AC66 /* InfoPlist.strings */; };
 		A3EA27751327461C0072AC66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA27741327461C0072AC66 /* main.m */; };
@@ -28,6 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3E8AB7D13293F7800F31503 /* MPOAuth.framework in CopyFiles */,
 				A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */,
 				A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */,
 			);
@@ -36,9 +44,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A351766313284D7300AE4554 /* YahooLogin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin2.png; sourceTree = "<group>"; };
+		A351766413284D7300AE4554 /* YahooLogin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin3.png; sourceTree = "<group>"; };
+		A351766813284F7900AE4554 /* YahooLogin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin1.png; sourceTree = "<group>"; };
+		A351766A132854EE00AE4554 /* Yojimbo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yojimbo.png; sourceTree = "<group>"; };
 		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A3A8C5E61327F70100FDB229 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
+		A3A8C5F413280C0F00FDB229 /* DMAuthWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAuthWindowController.h; sourceTree = "<group>"; };
+		A3A8C5F513280C0F00FDB229 /* DMAuthWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMAuthWindowController.m; sourceTree = "<group>"; };
+		A3A8C5FD13280CD800FDB229 /* DMAuthWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthWindow.xib; sourceTree = "<group>"; };
 		A3AE807513274EF9005A18B0 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
 		A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A3EA27631327461C0072AC66 /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +86,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A351766013284D6300AE4554 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A351766813284F7900AE4554 /* YahooLogin1.png */,
+				A351766313284D7300AE4554 /* YahooLogin2.png */,
+				A351766413284D7300AE4554 /* YahooLogin3.png */,
+				A351766A132854EE00AE4554 /* Yojimbo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A3A8C5FF13280CE000FDB229 /* Draft Setup */ = {
+			isa = PBXGroup;
+			children = (
+				A3A8C5F413280C0F00FDB229 /* DMAuthWindowController.h */,
+				A3A8C5F513280C0F00FDB229 /* DMAuthWindowController.m */,
+				A3A8C5FD13280CD800FDB229 /* DMAuthWindow.xib */,
+			);
+			name = "Draft Setup";
+			sourceTree = "<group>";
+		};
 		A3AE807313274EBB005A18B0 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +157,8 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
+				A351766013284D6300AE4554 /* Resources */,
+				A3A8C5FF13280CE000FDB229 /* Draft Setup */,
 				A36647B31327E9E600052F6D /* DMConstants.h */,
 				A36647B41327E9E600052F6D /* DMConstants.m */,
 				A3EA27791327461C0072AC66 /* DMAppController.h */,
@@ -194,6 +232,11 @@
 				A3EA27721327461C0072AC66 /* InfoPlist.strings in Resources */,
 				A3EA27781327461C0072AC66 /* Credits.rtf in Resources */,
 				A3EA277E1327461C0072AC66 /* MainMenu.xib in Resources */,
+				A3A8C5FE13280CD800FDB229 /* DMAuthWindow.xib in Resources */,
+				A351766613284D7300AE4554 /* YahooLogin2.png in Resources */,
+				A351766713284D7300AE4554 /* YahooLogin3.png in Resources */,
+				A351766913284F7900AE4554 /* YahooLogin1.png in Resources */,
+				A351766B132854EE00AE4554 /* Yojimbo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +250,7 @@
 				A3EA27751327461C0072AC66 /* main.m in Sources */,
 				A3EA277B1327461C0072AC66 /* DMAppController.m in Sources */,
 				A36647B51327E9E600052F6D /* DMConstants.m in Sources */,
+				A3A8C5F613280C0F00FDB229 /* DMAuthWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
