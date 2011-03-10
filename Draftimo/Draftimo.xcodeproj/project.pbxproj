@@ -20,6 +20,8 @@
 		A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
 		A3E8AB7D13293F7800F31503 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3A8C5E61327F70100FDB229 /* MPOAuth.framework */; };
+		A3E8AB8113295B5C00F31503 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */; };
+		A3E8AB8213295B5C00F31503 /* Status_Declined.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB8013295B5C00F31503 /* Status_Declined.png */; };
 		A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EA27671327461C0072AC66 /* Cocoa.framework */; };
 		A3EA27721327461C0072AC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3EA27701327461C0072AC66 /* InfoPlist.strings */; };
 		A3EA27751327461C0072AC66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA27741327461C0072AC66 /* main.m */; };
@@ -56,6 +58,8 @@
 		A3A8C5FD13280CD800FDB229 /* DMAuthWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthWindow.xib; sourceTree = "<group>"; };
 		A3AE807513274EF9005A18B0 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
 		A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
+		A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Accepted.png; sourceTree = "<group>"; };
+		A3E8AB8013295B5C00F31503 /* Status_Declined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Declined.png; sourceTree = "<group>"; };
 		A3EA27631327461C0072AC66 /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EA27671327461C0072AC66 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3EA276A1327461C0072AC66 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,6 +97,8 @@
 				A351766313284D7300AE4554 /* YahooLogin2.png */,
 				A351766413284D7300AE4554 /* YahooLogin3.png */,
 				A351766A132854EE00AE4554 /* Yojimbo.png */,
+				A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */,
+				A3E8AB8013295B5C00F31503 /* Status_Declined.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 				A351766713284D7300AE4554 /* YahooLogin3.png in Resources */,
 				A351766913284F7900AE4554 /* YahooLogin1.png in Resources */,
 				A351766B132854EE00AE4554 /* Yojimbo.png in Resources */,
+				A3E8AB8113295B5C00F31503 /* Status_Accepted.png in Resources */,
+				A3E8AB8213295B5C00F31503 /* Status_Declined.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
