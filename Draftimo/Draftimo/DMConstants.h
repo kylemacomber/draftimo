@@ -3,7 +3,7 @@
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/9/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Kyle Macomber. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
