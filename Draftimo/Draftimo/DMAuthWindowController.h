@@ -10,7 +10,7 @@
 #import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
 //@protocol MPOAuthAuthenticationMethodOAuthDelegate;
 
-@interface DMAuthWindowController : NSWindowController <NSTextFieldDelegate> {
+@interface DMAuthWindowController : NSWindowController <NSTextFieldDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
 @private
     
 }

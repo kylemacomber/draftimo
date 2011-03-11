@@ -49,12 +49,6 @@
 {
     NSURL *url = (NSURL *)[event paramDescriptorForKeyword:keyDirectObject];
     DLog(@"%@", url);
-    
-    // the url is the callback url with the query string including oauth_token and oauth_verifier in 1.0a
-	if ([[url host] isEqualToString:@"success"] && [url query].length > 0) {
-		NSDictionary *oauthParameters = [MPURLRequestParameter parameterDictionaryFromString:[url query]];
-		self.oauthVerifier = [oauthParameters objectForKey:@"oauth_verifier"];
-	}
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -68,30 +62,7 @@
     NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
     self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials andBaseURL:[NSURL URLWithString:YAuthBaseURL]] autorelease];
     
-    // This is kind of hacky but it has to be done
-    id authMethod = [DMAppController sharedAppController].oauthAPI.authenticationMethod;
-    if ([authMethod isKindOfClass: [MPOAuthAuthenticationMethodOAuth class]]) {
-        [(MPOAuthAuthenticationMethodOAuth *)authMethod setDelegate:self];
-    }
-    
     [self showAuthWindow];
-}
-
-#pragma MPOAuthAuthenticationMethodOAuthDelegate
-
-- (NSURL *)callbackURLForCompletedUserAuthorization
-{
-	return [NSURL URLWithString:@"draftimo://success"];
-}
-
-- (NSString *)oauthVerifierForCompletedUserAuthorization
-{
-	return self.oauthVerifier;
-}
-
-- (BOOL)automaticallyRequestAuthenticationFromURL:(NSURL *)inAuthURL withCallbackURL:(NSURL *)inCallbackURL
-{
-	return YES;
 }
 
 #pragma Window Launchers

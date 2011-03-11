@@ -46,6 +46,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
+    // This is kind of hacky but it has to be done
+    id authMethod = [DMAppController sharedAppController].oauthAPI.authenticationMethod;
+    if ([authMethod isKindOfClass: [MPOAuthAuthenticationMethodOAuth class]]) {
+        [(MPOAuthAuthenticationMethodOAuth *)authMethod setDelegate:self];
+    }
+    
     return self;
 }
 
@@ -89,7 +95,12 @@
     [[DMAppController sharedAppController].oauthAPI authenticate];
 }
 
+#pragma MPOAuthAuthenticationMethodOAuthDelegate
 
+- (NSString *)oauthVerifierForCompletedUserAuthorization
+{
+	return [self.verifierTextField stringValue];
+}
 
 #pragma MPOAuthNotifications
 

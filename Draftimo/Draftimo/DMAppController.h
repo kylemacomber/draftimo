@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <MPOAuth/MPOAuth.h>
 
-@interface DMAppController : NSObject <NSApplicationDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
+@interface DMAppController : NSObject <NSApplicationDelegate> {
 
 }
 
