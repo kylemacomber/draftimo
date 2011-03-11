@@ -35,7 +35,6 @@
         self.authWindowController = [[[DMAuthWindowController alloc] init] autorelease];
     }
     
-    [self.authWindowController.window center];
     [self.authWindowController showWindow:nil];
 }
 
