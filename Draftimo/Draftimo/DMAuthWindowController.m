@@ -84,17 +84,18 @@
 
 - (void)revealInstruction2Box:(BOOL)reveal
 {
-    #define INSTRUCTION_BUFFER_HEIGHT 16.0f
+    
+    CGFloat animationDistance = [self.instruction2Box frame].size.height + NSMinY(self.instruction1Box.frame) - NSMaxY(self.instruction2Box.frame);
     CGRect frame = [self.window frame];
     if (reveal) {
-        frame.size.height += [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
-        frame.origin.y -= [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+        frame.size.height += animationDistance;
+        frame.origin.y -= animationDistance;
     } else {
-        frame.size.height -= [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
-        frame.origin.y += [self.instruction2Box frame].size.height + INSTRUCTION_BUFFER_HEIGHT;
+        frame.size.height -= animationDistance;
+        frame.origin.y += animationDistance;
     }
     [self.window setFrame:frame display:YES animate:YES];
-    [self.instruction2Box setHidden:!reveal]; //!!!:animate this fade in/out
+    [self.instruction2Box setHidden:!reveal];
 }
 
 @end

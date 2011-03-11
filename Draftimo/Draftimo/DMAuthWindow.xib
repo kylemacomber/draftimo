@@ -393,7 +393,7 @@
 									<reference key="NSNextKeyView" ref="537786286"/>
 								</object>
 							</array>
-							<string key="NSFrame">{{20, -38}, {399, 75}}</string>
+							<string key="NSFrame">{{20, -42}, {399, 75}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="292821916"/>
@@ -668,19 +668,6 @@
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">53</int>
-						<reference key="object" ref="537786286"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="64669077"/>
-						</array>
-						<reference key="parent" ref="698854491"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">56</int>
-						<reference key="object" ref="64669077"/>
-						<reference key="parent" ref="537786286"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
 						<reference key="object" ref="711957098"/>
 						<array class="NSMutableArray" key="children">
@@ -801,6 +788,19 @@
 						<int key="objectID">105</int>
 						<reference key="object" ref="547728446"/>
 						<reference key="parent" ref="552194206"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">53</int>
+						<reference key="object" ref="537786286"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="64669077"/>
+						</array>
+						<reference key="parent" ref="698854491"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">56</int>
+						<reference key="object" ref="64669077"/>
+						<reference key="parent" ref="537786286"/>
 					</object>
 				</array>
 			</object>
