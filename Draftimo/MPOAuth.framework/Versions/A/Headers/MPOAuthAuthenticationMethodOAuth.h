@@ -38,10 +38,9 @@ extern NSString * const MPOAuthNotificationRequestTokenRejected;
 @end
 
 @protocol MPOAuthAuthenticationMethodOAuthDelegate <NSObject>
+@optional
 - (NSURL *)callbackURLForCompletedUserAuthorization;
 - (BOOL)automaticallyRequestAuthenticationFromURL:(NSURL *)inAuthURL withCallbackURL:(NSURL *)inCallbackURL;
-
-@optional
 - (NSString *)oauthVerifierForCompletedUserAuthorization;
 - (void)authenticationDidFailWithError:(NSError *)error;
 @end
