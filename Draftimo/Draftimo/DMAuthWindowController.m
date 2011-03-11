@@ -7,6 +7,7 @@
 //
 
 #import "DMAuthWindowController.h"
+#import "DMAppController.h"
 
 @interface DMAuthWindowController ()
 - (void)revealInstruction2Box:(BOOL)reveal;
@@ -38,6 +39,12 @@
 {
     self = [super initWithWindowNibName:@"DMAuthWindow"];
     if (!self) return nil;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenReceived:) name:MPOAuthNotificationRequestTokenReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenRejected:) name:MPOAuthNotificationRequestTokenRejected object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenReceived:) name:MPOAuthNotificationAccessTokenReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
     return self;
 }
@@ -73,11 +80,42 @@
 - (void)controlTextDidChange:(NSNotification *)obj
 {
     DLog(@"%@", obj);
+    //!!!: TODO
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj
 {
     DLog(@"%@", obj);
+    [[DMAppController sharedAppController].oauthAPI authenticate];
+}
+
+
+
+#pragma MPOAuthNotifications
+
+- (void)requestTokenReceived:(NSNotification *)notification
+{
+	DLog(@"");
+}
+
+- (void)requestTokenRejected:(NSNotification *)notification
+{
+	DLog(@"");
+}
+
+- (void)accessTokenReceived:(NSNotification *)notification
+{
+	DLog(@"");
+}
+
+- (void)accessTokenRejected:(NSNotification *)notification
+{
+	DLog(@"");
+}
+
+- (void)accessTokenRefreshed:(NSNotification *)notification
+{
+	DLog(@"");
 }
 
 #pragma Private Methods

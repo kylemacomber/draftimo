@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
+//@protocol MPOAuthAuthenticationMethodOAuthDelegate;
 
 @interface DMAuthWindowController : NSWindowController <NSTextFieldDelegate> {
 @private

@@ -10,7 +10,8 @@
 
 // OAuth
 extern NSString *const DMOAuthConsumerKey;
-extern NSString *const DMConsumerSecret;
+extern NSString *const DMOAuthConsumerSecret;
+extern NSString *const YAuthBaseURL;
 extern NSString *const YRequestTokenURL;
 extern NSString *const YUserAuthURL;
 

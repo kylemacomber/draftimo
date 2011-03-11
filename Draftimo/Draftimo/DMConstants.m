@@ -10,7 +10,8 @@
 
 // OAuth
 NSString *const DMOAuthConsumerKey = @"dj0yJmk9QTJBaWhuTnozYXN4JmQ9WVdrOWNHaElObXhQTnpJbWNHbzlNVE13TVRZeE1UWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mNg--";
-NSString *const DMConsumerSecret = @"a6cf76b76796d6afb558b604eaa1166e77cbfe6c";
+NSString *const DMOAuthConsumerSecret = @"a6cf76b76796d6afb558b604eaa1166e77cbfe6c";
+NSString *const YAuthBaseURL = @"https://api.login.yahoo.com/oauth/v2/";
 NSString *const YRequestTokenURL = @"https://api.login.yahoo.com/oauth/v2/get_request_token";
 NSString *const YUserAuthURL = @"https://api.login.yahoo.com/oauth/v2/request_auth";
 

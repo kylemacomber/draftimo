@@ -30,5 +30,16 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>draftimo</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.draftimo.Draftimo</string>
+		</dict>
+	</array>
 </dict>
 </plist>

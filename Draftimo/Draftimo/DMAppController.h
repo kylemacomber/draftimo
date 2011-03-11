@@ -7,9 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <MPOAuth/MPOAuth.h>
 
-@interface DMAppController : NSObject <NSApplicationDelegate> {
-    
+@interface DMAppController : NSObject <NSApplicationDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
+
 }
+
++ (DMAppController *)sharedAppController;
+
+@property (nonatomic, retain, readonly) MPOAuthAPI *oauthAPI;
 
 @end
