@@ -9,8 +9,8 @@
 #import "DMHelloWindowController.h"
 #import "DMAppController.h"
 #import "DMSplashScreenButtonCell.h"
+#import "DMAuthSheetController.h"
 #import <BWToolkitFramework/BWTransparentButtonCell.h>
-
 
 @interface DMHelloWindowController ()
 static inline NSAttributedString *headerBodyAttributedString(NSString *, NSString *);
@@ -20,6 +20,7 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
 @synthesize createButton;
 @synthesize exampleButton;
 @synthesize tutorialButton;
+@synthesize authSheet;
 
 - (void)dealloc
 {
@@ -53,6 +54,8 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
 - (IBAction)createButtonClicked:(id)sender
 {
     DLog(@"");
+    DMAuthSheetController *authSheetController = [[DMAuthSheetController alloc] init];
+    [[NSApplication sharedApplication] beginSheet:authSheetController.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:authSheetController];
 }
 
 - (IBAction)exampleButtonClicked:(id)sender
@@ -63,6 +66,17 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
 - (IBAction)tutorialButtonClicked:(id)sender
 {
     DLog(@"");
+}
+
+#pragma AuthWindow ModalDelegate
+
+- (void)authSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    //if (returnCode == DMAuthCancel) { return; }
+    //[self.window close];
+    DLog(@"");
+    [sheet orderOut:self];
+    //Call [DMAppController sharedAppController] tell it to show selectDraftWindow
 }
 
 #pragma Private Functions

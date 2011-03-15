@@ -17,6 +17,7 @@
 @property (nonatomic, assign) IBOutlet NSButton *createButton;
 @property (nonatomic, assign) IBOutlet NSButton *exampleButton;
 @property (nonatomic, assign) IBOutlet NSButton *tutorialButton;
+@property (nonatomic, assign) IBOutlet NSWindow *authSheet;
 
 - (id)init;
 - (IBAction)createButtonClicked:(id)sender;

@@ -8,17 +8,14 @@
 
 #import "DMAppController.h"
 #import "DMConstants.h"
-#import "DMAuthWindowController.h"
 #import "DMHelloWindowController.h"
 #import <MPOAuth/MPURLRequestParameter.h>
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
-@property (nonatomic, retain) DMAuthWindowController *authWindowController;
 @property (nonatomic, retain) DMHelloWindowController *helloWindowController;
 @property (nonatomic, copy) NSString *oauthVerifier;
 
-- (void)showAuthWindow;
 - (void)showHelloWindow;
 - (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
 - (void)getUserGames;
@@ -26,7 +23,6 @@
 
 @implementation DMAppController
 @synthesize oauthAPI;
-@synthesize authWindowController;
 @synthesize helloWindowController;
 @synthesize oauthVerifier;
 
@@ -37,8 +33,8 @@
 
 - (void)dealloc
 {
-    [oauthAPI release], oauthAPI = nil;
-    [authWindowController release], authWindowController = nil;
+    self.oauthAPI = nil;
+    self.helloWindowController = nil;
     [super dealloc];
 }
 
@@ -73,6 +69,9 @@
     self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
     
     if ([[self.oauthAPI credentials] accessToken]) {
+        DLog(@"Launch Select Draft Screen");
+    } else if ([[self.oauthAPI credentials] requestToken]) {
+        DLog(@"Refresh accessToken. Then Launch Select Draft Screen");
         [self.oauthAPI authenticate];
     } else {
         [self showHelloWindow];
@@ -80,15 +79,6 @@
 }
 
 #pragma mark Window Launchers
-
-- (void)showAuthWindow
-{
-    if (!self.authWindowController) {
-        self.authWindowController = [[[DMAuthWindowController alloc] init] autorelease];
-    }
-    
-    [self.authWindowController showWindow:nil];
-}
 
 - (void)showHelloWindow
 {
