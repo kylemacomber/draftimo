@@ -9,19 +9,25 @@
 #import "DMAppController.h"
 #import "DMConstants.h"
 #import "DMAuthWindowController.h"
+#import "DMHelloWindowController.h"
 #import <MPOAuth/MPURLRequestParameter.h>
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
 @property (nonatomic, retain) DMAuthWindowController *authWindowController;
+@property (nonatomic, retain) DMHelloWindowController *helloWindowController;
 @property (nonatomic, copy) NSString *oauthVerifier;
 
 - (void)showAuthWindow;
+- (void)showHelloWindow;
+- (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
+- (void)getUserGames;
 @end
 
 @implementation DMAppController
 @synthesize oauthAPI;
 @synthesize authWindowController;
+@synthesize helloWindowController;
 @synthesize oauthVerifier;
 
 + (DMAppController *)sharedAppController
@@ -36,7 +42,11 @@
     [super dealloc];
 }
 
-#pragma NSApplicationDelegate
+#pragma mark API
+
+//[[NSApplication sharedApplication] beginSheet:self.authWindowController.window modalForWindow:self.helloWindowController.window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
+
+#pragma mark NSApplicationDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification 
 {
@@ -60,12 +70,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
     NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
-    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials andBaseURL:[NSURL URLWithString:YAuthBaseURL]] autorelease];
+    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
     
-    [self showAuthWindow];
+    if ([[self.oauthAPI credentials] accessToken]) {
+        [self.oauthAPI authenticate];
+    } else {
+        [self showHelloWindow];
+    }
 }
 
-#pragma Window Launchers
+#pragma mark Window Launchers
 
 - (void)showAuthWindow
 {
@@ -76,31 +90,54 @@
     [self.authWindowController showWindow:nil];
 }
 
-#pragma MPOAuthNotifications
+- (void)showHelloWindow
+{
+    if (!self.helloWindowController) {
+        self.helloWindowController = [[[DMHelloWindowController alloc] init] autorelease];
+    }
+    
+    [self.helloWindowController showWindow:nil];
+}
+
+#pragma mark MPOAuthNotifications
 
 - (void)requestTokenReceived:(NSNotification *)notification
 {
-	DLog(@"");
+    DLog(@"%@", notification);
 }
 
 - (void)requestTokenRejected:(NSNotification *)notification
 {
-	DLog(@"");
+	DLog(@"%@", notification);
 }
 
 - (void)accessTokenReceived:(NSNotification *)notification
 {
-	DLog(@"");
+	DLog(@"%@", notification);
+    [self getUserGames];
 }
 
 - (void)accessTokenRejected:(NSNotification *)notification
 {
-	DLog(@"");
+	DLog(@"%@", notification);
 }
 
 - (void)accessTokenRefreshed:(NSNotification *)notification
 {
-	DLog(@"");
+	DLog(@"%@", notification);
+    [self getUserGames];
+}
+
+#pragma mark Private Methods
+
+- (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody
+{
+    DLog(@"%@", inResponseBody);
+}
+
+- (void)getUserGames
+{
+	[self.oauthAPI performMethod:@"http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games" withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
 }
 
 @end

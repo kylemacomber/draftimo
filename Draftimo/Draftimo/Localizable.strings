@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  draftimo
+
+  Created by Kyle Macomber on 3/14/11.
+  Copyright 2011 Kyle Macomber. All rights reserved.
+*/
+
+/* DMHelloWindowController */
+"HelloCreateHeader" = "Start a Draft of Your Own";
+"HelloCreateBody" = "Make a real of mock draft for any of your pre-draft Yahoo! Fantasy Sports leagues.";
+"HelloExampleHeader" = "Play with an Example Draft";
+"HelloExampleBody" = "Get accustomed to Draftimo by fooling around with a draft from an example fantasy league.";
+"HelloTutorialHeader" = "Learn to Use Draftimo";
+"HelloTutorialBody" = "Watch tutorial videos which will teach you to master Draftimo and dominate your fantasy draft.";
