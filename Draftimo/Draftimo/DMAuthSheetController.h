@@ -10,7 +10,13 @@
 #import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
 //@protocol MPOAuthAuthenticationMethodOAuthDelegate;
 
-@interface DMAuthWindowController : NSWindowController <NSTextFieldDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
+enum {
+    DMAuthSuccess,
+    DMAuthCancel
+};
+typedef NSInteger DMAuthReturnCode;
+
+@interface DMAuthSheetController : NSWindowController <NSTextFieldDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
 @private
     
 }
@@ -18,8 +24,6 @@
 @property (nonatomic, assign) IBOutlet NSBox *instruction1Box;
 @property (nonatomic, assign) IBOutlet NSBox *instruction2Box;
 @property (nonatomic, assign) IBOutlet NSTextField *verifierTextField;
-@property (nonatomic, assign) IBOutlet NSProgressIndicator *verifierProgressIndicator;
-@property (nonatomic, assign) IBOutlet NSImageView *verifierStatusImageView;
 @property (nonatomic, assign) IBOutlet NSButton *cancelButton;
 @property (nonatomic, assign) IBOutlet NSButton *continueButton;
 

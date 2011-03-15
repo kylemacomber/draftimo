@@ -6,19 +6,17 @@
 //  Copyright 2011 Kyle Macomber. All rights reserved.
 //
 
-#import "DMAuthWindowController.h"
+#import "DMAuthSheetController.h"
 #import "DMAppController.h"
 
-@interface DMAuthWindowController ()
+@interface DMAuthSheetController ()
 - (void)revealInstruction2Box:(BOOL)reveal;
 @end
 
-@implementation DMAuthWindowController
+@implementation DMAuthSheetController
 @synthesize instruction1Box;
 @synthesize instruction2Box;
 @synthesize verifierTextField;
-@synthesize verifierProgressIndicator;
-@synthesize verifierStatusImageView;
 @synthesize cancelButton;
 @synthesize continueButton;
 
@@ -27,8 +25,6 @@
     instruction1Box = nil;
     instruction2Box = nil;
     verifierTextField = nil;
-    verifierProgressIndicator = nil;
-    verifierStatusImageView = nil;
     cancelButton = nil;
     continueButton = nil;
     
@@ -37,7 +33,7 @@
 
 - (id)init
 {
-    self = [super initWithWindowNibName:@"DMAuthWindow"];
+    self = [super initWithWindowNibName:@"DMAuthSheet"];
     if (!self) return nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenReceived:) name:MPOAuthNotificationRequestTokenReceived object:nil];
@@ -75,6 +71,7 @@
 - (IBAction)cancelButtonClicked:(id)sender
 {
     DLog(@"");
+    [[NSApplication sharedApplication] endSheet:[self window] returnCode:DMAuthCancel];
 }
 
 - (IBAction)continueButtonClicked:(id)sender
