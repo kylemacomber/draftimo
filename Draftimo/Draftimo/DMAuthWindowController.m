@@ -67,6 +67,7 @@
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
+    [[DMAppController sharedAppController].oauthAPI authenticate];
     BOOL reveal = [self.instruction2Box isHidden];
     [self revealInstruction2Box:reveal];
 }
