@@ -8,8 +8,8 @@
 
 /* DMHelloWindowController */
 "HelloCreateHeader" = "Start a Draft of Your Own";
-"HelloCreateBody" = "Make a real of mock draft for any of your pre-draft Yahoo! Fantasy Sports leagues.";
+"HelloCreateBody" = "Make a real or mock draft for any of your pre-draft Yahoo! Fantasy Sports leagues.";
 "HelloExampleHeader" = "Play with an Example Draft";
-"HelloExampleBody" = "Get accustomed to Draftimo by fooling around with a draft from an example fantasy league.";
+"HelloExampleBody" = "Get accustomed to Draftimo by experimenting with a draft from an example fantasy league.";
 "HelloTutorialHeader" = "Learn to Use Draftimo";
 "HelloTutorialBody" = "Watch tutorial videos which will teach you to master Draftimo and dominate your fantasy draft.";

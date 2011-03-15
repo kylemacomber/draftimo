@@ -32,4 +32,12 @@ static NSImage *buttonLeft, *buttonFill, *buttonRight;
     }
 }
 
+- (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView
+{
+	frame.origin.x += 6;
+    frame.size.width -= 12;
+	
+	return [super drawTitle:title withFrame:frame inView:controlView];
+}
+
 @end
