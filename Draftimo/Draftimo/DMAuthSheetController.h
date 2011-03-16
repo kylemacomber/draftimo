@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
-//@protocol MPOAuthAuthenticationMethodOAuthDelegate;
+@class DMColoredView;
 
 enum {
     DMAuthSuccess,
@@ -21,15 +21,25 @@ typedef NSInteger DMAuthReturnCode;
     
 }
 
-@property (nonatomic, assign) IBOutlet NSBox *instruction1Box;
-@property (nonatomic, assign) IBOutlet NSBox *instruction2Box;
+@property (nonatomic, assign) IBOutlet NSBox *instructionBox;
 @property (nonatomic, assign) IBOutlet NSTextField *verifierTextField;
+@property (nonatomic, assign) IBOutlet NSProgressIndicator *verifierProgressIndicator;
+@property (nonatomic, assign) IBOutlet NSImageView *verifierConfirmationImageView;
 @property (nonatomic, assign) IBOutlet NSButton *cancelButton;
 @property (nonatomic, assign) IBOutlet NSButton *continueButton;
+@property (nonatomic, assign) IBOutlet NSButton *nextInstructionButton;
+@property (nonatomic, assign) IBOutlet NSButton *previousInstructionButton;
+@property (nonatomic, assign) IBOutlet NSView *authorizeView;
+@property (nonatomic, assign) IBOutlet NSTextField *authorizeLabel;
+@property (nonatomic, assign) IBOutlet NSView *verifyView;
+@property (nonatomic, assign) IBOutlet NSTextField *verifyLabel;
+@property (nonatomic, assign) IBOutlet NSTextField *errorLabel;
 
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)cancelButtonClicked:(id)sender;
-- (IBAction)continueButtonClicked:(id)sender;
+- (IBAction)doneButtonClicked:(id)sender;
+- (IBAction)nextInstructionButtonClicked:(id)sender;
+- (IBAction)previousInstructionButtonClicked:(id)sender;
 
 @end

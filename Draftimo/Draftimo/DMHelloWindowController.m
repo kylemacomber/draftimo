@@ -20,7 +20,6 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
 @synthesize createButton;
 @synthesize exampleButton;
 @synthesize tutorialButton;
-@synthesize authSheet;
 
 - (void)dealloc
 {

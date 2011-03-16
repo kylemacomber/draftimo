@@ -67,7 +67,10 @@
     
     NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
     self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
-    
+
+#if 1
+    [self showHelloWindow];
+#else
     if ([[self.oauthAPI credentials] accessToken]) {
         DLog(@"Launch Select Draft Screen");
     } else if ([[self.oauthAPI credentials] requestToken]) {
@@ -76,6 +79,7 @@
     } else {
         [self showHelloWindow];
     }
+#endif
 }
 
 #pragma mark Window Launchers

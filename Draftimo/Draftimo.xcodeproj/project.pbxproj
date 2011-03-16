@@ -24,6 +24,8 @@
 		A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
 		A3BA7591132F086700548F00 /* DMHelloWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BA7590132F086700548F00 /* DMHelloWindow.xib */; };
+		A3BF8BAB13300D0F0084DFAE /* DMColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */; };
+		A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */; };
 		A3E8AB8113295B5C00F31503 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */; };
 		A3E8AB8213295B5C00F31503 /* Status_Declined.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB8013295B5C00F31503 /* Status_Declined.png */; };
 		A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EA27671327461C0072AC66 /* Cocoa.framework */; };
@@ -71,6 +73,9 @@
 		A3AE807513274EF9005A18B0 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
 		A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A3BA7590132F086700548F00 /* DMHelloWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMHelloWindow.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMHelloWindow.xib; sourceTree = "<group>"; };
+		A3BF8BA913300D0E0084DFAE /* DMColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMColoredView.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMColoredView.h; sourceTree = "<group>"; };
+		A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMColoredView.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMColoredView.m; sourceTree = "<group>"; };
+		A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
 		A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Accepted.png; sourceTree = "<group>"; };
 		A3E8AB8013295B5C00F31503 /* Status_Declined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Declined.png; sourceTree = "<group>"; };
 		A3EA27631327461C0072AC66 /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +123,7 @@
 				A351766A132854EE00AE4554 /* Yojimbo.png */,
 				A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */,
 				A3E8AB8013295B5C00F31503 /* Status_Declined.png */,
+				A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -147,6 +153,15 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		A3BF8BAC133022980084DFAE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF8BA913300D0E0084DFAE /* DMColoredView.h */,
+				A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		A3EA27581327461C0072AC66 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +170,7 @@
 				A3EA27641327461C0072AC66 /* Products */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		A3EA27641327461C0072AC66 /* Products */ = {
 			isa = PBXGroup;
@@ -187,6 +203,7 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
+				A3BF8BAC133022980084DFAE /* Utilities */,
 				A351766013284D6300AE4554 /* Resources */,
 				A3A8C5FF13280CE000FDB229 /* Draft Setup */,
 				A36647B31327E9E600052F6D /* DMConstants.h */,
@@ -278,6 +295,7 @@
 				A3EEA584132C4BF2006655E5 /* SplashScreenButtonRight.png in Resources */,
 				A3BA7591132F086700548F00 /* DMHelloWindow.xib in Resources */,
 				A313E609132F1131006DDE67 /* Localizable.strings in Resources */,
+				A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +312,7 @@
 				A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */,
 				A39E30C9132AE0B7007E0323 /* DMHelloWindowController.m in Sources */,
 				A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */,
+				A3BF8BAB13300D0F0084DFAE /* DMColoredView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

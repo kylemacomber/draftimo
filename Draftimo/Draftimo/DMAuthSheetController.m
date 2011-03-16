@@ -8,25 +8,39 @@
 
 #import "DMAuthSheetController.h"
 #import "DMAppController.h"
+#import "DMColoredView.h"
 
 @interface DMAuthSheetController ()
-- (void)revealInstruction2Box:(BOOL)reveal;
+//- (void)revealInstruction2Box:(BOOL)reveal;
+enum {
+    DMNavigationAnimationPush,
+    DMNavigationAnimationPop
+};
+typedef NSUInteger DMNavigationAnimation;
+static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftViews, NSArray *rightViews, CGFloat distance, NSArray *auxiliaryAnimations);
 @end
 
 @implementation DMAuthSheetController
-@synthesize instruction1Box;
-@synthesize instruction2Box;
+@synthesize instructionBox;
 @synthesize verifierTextField;
+@synthesize verifierProgressIndicator;
+@synthesize verifierConfirmationImageView;
 @synthesize cancelButton;
 @synthesize continueButton;
+@synthesize nextInstructionButton;
+@synthesize previousInstructionButton;
+@synthesize authorizeView;
+@synthesize authorizeLabel;
+@synthesize verifyView;
+@synthesize verifyLabel;
+@synthesize errorLabel;
 
 - (void)dealloc
 {
-    instruction1Box = nil;
-    instruction2Box = nil;
     verifierTextField = nil;
     cancelButton = nil;
     continueButton = nil;
+    //TODO:nil out IBOutlets
     
     [super dealloc];
 }
@@ -55,17 +69,22 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [self.instructionBox addSubview:self.verifyView];
+    [self.instructionBox addSubview:self.authorizeView];
+    NSRect frame = self.verifyView.frame;
+    frame.origin.x = NSMaxX(self.authorizeView.frame);
+    self.verifyView.frame = frame;
 }
 
-#pragma IBActions
+#pragma mark IBActions
 
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
-    [[DMAppController sharedAppController].oauthAPI authenticate];
-    BOOL reveal = [self.instruction2Box isHidden];
-    [self revealInstruction2Box:reveal];
+//    [[DMAppController sharedAppController].oauthAPI authenticate];
+//    BOOL reveal = [self.instruction2Box isHidden];
+//    [self revealInstruction2Box:reveal];
+    [self nextInstructionButtonClicked:nil];
 }
 
 - (IBAction)cancelButtonClicked:(id)sender
@@ -74,12 +93,39 @@
     [[NSApplication sharedApplication] endSheet:[self window] returnCode:DMAuthCancel];
 }
 
-- (IBAction)continueButtonClicked:(id)sender
+- (IBAction)doneButtonClicked:(id)sender
 {
     DLog(@"");
 }
 
-#pragma NSTextFieldDelegate
+- (IBAction)nextInstructionButtonClicked:(id)sender
+{
+    if (sender) { DLog(@""); }
+    [self.previousInstructionButton setHidden:NO];
+    [self.verifyView setHidden:NO];
+    [self.verifyLabel setHidden:NO];
+    NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
+    NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
+    CGFloat const distance = self.authorizeView.frame.size.width;
+    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeInEffect, NSViewAnimationEffectKey, nil], [NSDictionary dictionaryWithObjectsAndKeys:self.nextInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeOutEffect, NSViewAnimationEffectKey, nil], nil];
+    navigationAnimations(DMNavigationAnimationPush, leftViews, rightViews, distance, auxiliaryAnimations);
+}
+
+- (IBAction)previousInstructionButtonClicked:(id)sender
+{
+    DLog(@"");
+    
+    [self.nextInstructionButton setHidden:NO];
+    [self.authorizeView setHidden:NO];
+    [self.authorizeLabel setHidden:NO];
+    NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
+    NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
+    CGFloat const distance = self.authorizeView.frame.size.width;
+    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeOutEffect, NSViewAnimationEffectKey, nil], [NSDictionary dictionaryWithObjectsAndKeys:self.nextInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeInEffect, NSViewAnimationEffectKey, nil], nil];
+    navigationAnimations(DMNavigationAnimationPop, leftViews, rightViews, distance, auxiliaryAnimations);
+}
+
+#pragma mark NSTextFieldDelegate
 
 - (void)controlTextDidChange:(NSNotification *)obj
 {
@@ -93,14 +139,14 @@
     [[DMAppController sharedAppController].oauthAPI authenticate];
 }
 
-#pragma MPOAuthAuthenticationMethodOAuthDelegate
+#pragma mark MPOAuthAuthenticationMethodOAuthDelegate
 
 - (NSString *)oauthVerifierForCompletedUserAuthorization
 {
 	return [self.verifierTextField stringValue];
 }
 
-#pragma MPOAuthNotifications
+#pragma mark MPOAuthNotifications
 
 - (void)requestTokenReceived:(NSNotification *)notification
 {
@@ -127,22 +173,50 @@
 	DLog(@"");
 }
 
-#pragma Private Methods
+#pragma mark Private Methods
 
-- (void)revealInstruction2Box:(BOOL)reveal
+//- (void)revealInstruction2Box:(BOOL)reveal
+//{
+//    
+//    CGFloat animationDistance = [self.instruction2Box frame].size.height + NSMinY(self.instruction1Box.frame) - NSMaxY(self.instruction2Box.frame);
+//    CGRect frame = [self.window frame];
+//    if (reveal) {
+//        frame.size.height += animationDistance;
+//        frame.origin.y -= animationDistance;
+//    } else {
+//        frame.size.height -= animationDistance;
+//        frame.origin.y += animationDistance;
+//    }
+//    [self.window setFrame:frame display:YES animate:YES];
+//    [self.instruction2Box setHidden:!reveal];
+//}
+
+#pragma mark Private Functions
+
+void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftViews, NSArray *rightViews, CGFloat distance, NSArray *auxiliaryAnimations)
 {
+    NSMutableArray *const animations = [NSMutableArray arrayWithArray:auxiliaryAnimations];
     
-    CGFloat animationDistance = [self.instruction2Box frame].size.height + NSMinY(self.instruction1Box.frame) - NSMaxY(self.instruction2Box.frame);
-    CGRect frame = [self.window frame];
-    if (reveal) {
-        frame.size.height += animationDistance;
-        frame.origin.y -= animationDistance;
-    } else {
-        frame.size.height -= animationDistance;
-        frame.origin.y += animationDistance;
-    }
-    [self.window setFrame:frame display:YES animate:YES];
-    [self.instruction2Box setHidden:!reveal];
+    if (pushOrPop == DMNavigationAnimationPush) { distance = -distance; }
+    __block NSString *fadeEffect = (pushOrPop == DMNavigationAnimationPush) ? NSViewAnimationFadeOutEffect : NSViewAnimationFadeInEffect;
+    void (^animBlock)(id, NSUInteger, BOOL *) = ^(id view, NSUInteger idx, BOOL *stop) {
+        NSRect frame = ((NSView *)view).frame;
+        frame.origin.x += distance;
+        [animations addObject:[NSDictionary dictionaryWithObjectsAndKeys:view, NSViewAnimationTargetKey, [NSValue valueWithRect:frame], NSViewAnimationEndFrameKey, fadeEffect, NSViewAnimationEffectKey, nil]];
+    };
+    
+    [leftViews enumerateObjectsUsingBlock:animBlock];
+    fadeEffect = (pushOrPop == DMNavigationAnimationPush) ? NSViewAnimationFadeInEffect : NSViewAnimationFadeOutEffect;
+    [rightViews enumerateObjectsUsingBlock:animBlock];
+    
+    NSTimeInterval const duration = ((fabsf(distance)/150.0) * [[NSUserDefaults standardUserDefaults] doubleForKey:@"NSWindowResizeTime"]) / 2.0; //NSWindowResizeTime determines how quickly to resize by 150 px
+    NSViewAnimation *anim = [[NSViewAnimation alloc] initWithViewAnimations:animations];
+    DLog(@"%f", duration);
+    [anim setDuration:duration];
+    [anim startAnimation];
+    [anim release];
 }
+
+
 
 @end
