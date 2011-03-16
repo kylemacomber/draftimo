@@ -15,7 +15,6 @@
 		A351766913284F7900AE4554 /* YahooLogin1.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766813284F7900AE4554 /* YahooLogin1.png */; };
 		A351766B132854EE00AE4554 /* Yojimbo.png in Resources */ = {isa = PBXBuildFile; fileRef = A351766A132854EE00AE4554 /* Yojimbo.png */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
-		A39E30C9132AE0B7007E0323 /* DMHelloWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30C8132AE0B7007E0323 /* DMHelloWindowController.m */; };
 		A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */; };
 		A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */; };
 		A3A8C5FE13280CD800FDB229 /* DMAuthSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */; };
@@ -23,9 +22,10 @@
 		A3AE807A13274F07005A18B0 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807C13274F36005A18B0 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */; };
 		A3AE807E13274F36005A18B0 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
-		A3BA7591132F086700548F00 /* DMHelloWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BA7590132F086700548F00 /* DMHelloWindow.xib */; };
 		A3BF8BAB13300D0F0084DFAE /* DMColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */; };
 		A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */; };
+		A3E6F65B133171770016E6B9 /* DMWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */; };
+		A3E6F65C133171770016E6B9 /* DMWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */; };
 		A3E8AB8113295B5C00F31503 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */; };
 		A3E8AB8213295B5C00F31503 /* Status_Declined.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB8013295B5C00F31503 /* Status_Declined.png */; };
 		A3EA27681327461C0072AC66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EA27671327461C0072AC66 /* Cocoa.framework */; };
@@ -63,8 +63,6 @@
 		A351766A132854EE00AE4554 /* Yojimbo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yojimbo.png; sourceTree = "<group>"; };
 		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
-		A39E30C7132AE0B7007E0323 /* DMHelloWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMHelloWindowController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMHelloWindowController.h; sourceTree = "<group>"; };
-		A39E30C8132AE0B7007E0323 /* DMHelloWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMHelloWindowController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMHelloWindowController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSplashScreenButtonCell.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.h; sourceTree = "<group>"; };
 		A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSplashScreenButtonCell.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.m; sourceTree = "<group>"; };
 		A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAuthSheetController.h; sourceTree = "<group>"; };
@@ -72,10 +70,12 @@
 		A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthSheet.xib; sourceTree = "<group>"; };
 		A3AE807513274EF9005A18B0 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
 		A3AE807913274F07005A18B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
-		A3BA7590132F086700548F00 /* DMHelloWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMHelloWindow.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMHelloWindow.xib; sourceTree = "<group>"; };
 		A3BF8BA913300D0E0084DFAE /* DMColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMColoredView.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMColoredView.h; sourceTree = "<group>"; };
 		A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMColoredView.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMColoredView.m; sourceTree = "<group>"; };
 		A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
+		A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeWindow.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindow.xib; sourceTree = "<group>"; };
+		A3E6F659133171770016E6B9 /* DMWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeWindowController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindowController.h; sourceTree = "<group>"; };
+		A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeWindowController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindowController.m; sourceTree = "<group>"; };
 		A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Accepted.png; sourceTree = "<group>"; };
 		A3E8AB8013295B5C00F31503 /* Status_Declined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Declined.png; sourceTree = "<group>"; };
 		A3EA27631327461C0072AC66 /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +132,9 @@
 		A3A8C5FF13280CE000FDB229 /* Draft Setup */ = {
 			isa = PBXGroup;
 			children = (
-				A39E30C7132AE0B7007E0323 /* DMHelloWindowController.h */,
-				A39E30C8132AE0B7007E0323 /* DMHelloWindowController.m */,
-				A3BA7590132F086700548F00 /* DMHelloWindow.xib */,
+				A3E6F659133171770016E6B9 /* DMWelcomeWindowController.h */,
+				A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */,
+				A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */,
 				A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */,
 				A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */,
 				A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */,
@@ -294,9 +294,9 @@
 				A3EEA582132C4BF2006655E5 /* SplashScreenButtonCenter.png in Resources */,
 				A3EEA583132C4BF2006655E5 /* SplashScreenButtonLeft.png in Resources */,
 				A3EEA584132C4BF2006655E5 /* SplashScreenButtonRight.png in Resources */,
-				A3BA7591132F086700548F00 /* DMHelloWindow.xib in Resources */,
 				A313E609132F1131006DDE67 /* Localizable.strings in Resources */,
 				A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */,
+				A3E6F65B133171770016E6B9 /* DMWelcomeWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,9 +311,9 @@
 				A3EA277B1327461C0072AC66 /* DMAppController.m in Sources */,
 				A36647B51327E9E600052F6D /* DMConstants.m in Sources */,
 				A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */,
-				A39E30C9132AE0B7007E0323 /* DMHelloWindowController.m in Sources */,
 				A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */,
 				A3BF8BAB13300D0F0084DFAE /* DMColoredView.m in Sources */,
+				A3E6F65C133171770016E6B9 /* DMWelcomeWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,13 @@
 
 #import "DMAppController.h"
 #import "DMConstants.h"
-#import "DMHelloWindowController.h"
+#import "DMWelcomeWindowController.h"
 #import "DMAuthSheetController.h"
 #import <MPOAuth/MPURLRequestParameter.h>
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
-@property (nonatomic, retain) DMHelloWindowController *helloWindowController;
+@property (nonatomic, retain) DMWelcomeWindowController *helloWindowController;
 @property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
 - (void)showHelloWindow;
@@ -91,7 +91,7 @@
 - (void)showHelloWindow
 {
     if (!self.helloWindowController) {
-        self.helloWindowController = [[[DMHelloWindowController alloc] init] autorelease];
+        self.helloWindowController = [[[DMWelcomeWindowController alloc] init] autorelease];
     }
     
     [self.helloWindowController showWindow:nil];

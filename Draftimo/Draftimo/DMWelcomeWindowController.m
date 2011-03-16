@@ -3,20 +3,20 @@
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Kyle Macomber. All rights reserved.
 //
 
-#import "DMHelloWindowController.h"
+#import "DMWelcomeWindowController.h"
 #import "DMAppController.h"
 #import "DMSplashScreenButtonCell.h"
 #import "DMAuthSheetController.h"
 #import <BWToolkitFramework/BWTransparentButtonCell.h>
 
-@interface DMHelloWindowController ()
+@interface DMWelcomeWindowController ()
 static inline NSAttributedString *headerBodyAttributedString(NSString *, NSString *);
 @end
 
-@implementation DMHelloWindowController
+@implementation DMWelcomeWindowController
 @synthesize createButton;
 @synthesize exampleButton;
 @synthesize tutorialButton;
@@ -32,7 +32,7 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
 
 - (id)init
 {
-    self = [super initWithWindowNibName:@"DMHelloWindow"];
+    self = [super initWithWindowNibName:@"DMWelcomeWindow"];
     if (!self) return nil;
     
     return self;
