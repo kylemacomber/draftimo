@@ -9,12 +9,12 @@
 #import "DMAppController.h"
 #import "DMConstants.h"
 #import "DMHelloWindowController.h"
+#import "DMAuthSheetController.h"
 #import <MPOAuth/MPURLRequestParameter.h>
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
 @property (nonatomic, retain) DMHelloWindowController *helloWindowController;
-@property (nonatomic, copy) NSString *oauthVerifier;
 
 - (void)showHelloWindow;
 - (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
@@ -24,12 +24,6 @@
 @implementation DMAppController
 @synthesize oauthAPI;
 @synthesize helloWindowController;
-@synthesize oauthVerifier;
-
-+ (DMAppController *)sharedAppController
-{
-    return [[NSApplication sharedApplication] delegate];
-}
 
 - (void)dealloc
 {
@@ -38,14 +32,9 @@
     [super dealloc];
 }
 
-#pragma mark API
-
-//[[NSApplication sharedApplication] beginSheet:self.authWindowController.window modalForWindow:self.helloWindowController.window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
-- (void)refreshOAuthAPI
++ (DMAppController *)sharedAppController
 {
-    [self.oauthAPI discardCredentials];
-    NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
-    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
+    return [[NSApplication sharedApplication] delegate];
 }
 
 #pragma mark NSApplicationDelegate
@@ -71,7 +60,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
-    [self refreshOAuthAPI];
+    NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
+    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
 
 #if 1
     [self showHelloWindow];
@@ -87,7 +77,14 @@
 #endif
 }
 
-#pragma mark Window Launchers
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    DLog(@"%@", notification);
+    if (![self.oauthAPI isAuthenticated]) { //!!!: This has not been tested. Need to see the state of things when isAuthenticated becomes YES
+        [self.oauthAPI discardCredentials];
+    }
+}
+
+#pragma mark App Navigation
 
 - (void)showHelloWindow
 {
@@ -96,6 +93,26 @@
     }
     
     [self.helloWindowController showWindow:nil];
+}
+
+- (void)showSelectDraftWindow
+{
+    DLog(@"");
+    DMAuthSheetController *authSheetController = [[DMAuthSheetController alloc] init];
+    [[NSApplication sharedApplication] beginSheet:authSheetController.window modalForWindow:self.helloWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:authSheetController];
+}
+
+#pragma AuthWindow ModalDelegate
+
+- (void)authSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    DLog(@"");
+    if (returnCode == DMAuthCancel) {
+        [sheet orderOut:self];
+        [self.oauthAPI discardCredentials];
+    } else /*DMAuthSuccess*/ {
+        DLog(@"Launch Select Draft Window");
+    }
 }
 
 #pragma mark MPOAuthNotifications

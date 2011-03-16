@@ -11,7 +11,6 @@
 #import "DMColoredView.h"
 
 @interface DMAuthSheetController ()
-//- (void)revealInstruction2Box:(BOOL)reveal;
 enum {
     DMNavigationAnimationPush,
     DMNavigationAnimationPop
@@ -50,11 +49,8 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
     self = [super initWithWindowNibName:@"DMAuthSheet"];
     if (!self) return nil;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenReceived:) name:MPOAuthNotificationRequestTokenReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenRejected:) name:MPOAuthNotificationRequestTokenRejected object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenReceived:) name:MPOAuthNotificationAccessTokenReceived object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
     // This is kind of hacky but it has to be done
     id authMethod = [DMAppController sharedAppController].oauthAPI.authenticationMethod;
@@ -81,13 +77,7 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
-    if ([[[DMAppController sharedAppController].oauthAPI credentials] requestToken]) {
-        [[DMAppController sharedAppController] refreshOAuthAPI];
-        [[DMAppController sharedAppController].oauthAPI authenticate];
-    } else {
-        [[DMAppController sharedAppController].oauthAPI authenticate];
-    }
-    
+    [[DMAppController sharedAppController].oauthAPI authenticate];    
     [self nextInstructionButtonClicked:nil];
 }
 
@@ -116,7 +106,12 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 - (IBAction)previousInstructionButtonClicked:(id)sender
 {
     DLog(@"");
+    //Auth Housekeeping
+    [[DMAppController sharedAppController].oauthAPI discardCredentials];
+    [NSObject cancelPreviousPerformRequestsWithTarget:[DMAppController sharedAppController].oauthAPI selector:@selector(authenticate) object:nil];
+    [self.verifierTextField setStringValue:@""];
     
+    //Animation
     [self.nextInstructionButton setHidden:NO];
     NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
     NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
@@ -130,7 +125,10 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 - (void)controlTextDidChange:(NSNotification *)obj
 {
     DLog(@"%@", obj);
-    //!!!: TODO
+    [NSObject cancelPreviousPerformRequestsWithTarget:[DMAppController sharedAppController].oauthAPI selector:@selector(authenticate) object:nil];
+    [[DMAppController sharedAppController].oauthAPI performSelector:@selector(authenticate) withObject:nil afterDelay:3.0];
+    
+    [self.verifierProgressIndicator startAnimation:nil];
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj
@@ -148,29 +146,23 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 
 #pragma mark MPOAuthNotifications
 
-- (void)requestTokenReceived:(NSNotification *)notification
-{
-	DLog(@"");
-}
-
-- (void)requestTokenRejected:(NSNotification *)notification
-{
-	DLog(@"");
-}
-
 - (void)accessTokenReceived:(NSNotification *)notification
 {
 	DLog(@"");
+    [self.verifierProgressIndicator stopAnimation:nil];
+    [self.verifierConfirmationImageView setImage:[NSImage imageNamed:@"Status_Accepted.png"]];
+    [self.verifierConfirmationImageView setHidden:NO];
+    
+    [self.verifierTextField resignFirstResponder];
+    [[NSApplication sharedApplication] endSheet:self.window returnCode:DMAuthSuccess];
 }
 
 - (void)accessTokenRejected:(NSNotification *)notification
 {
 	DLog(@"");
-}
-
-- (void)accessTokenRefreshed:(NSNotification *)notification
-{
-	DLog(@"");
+    [self.verifierProgressIndicator stopAnimation:nil];
+    [self.verifierConfirmationImageView setImage:[NSImage imageNamed:@"Status_Declined.png"]];
+    [self.verifierConfirmationImageView setHidden:NO];
 }
 
 #pragma mark Private Functions

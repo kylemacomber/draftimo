@@ -17,6 +17,6 @@
 
 @property (nonatomic, retain, readonly) MPOAuthAPI *oauthAPI;
 
-- (void)refreshOAuthAPI;
+- (void)showSelectDraftWindow;
 
 @end
