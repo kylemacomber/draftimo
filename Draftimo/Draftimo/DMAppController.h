@@ -17,4 +17,6 @@
 
 @property (nonatomic, retain, readonly) MPOAuthAPI *oauthAPI;
 
+- (void)refreshOAuthAPI;
+
 @end

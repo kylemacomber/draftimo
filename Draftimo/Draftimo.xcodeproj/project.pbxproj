@@ -126,6 +126,7 @@
 				A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */,
 			);
 			name = Resources;
+			path = Draftimo;
 			sourceTree = "<group>";
 		};
 		A3A8C5FF13280CE000FDB229 /* Draft Setup */ = {
@@ -166,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EA276D1327461C0072AC66 /* Draftimo */,
+				A351766013284D6300AE4554 /* Resources */,
 				A3EA27661327461C0072AC66 /* Frameworks */,
 				A3EA27641327461C0072AC66 /* Products */,
 			);
@@ -204,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				A3BF8BAC133022980084DFAE /* Utilities */,
-				A351766013284D6300AE4554 /* Resources */,
 				A3A8C5FF13280CE000FDB229 /* Draft Setup */,
 				A36647B31327E9E600052F6D /* DMConstants.h */,
 				A36647B41327E9E600052F6D /* DMConstants.m */,

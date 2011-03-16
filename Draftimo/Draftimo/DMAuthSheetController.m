@@ -81,9 +81,13 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
-//    [[DMAppController sharedAppController].oauthAPI authenticate];
-//    BOOL reveal = [self.instruction2Box isHidden];
-//    [self revealInstruction2Box:reveal];
+    if ([[[DMAppController sharedAppController].oauthAPI credentials] requestToken]) {
+        [[DMAppController sharedAppController] refreshOAuthAPI];
+        [[DMAppController sharedAppController].oauthAPI authenticate];
+    } else {
+        [[DMAppController sharedAppController].oauthAPI authenticate];
+    }
+    
     [self nextInstructionButtonClicked:nil];
 }
 
