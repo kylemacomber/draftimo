@@ -106,8 +106,6 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 {
     if (sender) { DLog(@""); }
     [self.previousInstructionButton setHidden:NO];
-    [self.verifyView setHidden:NO];
-    [self.verifyLabel setHidden:NO];
     NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
     NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
     CGFloat const distance = self.authorizeView.frame.size.width;
@@ -120,8 +118,6 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
     DLog(@"");
     
     [self.nextInstructionButton setHidden:NO];
-    [self.authorizeView setHidden:NO];
-    [self.authorizeLabel setHidden:NO];
     NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
     NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
     CGFloat const distance = self.authorizeView.frame.size.width;
@@ -177,31 +173,19 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 	DLog(@"");
 }
 
-#pragma mark Private Methods
-
-//- (void)revealInstruction2Box:(BOOL)reveal
-//{
-//    
-//    CGFloat animationDistance = [self.instruction2Box frame].size.height + NSMinY(self.instruction1Box.frame) - NSMaxY(self.instruction2Box.frame);
-//    CGRect frame = [self.window frame];
-//    if (reveal) {
-//        frame.size.height += animationDistance;
-//        frame.origin.y -= animationDistance;
-//    } else {
-//        frame.size.height -= animationDistance;
-//        frame.origin.y += animationDistance;
-//    }
-//    [self.window setFrame:frame display:YES animate:YES];
-//    [self.instruction2Box setHidden:!reveal];
-//}
-
 #pragma mark Private Functions
 
 void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftViews, NSArray *rightViews, CGFloat distance, NSArray *auxiliaryAnimations)
 {
     NSMutableArray *const animations = [NSMutableArray arrayWithArray:auxiliaryAnimations];
     
-    if (pushOrPop == DMNavigationAnimationPush) { distance = -distance; }
+    if (pushOrPop == DMNavigationAnimationPush) { 
+        distance = -distance;
+        for (NSView *view in rightViews) { [view setHidden:NO]; }
+    } else /*DMNavigationAnimationPop*/ {
+        for (NSView *view in leftViews) { [view setHidden:NO]; }
+    }
+    
     __block NSString *fadeEffect = (pushOrPop == DMNavigationAnimationPush) ? NSViewAnimationFadeOutEffect : NSViewAnimationFadeInEffect;
     void (^animBlock)(id, NSUInteger, BOOL *) = ^(id view, NSUInteger idx, BOOL *stop) {
         NSRect frame = ((NSView *)view).frame;
@@ -215,7 +199,6 @@ void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftViews, N
     
     NSTimeInterval const duration = ((fabsf(distance)/150.0) * [[NSUserDefaults standardUserDefaults] doubleForKey:@"NSWindowResizeTime"]) / 2.0; //NSWindowResizeTime determines how quickly to resize by 150 px
     NSViewAnimation *anim = [[NSViewAnimation alloc] initWithViewAnimations:animations];
-    DLog(@"%f", duration);
     [anim setDuration:duration];
     [anim startAnimation];
     [anim release];
