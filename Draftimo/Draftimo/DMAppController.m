@@ -15,6 +15,7 @@
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
 @property (nonatomic, retain) DMHelloWindowController *helloWindowController;
+@property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
 - (void)showHelloWindow;
 - (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
@@ -24,6 +25,7 @@
 @implementation DMAppController
 @synthesize oauthAPI;
 @synthesize helloWindowController;
+@synthesize authSheetController;
 
 - (void)dealloc
 {
@@ -98,8 +100,8 @@
 - (void)showSelectDraftWindow
 {
     DLog(@"");
-    DMAuthSheetController *authSheetController = [[DMAuthSheetController alloc] init];
-    [[NSApplication sharedApplication] beginSheet:authSheetController.window modalForWindow:self.helloWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:authSheetController];
+    self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
+    [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.helloWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 }
 
 #pragma AuthWindow ModalDelegate
@@ -111,8 +113,11 @@
         [sheet orderOut:self];
         [self.oauthAPI discardCredentials];
     } else /*DMAuthSuccess*/ {
+        [sheet orderOut:self];
         DLog(@"Launch Select Draft Window");
     }
+    
+    self.authSheetController = nil;
 }
 
 #pragma mark MPOAuthNotifications

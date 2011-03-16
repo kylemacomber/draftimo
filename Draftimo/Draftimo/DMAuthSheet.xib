@@ -62,7 +62,7 @@
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents"/>
-								<object class="NSFont" key="NSSupport" id="24">
+								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">10</double>
 									<int key="NSfFlags">16</int>
@@ -80,32 +80,6 @@
 								<int key="NSPeriodicInterval">75</int>
 							</object>
 						</object>
-						<object class="NSButton" id="411366724">
-							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">-2147483380</int>
-							<string key="NSFrame">{{333, 62}, {20, 20}}</string>
-							<reference key="NSSuperview" ref="1006"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="1965492"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="910161699">
-								<int key="NSCellFlags">67239424</int>
-								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
-								<reference key="NSSupport" ref="24"/>
-								<reference key="NSControlView" ref="411366724"/>
-								<int key="NSButtonFlags">-2042347265</int>
-								<int key="NSButtonFlags2">130</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSGoRightTemplate</string>
-								</object>
-								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
-								<int key="NSPeriodicDelay">400</int>
-								<int key="NSPeriodicInterval">75</int>
-							</object>
-						</object>
 						<object class="NSBox" id="961358441">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">12</int>
@@ -116,7 +90,7 @@
 									<string key="NSFrame">{{1, 1}, {312, 48}}</string>
 									<reference key="NSSuperview" ref="961358441"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="411366724"/>
+									<reference key="NSNextKeyView" ref="1965492"/>
 								</object>
 							</array>
 							<string key="NSFrame">{{20, 48}, {314, 50}}</string>
@@ -160,10 +134,10 @@
 						<object class="NSButton" id="1965492">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{148, 12}, {96, 32}}</string>
+							<string key="NSFrame">{{244, 12}, {96, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="164664667"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1003792615">
 								<int key="NSCellFlags">67239424</int>
@@ -239,28 +213,6 @@
 								<reference key="NSTextColor" ref="480083252"/>
 							</object>
 						</object>
-						<object class="NSButton" id="164664667">
-							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{244, 12}, {97, 32}}</string>
-							<reference key="NSSuperview" ref="1006"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="1008517892">
-								<int key="NSCellFlags">604110336</int>
-								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Continue</string>
-								<reference key="NSSupport" ref="667187635"/>
-								<reference key="NSControlView" ref="164664667"/>
-								<int key="NSButtonFlags">-2038284033</int>
-								<int key="NSButtonFlags2">129</int>
-								<string key="NSAlternateContents"/>
-								<string type="base64-UTF8" key="NSKeyEquivalent">Gw</string>
-								<int key="NSPeriodicDelay">200</int>
-								<int key="NSPeriodicInterval">25</int>
-							</object>
-						</object>
 						<object class="NSTextField" id="752741881">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">-2147483380</int>
@@ -280,6 +232,27 @@
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAwIDAAA</bytes>
 								</object>
+							</object>
+						</object>
+						<object class="NSButton" id="782184802">
+							<reference key="NSNextResponder" ref="1006"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 16}, {25, 25}}</string>
+							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="487505648">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents"/>
+								<reference key="NSSupport" ref="667187635"/>
+								<reference key="NSControlView" ref="782184802"/>
+								<int key="NSButtonFlags">-2038415105</int>
+								<int key="NSButtonFlags2">161</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
 							</object>
 						</object>
 					</array>
@@ -550,35 +523,11 @@ Og</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">doneButtonClicked:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="164664667"/>
-					</object>
-					<int key="connectionID">212</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">continueButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="164664667"/>
-					</object>
-					<int key="connectionID">213</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">previousInstructionButtonClicked:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="994086828"/>
 					</object>
 					<int key="connectionID">224</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">nextInstructionButtonClicked:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="411366724"/>
-					</object>
-					<int key="connectionID">225</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -590,19 +539,27 @@ Og</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">nextInstructionButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="411366724"/>
-					</object>
-					<int key="connectionID">227</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="465157595"/>
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">228</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">helpButtonClicked:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="782184802"/>
+					</object>
+					<int key="connectionID">233</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">helpButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="782184802"/>
+					</object>
+					<int key="connectionID">234</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -646,11 +603,10 @@ Og</string>
 							<reference ref="961358441"/>
 							<reference ref="84190069"/>
 							<reference ref="918010659"/>
-							<reference ref="164664667"/>
 							<reference ref="752741881"/>
 							<reference ref="994086828"/>
-							<reference ref="411366724"/>
 							<reference ref="1965492"/>
+							<reference ref="782184802"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -789,19 +745,6 @@ Og</string>
 						<reference key="parent" ref="918010659"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">209</int>
-						<reference key="object" ref="164664667"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="1008517892"/>
-						</array>
-						<reference key="parent" ref="1006"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">210</int>
-						<reference key="object" ref="1008517892"/>
-						<reference key="parent" ref="164664667"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">214</int>
 						<reference key="object" ref="752741881"/>
 						<array class="NSMutableArray" key="children">
@@ -828,17 +771,17 @@ Og</string>
 						<reference key="parent" ref="994086828"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">222</int>
-						<reference key="object" ref="411366724"/>
+						<int key="objectID">231</int>
+						<reference key="object" ref="782184802"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="910161699"/>
+							<reference ref="487505648"/>
 						</array>
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">223</int>
-						<reference key="object" ref="910161699"/>
-						<reference key="parent" ref="411366724"/>
+						<int key="objectID">232</int>
+						<reference key="object" ref="487505648"/>
+						<reference key="parent" ref="782184802"/>
 					</object>
 				</array>
 			</object>
@@ -874,20 +817,18 @@ Og</string>
 				<string key="191.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="192.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="209.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="210.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="214.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="215.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="218.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="219.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="222.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="223.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="231.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="232.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">228</int>
+			<int key="maxID">234</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -895,27 +836,22 @@ Og</string>
 					<string key="className">DMAuthSheetController</string>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="cancelButtonClicked:">id</string>
 						<string key="doneButtonClicked:">id</string>
+						<string key="helpButtonClicked:">id</string>
 						<string key="launchBrowserButtonClicked:">id</string>
-						<string key="nextInstructionButtonClicked:">id</string>
 						<string key="previousInstructionButtonClicked:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="cancelButtonClicked:">
-							<string key="name">cancelButtonClicked:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="doneButtonClicked:">
 							<string key="name">doneButtonClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="launchBrowserButtonClicked:">
-							<string key="name">launchBrowserButtonClicked:</string>
+						<object class="IBActionInfo" key="helpButtonClicked:">
+							<string key="name">helpButtonClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="nextInstructionButtonClicked:">
-							<string key="name">nextInstructionButtonClicked:</string>
+						<object class="IBActionInfo" key="launchBrowserButtonClicked:">
+							<string key="name">launchBrowserButtonClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="previousInstructionButtonClicked:">
@@ -927,10 +863,9 @@ Og</string>
 						<string key="authorizeLabel">NSTextField</string>
 						<string key="authorizeView">NSView</string>
 						<string key="cancelButton">NSButton</string>
-						<string key="continueButton">NSButton</string>
 						<string key="errorLabel">NSTextField</string>
+						<string key="helpButton">NSButton</string>
 						<string key="instructionBox">NSBox</string>
-						<string key="nextInstructionButton">NSButton</string>
 						<string key="previousInstructionButton">NSButton</string>
 						<string key="verifierConfirmationImageView">NSImageView</string>
 						<string key="verifierProgressIndicator">NSProgressIndicator</string>
@@ -951,21 +886,17 @@ Og</string>
 							<string key="name">cancelButton</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="continueButton">
-							<string key="name">continueButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="errorLabel">
 							<string key="name">errorLabel</string>
 							<string key="candidateClassName">NSTextField</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="helpButton">
+							<string key="name">helpButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="instructionBox">
 							<string key="name">instructionBox</string>
 							<string key="candidateClassName">NSBox</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="nextInstructionButton">
-							<string key="name">nextInstructionButton</string>
-							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="previousInstructionButton">
 							<string key="name">previousInstructionButton</string>
@@ -1009,7 +940,6 @@ Og</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NSGoLeftTemplate">{9, 9}</string>
-			<string key="NSGoRightTemplate">{9, 9}</string>
 			<string key="Status_Accepted">{11, 11}</string>
 		</dictionary>
 	</data>

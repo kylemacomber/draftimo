@@ -25,8 +25,7 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 @synthesize verifierProgressIndicator;
 @synthesize verifierConfirmationImageView;
 @synthesize cancelButton;
-@synthesize continueButton;
-@synthesize nextInstructionButton;
+@synthesize helpButton;
 @synthesize previousInstructionButton;
 @synthesize authorizeView;
 @synthesize authorizeLabel;
@@ -38,7 +37,6 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 {
     verifierTextField = nil;
     cancelButton = nil;
-    continueButton = nil;
     //TODO:nil out IBOutlets
     
     [super dealloc];
@@ -77,8 +75,16 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
 - (IBAction)launchBrowserButtonClicked:(id)sender
 {
     DLog(@"");
-    [[DMAppController sharedAppController].oauthAPI authenticate];    
-    [self nextInstructionButtonClicked:nil];
+    //Auth
+    [[DMAppController sharedAppController].oauthAPI authenticate];
+    
+    //Animation
+    [self.previousInstructionButton setHidden:NO];
+    NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
+    NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
+    CGFloat const distance = self.authorizeView.frame.size.width;
+    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeInEffect, NSViewAnimationEffectKey, nil], nil];
+    navigationAnimations(DMNavigationAnimationPush, leftViews, rightViews, distance, auxiliaryAnimations);
 }
 
 - (IBAction)cancelButtonClicked:(id)sender
@@ -87,20 +93,9 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
     [[NSApplication sharedApplication] endSheet:[self window] returnCode:DMAuthCancel];
 }
 
-- (IBAction)doneButtonClicked:(id)sender
+- (IBAction)helpButtonClicked:(id)sender
 {
     DLog(@"");
-}
-
-- (IBAction)nextInstructionButtonClicked:(id)sender
-{
-    if (sender) { DLog(@""); }
-    [self.previousInstructionButton setHidden:NO];
-    NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
-    NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
-    CGFloat const distance = self.authorizeView.frame.size.width;
-    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeInEffect, NSViewAnimationEffectKey, nil], [NSDictionary dictionaryWithObjectsAndKeys:self.nextInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeOutEffect, NSViewAnimationEffectKey, nil], nil];
-    navigationAnimations(DMNavigationAnimationPush, leftViews, rightViews, distance, auxiliaryAnimations);
 }
 
 - (IBAction)previousInstructionButtonClicked:(id)sender
@@ -112,11 +107,10 @@ static void navigationAnimations(DMNavigationAnimation pushOrPop, NSArray *leftV
     [self.verifierTextField setStringValue:@""];
     
     //Animation
-    [self.nextInstructionButton setHidden:NO];
     NSArray *const leftViews = [NSArray arrayWithObjects:self.authorizeView, self.authorizeLabel, nil];
     NSArray *const rightViews = [NSArray arrayWithObjects:self.verifyView, self.verifyLabel, nil];
     CGFloat const distance = self.authorizeView.frame.size.width;
-    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeOutEffect, NSViewAnimationEffectKey, nil], [NSDictionary dictionaryWithObjectsAndKeys:self.nextInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeInEffect, NSViewAnimationEffectKey, nil], nil];
+    NSArray *const auxiliaryAnimations = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:self.previousInstructionButton, NSViewAnimationTargetKey, NSViewAnimationFadeOutEffect, NSViewAnimationEffectKey, nil], nil];
     navigationAnimations(DMNavigationAnimationPop, leftViews, rightViews, distance, auxiliaryAnimations);
 }
 
