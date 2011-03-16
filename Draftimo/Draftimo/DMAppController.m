@@ -14,23 +14,23 @@
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
-@property (nonatomic, retain) DMWelcomeWindowController *helloWindowController;
+@property (nonatomic, retain) DMWelcomeWindowController *welcomeWindowController;
 @property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
-- (void)showHelloWindow;
+- (void)showWelcomeWindow;
 - (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
 - (void)getUserGames;
 @end
 
 @implementation DMAppController
 @synthesize oauthAPI;
-@synthesize helloWindowController;
+@synthesize welcomeWindowController;
 @synthesize authSheetController;
 
 - (void)dealloc
 {
     self.oauthAPI = nil;
-    self.helloWindowController = nil;
+    self.welcomeWindowController = nil;
     [super dealloc];
 }
 
@@ -66,7 +66,7 @@
     self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
 
 #if 1
-    [self showHelloWindow];
+    [self showWelcomeWindow];
 #else
     if ([[self.oauthAPI credentials] accessToken]) {
         DLog(@"Launch Select Draft Screen");
@@ -74,7 +74,7 @@
         DLog(@"Refresh accessToken. Then Launch Select Draft Screen");
         [self.oauthAPI authenticate];
     } else {
-        [self showHelloWindow];
+        [self showWelcomeWindow];
     }
 #endif
 }
@@ -88,20 +88,20 @@
 
 #pragma mark App Navigation
 
-- (void)showHelloWindow
+- (void)showWelcomeWindow
 {
-    if (!self.helloWindowController) {
-        self.helloWindowController = [[[DMWelcomeWindowController alloc] init] autorelease];
+    if (!self.welcomeWindowController) {
+        self.welcomeWindowController = [[[DMWelcomeWindowController alloc] init] autorelease];
     }
     
-    [self.helloWindowController showWindow:nil];
+    [self.welcomeWindowController showWindow:nil];
 }
 
 - (void)showSelectDraftWindow
 {
     DLog(@"");
     self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
-    [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.helloWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
+    [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.welcomeWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 }
 
 #pragma AuthWindow ModalDelegate

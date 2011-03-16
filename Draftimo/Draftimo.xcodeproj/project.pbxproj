@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		A31189961329E758006C6A6B /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
-		A313E608132F1131006DDE67 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Localizable.strings; sourceTree = "<group>"; };
+		A313E608132F1131006DDE67 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = Localizable.strings; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Localizable.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		A351766313284D7300AE4554 /* YahooLogin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin2.png; sourceTree = "<group>"; };
 		A351766413284D7300AE4554 /* YahooLogin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin3.png; sourceTree = "<group>"; };
 		A351766813284F7900AE4554 /* YahooLogin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YahooLogin1.png; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		A3EA27741327461C0072AC66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3EA27771327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		A3EA27791327461C0072AC66 /* DMAppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMAppController.h; sourceTree = "<group>"; };
-		A3EA277A1327461C0072AC66 /* DMAppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A3EA277A1327461C0072AC66 /* DMAppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DMAppController.m; sourceTree = "<group>"; wrapsLines = 0; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A3EA277D1327461C0072AC66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A3EEA57F132C4BF2006655E5 /* SplashScreenButtonCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenButtonCenter.png; sourceTree = "<group>"; };
 		A3EEA580132C4BF2006655E5 /* SplashScreenButtonLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenButtonLeft.png; sourceTree = "<group>"; };

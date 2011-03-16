@@ -1,5 +1,5 @@
 //
-//  DMHelloWindowController.m
+//  DMWelcomeWindowController.m
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/11/11.
@@ -43,9 +43,9 @@ static inline NSAttributedString *headerBodyAttributedString(NSString *, NSStrin
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     
-    [self.createButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"HelloCreateHeader", @""), NSLocalizedString(@"HelloCreateBody", @""))];
-    [self.exampleButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"HelloExampleHeader", @""), NSLocalizedString(@"HelloExampleBody", @""))];
-    [self.tutorialButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"HelloTutorialHeader", @""), NSLocalizedString(@"HelloTutorialBody", @""))];
+    [self.createButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"WelcomeCreateHeader", @""), NSLocalizedString(@"WelcomeCreateBody", @""))];
+    [self.exampleButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"WelcomeExampleHeader", @""), NSLocalizedString(@"WelcomeExampleBody", @""))];
+    [self.tutorialButton.cell setAttributedTitle:headerBodyAttributedString(NSLocalizedString(@"WelcomeTutorialHeader", @""), NSLocalizedString(@"WelcomeTutorialBody", @""))];
 }
 
 #pragma IBActions

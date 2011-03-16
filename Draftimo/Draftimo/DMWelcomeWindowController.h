@@ -1,5 +1,5 @@
 //
-//  DMHelloWindowController.h
+//  DMWelcomeWindowController.h
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/11/11.
