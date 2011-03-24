@@ -14,40 +14,30 @@ enum {
 };
 typedef NSInteger DMAuthReturnCode;
 
-@interface DMAuthSheetController : NSWindowController <NSTextFieldDelegate> {
+@interface DMAuthSheetController : NSWindowController {
 @private
-    NSBox *instructionBox;
-    // Authorize View
-    NSView *authorizeView;
-    NSTextField *authorizeLabel;
-    // Verify View
-    NSView *verifyView;
-    NSTextField *verifyLabel;
-}
 
-@property (nonatomic, assign) IBOutlet NSBox *instructionBox;
-@property (nonatomic, assign) IBOutlet NSButton *previousInstructionButton;
-// Authorize View
-@property (nonatomic, assign) IBOutlet NSView *authorizeView;
-@property (nonatomic, assign) IBOutlet NSTextField *authorizeLabel;
-// Verify View
-@property (nonatomic, assign) IBOutlet NSView *verifyView;
-@property (nonatomic, assign) IBOutlet NSTextField *verifyLabel;
+}
 
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)helpButtonClicked:(id)sender;
 - (IBAction)cancelButtonClicked:(id)sender;
-- (IBAction)previousInstructionButtonClicked:(id)sender;
+- (IBAction)retryRequestButtonClicked:(id)sender;
 
 @end
 
 @interface DMOAuthStateTransformer : NSValueTransformer {} @end
-@interface StatusTextFieldValueNSStringTransformer : NSValueTransformer {} @end
-@interface StatusTextFieldTextColorNSColorTransformer : NSValueTransformer {} @end
-@interface RequestTokenButtonEnabledBOOLTransformer : NSValueTransformer {} @end
-@interface RequestTokenProgressAnimatingBOOLTransformer : NSValueTransformer {} @end
-@interface VerifierImageValueNSImageTransformer : NSValueTransformer {} @end
-@interface VerifierProgressAnimatingBOOLTransformer : NSValueTransformer {} @end
-@interface VerifierTextFieldEnabledBOOLTransformer : NSValueTransformer {} @end
-//@interface PreviousInstructionButtonVisibleBOOLTransformer : NSValueTransformer {} @end
+
+@interface RequestTokenProgressAnimatingBOOL : DMOAuthStateTransformer {} @end
+@interface ErrorStatusHiddenBOOL : DMOAuthStateTransformer {} @end
+@interface ErrorStatusNSString : DMOAuthStateTransformer {} @end
+
+@interface AccessTokenViewHiddenBOOL : DMOAuthStateTransformer {} @end
+@interface BrowserLaunchedBOOL : DMOAuthStateTransformer {} @end //label, verifier enabled on this
+@interface VerifierInstructionsNSColor : DMOAuthStateTransformer {} @end
+@interface VerifierProgressAnimatingBOOL : DMOAuthStateTransformer {} @end
+@interface VerifierFieldEnabledBOOL : DMOAuthStateTransformer {} @end
+@interface VerifierStatusNSImage : DMOAuthStateTransformer {} @end
+
+@interface AuthenticatedEnabledBOOL : DMOAuthStateTransformer {} @end

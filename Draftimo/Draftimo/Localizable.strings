@@ -15,20 +15,8 @@
 "WelcomeTutorialBody" = "Watch tutorial videos which will teach you to master Draftimo and dominate your fantasy draft.";
 
 /* DMOAuthController */
-"DMOAuthUnauthenticated" = "";
-
-"DMOAuthRequestTokenRequesting" = "Connecting...";
-"DMOAuthRequestTokenTimeout" = "Timed out. Please try again.";
-"DMOAuthRequestTokenRejected" = "Error. Please try again.";
-"DMOAuthRequestTokenRecieved" = "";
-
-"DMOAuthVerifierCodeWaiting" = "";
-
-"DMOAuthAccessTokenRequesting" = "";
-"DMOAuthAccessTokenTimeout" = "Timed out. Please check code.";
-"DMOAuthAccessTokenRejected" = "Code rejected. Please try again.";
-"DMOAuthAccessTokenRefreshing" = "";
-
-"DMOAuthAuthenticated" = "";
+"DMOAuthUnreachable" = "Yahoo! is unreachable. Check internet connection.";
+"DMOAuthRequestTokenRejected" = "Don't forget to click \"Agree\".";
+"Error" = "Error.";
 
 

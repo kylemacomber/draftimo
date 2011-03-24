@@ -22,61 +22,101 @@
 }
 @end
 
-@implementation StatusTextFieldValueNSStringTransformer
+@implementation RequestTokenProgressAnimatingBOOL
++ (Class)transformedValueClass { return [NSNumber class]; }
+- (id)transformedValue:(id)value
+{
+    if (![super transformedValue:value]) return nil;
+    
+    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
+    return [NSNumber numberWithBool:(authState == DMOAuthUnauthenticated || authState == DMOAuthRequestTokenRequesting)];
+}
+@end
+
+@implementation ErrorStatusHiddenBOOL
++ (Class)transformedValueClass { return [NSNumber class]; }
+- (id)transformedValue:(id)value
+{
+    if (![super transformedValue:value]) return nil;
+    
+    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
+    return [NSNumber numberWithBool:!(authState == DMOAuthUnreachable || authState == DMOAuthRequestTokenRejected)];
+}
+@end
+
+@implementation ErrorStatusNSString
 + (Class)transformedValueClass { return [NSString class]; }
 - (id)transformedValue:(id)value
 {
     if (![super transformedValue:value]) return nil;
     
     const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    DLog(@"%@", DMOAuthStateString[authState]);
-    DLog(@"%@", NSLocalizedString(DMOAuthStateString[authState], nil));
-    return NSLocalizedString(DMOAuthStateString[authState], nil);
-}
-@end
-
-@implementation StatusTextFieldTextColorNSColorTransformer
-+ (Class)transformedValueClass { return [NSColor class]; }
-- (id)transformedValue:(id)value
-{
-    if (![super transformedValue:value]) return nil;
-    
-    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    switch (authState) {
-        case DMOAuthRequestTokenTimeout:
-        case DMOAuthRequestTokenRejected:
-        case DMOAuthAccessTokenTimeout:
-        case DMOAuthAccessTokenRejected:
-            return [NSColor redColor];
-        default:
-            return [NSColor controlTextColor];
+    if (authState == DMOAuthUnreachable) {
+        return NSLocalizedString(@"DMOAuthUnreachable", nil);
+    } else if (authState == DMOAuthRequestTokenRejected) {
+        return NSLocalizedString(@"DMOAuthRequestTokenRejected", nil);
     }
+    
+    return NSLocalizedString(@"Error", nil);
 }
 @end
 
-@implementation RequestTokenButtonEnabledBOOLTransformer
+@implementation AccessTokenViewHiddenBOOL
 + (Class)transformedValueClass { return [NSNumber class]; }
 - (id)transformedValue:(id)value
 {
     if (![super transformedValue:value]) return nil;
     
     const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    return [NSNumber numberWithBool:!(authState == DMOAuthRequestTokenRequesting)];
+    return [NSNumber numberWithBool:(authState < DMOAuthRequestTokenRecieved)];
 }
 @end
 
-@implementation RequestTokenProgressAnimatingBOOLTransformer
+@implementation BrowserLaunchedBOOL
 + (Class)transformedValueClass { return [NSNumber class]; }
 - (id)transformedValue:(id)value
 {
     if (![super transformedValue:value]) return nil;
     
     const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    return [NSNumber numberWithBool:(authState == DMOAuthRequestTokenRequesting)];
+    return [NSNumber numberWithBool:(authState >= DMOAuthBrowserLaunched)];
 }
 @end
 
-@implementation VerifierImageValueNSImageTransformer
+@implementation VerifierInstructionsNSColor
++ (Class)transformedValueClass { return [NSNumber class]; }
+- (id)transformedValue:(id)value
+{
+    if (![super transformedValue:value]) return nil;
+    
+    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
+    return (authState >= DMOAuthBrowserLaunched) ? [NSColor controlTextColor] : [NSColor disabledControlTextColor];
+}
+@end
+
+@implementation VerifierProgressAnimatingBOOL
++ (Class)transformedValueClass { return [NSNumber class]; }
+- (id)transformedValue:(id)value
+{
+    if (![super transformedValue:value]) return nil;
+    
+    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
+    return [NSNumber numberWithBool:(authState == DMOAuthVerifierCodeWaiting || authState == DMOAuthAccessTokenRequesting)];
+}
+@end
+
+@implementation VerifierFieldEnabledBOOL
++ (Class)transformedValueClass { return [NSNumber class]; }
+- (id)transformedValue:(id)value
+{
+    if (![super transformedValue:value]) return nil;
+    
+    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
+    return [NSNumber numberWithBool:(authState >= DMOAuthBrowserLaunched && authState != DMOAuthAuthenticated)];
+}
+@end
+
+@implementation VerifierStatusNSImage
 + (Class)transformedValueClass { return [NSImage class]; }
 - (id)transformedValue:(id)value
 {
@@ -95,35 +135,13 @@
 }
 @end
 
-@implementation VerifierProgressAnimatingBOOLTransformer
+@implementation AuthenticatedEnabledBOOL
 + (Class)transformedValueClass { return [NSNumber class]; }
 - (id)transformedValue:(id)value
 {
     if (![super transformedValue:value]) return nil;
     
     const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    return [NSNumber numberWithBool:(authState == DMOAuthVerifierCodeWaiting || authState == DMOAuthAccessTokenRequesting)];
+    return [NSNumber numberWithBool:(authState != DMOAuthAuthenticated)];
 }
 @end
-
-@implementation VerifierTextFieldEnabledBOOLTransformer
-+ (Class)transformedValueClass { return [NSNumber class]; }
-- (id)transformedValue:(id)value
-{
-    if (![super transformedValue:value]) return nil;
-    
-    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-    return [NSNumber numberWithBool:(authState < DMOAuthAuthenticated)];
-}
-@end
-
-//@implementation PreviousInstructionButtonVisibleBOOLTransformer
-//+ (Class)transformedValueClass { return [NSNumber class]; }
-//- (id)transformedValue:(id)value
-//{
-//    if (![super transformedValue:value]) return nil;
-//    
-//    const DMOAuthState authState = [(NSNumber *)value unsignedIntegerValue];
-//    return [NSNumber numberWithBool:(authState >= DMOAuthRequestTokenRecieved)];
-//}
-//@end

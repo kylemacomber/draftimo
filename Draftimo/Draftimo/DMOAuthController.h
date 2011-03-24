@@ -11,19 +11,20 @@
 
 
 enum {
+    DMOAuthUnreachable,
     DMOAuthUnauthenticated,
     
     DMOAuthRequestTokenRequesting,
-    DMOAuthRequestTokenTimeout,
     DMOAuthRequestTokenRejected,
     DMOAuthRequestTokenRecieved,
     
+    DMOAuthBrowserLaunched,
     DMOAuthVerifierCodeWaiting,
     
     DMOAuthAccessTokenRequesting,
+    DMOAuthAccessTokenRefreshing,
     DMOAuthAccessTokenTimeout,
     DMOAuthAccessTokenRejected,
-    DMOAuthAccessTokenRefreshing,
     
     DMOAuthAuthenticated
 };
@@ -32,9 +33,9 @@ extern NSString *const DMOAuthStateString[];
 
 @interface DMOAuthController : NSObject <MPOAuthAuthenticationMethodOAuthDelegate> {}
 
-@property (nonatomic, retain, readonly) MPOAuthAPI *oauthAPI;
 @property (nonatomic, assign, readonly) DMOAuthState oauthState;
 @property (nonatomic, copy) NSString *verifierCode;
 
 - (void)launchBrowser;
+- (void)retry;
 @end
