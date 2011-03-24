@@ -7,8 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
-@class DMColoredView;
 
 enum {
     DMAuthSuccess,
@@ -16,23 +14,25 @@ enum {
 };
 typedef NSInteger DMAuthReturnCode;
 
-@interface DMAuthSheetController : NSWindowController <NSTextFieldDelegate, MPOAuthAuthenticationMethodOAuthDelegate> {
+@interface DMAuthSheetController : NSWindowController <NSTextFieldDelegate> {
 @private
-    
+    NSBox *instructionBox;
+    // Authorize View
+    NSView *authorizeView;
+    NSTextField *authorizeLabel;
+    // Verify View
+    NSView *verifyView;
+    NSTextField *verifyLabel;
 }
 
 @property (nonatomic, assign) IBOutlet NSBox *instructionBox;
-@property (nonatomic, assign) IBOutlet NSTextField *verifierTextField;
-@property (nonatomic, assign) IBOutlet NSProgressIndicator *verifierProgressIndicator;
-@property (nonatomic, assign) IBOutlet NSImageView *verifierConfirmationImageView;
-@property (nonatomic, assign) IBOutlet NSButton *cancelButton;
-@property (nonatomic, assign) IBOutlet NSButton *helpButton;
 @property (nonatomic, assign) IBOutlet NSButton *previousInstructionButton;
+// Authorize View
 @property (nonatomic, assign) IBOutlet NSView *authorizeView;
 @property (nonatomic, assign) IBOutlet NSTextField *authorizeLabel;
+// Verify View
 @property (nonatomic, assign) IBOutlet NSView *verifyView;
 @property (nonatomic, assign) IBOutlet NSTextField *verifyLabel;
-@property (nonatomic, assign) IBOutlet NSTextField *errorLabel;
 
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
@@ -41,3 +41,13 @@ typedef NSInteger DMAuthReturnCode;
 - (IBAction)previousInstructionButtonClicked:(id)sender;
 
 @end
+
+@interface DMOAuthStateTransformer : NSValueTransformer {} @end
+@interface StatusTextFieldValueNSStringTransformer : NSValueTransformer {} @end
+@interface StatusTextFieldTextColorNSColorTransformer : NSValueTransformer {} @end
+@interface RequestTokenButtonEnabledBOOLTransformer : NSValueTransformer {} @end
+@interface RequestTokenProgressAnimatingBOOLTransformer : NSValueTransformer {} @end
+@interface VerifierImageValueNSImageTransformer : NSValueTransformer {} @end
+@interface VerifierProgressAnimatingBOOLTransformer : NSValueTransformer {} @end
+@interface VerifierTextFieldEnabledBOOLTransformer : NSValueTransformer {} @end
+//@interface PreviousInstructionButtonVisibleBOOLTransformer : NSValueTransformer {} @end

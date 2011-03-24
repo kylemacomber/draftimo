@@ -7,15 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <MPOAuth/MPOAuth.h>
+#import "DMOAuthController.h"
+
+@class DMWelcomeWindowController, DMAuthSheetController;
 
 @interface DMAppController : NSObject <NSApplicationDelegate> {
-
+    MPOAuthAPI *oauthAPI;
+    DMWelcomeWindowController *welcomeWindowController;
+    DMAuthSheetController *authSheetController;
 }
 
 + (DMAppController *)sharedAppController;
 
-@property (nonatomic, retain, readonly) MPOAuthAPI *oauthAPI;
+@property (nonatomic, retain, readonly) DMOAuthController *oauthController;
 
 - (void)showSelectDraftWindow;
 

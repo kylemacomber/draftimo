@@ -11,7 +11,9 @@
 
 @interface DMWelcomeWindowController : NSWindowController {
 @private
-    
+    NSButton *createButton;
+    NSButton *exampleButton;
+    NSButton *tutorialButton;    
 }
 
 @property (nonatomic, assign) IBOutlet NSButton *createButton;

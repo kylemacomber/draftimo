@@ -13,24 +13,23 @@
 #import <MPOAuth/MPURLRequestParameter.h>
 
 @interface DMAppController ()
-@property (nonatomic, retain, readwrite) MPOAuthAPI *oauthAPI;
+@property (nonatomic, retain, readwrite) DMOAuthController *oauthController;
 @property (nonatomic, retain) DMWelcomeWindowController *welcomeWindowController;
 @property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
 - (void)showWelcomeWindow;
-- (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody;
-- (void)getUserGames;
 @end
 
 @implementation DMAppController
-@synthesize oauthAPI;
+@synthesize oauthController;
 @synthesize welcomeWindowController;
 @synthesize authSheetController;
 
 - (void)dealloc
 {
-    self.oauthAPI = nil;
+    self.oauthController = nil;
     self.welcomeWindowController = nil;
+    self.authSheetController = nil;
     [super dealloc];
 }
 
@@ -56,34 +55,17 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenReceived:) name:MPOAuthNotificationRequestTokenReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenRejected:) name:MPOAuthNotificationRequestTokenRejected object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenReceived:) name:MPOAuthNotificationAccessTokenReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
-    
-    NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
-    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease];
-
-#if 1
+    self.oauthController = [[[DMOAuthController alloc] init] autorelease];
     [self showWelcomeWindow];
-#else
-    if ([[self.oauthAPI credentials] accessToken]) {
-        DLog(@"Launch Select Draft Screen");
-    } else if ([[self.oauthAPI credentials] requestToken]) {
-        DLog(@"Refresh accessToken. Then Launch Select Draft Screen");
-        [self.oauthAPI authenticate];
-    } else {
-        [self showWelcomeWindow];
-    }
-#endif
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-    DLog(@"%@", notification);
-    if (![self.oauthAPI isAuthenticated]) { //!!!: This has not been tested. Need to see the state of things when isAuthenticated becomes YES
-        [self.oauthAPI discardCredentials];
-    }
+    //TODO:see if the below code even did anything
+//    DLog(@"%@", notification);
+//    if (![self.oauthAPI isAuthenticated]) { //!!!: This has not been tested. Need to see the state of things when isAuthenticated becomes YES
+//        DLog(@"Not Authenticated. Discarding Credentials");
+//        [self.oauthAPI discardCredentials];
+//    }
 }
 
 #pragma mark App Navigation
@@ -111,54 +93,13 @@
     DLog(@"");
     if (returnCode == DMAuthCancel) {
         [sheet orderOut:self];
-        [self.oauthAPI discardCredentials];
+        //[self.oauthController discardCredentials]; TODO:see if this does anything
     } else /*DMAuthSuccess*/ {
         [sheet orderOut:self];
         DLog(@"Launch Select Draft Window");
     }
     
     self.authSheetController = nil;
-}
-
-#pragma mark MPOAuthNotifications
-
-- (void)requestTokenReceived:(NSNotification *)notification
-{
-    DLog(@"%@", notification);
-}
-
-- (void)requestTokenRejected:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-}
-
-- (void)accessTokenReceived:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    [self getUserGames];
-}
-
-- (void)accessTokenRejected:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-}
-
-- (void)accessTokenRefreshed:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    [self getUserGames];
-}
-
-#pragma mark Private Methods
-
-- (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody
-{
-    DLog(@"%@", inResponseBody);
-}
-
-- (void)getUserGames
-{
-	[self.oauthAPI performMethod:@"http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games" withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
 }
 
 @end

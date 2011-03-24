@@ -11,7 +11,7 @@
 
 @interface DMColoredView : NSView {
 @private
-    
+
 }
 
 @property (retain) NSColor *backgroundColor;
