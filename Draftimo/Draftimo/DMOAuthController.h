@@ -11,25 +11,24 @@
 
 
 enum {
-    DMOAuthUnreachable,
-    DMOAuthUnauthenticated,
+    DMOAuthUnreachable              = 0,
+    DMOAuthUnauthenticated          = 1 << 0,
+
+    DMOAuthRequestTokenRequesting   = 1 << 1,
+    DMOAuthRequestTokenRejected     = 1 << 2,
+    DMOAuthRequestTokenRecieved     = 1 << 3,
     
-    DMOAuthRequestTokenRequesting,
-    DMOAuthRequestTokenRejected,
-    DMOAuthRequestTokenRecieved,
+    DMOAuthBrowserLaunched          = 1 << 4,
+    DMOAuthVerifierCodeWaiting      = 1 << 5,
     
-    DMOAuthBrowserLaunched,
-    DMOAuthVerifierCodeWaiting,
+    DMOAuthAccessTokenRequesting    = 1 << 6,
+    DMOAuthAccessTokenRefreshing    = 1 << 7,
+    DMOAuthAccessTokenTimeout       = 1 << 8,
+    DMOAuthAccessTokenRejected      = 1 << 9,
     
-    DMOAuthAccessTokenRequesting,
-    DMOAuthAccessTokenRefreshing,
-    DMOAuthAccessTokenTimeout,
-    DMOAuthAccessTokenRejected,
-    
-    DMOAuthAuthenticated
+    DMOAuthAuthenticated            = 1 << 10
 };
 typedef NSUInteger DMOAuthState;
-extern NSString *const DMOAuthStateString[];
 
 @interface DMOAuthController : NSObject <MPOAuthAuthenticationMethodOAuthDelegate> {}
 

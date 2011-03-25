@@ -10,6 +10,8 @@
 		A31189971329E758006C6A6B /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31189961329E758006C6A6B /* MPOAuth.framework */; };
 		A31189981329E77D006C6A6B /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31189961329E758006C6A6B /* MPOAuth.framework */; };
 		A313E609132F1131006DDE67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A313E608132F1131006DDE67 /* Localizable.strings */; };
+		A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */; };
+		A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
 		A37498C61339494100EC7841 /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37498C51339494100EC7841 /* DMOAuthController.m */; };
 		A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */; };
@@ -23,7 +25,6 @@
 		A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */; };
 		A3C5D7E0133BE5DE00589FF1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C5D7DF133BE5DD00589FF1 /* SystemConfiguration.framework */; };
 		A3C5D7F0133BFA7500589FF1 /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C5D7EE133BFA7500589FF1 /* Alert.png */; };
-		A3DB449A133A92850007174C /* DMAuthSheetController-ValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DB4499133A92850007174C /* DMAuthSheetController-ValueTransformers.m */; };
 		A3E6F65B133171770016E6B9 /* DMWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */; };
 		A3E6F65C133171770016E6B9 /* DMWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */; };
 		A3E8AB8113295B5C00F31503 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E8AB7F13295B5C00F31503 /* Status_Accepted.png */; };
@@ -57,6 +58,10 @@
 /* Begin PBXFileReference section */
 		A31189961329E758006C6A6B /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
 		A313E608132F1131006DDE67 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = Localizable.strings; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Localizable.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		A32A41C7133D156A00596879 /* NSDictionary-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary-Utilities.h"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSDictionary-Utilities.h"; sourceTree = "<group>"; };
+		A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary-Utilities.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSDictionary-Utilities.m"; sourceTree = "<group>"; };
+		A32A41D6133D538400596879 /* DMOAuthStateMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMOAuthStateMapTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.h; sourceTree = "<group>"; };
+		A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMOAuthStateMapTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.m; sourceTree = "<group>"; };
 		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A37498C41339494100EC7841 /* DMOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOAuthController.h; sourceTree = "<group>"; };
@@ -73,7 +78,6 @@
 		A3BF8BB313302A1D0084DFAE /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
 		A3C5D7DF133BE5DD00589FF1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3C5D7EE133BFA7500589FF1 /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alert.png; sourceTree = "<group>"; };
-		A3DB4499133A92850007174C /* DMAuthSheetController-ValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DMAuthSheetController-ValueTransformers.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMAuthSheetController-ValueTransformers.m"; sourceTree = "<group>"; };
 		A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeWindow.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindow.xib; sourceTree = "<group>"; };
 		A3E6F659133171770016E6B9 /* DMWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeWindowController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindowController.h; sourceTree = "<group>"; };
 		A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeWindowController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeWindowController.m; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A32A41C5133D154800596879 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A32A41C7133D156A00596879 /* NSDictionary-Utilities.h */,
+				A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		A351766013284D6300AE4554 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +149,6 @@
 				A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */,
 				A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */,
 				A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */,
-				A3DB4499133A92850007174C /* DMAuthSheetController-ValueTransformers.m */,
 				A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */,
 				A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */,
 				A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */,
@@ -168,6 +180,8 @@
 			children = (
 				A37498C41339494100EC7841 /* DMOAuthController.h */,
 				A37498C51339494100EC7841 /* DMOAuthController.m */,
+				A32A41D6133D538400596879 /* DMOAuthStateMapTransformer.h */,
+				A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -175,7 +189,6 @@
 		A3EA27581327461C0072AC66 = {
 			isa = PBXGroup;
 			children = (
-				A3C5D7DF133BE5DD00589FF1 /* SystemConfiguration.framework */,
 				A3EA276D1327461C0072AC66 /* Draftimo */,
 				A351766013284D6300AE4554 /* Resources */,
 				A3EA27661327461C0072AC66 /* Frameworks */,
@@ -206,6 +219,7 @@
 		A3EA27691327461C0072AC66 /* Apple Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3C5D7DF133BE5DD00589FF1 /* SystemConfiguration.framework */,
 				A3EA27671327461C0072AC66 /* Cocoa.framework */,
 				A3EA276A1327461C0072AC66 /* AppKit.framework */,
 				A3EA276B1327461C0072AC66 /* CoreData.framework */,
@@ -217,6 +231,7 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
+				A32A41C5133D154800596879 /* Categories */,
 				A3C5D7EA133BE70000589FF1 /* OAuth */,
 				A3BF8BAC133022980084DFAE /* Utilities */,
 				A3A8C5FF13280CE000FDB229 /* Draft Setup */,
@@ -325,7 +340,8 @@
 				A3BF8BAB13300D0F0084DFAE /* DMColoredView.m in Sources */,
 				A3E6F65C133171770016E6B9 /* DMWelcomeWindowController.m in Sources */,
 				A37498C61339494100EC7841 /* DMOAuthController.m in Sources */,
-				A3DB449A133A92850007174C /* DMAuthSheetController-ValueTransformers.m in Sources */,
+				A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */,
+				A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

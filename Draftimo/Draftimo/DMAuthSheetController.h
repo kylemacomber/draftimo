@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 enum {
     DMAuthSuccess,
     DMAuthCancel
@@ -19,6 +20,21 @@ typedef NSInteger DMAuthReturnCode;
 
 }
 
+@property (nonatomic, assign) IBOutlet NSProgressIndicator *requestProgressIndicator;
+@property (nonatomic, assign) IBOutlet NSView *requestErrorView;
+@property (nonatomic, assign) IBOutlet NSTextField *requestErrorLabel;
+
+@property (nonatomic, assign) IBOutlet NSView *verifierView;
+@property (nonatomic, assign) IBOutlet NSTextField *verifierInstructionLabel1;
+@property (nonatomic, assign) IBOutlet NSTextField *verifierInstructionLabel2;
+@property (nonatomic, assign) IBOutlet NSTextField *verifierTextField;
+@property (nonatomic, assign) IBOutlet NSProgressIndicator *verifierProgressIndicator;
+@property (nonatomic, assign) IBOutlet NSImageView *verifierStatusImageView;
+
+@property (nonatomic, assign) IBOutlet NSButton *launchBrowserButton;
+@property (nonatomic, assign) IBOutlet NSButton *cancelButton;
+@property (nonatomic, assign) IBOutlet NSButton *helpButton;
+
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)helpButtonClicked:(id)sender;
@@ -26,18 +42,3 @@ typedef NSInteger DMAuthReturnCode;
 - (IBAction)retryRequestButtonClicked:(id)sender;
 
 @end
-
-@interface DMOAuthStateTransformer : NSValueTransformer {} @end
-
-@interface RequestTokenProgressAnimatingBOOL : DMOAuthStateTransformer {} @end
-@interface ErrorStatusHiddenBOOL : DMOAuthStateTransformer {} @end
-@interface ErrorStatusNSString : DMOAuthStateTransformer {} @end
-
-@interface AccessTokenViewHiddenBOOL : DMOAuthStateTransformer {} @end
-@interface BrowserLaunchedBOOL : DMOAuthStateTransformer {} @end //label, verifier enabled on this
-@interface VerifierInstructionsNSColor : DMOAuthStateTransformer {} @end
-@interface VerifierProgressAnimatingBOOL : DMOAuthStateTransformer {} @end
-@interface VerifierFieldEnabledBOOL : DMOAuthStateTransformer {} @end
-@interface VerifierStatusNSImage : DMOAuthStateTransformer {} @end
-
-@interface AuthenticatedEnabledBOOL : DMOAuthStateTransformer {} @end

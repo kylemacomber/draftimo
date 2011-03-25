@@ -10,27 +10,8 @@
 #import "DMConstants.h"
 
 
-NSTimeInterval const authTimeoutInterval = 10.0;
-NSTimeInterval const verifierCodeWait = 3.0;
-
-NSString *const DMOAuthStateString[] = {
-    [DMOAuthUnreachable] = @"DMOAuthUnreachable",
-    [DMOAuthUnauthenticated] = @"DMOAuthUnauthenticated",
-    
-    [DMOAuthRequestTokenRequesting] = @"DMOAuthRequestTokenRequesting",
-    [DMOAuthRequestTokenRejected] = @"DMOAuthRequestTokenRejected",
-    [DMOAuthRequestTokenRecieved] = @"DMOAuthRequestTokenRecieved",
-    
-    [DMOAuthBrowserLaunched] = @"DMOAuthBrowserLaunched",
-    [DMOAuthVerifierCodeWaiting] = @"DMOAuthVerifierCodeWaiting",
-    
-    [DMOAuthAccessTokenRequesting] = @"DMOAuthAccessTokenRequesting",
-    [DMOAuthAccessTokenTimeout] = @"DMOAuthAccessTokenTimeout",
-    [DMOAuthAccessTokenRejected] = @"DMOAuthAccessTokenRejected",
-    [DMOAuthAccessTokenRefreshing] = @"DMOAuthAccessTokenRefreshing",
-    
-    [DMOAuthAuthenticated] = @"DMOAuthAuthenticated"
-};
+static NSTimeInterval const authTimeoutInterval = 10.0;
+static NSTimeInterval const verifierCodeWait = 3.0;
 
 @interface DMOAuthController ()
 @property (nonatomic, retain) MPOAuthAPI *oauthAPI;
@@ -95,7 +76,7 @@ NSString *const DMOAuthStateString[] = {
         ALog(@"Should only be able to do this if the requestToken was rejected");
         return;
     }
-    
+
     self.oauthState = DMOAuthUnauthenticated;
     [self authenticate];
 }

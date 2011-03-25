@@ -2,16 +2,15 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">1305</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>NSObjectController</string>
 			<string>NSButton</string>
 			<string>NSTextFieldCell</string>
 			<string>NSButtonCell</string>
@@ -39,10 +38,6 @@
 			<object class="NSCustomObject" id="1004">
 				<string key="NSClassName">NSApplication</string>
 			</object>
-			<object class="NSObjectController" id="76477322">
-				<bool key="NSEditable">YES</bool>
-				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
-			</object>
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
@@ -63,6 +58,28 @@
 									<reference key="NSNextResponder" ref="961358441"/>
 									<int key="NSvFlags">256</int>
 									<array class="NSMutableArray" key="NSSubviews">
+										<object class="NSCustomView" id="684187324">
+											<reference key="NSNextResponder" ref="672539861"/>
+											<int key="NSvFlags">268</int>
+											<array class="NSMutableArray" key="NSSubviews">
+												<object class="NSProgressIndicator" id="571927597">
+													<reference key="NSNextResponder" ref="684187324"/>
+													<int key="NSvFlags">1292</int>
+													<object class="NSPSMatrix" key="NSDrawMatrix"/>
+													<string key="NSFrame">{{133, 21}, {32, 32}}</string>
+													<reference key="NSSuperview" ref="684187324"/>
+													<reference key="NSWindow"/>
+													<reference key="NSNextKeyView" ref="860998991"/>
+													<int key="NSpiFlags">28682</int>
+													<double key="NSMaxValue">100</double>
+												</object>
+											</array>
+											<string key="NSFrame">{{-1, -1}, {299, 75}}</string>
+											<reference key="NSSuperview" ref="672539861"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="571927597"/>
+											<string key="NSClassName">NSView</string>
+										</object>
 										<object class="NSCustomView" id="860998991">
 											<reference key="NSNextResponder" ref="672539861"/>
 											<int key="NSvFlags">268</int>
@@ -141,7 +158,7 @@
 													<string key="NSFrame">{{109, 16}, {65, 19}}</string>
 													<reference key="NSSuperview" ref="860998991"/>
 													<reference key="NSWindow"/>
-													<reference key="NSNextKeyView" ref="1019740843"/>
+													<reference key="NSNextKeyView" ref="237025759"/>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="520886820">
 														<int key="NSCellFlags">-2080244224</int>
@@ -178,17 +195,6 @@
 														<reference key="NSBackgroundColor" ref="997387852"/>
 														<reference key="NSTextColor" ref="480083252"/>
 													</object>
-												</object>
-												<object class="NSProgressIndicator" id="1019740843">
-													<reference key="NSNextResponder" ref="860998991"/>
-													<int key="NSvFlags">1292</int>
-													<object class="NSPSMatrix" key="NSDrawMatrix"/>
-													<string key="NSFrame">{{133, 21}, {32, 32}}</string>
-													<reference key="NSSuperview" ref="860998991"/>
-													<reference key="NSWindow"/>
-													<reference key="NSNextKeyView" ref="237025759"/>
-													<int key="NSpiFlags">28682</int>
-													<double key="NSMaxValue">100</double>
 												</object>
 											</array>
 											<string key="NSFrame">{{-1, -1}, {299, 75}}</string>
@@ -363,7 +369,7 @@
 									<string key="NSFrame">{{1, 1}, {297, 73}}</string>
 									<reference key="NSSuperview" ref="961358441"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="860998991"/>
+									<reference key="NSNextKeyView" ref="684187324"/>
 								</object>
 							</array>
 							<string key="NSFrame">{{20, 48}, {299, 75}}</string>
@@ -483,14 +489,6 @@
 					<int key="connectionID">133</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">instructionBox</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="961358441"/>
-					</object>
-					<int key="connectionID">174</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">cancelButtonClicked:</string>
 						<reference key="source" ref="1001"/>
@@ -515,26 +513,6 @@
 					<int key="connectionID">431</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">contentObject: delegate.oauthController</string>
-						<reference key="source" ref="76477322"/>
-						<reference key="destination" ref="1004"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="76477322"/>
-							<reference key="NSDestination" ref="1004"/>
-							<string key="NSLabel">contentObject: delegate.oauthController</string>
-							<string key="NSBinding">contentObject</string>
-							<string key="NSKeyPath">delegate.oauthController</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSConditionallySetsEditable</string>
-								<boolean value="NO" key="NS.object.0"/>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">470</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">retryRequestButtonClicked:</string>
 						<reference key="source" ref="1001"/>
@@ -543,327 +521,100 @@
 					<int key="connectionID">473</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">animate: selection.oauthState</string>
-						<reference key="source" ref="1019740843"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1019740843"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">animate: selection.oauthState</string>
-							<string key="NSBinding">animate</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">RequestTokenProgressAnimatingBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">requestProgressIndicator</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="571927597"/>
 					</object>
-					<int key="connectionID">482</int>
+					<int key="connectionID">610</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: selection.oauthState</string>
-						<reference key="source" ref="237025759"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="237025759"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">hidden: selection.oauthState</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">AccessTokenViewHiddenBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">requestErrorLabel</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="622589674"/>
 					</object>
-					<int key="connectionID">493</int>
+					<int key="connectionID">611</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">animate: selection.oauthState</string>
-						<reference key="source" ref="1039546369"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1039546369"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">animate: selection.oauthState</string>
-							<string key="NSBinding">animate</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">VerifierProgressAnimatingBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">requestErrorView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="860998991"/>
 					</object>
-					<int key="connectionID">509</int>
+					<int key="connectionID">612</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selection.oauthState</string>
-						<reference key="source" ref="455800557"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="455800557"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">value: selection.oauthState</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<dictionary key="NSOptions">
-								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
-								<boolean value="NO" key="NSConditionallySetsEnabled"/>
-								<string key="NSValueTransformerName">VerifierStatusNSImage</string>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierInstructionLabel1</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="621251724"/>
 					</object>
-					<int key="connectionID">512</int>
+					<int key="connectionID">613</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selection.verifierCode</string>
-						<reference key="source" ref="76055626"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="76055626"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">value: selection.verifierCode</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selection.verifierCode</string>
-							<dictionary key="NSOptions">
-								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
-								<boolean value="NO" key="NSConditionallySetsEditable"/>
-								<boolean value="YES" key="NSContinuouslyUpdatesValue"/>
-								<string key="NSNullPlaceholder">xxxxxx</string>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierInstructionLabel2</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="361831737"/>
 					</object>
-					<int key="connectionID">514</int>
+					<int key="connectionID">614</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">textColor: selection.oauthState</string>
-						<reference key="source" ref="621251724"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="621251724"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">textColor: selection.oauthState</string>
-							<string key="NSBinding">textColor</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">VerifierInstructionsNSColor</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierProgressIndicator</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1039546369"/>
 					</object>
-					<int key="connectionID">517</int>
+					<int key="connectionID">615</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">textColor: selection.oauthState</string>
-						<reference key="source" ref="361831737"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="361831737"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">textColor: selection.oauthState</string>
-							<string key="NSBinding">textColor</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">VerifierInstructionsNSColor</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierStatusImageView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="455800557"/>
 					</object>
-					<int key="connectionID">520</int>
+					<int key="connectionID">616</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: selection.oauthState</string>
-						<reference key="source" ref="622589674"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="622589674"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">hidden: selection.oauthState</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">ErrorStatusHiddenBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierTextField</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="76055626"/>
 					</object>
-					<int key="connectionID">525</int>
+					<int key="connectionID">617</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: selection.oauthState</string>
-						<reference key="source" ref="606913579"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="606913579"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">hidden: selection.oauthState</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">ErrorStatusHiddenBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">verifierView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="237025759"/>
 					</object>
-					<int key="connectionID">526</int>
+					<int key="connectionID">618</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: selection.oauthState</string>
-						<reference key="source" ref="284960760"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="284960760"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">hidden: selection.oauthState</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">ErrorStatusHiddenBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">cancelButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1965492"/>
 					</object>
-					<int key="connectionID">527</int>
+					<int key="connectionID">622</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selection.oauthState</string>
-						<reference key="source" ref="622589674"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="622589674"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">value: selection.oauthState</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">ErrorStatusNSString</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">helpButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="782184802"/>
 					</object>
-					<int key="connectionID">530</int>
+					<int key="connectionID">623</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: selection.oauthState</string>
-						<reference key="source" ref="876365086"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="876365086"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">hidden: selection.oauthState</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">ErrorStatusHiddenBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">launchBrowserButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="455234708"/>
 					</object>
-					<int key="connectionID">579</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.oauthState</string>
-						<reference key="source" ref="455234708"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="455234708"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">enabled: selection.oauthState</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">AuthenticatedEnabledBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">582</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.oauthState</string>
-						<reference key="source" ref="76055626"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="76055626"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">enabled: selection.oauthState</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">VerifierFieldEnabledBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">586</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.oauthState</string>
-						<reference key="source" ref="1965492"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1965492"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">enabled: selection.oauthState</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">AuthenticatedEnabledBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">589</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.oauthState</string>
-						<reference key="source" ref="782184802"/>
-						<reference key="destination" ref="76477322"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="782184802"/>
-							<reference key="NSDestination" ref="76477322"/>
-							<string key="NSLabel">enabled: selection.oauthState</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.oauthState</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">AuthenticatedEnabledBOOL</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">592</int>
+					<int key="connectionID">624</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -917,6 +668,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="237025759"/>
 							<reference ref="860998991"/>
+							<reference ref="684187324"/>
 						</array>
 						<reference key="parent" ref="1006"/>
 					</object>
@@ -960,81 +712,6 @@
 						<reference key="parent" ref="782184802"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">468</int>
-						<reference key="object" ref="76477322"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">432</int>
-						<reference key="object" ref="860998991"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="284960760"/>
-							<reference ref="606913579"/>
-							<reference ref="1019740843"/>
-							<reference ref="622589674"/>
-							<reference ref="876365086"/>
-						</array>
-						<reference key="parent" ref="961358441"/>
-						<string key="objectName">requestTokenView</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">464</int>
-						<reference key="object" ref="284960760"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="520886820"/>
-						</array>
-						<reference key="parent" ref="860998991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">462</int>
-						<reference key="object" ref="606913579"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="798709510"/>
-						</array>
-						<reference key="parent" ref="860998991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">452</int>
-						<reference key="object" ref="1019740843"/>
-						<reference key="parent" ref="860998991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">521</int>
-						<reference key="object" ref="622589674"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="945318794"/>
-						</array>
-						<reference key="parent" ref="860998991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">559</int>
-						<reference key="object" ref="876365086"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="552750715"/>
-						</array>
-						<reference key="parent" ref="860998991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">560</int>
-						<reference key="object" ref="552750715"/>
-						<reference key="parent" ref="876365086"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">522</int>
-						<reference key="object" ref="945318794"/>
-						<reference key="parent" ref="622589674"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">463</int>
-						<reference key="object" ref="798709510"/>
-						<reference key="parent" ref="606913579"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">465</int>
-						<reference key="object" ref="520886820"/>
-						<reference key="parent" ref="284960760"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">412</int>
 						<reference key="object" ref="237025759"/>
 						<array class="NSMutableArray" key="children">
@@ -1047,21 +724,13 @@
 							<reference ref="455234708"/>
 						</array>
 						<reference key="parent" ref="961358441"/>
-						<string key="objectName">accessTokenView</string>
+						<string key="objectName">verifierView</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">418</int>
 						<reference key="object" ref="86043023"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="77784113"/>
-						</array>
-						<reference key="parent" ref="237025759"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">413</int>
-						<reference key="object" ref="455800557"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="642448638"/>
 						</array>
 						<reference key="parent" ref="237025759"/>
 					</object>
@@ -1123,14 +792,100 @@
 						<reference key="parent" ref="76055626"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">425</int>
-						<reference key="object" ref="642448638"/>
-						<reference key="parent" ref="455800557"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">421</int>
 						<reference key="object" ref="77784113"/>
 						<reference key="parent" ref="86043023"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">432</int>
+						<reference key="object" ref="860998991"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="284960760"/>
+							<reference ref="606913579"/>
+							<reference ref="622589674"/>
+							<reference ref="876365086"/>
+						</array>
+						<reference key="parent" ref="961358441"/>
+						<string key="objectName">requestErrorView</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">464</int>
+						<reference key="object" ref="284960760"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="520886820"/>
+						</array>
+						<reference key="parent" ref="860998991"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">462</int>
+						<reference key="object" ref="606913579"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="798709510"/>
+						</array>
+						<reference key="parent" ref="860998991"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">521</int>
+						<reference key="object" ref="622589674"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="945318794"/>
+						</array>
+						<reference key="parent" ref="860998991"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">559</int>
+						<reference key="object" ref="876365086"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="552750715"/>
+						</array>
+						<reference key="parent" ref="860998991"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">560</int>
+						<reference key="object" ref="552750715"/>
+						<reference key="parent" ref="876365086"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">522</int>
+						<reference key="object" ref="945318794"/>
+						<reference key="parent" ref="622589674"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">463</int>
+						<reference key="object" ref="798709510"/>
+						<reference key="parent" ref="606913579"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">465</int>
+						<reference key="object" ref="520886820"/>
+						<reference key="parent" ref="284960760"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">593</int>
+						<reference key="object" ref="684187324"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="571927597"/>
+						</array>
+						<reference key="parent" ref="961358441"/>
+						<string key="objectName">requestRequestingView</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">596</int>
+						<reference key="object" ref="571927597"/>
+						<reference key="parent" ref="684187324"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">413</int>
+						<reference key="object" ref="455800557"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="642448638"/>
+						</array>
+						<reference key="parent" ref="237025759"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">425</int>
+						<reference key="object" ref="642448638"/>
+						<reference key="parent" ref="455800557"/>
 					</object>
 				</array>
 			</object>
@@ -1168,22 +923,22 @@
 				<string key="424.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="425.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="432.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="452.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="463.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="464.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="465.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="468.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="521.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="522.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="559.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="560.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="593.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="596.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">592</int>
+			<int key="maxID">624</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1212,6 +967,70 @@
 						<object class="IBActionInfo" key="retryRequestButtonClicked:">
 							<string key="name">retryRequestButtonClicked:</string>
 							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="cancelButton">NSButton</string>
+						<string key="helpButton">NSButton</string>
+						<string key="launchBrowserButton">NSButton</string>
+						<string key="requestErrorLabel">NSTextField</string>
+						<string key="requestErrorView">NSView</string>
+						<string key="requestProgressIndicator">NSProgressIndicator</string>
+						<string key="verifierInstructionLabel1">NSTextField</string>
+						<string key="verifierInstructionLabel2">NSTextField</string>
+						<string key="verifierProgressIndicator">NSProgressIndicator</string>
+						<string key="verifierStatusImageView">NSImageView</string>
+						<string key="verifierTextField">NSTextField</string>
+						<string key="verifierView">NSView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="cancelButton">
+							<string key="name">cancelButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="helpButton">
+							<string key="name">helpButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="launchBrowserButton">
+							<string key="name">launchBrowserButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="requestErrorLabel">
+							<string key="name">requestErrorLabel</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="requestErrorView">
+							<string key="name">requestErrorView</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="requestProgressIndicator">
+							<string key="name">requestProgressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierInstructionLabel1">
+							<string key="name">verifierInstructionLabel1</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierInstructionLabel2">
+							<string key="name">verifierInstructionLabel2</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierProgressIndicator">
+							<string key="name">verifierProgressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierStatusImageView">
+							<string key="name">verifierStatusImageView</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierTextField">
+							<string key="name">verifierTextField</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verifierView">
+							<string key="name">verifierView</string>
+							<string key="candidateClassName">NSView</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
