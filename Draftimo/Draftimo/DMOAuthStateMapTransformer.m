@@ -47,16 +47,24 @@
         [NSException raise:NSInternalInconsistencyException format:@"(%@) is not an NSNumber.", [value class]];
     }
     
+    typedef BOOL(^arrayTest)(id obj, NSUInteger idx, BOOL *stop);
+    arrayTest (^const testForAuthState)(DMOAuthState) = ^arrayTest (DMOAuthState state) {
+        return [[^BOOL (id obj, NSUInteger idx, BOOL *stop) {
+            const DMOAuthState mask = (DMOAuthState)[(NSNumber *)obj unsignedIntegerValue];
+            return ((state & mask) == state);
+        } copy] autorelease];
+    };
+    
+    NSArray *const keys = [self.map allKeys];
     const DMOAuthState state = [(NSNumber *)value unsignedIntegerValue];
     
-    for (id key in [self.map allKeys]) {
-        const DMOAuthState mask = (DMOAuthState)[(NSNumber *)key unsignedIntegerValue];
-        if ((state & mask) == state) {
-            return [self.map objectForKey:key];
-        }
+    NSUInteger idx = [keys indexOfObjectPassingTest:testForAuthState(state)];
+    if ((state & DMOAuthUnreachable) == DMOAuthUnreachable) { //DMOAuthUnreachable trumps all so overwrite if it's a match
+        idx = [keys indexOfObjectPassingTest:testForAuthState(DMOAuthUnreachable)];
     }
     
-    return nil;
+    if (idx == NSNotFound) return nil;
+    return [self.map objectForKey:[keys objectAtIndex:idx]];
 }
 
 @end

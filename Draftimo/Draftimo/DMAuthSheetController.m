@@ -36,7 +36,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 - (void)dealloc
 {
-    [[DMAppController sharedAppController].oauthController removeObserver:self forKeyPath:@"oauthState"];
+    [[DMAppController sharedAppController].oauthController removeObserver:self forKeyPath:@"oauthStateMask"];
     [super dealloc];
 }
 
@@ -45,7 +45,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
     self = [super initWithWindowNibName:@"DMAuthSheet"];
     if (!self) return nil;
     
-    [[DMAppController sharedAppController].oauthController addObserver:self forKeyPath:@"oauthState" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
+    [[DMAppController sharedAppController].oauthController addObserver:self forKeyPath:@"oauthStateMask" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
     
     return self;
 }
@@ -58,19 +58,19 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
         NSMutableDictionary *options = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, nil];
         [options addEntriesFromDictionary:otherOptions];
         [options setObject:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:mapping] forKey:NSValueTransformerBindingOption];
-        [object bind:binding toObject:[DMAppController sharedAppController].oauthController withKeyPath:@"oauthState" options:[options dictionaryByAddingEntriesFromDictionary:options]];
+        [object bind:binding toObject:[DMAppController sharedAppController].oauthController withKeyPath:@"oauthStateMask" options:[options dictionaryByAddingEntriesFromDictionary:options]];
     };
     
     authStateBind(self.requestProgressIndicator, @"animate", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]],  [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSNullPlaceholderBindingOption]);
-    authStateBind(self.requestErrorView, @"hidden", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable|DMOAuthRequestTokenRejected)]], nil);
-    authStateBind(self.requestErrorLabel, @"value", [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"DMOAuthUnreachable", nil), [NSNumber numberWithUnsignedInteger:DMOAuthUnreachable], NSLocalizedString(@"DMOAuthRequestTokenRejected", nil), [NSNumber numberWithUnsignedInteger:DMOAuthRequestTokenRejected], nil], [NSDictionary dictionaryWithObject:NSLocalizedString(@"Error", nil) forKey:NSNullPlaceholderBindingOption]/*Does this work without NSAllowsNullArgumentBindingOption? NSNumber numberWithBool:YES*/);
+    authStateBind(self.requestErrorView, @"hidden", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable)]], nil);
+    authStateBind(self.requestErrorLabel, @"value", [NSDictionary dictionaryWithObject:NSLocalizedString(@"DMOAuthUnreachable", nil) forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable]], [NSDictionary dictionaryWithObject:NSLocalizedString(@"Error", nil) forKey:NSNullPlaceholderBindingOption]/*Does this work without NSAllowsNullArgumentBindingOption? NSNumber numberWithBool:YES*/);
     
-    authStateBind(self.verifierView, @"hidden", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected]], nil);
-    authStateBind(self.verifierTextField, @"enabled", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected|DMOAuthRequestTokenRecieved|DMOAuthAuthenticated)]], nil);
+    authStateBind(self.verifierView, @"hidden", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]], nil);
+    authStateBind(self.verifierTextField, @"enabled", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRecieved|DMOAuthAuthenticated)]], nil);
     authStateBind(self.verifierProgressIndicator, @"animate", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenRequesting]], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSNullPlaceholderBindingOption]);
-    authStateBind(self.verifierStatusImageView, @"value", [NSDictionary dictionaryWithObjectsAndKeys:[NSImage imageNamed:@"Status_Declined.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenTimeout|DMOAuthAccessTokenRejected], [NSImage imageNamed:@"Status_Accepted.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAuthenticated], nil], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSConditionallySetsEnabledBindingOption]);
+    authStateBind(self.verifierStatusImageView, @"value", [NSDictionary dictionaryWithObjectsAndKeys:[NSImage imageNamed:@"Status_Declined.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenTimeout], [NSImage imageNamed:@"Status_Accepted.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAuthenticated], nil], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSConditionallySetsEnabledBindingOption]);
     
-    NSDictionary *const instructionColorMap = [NSDictionary dictionaryWithObject:[NSColor disabledControlTextColor] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected|DMOAuthRequestTokenRecieved]];
+    NSDictionary *const instructionColorMap = [NSDictionary dictionaryWithObject:[NSColor disabledControlTextColor] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRecieved]];
     NSDictionary *const instructionColorOptions = [NSDictionary dictionaryWithObject:[NSColor controlTextColor] forKey:NSNullPlaceholderBindingOption];
     authStateBind(self.verifierInstructionLabel1, @"textColor", instructionColorMap, instructionColorOptions);
     authStateBind(self.verifierInstructionLabel2, @"textColor", instructionColorMap, instructionColorOptions);
@@ -86,7 +86,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 {
     DLog(@"%d->%d", [[change objectForKey:NSKeyValueChangeOldKey] unsignedIntegerValue], [[change objectForKey:NSKeyValueChangeNewKey] unsignedIntegerValue]);
     
-    if ([DMAppController sharedAppController].oauthController.oauthState == DMOAuthAuthenticated) {
+    if ([DMAppController sharedAppController].oauthController.oauthStateMask == DMOAuthAuthenticated) {
         [self performSelector:@selector(endSheetWithSuccess) withObject:nil afterDelay:DMAuthSheetSuccessDismissDelay];
     }
 }
@@ -108,12 +108,6 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 - (IBAction)helpButtonClicked:(id)sender
 {
     DLog(@"");
-}
-
-- (IBAction)retryRequestButtonClicked:(id)sender
-{
-    DLog(@"");
-    [[DMAppController sharedAppController].oauthController retry];
 }
 
 #pragma mark Private Methods

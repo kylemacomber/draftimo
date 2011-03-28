@@ -39,6 +39,5 @@ typedef NSInteger DMAuthReturnCode;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)helpButtonClicked:(id)sender;
 - (IBAction)cancelButtonClicked:(id)sender;
-- (IBAction)retryRequestButtonClicked:(id)sender;
 
 @end
