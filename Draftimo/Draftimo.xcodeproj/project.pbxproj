@@ -10,6 +10,7 @@
 		A31189971329E758006C6A6B /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31189961329E758006C6A6B /* MPOAuth.framework */; };
 		A31189981329E77D006C6A6B /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31189961329E758006C6A6B /* MPOAuth.framework */; };
 		A313E609132F1131006DDE67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A313E608132F1131006DDE67 /* Localizable.strings */; };
+		A3145D55133F74B20080C768 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3145D54133F74B20080C768 /* Reachability.m */; };
 		A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */; };
 		A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		A31189961329E758006C6A6B /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPOAuth.framework; sourceTree = "<group>"; };
 		A313E608132F1131006DDE67 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = Localizable.strings; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Localizable.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		A3145D53133F74B20080C768 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A3145D54133F74B20080C768 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A32A41C7133D156A00596879 /* NSDictionary-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary-Utilities.h"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSDictionary-Utilities.h"; sourceTree = "<group>"; };
 		A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary-Utilities.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSDictionary-Utilities.m"; sourceTree = "<group>"; };
 		A32A41D6133D538400596879 /* DMOAuthStateMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMOAuthStateMapTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.h; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		A3BF8BAC133022980084DFAE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A32A41C5133D154800596879 /* Categories */,
 				A3BF8BA913300D0E0084DFAE /* DMColoredView.h */,
 				A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */,
 			);
@@ -178,6 +182,8 @@
 		A3C5D7EA133BE70000589FF1 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				A3145D53133F74B20080C768 /* Reachability.h */,
+				A3145D54133F74B20080C768 /* Reachability.m */,
 				A37498C41339494100EC7841 /* DMOAuthController.h */,
 				A37498C51339494100EC7841 /* DMOAuthController.m */,
 				A32A41D6133D538400596879 /* DMOAuthStateMapTransformer.h */,
@@ -231,7 +237,6 @@
 		A3EA276D1327461C0072AC66 /* Draftimo */ = {
 			isa = PBXGroup;
 			children = (
-				A32A41C5133D154800596879 /* Categories */,
 				A3C5D7EA133BE70000589FF1 /* OAuth */,
 				A3BF8BAC133022980084DFAE /* Utilities */,
 				A3A8C5FF13280CE000FDB229 /* Draft Setup */,
@@ -287,7 +292,7 @@
 			attributes = {
 				ORGANIZATIONNAME = "Kyle Macomber";
 			};
-			buildConfigurationList = A3EA275D1327461C0072AC66 /* Build configuration list for PBXProject "draftimo" */;
+			buildConfigurationList = A3EA275D1327461C0072AC66 /* Build configuration list for PBXProject "Draftimo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -342,6 +347,7 @@
 				A37498C61339494100EC7841 /* DMOAuthController.m in Sources */,
 				A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */,
 				A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */,
+				A3145D55133F74B20080C768 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +454,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A3EA275D1327461C0072AC66 /* Build configuration list for PBXProject "draftimo" */ = {
+		A3EA275D1327461C0072AC66 /* Build configuration list for PBXProject "Draftimo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3EA277F1327461C0072AC66 /* Debug */,

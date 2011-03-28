@@ -12,7 +12,7 @@
 #import "NSDictionary-Utilities.h"
 
 
-static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 0.5;
+static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 @interface DMAuthSheetController ()
 - (void)endSheetWithSuccess;
@@ -67,7 +67,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 0.5;
     
     authStateBind(self.verifierView, @"hidden", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected]], nil);
     authStateBind(self.verifierTextField, @"enabled", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected|DMOAuthRequestTokenRecieved|DMOAuthAuthenticated)]], nil);
-    authStateBind(self.verifierProgressIndicator, @"animate", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthVerifierCodeWaiting|DMOAuthAccessTokenRequesting]], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSNullPlaceholderBindingOption]);
+    authStateBind(self.verifierProgressIndicator, @"animate", [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenRequesting]], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSNullPlaceholderBindingOption]);
     authStateBind(self.verifierStatusImageView, @"value", [NSDictionary dictionaryWithObjectsAndKeys:[NSImage imageNamed:@"Status_Declined.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenTimeout|DMOAuthAccessTokenRejected], [NSImage imageNamed:@"Status_Accepted.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAuthenticated], nil], [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:NSConditionallySetsEnabledBindingOption]);
     
     NSDictionary *const instructionColorMap = [NSDictionary dictionaryWithObject:[NSColor disabledControlTextColor] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting|DMOAuthRequestTokenRejected|DMOAuthRequestTokenRecieved]];

@@ -11,15 +11,14 @@
 
 
 enum {
-    DMOAuthUnreachable              = 0,
-    DMOAuthUnauthenticated          = 1 << 0,
+    DMOAuthUnreachable              = 1 << 0,
+    DMOAuthUnauthenticated          = 1 << 1,
 
-    DMOAuthRequestTokenRequesting   = 1 << 1,
-    DMOAuthRequestTokenRejected     = 1 << 2,
-    DMOAuthRequestTokenRecieved     = 1 << 3,
+    DMOAuthRequestTokenRequesting   = 1 << 2,
+    DMOAuthRequestTokenRejected     = 1 << 3,
+    DMOAuthRequestTokenRecieved     = 1 << 4,
     
-    DMOAuthBrowserLaunched          = 1 << 4,
-    DMOAuthVerifierCodeWaiting      = 1 << 5,
+    DMOAuthBrowserLaunched          = 1 << 5,
     
     DMOAuthAccessTokenRequesting    = 1 << 6,
     DMOAuthAccessTokenRefreshing    = 1 << 7,

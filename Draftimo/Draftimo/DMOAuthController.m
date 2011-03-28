@@ -8,16 +8,19 @@
 
 #import "DMOAuthController.h"
 #import "DMConstants.h"
+#import "Reachability.h"
+#import <MPOAuth/MPURLRequestParameter.h>
+#import <JSON/JSON.h>
 
 
 static NSTimeInterval const authTimeoutInterval = 10.0;
-static NSTimeInterval const verifierCodeWait = 3.0;
 
 @interface DMOAuthController ()
 @property (nonatomic, retain) MPOAuthAPI *oauthAPI;
 @property (nonatomic, assign, readwrite) DMOAuthState oauthState;
+@property (nonatomic, retain) Reachability *YAuthReachable;
 @property (nonatomic, copy) NSURL *userAuthURL;
-@property (nonatomic, assign) BOOL didAutoRetry;
+@property (nonatomic, retain) NSMutableArray *waitingOperations;
 
 - (void)accessTimeout;
 - (void)getUserGames;
@@ -28,17 +31,18 @@ static NSTimeInterval const verifierCodeWait = 3.0;
 @implementation DMOAuthController
 @synthesize oauthAPI;
 @synthesize oauthState;
+@synthesize YAuthReachable;
 @synthesize userAuthURL;
-@synthesize didAutoRetry;
 @synthesize verifierCode;
+@synthesize waitingOperations;
 
 - (void)dealloc
 {
     self.oauthAPI = nil;
     self.oauthState = 0;
     self.userAuthURL = nil;
-    self.didAutoRetry = 0;
     self.verifierCode = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 
@@ -47,19 +51,28 @@ static NSTimeInterval const verifierCodeWait = 3.0;
     self = [super init];
     if (!self) return nil;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenReceived:) name:MPOAuthNotificationRequestTokenReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestTokenRejected:) name:MPOAuthNotificationRequestTokenRejected object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenReceived:) name:MPOAuthNotificationAccessTokenReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRejected:) name:MPOAuthNotificationAccessTokenRejected object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accessTokenRefreshed:) name:MPOAuthNotificationAccessTokenRefreshed object:nil];
+    self.waitingOperations = [NSMutableArray array];
     
-    NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
-    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials andBaseURL:[NSURL URLWithString:YAuthBaseURL]] autorelease];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    self.YAuthReachable = [Reachability reachabilityWithHostName:YAuthHostName];
+    [self.YAuthReachable startNotifier];
+    
+    const SEL notificationSEL = @selector(oauthStateChanged:);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationRequestTokenReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationRequestTokenRejected object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationAccessTokenReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationAccessTokenRejected object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationAccessTokenRefreshed object:nil];
+    
+    NSDictionary *const credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
+    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease]; //I don't know what the authentication URL is supposed to be, but this is what MPOAuth uses BaseURL as a placeholder in its simpler inits anyway so i copied that
     self.oauthState = ([self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken) ? DMOAuthAuthenticated : DMOAuthUnauthenticated;
-    self.didAutoRetry = NO;
+    DLog(@"%@, %d", self.oauthAPI, self.oauthState);
+    [self authenticate];
     
     // This is kind of hacky but it has to be done
-    id authMethod = self.oauthAPI.authenticationMethod;
+    const id authMethod = self.oauthAPI.authenticationMethod;
     if ([authMethod isKindOfClass: [MPOAuthAuthenticationMethodOAuth class]]) {
         [(MPOAuthAuthenticationMethodOAuth *)authMethod setDelegate:self];
     }
@@ -95,16 +108,14 @@ static NSTimeInterval const verifierCodeWait = 3.0;
 - (void)setVerifierCode:(NSString *)newVerifierCode
 {
     DLog(@"");
+    
     newVerifierCode = [newVerifierCode copy];
     [verifierCode release];
     verifierCode = newVerifierCode;
-    
+
     if (!verifierCode) return; //we need to be able to blank the verifierCode w/o spawning an authentication
     
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(authenticate) object:nil];
-    [self performSelector:@selector(authenticate) withObject:nil afterDelay:verifierCodeWait];
-    
-    self.oauthState = DMOAuthVerifierCodeWaiting;
+    [self authenticate];
 }
 
 #pragma mark MPOAuthAuthenticationMethodOAuthDelegate
@@ -121,41 +132,47 @@ static NSTimeInterval const verifierCodeWait = 3.0;
     return NO;
 }
 
+#pragma mark ReachabilityNotifications
+
+- (void)reachabilityChanged:(NSNotification *)notification
+{
+    DLog(@"%@, %d", notification, [(Reachability *)[notification object] currentReachabilityStatus]);
+    if ([self.YAuthReachable currentReachabilityStatus] != NotReachable) {
+        [[NSOperationQueue mainQueue] addOperations:self.waitingOperations waitUntilFinished:NO];
+        [self.waitingOperations removeAllObjects];
+    }
+}
 #pragma mark MPOAuthNotifications
 
-- (void)requestTokenRejected:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    // If the user inputs a verifierCode before clicking "Agree" on Yahoo!, the requestToken is rejected
-    if (self.oauthState > DMOAuthRequestTokenRejected) {
-        self.verifierCode = nil;
-//        - (void)setCredential:(id)inCredential withName:(NSString *)inName;
-//        extern NSString * const MPOAuthCredentialRequestTokenKey;
-//        extern NSString * const MPOAuthCredentialRequestTokenSecretKey;
-//        @property (nonatomic, readonly, retain) NSString *requestToken;
-//        @property (nonatomic, readonly, retain) NSString *requestTokenSecret;
-        
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
-    } else {
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(requestTimeout) object:nil];
-    }
-    
-//    if (!self.didAutoRetry) {
-//        self.didAutoRetry = YES;
-//        return;
-//    }
-    
-    self.oauthState = DMOAuthRequestTokenRejected;
-}
-
-- (void)requestTokenReceived:(NSNotification *)notification
+- (void)oauthStateChanged:(NSNotification *)notification
 {
     DLog(@"%@", notification);
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(requestTimeout) object:nil];
-//    self.requestToken = self.oauthAPI.requestToken;
-//    self.requestTokenSecret = self.oauthAPI.requestTokenSecret;
-    self.didAutoRetry = NO;
-    self.oauthState = DMOAuthRequestTokenRecieved;
+    NSString *const note = [notification name];
+    if (note == MPOAuthNotificationRequestTokenRejected) {
+        // If the user inputs a verifierCode before clicking "Agree" on Yahoo!, the requestToken is rejected
+        if (self.oauthState > DMOAuthRequestTokenRejected) {
+            self.verifierCode = nil;
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
+        } else {
+            //So I was thinking that I didn't want to do this because if something is wrong I could get in this loop of continually reauthorizing and failing... 
+            //but if I can't even authorize correctly then something is wrong and I have bigger problems
+            [self authenticate]; 
+        }
+        
+        self.oauthState = DMOAuthRequestTokenRejected;
+    } else if (note == MPOAuthNotificationRequestTokenReceived) {
+        self.oauthState = DMOAuthRequestTokenRecieved;
+    } else if (note == MPOAuthNotificationAccessTokenRejected) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
+        self.oauthState = DMOAuthAccessTokenRejected;
+    } else if (note == MPOAuthNotificationAccessTokenReceived) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
+        self.oauthState = DMOAuthAuthenticated;
+        [self getUserGames];
+    } else if (note == MPOAuthNotificationAccessTokenRefreshed) {
+        self.oauthState = DMOAuthAuthenticated;
+        [self getUserGames];
+    }
 }
 
 - (void)accessTimeout
@@ -164,39 +181,20 @@ static NSTimeInterval const verifierCodeWait = 3.0;
     self.oauthState = DMOAuthAccessTokenTimeout;
 }
 
-- (void)accessTokenRejected:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
-    self.oauthState = DMOAuthAccessTokenRejected;
-}
-
-- (void)accessTokenReceived:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
-    self.oauthState = DMOAuthAuthenticated;
-    [self getUserGames];
-}
-
-- (void)accessTokenRefreshed:(NSNotification *)notification
-{
-	DLog(@"%@", notification);
-    [self getUserGames];
-}
-
 #pragma mark Private Methods
 
 - (DMOAuthState)nextOAuthState
 {
     DLog(@"");
     switch (self.oauthState) {
+        case DMOAuthUnreachable:
+            return DMOAuthUnreachable;
         case DMOAuthUnauthenticated:
         case DMOAuthRequestTokenRejected:
         case DMOAuthRequestTokenRequesting:
             return DMOAuthRequestTokenRequesting;
+        case DMOAuthBrowserLaunched:
         case DMOAuthRequestTokenRecieved:
-        case DMOAuthVerifierCodeWaiting:
         case DMOAuthAccessTokenTimeout:
         case DMOAuthAccessTokenRejected:
         case DMOAuthAccessTokenRequesting:
@@ -210,37 +208,34 @@ static NSTimeInterval const verifierCodeWait = 3.0;
 
 - (void)authenticate
 {
-    DLog(@"");
+    DLog(@"%@, %d", self.oauthAPI, self.oauthState);    
+    
+    if ([self.YAuthReachable currentReachabilityStatus] == NotReachable) {
+        self.oauthState = DMOAuthUnreachable;
+        [self.waitingOperations addObject:[[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(authenticate) object:nil] autorelease]];
+        return;
+    }
+    
     self.oauthState = [self nextOAuthState];
-    if (self.oauthState == DMOAuthRequestTokenRequesting) {
-        [self performSelector:@selector(requestTimeout) withObject:nil afterDelay:authTimeoutInterval];
-    } else if (self.oauthState == DMOAuthAccessTokenRequesting) {
+    if (self.oauthState == DMOAuthAccessTokenRequesting) {
         [self performSelector:@selector(accessTimeout) withObject:nil afterDelay:authTimeoutInterval];
     }
     
     [self.oauthAPI authenticate];
 }
 
-//- (void)discardCredentials
-//{
-//    DLog(@"");
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(authenticate) object:nil];
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(requestTimeout) object:nil];
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
-//    
-//    [self.oauthAPI discardCredentials];
-//    self.oauthState = DMOAuthUnauthenticated;
-//    self.verifierCode = nil;
-//}
-
-- (void)performedMethodLoadForURL:(NSURL *)inMethod withResponseBody:(NSString *)inResponseBody
+- (void)performedMethodLoadForURL:(NSURL *)method withResponseBody:(NSString *)responseBody
 {
-    DLog(@"%@", inResponseBody);
+    NSDictionary *response = [responseBody JSONValue];
+    DLog(@"%@", response);
+//    if ([response objectForKey:@"error"] && self.oauthState < DMOAuthAuthenticated) {
+//        [self authenticate];
+//    }
 }
 
 - (void)getUserGames
 {
-	[self.oauthAPI performMethod:@"http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games" withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
+    [self.oauthAPI performMethod:YFUserGamesMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:[NSDictionary dictionaryWithObject:@"json" forKey:@"format"]] withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
 }
 
 @end

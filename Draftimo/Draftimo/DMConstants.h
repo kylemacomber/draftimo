@@ -11,10 +11,12 @@
 // OAuth
 extern NSString *const DMOAuthConsumerKey;
 extern NSString *const DMOAuthConsumerSecret;
+extern NSString *const YAuthHostName;
 extern NSString *const YAuthBaseURL;
 extern NSString *const YRequestTokenURL;
 extern NSString *const YUserAuthURL;
 
 // Fantasy API
+extern NSString *const YFHostName;
 extern NSString *const YFBaseURL;
 extern NSString *const YFUserGamesMethod;
