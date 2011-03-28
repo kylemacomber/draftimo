@@ -15,8 +15,14 @@
 
 static NSTimeInterval const authTimeoutInterval = 10.0;
 
+@interface MPOAuthAPI ()
+@property (nonatomic, readwrite, retain) id <MPOAuthCredentialStore, MPOAuthParameterFactory> credentials;
+@end
+
 @interface DMOAuthController ()
 @property (nonatomic, retain) MPOAuthAPI *oauthAPI;
+@property (nonatomic, copy) NSString *cachedRequestToken;
+@property (nonatomic, copy) NSString *cachedRequestTokenSecret;
 @property (nonatomic, assign, readwrite) DMOAuthState oauthState;
 @property (nonatomic, retain) Reachability *YAuthReachable;
 @property (nonatomic, copy) NSURL *userAuthURL;
@@ -30,6 +36,8 @@ static NSTimeInterval const authTimeoutInterval = 10.0;
 
 @implementation DMOAuthController
 @synthesize oauthAPI;
+@synthesize cachedRequestToken;
+@synthesize cachedRequestTokenSecret;
 @synthesize oauthState;
 @synthesize YAuthReachable;
 @synthesize userAuthURL;
@@ -67,6 +75,9 @@ static NSTimeInterval const authTimeoutInterval = 10.0;
     
     NSDictionary *const credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
     self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL] andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease]; //I don't know what the authentication URL is supposed to be, but this is what MPOAuth uses BaseURL as a placeholder in its simpler inits anyway so i copied that
+    self.cachedRequestToken = [self.oauthAPI credentialNamed:@"kMPOAuthCredentialRequestToken"];
+    self.cachedRequestTokenSecret = [self.oauthAPI credentialNamed:@"kMPOAuthCredentialRequestTokenSecret"];
+    
     self.oauthState = ([self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken) ? DMOAuthAuthenticated : DMOAuthUnauthenticated;
     DLog(@"%@, %d", self.oauthAPI, self.oauthState);
     [self authenticate];
@@ -147,29 +158,36 @@ static NSTimeInterval const authTimeoutInterval = 10.0;
 - (void)oauthStateChanged:(NSNotification *)notification
 {
     DLog(@"%@", notification);
-    NSString *const note = [notification name];
-    if (note == MPOAuthNotificationRequestTokenRejected) {
+
+    NSString *const notificationName = [notification name];
+    if (notificationName == MPOAuthNotificationRequestTokenRejected) {
         // If the user inputs a verifierCode before clicking "Agree" on Yahoo!, the requestToken is rejected
         if (self.oauthState > DMOAuthRequestTokenRejected) {
             self.verifierCode = nil;
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
-        } else {
-            //So I was thinking that I didn't want to do this because if something is wrong I could get in this loop of continually reauthorizing and failing... 
-            //but if I can't even authorize correctly then something is wrong and I have bigger problems
-            [self authenticate]; 
+            [self.oauthAPI setCredential:self.cachedRequestToken withName:@"kMPOAuthCredentialRequestToken"];
+            [self.oauthAPI setCredential:self.cachedRequestTokenSecret withName:@"kMPOAuthCredentialRequestTokenSecret"];
+            return;
         }
         
+        //So I was thinking that I didn't want to do this because if something is wrong I could get in this loop of continually reauthorizing and failing... 
+        //but if I can't even authorize correctly then something is wrong and I have bigger problems
+        ALog(@"%@", notification);
         self.oauthState = DMOAuthRequestTokenRejected;
-    } else if (note == MPOAuthNotificationRequestTokenReceived) {
+        [self authenticate];
+    } else if (notificationName == MPOAuthNotificationRequestTokenReceived) {
         self.oauthState = DMOAuthRequestTokenRecieved;
-    } else if (note == MPOAuthNotificationAccessTokenRejected) {
+        self.cachedRequestToken = [self.oauthAPI credentialNamed:@"kMPOAuthCredentialRequestToken"];
+        self.cachedRequestTokenSecret = [self.oauthAPI credentialNamed:@"kMPOAuthCredentialRequestTokenSecret"];
+    } else if (notificationName == MPOAuthNotificationAccessTokenRejected) {
+        ALog(@"%@", notification);
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
         self.oauthState = DMOAuthAccessTokenRejected;
-    } else if (note == MPOAuthNotificationAccessTokenReceived) {
+    } else if (notificationName == MPOAuthNotificationAccessTokenReceived) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
         self.oauthState = DMOAuthAuthenticated;
         [self getUserGames];
-    } else if (note == MPOAuthNotificationAccessTokenRefreshed) {
+    } else if (notificationName == MPOAuthNotificationAccessTokenRefreshed) {
         self.oauthState = DMOAuthAuthenticated;
         [self getUserGames];
     }
