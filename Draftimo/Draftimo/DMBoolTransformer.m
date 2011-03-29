@@ -10,29 +10,36 @@
 
 
 @interface DMBoolTransformer ()
-- (id)initWithObject:(id)anObject;
-@property (nonatomic, retain, readwrite) id object;
+- (id)initWithYesObject:(id)theYesObject noObject:(id)theNoObject;
+@property (nonatomic, retain, readwrite) id yesObject;
+@property (nonatomic, retain, readwrite) id noObject;
 @end
 
 @implementation DMBoolTransformer
-@synthesize object;
+@synthesize yesObject;
+@synthesize noObject;
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
 - (void)dealloc
 {
-    self.object = nil;
+    self.yesObject = nil;
+    self.noObject = nil;
     [super dealloc];
 }
 
-+ (id)boolValueTransformerForObject:(id)anObject { return [[[self alloc] initWithObject:anObject] autorelease]; }
++ (id)boolTransformerWithYesObject:(id)yesObject noObject:(id)noObject 
+{
+    return [[[self alloc] initWithYesObject:yesObject noObject:noObject] autorelease];
+}
 
-- (id)initWithObject:(id)anObject
+- (id)initWithYesObject:(id)theYesObject noObject:(id)theNoObject
 {
     self = [super init];
     if (!self) return nil;
     
-    self.object = anObject;
+    self.yesObject = theYesObject;
+    self.noObject = theNoObject;
     
     return self;
 }
@@ -47,9 +54,10 @@
     }
     
     if ([(NSNumber *)value boolValue]) {
-        return self.object;
+        return self.yesObject;
+    } else {
+        return self.noObject;
     }
-    return nil;
 }
 
 @end

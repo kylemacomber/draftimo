@@ -10,6 +10,6 @@
 
 
 @interface DMMapTransformer : NSValueTransformer {}
-+ (id)authStateValueTransformerWithMap:(NSDictionary *)map;
++ (id)authStateTransformerWithMap:(NSDictionary *)map;
 @property (nonatomic, copy, readonly) NSDictionary *map;
 @end

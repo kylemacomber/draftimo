@@ -25,7 +25,7 @@
     [super dealloc];
 }
 
-+ (id)authStateValueTransformerWithMap:(NSDictionary *)aMap { return [[[self alloc] initWithMap:aMap] autorelease]; }
++ (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[[self alloc] initWithMap:aMap] autorelease]; }
 
 - (id)initWithMap:(NSDictionary *)aMap
 {

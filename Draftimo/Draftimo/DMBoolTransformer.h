@@ -10,6 +10,7 @@
 
 
 @interface DMBoolTransformer : NSValueTransformer {}
-+ (id)boolValueTransformerForObject:(id)object;
-@property (nonatomic, retain, readonly) id object;
++ (id)boolTransformerWithYesObject:(id)yesObject noObject:(id)noObject;
+@property (nonatomic, retain, readonly) id yesObject;
+@property (nonatomic, retain, readonly) id noObject;
 @end

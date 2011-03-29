@@ -29,30 +29,30 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 {
     NSDictionary *map;
     
-    [NSValueTransformer setValueTransformer:[DMBoolTransformer boolValueTransformerForObject:[NSColor controlTextColor]] forName:@"VerifierInstructionLabelTextColor"]; //we might need a more complicated value transformer to give disableTextColor when browserLaunched=NO
+    [NSValueTransformer setValueTransformer:[DMBoolTransformer boolTransformerWithYesObject:[NSColor textColor] noObject:[NSColor disabledControlTextColor]] forName:@"VerifierInstructionLabelTextColor"];
     
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"RequestProgressIndicatorAnimateTransformer"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestProgressIndicatorAnimateTransformer"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable)]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"RequestErrorViewHiddenTransformer"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestErrorViewHiddenTransformer"];
     map = [NSDictionary dictionaryWithObject:NSLocalizedString(@"DMOAuthUnreachable", nil) forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"RequestErrorLabelValue"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestErrorLabelValue"];
     
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"VerifierViewHiddenTransformer"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierViewHiddenTransformer"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthRequestTokenRecieved|DMOAuthAccessTokenRequesting|DMOAuthAccessTokenTimeout]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"VerifierTextFieldEnabled"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierTextFieldEnabled"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenRequesting]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"VerifierProgressIndicatorAnimate"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierProgressIndicatorAnimate"];
     map = [NSDictionary dictionaryWithObjectsAndKeys:[NSImage imageNamed:@"Status_Declined.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenTimeout], [NSImage imageNamed:@"Status_Accepted.png"], [NSNumber numberWithUnsignedInteger:DMOAuthAuthenticated], nil];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"VerifierStatusImageViewValue"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierStatusImageViewValue"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~DMOAuthAuthenticated]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"LaunchBrowserButtonEnabled"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"LaunchBrowserButtonEnabled"];
     
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~DMOAuthAuthenticated]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"CancelButtonEnabled"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"CancelButtonEnabled"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~DMOAuthAuthenticated]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateValueTransformerWithMap:map] forName:@"HelpButtonEnabled"];
+    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"HelpButtonEnabled"];
 }
 
 - (void)dealloc

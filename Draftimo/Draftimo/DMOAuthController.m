@@ -171,7 +171,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
             return;
         }
             
-        ALog(@"%@", notification);
+        // If we have bad credentials, discard them and start over. This will happen, for example, if user gets partway through authentication but quits.
         [self discardCredentials];
         [self authenticate];
     }
