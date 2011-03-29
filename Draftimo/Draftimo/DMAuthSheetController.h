@@ -22,8 +22,6 @@ typedef NSInteger DMAuthReturnCode;
 
 @property (nonatomic, assign, readonly) BOOL browserLaunched;
 
-@property (nonatomic, assign, readonly) BOOL browserLaunched;
-
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)helpButtonClicked:(id)sender;
