@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DMMapTransformer.h"
 
 
-@interface DMOAuthStateMapTransformer : NSValueTransformer {}
-+ (id)authStateValueTransformerWithMap:(NSDictionary *)map;
-@property (nonatomic, copy, readonly) NSDictionary *map;
+@interface DMOAuthStateMapTransformer : DMMapTransformer {}
 @end

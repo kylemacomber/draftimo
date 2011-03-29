@@ -10,35 +10,7 @@
 #import "DMOAuthController.h"
 
 
-@interface DMOAuthStateMapTransformer ()
-- (id)initWithMap:(NSDictionary *)aMap;
-@property (nonatomic, copy, readwrite) NSDictionary *map;
-@end
-
 @implementation DMOAuthStateMapTransformer
-@synthesize map;
-
-+ (Class)transformedValueClass { return [NSObject class]; }
-
-- (void)dealloc
-{
-    self.map = nil;
-    [super dealloc];
-}
-
-+ (id)authStateValueTransformerWithMap:(NSDictionary *)aMap { return [[[self alloc] initWithMap:aMap] autorelease]; }
-
-- (id)initWithMap:(NSDictionary *)aMap
-{
-    self = [super init];
-    if (!self) return nil;
-    
-    self.map = aMap;
-    
-    return self;
-}
-
-+ (BOOL)allowsReverseTransformation { return NO; }
 
 - (id)transformedValue:(id)value
 {
