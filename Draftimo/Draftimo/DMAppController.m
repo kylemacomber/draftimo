@@ -99,7 +99,7 @@
         DLog(@"Launch Select Draft Window");
     }
     
-    self.authSheetController = nil;
+    //self.authSheetController = nil;
 }
 
 @end

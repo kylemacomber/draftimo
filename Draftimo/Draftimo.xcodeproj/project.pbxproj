@@ -39,6 +39,8 @@
 		A3EEA582132C4BF2006655E5 /* SplashScreenButtonCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EEA57F132C4BF2006655E5 /* SplashScreenButtonCenter.png */; };
 		A3EEA583132C4BF2006655E5 /* SplashScreenButtonLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EEA580132C4BF2006655E5 /* SplashScreenButtonLeft.png */; };
 		A3EEA584132C4BF2006655E5 /* SplashScreenButtonRight.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EEA581132C4BF2006655E5 /* SplashScreenButtonRight.png */; };
+		A3F426BC134161030072607C /* DMMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F426BB134161030072607C /* DMMapTransformer.m */; };
+		A3F426C2134165000072607C /* DMBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F426C1134165000072607C /* DMBoolTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +104,10 @@
 		A3EEA57F132C4BF2006655E5 /* SplashScreenButtonCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenButtonCenter.png; sourceTree = "<group>"; };
 		A3EEA580132C4BF2006655E5 /* SplashScreenButtonLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenButtonLeft.png; sourceTree = "<group>"; };
 		A3EEA581132C4BF2006655E5 /* SplashScreenButtonRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenButtonRight.png; sourceTree = "<group>"; };
+		A3F426BA134161030072607C /* DMMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMMapTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMMapTransformer.h; sourceTree = "<group>"; };
+		A3F426BB134161030072607C /* DMMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMapTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMMapTransformer.m; sourceTree = "<group>"; };
+		A3F426C0134165000072607C /* DMBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMBoolTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMBoolTransformer.h; sourceTree = "<group>"; };
+		A3F426C1134165000072607C /* DMBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBoolTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMBoolTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				A32A41C5133D154800596879 /* Categories */,
+				A3F426BA134161030072607C /* DMMapTransformer.h */,
+				A3F426BB134161030072607C /* DMMapTransformer.m */,
+				A3F426C0134165000072607C /* DMBoolTransformer.h */,
+				A3F426C1134165000072607C /* DMBoolTransformer.m */,
 				A3BF8BA913300D0E0084DFAE /* DMColoredView.h */,
 				A3BF8BAA13300D0E0084DFAE /* DMColoredView.m */,
 			);
@@ -348,6 +358,8 @@
 				A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */,
 				A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */,
 				A3145D55133F74B20080C768 /* Reachability.m in Sources */,
+				A3F426BC134161030072607C /* DMMapTransformer.m in Sources */,
+				A3F426C2134165000072607C /* DMBoolTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

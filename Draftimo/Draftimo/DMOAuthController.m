@@ -36,10 +36,10 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @end
 
 @implementation DMOAuthController
-//Public
+//** Public
 @synthesize oauthStateMask;
 @synthesize verifierCode;
-//Private
+//** Private
 @synthesize oauthAPI;
 @synthesize cachedRequestToken;
 @synthesize cachedRequestTokenSecret;
@@ -102,27 +102,14 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 #pragma mark API
 
-- (void)launchBrowser
-{
-    if (!self.userAuthURL) {
-        ALog(@"");
-        return;
-    }
-    
-    self.oauthStateMask = DMOAuthBrowserLaunched;
-    [[NSWorkspace sharedWorkspace] openURL:self.userAuthURL];
-}
-
 - (void)setVerifierCode:(NSString *)newVerifierCode
-{
-    DLog(@"");
-    
+{  
     newVerifierCode = [newVerifierCode copy];
     [verifierCode release];
     verifierCode = newVerifierCode;
 
     if (!verifierCode) {
-        self.oauthStateMask = DMOAuthBrowserLaunched;
+        self.oauthStateMask = DMOAuthRequestTokenRecieved;
         return; //we need to be able to blank the verifierCode w/o spawning an authentication   
     }
     
@@ -138,7 +125,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 - (BOOL)automaticallyRequestAuthenticationFromURL:(NSURL *)inAuthURL withCallbackURL:(NSURL *)inCallbackURL
 {
-    DLog(@"inAuthURL:%@ withCallbackURL:%@", inAuthURL, inCallbackURL);
     self.userAuthURL = inAuthURL;
     return NO;
 }
@@ -192,7 +178,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 - (void)accessTimeout
 {
-    DLog(@"");
     self.oauthStateMask = DMOAuthAccessTokenTimeout;
 }
 
@@ -228,14 +213,12 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 - (DMOAuthState)nextOAuthState
 {
-    DLog(@"");
     switch (self.oauthStateMask) {
         case DMOAuthUnreachable:
             return DMOAuthUnreachable;
         case DMOAuthUnauthenticated:
         case DMOAuthRequestTokenRequesting:
             return DMOAuthRequestTokenRequesting;
-        case DMOAuthBrowserLaunched:
         case DMOAuthRequestTokenRecieved:
         case DMOAuthAccessTokenTimeout:
         case DMOAuthAccessTokenRequesting:
