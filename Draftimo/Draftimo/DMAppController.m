@@ -10,7 +10,7 @@
 #import "DMConstants.h"
 #import "DMWelcomeWindowController.h"
 #import "DMAuthSheetController.h"
-#import <MPOAuth/MPURLRequestParameter.h>
+#import <JSON/JSON.h>
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) DMOAuthController *oauthController;
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
 - (void)showWelcomeWindow;
+- (void)getUserGames;
 @end
 
 @implementation DMAppController
@@ -60,12 +61,7 @@
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-    //TODO:see if the below code even did anything
-//    DLog(@"%@", notification);
-//    if (![self.oauthAPI isAuthenticated]) { //!!!: This has not been tested. Need to see the state of things when isAuthenticated becomes YES
-//        DLog(@"Not Authenticated. Discarding Credentials");
-//        [self.oauthAPI discardCredentials];
-//    }
+
 }
 
 #pragma mark App Navigation
@@ -82,6 +78,9 @@
 - (void)showSelectDraftWindow
 {
     DLog(@"");
+    if ((self.oauthController.oauthStateMask & DMOAuthAuthenticated) == DMOAuthAuthenticated) {
+        
+    }
     if (!self.authSheetController) {
         self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
     }
@@ -99,10 +98,24 @@
     } else /*DMAuthSuccess*/ {
         [sheet orderOut:self];
         self.authSheetController = nil;
+        [self getUserGames];
         DLog(@"Launch Select Draft Window");
     }
     
     //self.authSheetController = nil;
+}
+
+#pragma mark Private Methods
+
+- (void)performedMethodLoadForURL:(NSURL *)method withResponseBody:(NSString *)responseBody
+{
+    NSDictionary *response = [responseBody JSONValue];
+    DLog(@"%@", response);
+}
+
+- (void)getUserGames
+{
+    [self.oauthController performYFMethod:YFUserGamesMethod withParameters:nil withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
 }
 
 @end

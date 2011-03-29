@@ -126,6 +126,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A310DF3A1342424A00B8F341 /* Welcome Window */ = {
+			isa = PBXGroup;
+			children = (
+				A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */,
+				A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */,
+				A3E6F659133171770016E6B9 /* DMWelcomeWindowController.h */,
+				A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */,
+				A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */,
+			);
+			name = "Welcome Window";
+			sourceTree = "<group>";
+		};
+		A310DF3C1342425E00B8F341 /* Auth Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */,
+				A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */,
+				A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */,
+			);
+			name = "Auth Sheet";
+			sourceTree = "<group>";
+		};
 		A32A41C5133D154800596879 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,14 +175,8 @@
 		A3A8C5FF13280CE000FDB229 /* Draft Setup */ = {
 			isa = PBXGroup;
 			children = (
-				A3E6F659133171770016E6B9 /* DMWelcomeWindowController.h */,
-				A3E6F65A133171770016E6B9 /* DMWelcomeWindowController.m */,
-				A3E6F658133171770016E6B9 /* DMWelcomeWindow.xib */,
-				A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */,
-				A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */,
-				A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */,
-				A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */,
-				A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */,
+				A310DF3A1342424A00B8F341 /* Welcome Window */,
+				A310DF3C1342425E00B8F341 /* Auth Sheet */,
 			);
 			name = "Draft Setup";
 			sourceTree = "<group>";

@@ -19,7 +19,8 @@ enum {
     DMOAuthAccessTokenRequesting    = 1 << 4,
     DMOAuthAccessTokenTimeout       = 1 << 5,
     
-    DMOAuthAuthenticated            = 1 << 6
+    DMOAuthAccessTokenRefreshing    = 1 << 6,
+    DMOAuthAuthenticated            = 1 << 7
 };
 typedef NSUInteger DMOAuthState;
 // All DMOAuthStates are mutually exclusive *except* DMOAuthUnreachable. DMOAuthUnreachable may be combined with any other state, trumping it until the connection resumes.
@@ -30,4 +31,5 @@ typedef NSUInteger DMOAuthState;
 @property (nonatomic, copy, readonly) NSURL *userAuthURL;
 @property (nonatomic, copy) NSString *verifierCode;
 
+- (void)performYFMethod:(NSString *)theMethod withParameters:(NSDictionary *)theParameters withTarget:(id)theTarget andAction:(SEL)theAction;
 @end

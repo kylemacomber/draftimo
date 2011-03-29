@@ -9,11 +9,16 @@
 #import "DMOAuthController.h"
 #import "DMConstants.h"
 #import "Reachability.h"
+#import "NSDictionary-Utilities.h"
 #import <MPOAuth/MPURLRequestParameter.h>
-#import <JSON/JSON.h>
 
 
 static NSTimeInterval const authTimeoutInterval = 5.0;
+
+@interface DMDelayedBlockOperation :  NSBlockOperation {}
+@property (nonatomic, retain) Reachability *reachability;
+@property (nonatomic, assign) BOOL waitingForAuth;
+@end
 
 @interface DMOAuthController ()
 @property (nonatomic, assign, readwrite, setter = setOAuthStateMask:) DMOAuthState oauthStateMask;
@@ -21,6 +26,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 @property (nonatomic, retain) MPOAuthAPI *oauthAPI;
 @property (nonatomic, retain) Reachability *YAuthReachable;
+@property (nonatomic, retain) Reachability *YFReachable;
 @property (nonatomic, retain) NSMutableArray *waitingOperations;
 
 // If user enters verifier code before clicking agree, get requestTokenRejected response and MPOAuth nukes valid request token. I cache it to prevent that.
@@ -28,7 +34,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @property (nonatomic, copy) NSString *cachedRequestTokenSecret;
 
 - (void)accessTimeout;
-- (void)getUserGames;
 - (void)authenticate;
 - (void)discardCredentials;
 - (DMOAuthState)nextOAuthState;
@@ -44,6 +49,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @synthesize cachedRequestToken;
 @synthesize cachedRequestTokenSecret;
 @synthesize YAuthReachable;
+@synthesize YFReachable;
 @synthesize waitingOperations;
 @synthesize userAuthURL;
 
@@ -71,6 +77,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.YAuthReachable = [Reachability reachabilityWithHostName:YAuthHostName];
     [self.YAuthReachable startNotifier];
+    self.YFReachable = [Reachability reachabilityWithHostName:YFHostName];
+    [self.YFReachable startNotifier];
     self.waitingOperations = [NSMutableArray array];
     
     //** OAuthAPI Setup
@@ -87,7 +95,19 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     self.cachedRequestToken = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestToken];
     self.cachedRequestTokenSecret = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestTokenSecret];
     
-    self.oauthStateMask = ([self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken) ? DMOAuthAuthenticated : DMOAuthUnauthenticated; //self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken are the same tests MPOAuth uses internally
+    //These are the same tests MPOAuth uses internally, to decide its state
+    if ([self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken) {
+        NSTimeInterval expiryDateInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:MPOAuthTokenRefreshDateDefaultsKey];
+        NSDate *tokenExpiryDate = [NSDate dateWithTimeIntervalSinceReferenceDate:expiryDateInterval];
+        
+        if ([tokenExpiryDate compare:[NSDate date]] == NSOrderedAscending) {
+            self.oauthStateMask = DMOAuthAccessTokenRefreshing;
+        } else {
+            self.oauthStateMask = DMOAuthAuthenticated;
+        }
+    } else {
+        self.oauthStateMask = DMOAuthUnauthenticated;
+    }
     
     const id authMethod = self.oauthAPI.authenticationMethod;
     if ([authMethod isKindOfClass: [MPOAuthAuthenticationMethodOAuth class]]) {
@@ -104,7 +124,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 - (void)setVerifierCode:(NSString *)newVerifierCode
 {  
-    DLog(@"%@", newVerifierCode);
     newVerifierCode = [newVerifierCode copy];
     [verifierCode release];
     verifierCode = newVerifierCode;
@@ -115,6 +134,25 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     }
     
     [self authenticate];
+}
+
+- (void)performYFMethod:(NSString *)theMethod withParameters:(NSDictionary *)theParameters withTarget:(id)theTarget andAction:(SEL)theAction
+{
+    // If Yahoo! unreachable or we haven't authenticated yet (or both) add performYFMethod to a queue and execute once these conditions are satisfied    
+    const BOOL waitingForAuth = (self.oauthStateMask & DMOAuthAuthenticated) == DMOAuthAuthenticated;
+    if ([self.YFReachable currentReachabilityStatus] == NotReachable || waitingForAuth) {
+        DMDelayedBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+            [self performYFMethod:theMethod withParameters:theParameters withTarget:theTarget andAction:theAction];
+        }];
+        blockOperation.reachability = self.YFReachable;
+        blockOperation.waitingForAuth = waitingForAuth;
+        [self.waitingOperations addObject:blockOperation];
+        return;
+    }
+    
+    NSMutableDictionary *parameters = [[theParameters mutableCopy] autorelease];
+    [parameters setObject:@"json" forKey:@"key"];
+    [self.oauthAPI performMethod:theMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:parameters] withTarget:theTarget andAction:theAction];
 }
 
 #pragma mark MPOAuthAuthenticationMethodOAuthDelegate
@@ -137,6 +175,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     DLog(@"%@, %d", notification, [(Reachability *)[notification object] currentReachabilityStatus]);
     const BOOL reachable = [self.YAuthReachable currentReachabilityStatus] != NotReachable;
     [self setOAuthStateMaskReachable:reachable];
+#warning EXECUTE WAITING OPERATIONS HERE REMEMBER TO CHECK CONDITIONS    
     if (reachable && [self.waitingOperations count]) {
         [[NSOperationQueue mainQueue] addOperations:self.waitingOperations waitUntilFinished:NO];
         [self.waitingOperations removeAllObjects];
@@ -158,7 +197,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     } else if (notificationKey == MPOAuthNotificationAccessTokenReceived || notificationKey == MPOAuthNotificationAccessTokenRefreshed) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
         self.oauthStateMask = DMOAuthAuthenticated;
-        [self getUserGames];
+        
+#warning EXECUTE WAITING OPERATIONS HERE REMEMBER TO CHECK CONDITIONS
         
     //** Error
     } else {
@@ -224,6 +264,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
         case DMOAuthAccessTokenTimeout:
         case DMOAuthAccessTokenRequesting:
             return DMOAuthAccessTokenRequesting;
+        case DMOAuthAccessTokenRefreshing:
+            return DMOAuthAccessTokenRefreshing;
         default:
             return DMOAuthAuthenticated;
     }
@@ -233,9 +275,12 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 {
     DLog(@"%@, %d", self.oauthAPI, self.oauthStateMask);    
     
-    // If Yahoo! unreachable, add -authenticate to queue to execute when connection returns
+    // If Yahoo! unreachable, add -authenticate to queue to execute when connection returns    
     if ([self.YAuthReachable currentReachabilityStatus] == NotReachable) {
-        [self.waitingOperations addObject:[[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(authenticate) object:nil] autorelease]];
+        DMDelayedBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{[self authenticate];}];
+        blockOperation.reachability = self.YAuthReachable;
+        blockOperation.waitingForAuth = NO;
+        [self.waitingOperations addObject:blockOperation];
         return;
     }
     
@@ -253,18 +298,9 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     self.oauthStateMask = DMOAuthUnauthenticated;
 }
 
-- (void)performedMethodLoadForURL:(NSURL *)method withResponseBody:(NSString *)responseBody
-{
-    NSDictionary *response = [responseBody JSONValue];
-    DLog(@"%@", response);
-//    if ([response objectForKey:@"error"] && self.oauthState < DMOAuthAuthenticated) {
-//        [self authenticate];
-//    }
-}
+@end
 
-- (void)getUserGames
-{
-    [self.oauthAPI performMethod:YFUserGamesMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:[NSDictionary dictionaryWithObject:@"json" forKey:@"format"]] withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
-}
-
+@implementation DMDelayedBlockOperation
+@synthesize reachability;
+@synthesize waitingForAuth;
 @end
