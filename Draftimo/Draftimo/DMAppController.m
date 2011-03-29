@@ -82,7 +82,9 @@
 - (void)showSelectDraftWindow
 {
     DLog(@"");
-    self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
+    if (!self.authSheetController) {
+        self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
+    }
     [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.welcomeWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 }
 
@@ -96,6 +98,7 @@
         //[self.oauthController discardCredentials]; TODO:see if this does anything
     } else /*DMAuthSuccess*/ {
         [sheet orderOut:self];
+        self.authSheetController = nil;
         DLog(@"Launch Select Draft Window");
     }
     
