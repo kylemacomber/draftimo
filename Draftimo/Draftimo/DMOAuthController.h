@@ -31,5 +31,6 @@ typedef NSUInteger DMOAuthState;
 @property (nonatomic, copy, readonly) NSURL *userAuthURL;
 @property (nonatomic, copy) NSString *verifierCode;
 
+- (BOOL)oauthStateMaskMatches:(DMOAuthState)state; //returns (self.oauthStateMask & state) == state
 - (void)performYFMethod:(NSString *)theMethod withParameters:(NSDictionary *)theParameters withTarget:(id)theTarget andAction:(SEL)theAction;
 @end

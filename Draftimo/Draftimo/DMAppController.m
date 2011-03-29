@@ -78,13 +78,17 @@
 - (void)showSelectDraftWindow
 {
     DLog(@"");
-    if ((self.oauthController.oauthStateMask & DMOAuthAuthenticated) == DMOAuthAuthenticated) {
+    if (![self.oauthController oauthStateMaskMatches:DMOAuthAuthenticated] && ![self.oauthController oauthStateMaskMatches:DMOAuthAccessTokenRefreshing]) {
+        if (!self.authSheetController) {
+            self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
+        }
+        [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.welcomeWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
         
+        return;
     }
-    if (!self.authSheetController) {
-        self.authSheetController = [[[DMAuthSheetController alloc] init] autorelease];
-    }
-    [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.welcomeWindowController.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
+    
+    DLog(@"Launch Select Draft Window");
+    [self getUserGames];
 }
 
 #pragma AuthWindow ModalDelegate
@@ -94,15 +98,12 @@
     DLog(@"");
     if (returnCode == DMAuthCancel) {
         [sheet orderOut:self];
-        //[self.oauthController discardCredentials]; TODO:see if this does anything
-    } else /*DMAuthSuccess*/ {
-        [sheet orderOut:self];
-        self.authSheetController = nil;
-        [self getUserGames];
-        DLog(@"Launch Select Draft Window");
+        return;
     }
     
-    //self.authSheetController = nil;
+    [sheet orderOut:self];
+    self.authSheetController = nil;
+    [self showSelectDraftWindow];
 }
 
 #pragma mark Private Methods

@@ -33,11 +33,12 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @property (nonatomic, copy) NSString *cachedRequestToken;
 @property (nonatomic, copy) NSString *cachedRequestTokenSecret;
 
+- (void)setOAuthStateMaskReachable:(BOOL)reachable;
 - (void)accessTimeout;
+- (DMOAuthState)nextOAuthState;
 - (void)authenticate;
 - (void)discardCredentials;
-- (DMOAuthState)nextOAuthState;
-- (void)setOAuthStateMaskReachable:(BOOL)reachable;
+- (void)launchReadyOperations;
 @end
 
 @implementation DMOAuthController
@@ -61,6 +62,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     self.cachedRequestToken = nil;
     self.cachedRequestTokenSecret = nil;
     self.YAuthReachable = nil;
+    self.YFReachable = nil;
     self.waitingOperations = nil;
     self.userAuthURL = nil;
 
@@ -95,8 +97,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     self.cachedRequestToken = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestToken];
     self.cachedRequestTokenSecret = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestTokenSecret];
     
-    //These are the same tests MPOAuth uses internally, to decide its state
-    if ([self.oauthAPI credentials].accessToken && [self.oauthAPI credentials].requestToken) {
+    //These are based off of the tests MPOAuth uses internally to decide its state
+    if ([self.oauthAPI credentials].accessToken) {
         NSTimeInterval expiryDateInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:MPOAuthTokenRefreshDateDefaultsKey];
         NSDate *tokenExpiryDate = [NSDate dateWithTimeIntervalSinceReferenceDate:expiryDateInterval];
         
@@ -136,12 +138,17 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     [self authenticate];
 }
 
+- (BOOL)oauthStateMaskMatches:(DMOAuthState)state
+{
+    return (self.oauthStateMask & state) == state;
+}
+
 - (void)performYFMethod:(NSString *)theMethod withParameters:(NSDictionary *)theParameters withTarget:(id)theTarget andAction:(SEL)theAction
 {
     // If Yahoo! unreachable or we haven't authenticated yet (or both) add performYFMethod to a queue and execute once these conditions are satisfied    
-    const BOOL waitingForAuth = (self.oauthStateMask & DMOAuthAuthenticated) == DMOAuthAuthenticated;
+    const BOOL waitingForAuth = ![self oauthStateMaskMatches:DMOAuthAuthenticated];
     if ([self.YFReachable currentReachabilityStatus] == NotReachable || waitingForAuth) {
-        DMDelayedBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+        DMDelayedBlockOperation *blockOperation = [DMDelayedBlockOperation blockOperationWithBlock:^{
             [self performYFMethod:theMethod withParameters:theParameters withTarget:theTarget andAction:theAction];
         }];
         blockOperation.reachability = self.YFReachable;
@@ -150,8 +157,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
         return;
     }
     
-    NSMutableDictionary *parameters = [[theParameters mutableCopy] autorelease];
-    [parameters setObject:@"json" forKey:@"key"];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"json" forKey:@"format"];
+    [parameters addEntriesFromDictionary:theParameters];
     [self.oauthAPI performMethod:theMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:parameters] withTarget:theTarget andAction:theAction];
 }
 
@@ -173,13 +180,8 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 - (void)reachabilityChanged:(NSNotification *)notification
 {
     DLog(@"%@, %d", notification, [(Reachability *)[notification object] currentReachabilityStatus]);
-    const BOOL reachable = [self.YAuthReachable currentReachabilityStatus] != NotReachable;
-    [self setOAuthStateMaskReachable:reachable];
-#warning EXECUTE WAITING OPERATIONS HERE REMEMBER TO CHECK CONDITIONS    
-    if (reachable && [self.waitingOperations count]) {
-        [[NSOperationQueue mainQueue] addOperations:self.waitingOperations waitUntilFinished:NO];
-        [self.waitingOperations removeAllObjects];
-    }
+    [self setOAuthStateMaskReachable:([self.YAuthReachable currentReachabilityStatus] != NotReachable)];
+    [self launchReadyOperations];
 }
 
 #pragma mark MPOAuthNotifications
@@ -197,9 +199,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     } else if (notificationKey == MPOAuthNotificationAccessTokenReceived || notificationKey == MPOAuthNotificationAccessTokenRefreshed) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(accessTimeout) object:nil];
         self.oauthStateMask = DMOAuthAuthenticated;
-        
-#warning EXECUTE WAITING OPERATIONS HERE REMEMBER TO CHECK CONDITIONS
-        
+        [self launchReadyOperations];
     //** Error
     } else {
         // If the user inputs a verifierCode before clicking "Agree" on Yahoo!, the requestToken is rejected
@@ -217,11 +217,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     }
 }
 
-- (void)accessTimeout
-{
-    self.oauthStateMask = DMOAuthAccessTokenTimeout;
-}
-
 #pragma mark Private Methods
 
 - (void)setOAuthStateMask:(DMOAuthState)newStateMask
@@ -229,7 +224,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     if (newStateMask == DMOAuthUnreachable) { ALog(@"use -setOAuthStateMaskReachable: to set the oauthStateMask reachable or unreachable"); }
     
     [self willChangeValueForKey:@"oauthStateMask"];
-    if ((oauthStateMask & DMOAuthUnreachable) == DMOAuthUnreachable) {
+    if ([self oauthStateMaskMatches:DMOAuthUnreachable]) {
         oauthStateMask = DMOAuthUnreachable;
     } else {
         oauthStateMask = 0;
@@ -250,6 +245,11 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     }
     
     [self didChangeValueForKey:@"oauthStateMask"];
+}
+
+- (void)accessTimeout
+{
+    self.oauthStateMask = DMOAuthAccessTokenTimeout;
 }
 
 - (DMOAuthState)nextOAuthState
@@ -277,7 +277,7 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     
     // If Yahoo! unreachable, add -authenticate to queue to execute when connection returns    
     if ([self.YAuthReachable currentReachabilityStatus] == NotReachable) {
-        DMDelayedBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{[self authenticate];}];
+        DMDelayedBlockOperation *blockOperation = [DMDelayedBlockOperation blockOperationWithBlock:^{[self authenticate];}];
         blockOperation.reachability = self.YAuthReachable;
         blockOperation.waitingForAuth = NO;
         [self.waitingOperations addObject:blockOperation];
@@ -298,9 +298,37 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     self.oauthStateMask = DMOAuthUnauthenticated;
 }
 
+- (void)launchReadyOperations
+{
+    //Operations are ready to be executed if their host is reachable and if they've been waiting for the oauthState to match DMOAuthAuthenticated
+    NSIndexSet *const readyOperationIndexes = [self.waitingOperations indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        DMDelayedBlockOperation *const operation = obj;
+        if ([operation.reachability currentReachabilityStatus] == NotReachable) return NO;
+        if (operation.waitingForAuth) {
+            return [self oauthStateMaskMatches:DMOAuthAuthenticated];
+        }
+        return YES;
+    }];
+    
+    
+    if ([readyOperationIndexes count]) {
+        [[NSOperationQueue mainQueue] addOperations:[self.waitingOperations objectsAtIndexes:readyOperationIndexes] waitUntilFinished:NO];
+        [self.waitingOperations removeObjectsAtIndexes:readyOperationIndexes];
+    }
+}
+
 @end
+
+#pragma mark Private Classes
 
 @implementation DMDelayedBlockOperation
 @synthesize reachability;
 @synthesize waitingForAuth;
+
+- (void)dealloc
+{
+    self.reachability = nil;
+    self.waitingForAuth = 0;
+    [super dealloc];
+}
 @end
