@@ -104,7 +104,6 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 - (void)setVerifierCode:(NSString *)newVerifierCode
 {  
-    DLog(@"%@", newVerifierCode);
     newVerifierCode = [newVerifierCode copy];
     [verifierCode release];
     verifierCode = newVerifierCode;
