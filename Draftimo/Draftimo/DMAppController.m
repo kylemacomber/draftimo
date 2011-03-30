@@ -112,11 +112,12 @@
 {
     NSDictionary *response = [responseBody JSONValue];
     DLog(@"%@", response);
+    
 }
 
 - (void)getUserGames
 {
-    [self.oauthController performYFMethod:YFUserGamesMethod withParameters:nil withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
+    [self.oauthController performYFMethod:YFUserLeaguesMethod withParameters:nil withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
 }
 
 @end

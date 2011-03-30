@@ -19,4 +19,4 @@ extern NSString *const YUserAuthURL;
 // Fantasy API
 extern NSString *const YFHostName;
 extern NSString *const YFBaseURL;
-extern NSString *const YFUserGamesMethod;
+extern NSString *const YFUserLeaguesMethod;

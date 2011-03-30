@@ -19,4 +19,4 @@ NSString *const YUserAuthURL = @"https://api.login.yahoo.com/oauth/v2/request_au
 // Fantasy API
 NSString *const YFHostName = @"fantasysports.yahooapis.com";
 NSString *const YFBaseURL = @"http://fantasysports.yahooapis.com/fantasy/v2/";
-NSString *const YFUserGamesMethod = @"users;use_login=1/games";
+NSString *const YFUserLeaguesMethod = @"users;use_login=1/games/leagues;out=settings,teams";
