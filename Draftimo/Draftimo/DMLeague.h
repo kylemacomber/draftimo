@@ -27,16 +27,19 @@
 @property (nonatomic, assign) NSUInteger pick; //from this I should be able to calculate whose pick it is as well as what round it is and what direction the picks are moving in the snake
 @end
 
-@interface DMLeague : NSObject {}
-
-@property (nonatomic, copy) NSString *game; //game/name
+@interface DMGame: NSObject {}
+@property (nonatomic, copy) NSString *game; //game/name, maybe name it sport? im afraid though itll be like Tournament Pick'em, which isn't a sport
 @property (nonatomic, copy) NSString *gameID; //game/game_id
 @property (nonatomic, copy) NSString *season; //game/season
 @property (nonatomic, copy) NSString *gameType; //game/type = 'full'
+@property (nonatomic, copy) NSString *code; //game/code ex:mlb, nfl, pmlb... might be better to make an enum of this and use this for logic rather than the sport anme designation
+@property (nonatomic, copy) NSArray *leagues; //an array of DMLeague(s)
+@end
 
+@interface DMLeague : NSObject {}
 @property (nonatomic, assign) BOOL drafted; //league/draft_status <- if there is only predraft and postdraft, then keep as a bool, but if there is indraft or something like that then make into enum
 @property (nonatomic, assign) NSUInteger numTeams; //league/num_teams
-@property (nonatomic, copy) NSString *leagueName; //league/name
+@property (nonatomic, copy) NSString *name; //league/name
 @property (nonatomic, copy) NSString *leagueID; //league/league_id
 
 @property (nonatomic, copy) NSString *scoringType; //league/scoring_type <- Make this an enum if I can figure out all the different values
@@ -45,6 +48,7 @@
 @property (nonatomic, copy) NSArray *teams; //an array of DMTeam(s), need separate webservice call to get this
 @property (nonatomic, copy) DMTeam *userTeam; //team
 
+@property (nonatomic, copy) NSArray *players; //an array of DMPlayer(s)
 @end
 
 @interface DMPosition : NSObject {}
@@ -60,8 +64,8 @@
 
 @interface DMStat : NSObject {}
 
-@property (nonatomic, copy) NSString *abbr; //league/settings/stat_categories/stats/stat/display_name //ex: ERA
-@property (nonatomic, copy) NSString *name; //league/settings/stat_categories/stats/stat/name         //ex: Earned Run Average
+@property (nonatomic, copy) NSString *name; //league/settings/stat_categories/stats/stat/display_name //ex: ERA
+@property (nonatomic, copy) NSString *longName; //league/settings/stat_categories/stats/stat/name         //ex: Earned Run Average
 @property (nonatomic, assign) NSUInteger positionType; //league/settings/stat_categories/stats/stat/position_type //for baseball it is B or P... end up loading this from plist
 @property (nonatomic, assign) BOOL increasing; //league/settings/stat_categories/stats/sort_order 1=increasing, 0=decreasing //also probably end up loading this from plist
 //@property (nonatomic, assign) BOOL ratio;
