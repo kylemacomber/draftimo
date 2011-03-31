@@ -157,9 +157,9 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
         return;
     }
     
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"json" forKey:@"format"];
-    [parameters addEntriesFromDictionary:theParameters];
-    [self.oauthAPI performMethod:theMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:parameters] withTarget:theTarget andAction:theAction];
+//    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"json" forKey:@"format"];
+//    [parameters addEntriesFromDictionary:theParameters];
+    [self.oauthAPI performMethod:theMethod atURL:[NSURL URLWithString:YFBaseURL] withParameters:[MPURLRequestParameter parametersFromDictionary:theParameters] withTarget:theTarget andAction:theAction];
 }
 
 #pragma mark MPOAuthAuthenticationMethodOAuthDelegate

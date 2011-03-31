@@ -68,7 +68,7 @@
 @implementation DMTeam
 @synthesize name; //team/name
 @synthesize teamID; //team/team_id
-@synthesize managerNames; //team/managers/manager/nickname //an array of NSString(s)
+@synthesize managers; //team/managers/manager/nickname //an array of NSString(s)
 @synthesize players;
 @synthesize roster;
 @synthesize dollars;

@@ -77,7 +77,7 @@
 
 @property (nonatomic, copy) NSString *name; //team/name
 @property (nonatomic, copy) NSString *teamID; //team/team_id
-@property (nonatomic, copy) NSArray *managerNames; //team/managers/manager/nickname //an array of NSString(s)
+@property (nonatomic, copy) NSArray *managers; //team/managers/manager/nickname //an array of NSString(s)
 @property (nonatomic, copy) NSArray *players; //stores players in order they have been added to this team
 @property (nonatomic, copy) NSDictionary *roster; //stores current layout of teamView (might need to make it a retained NSMutableDictionary)
 @property (nonatomic, assign) NSDecimal dollars;
