@@ -56,32 +56,31 @@ static NSDictionary *YFtoDM= nil;
         ALog(@""); //maybe find a way to call getUserGames or whatever method
     }
     
+    id(^objFromNode)(Class, NSXMLNode *) = ^(Class class, NSXMLNode *xml) {
+        id obj = [[[class alloc] init] autorelease];
+        NSDictionary *values = [self dictForNode:xml];
+        values = [obj validateValuesForKeysWithDictionary:values error:nil];
+        [obj setValuesForKeysWithDictionary:values];
+        return obj;
+    };
+    
     NSMutableArray *games = [NSMutableArray array];
     for (NSXMLNode *xgame in [doc nodesForXPath:@"./fantasy_content/users/user/games/game" error:nil]) {
-        DMGame *game = [[[DMGame alloc] init] autorelease];
-        NSDictionary *gameValues = [self dictForNode:xgame];
-        gameValues = [game validateValuesForKeysWithDictionary:gameValues error:nil];
-        [game setValuesForKeysWithDictionary:gameValues];
+        DMGame *game = objFromNode([DMGame class], xgame);
         
         NSMutableArray *leagues = [NSMutableArray array];
         for (NSXMLNode *xleague in [xgame nodesForXPath:@"./leagues/league" error:nil]) {
-            DMLeague *league = [[[DMLeague alloc] init] autorelease];
-            NSDictionary *leagueValues = [self dictForNode:xleague];
-            leagueValues = [league validateValuesForKeysWithDictionary:leagueValues error:nil];
-            [league setValuesForKeysWithDictionary:leagueValues];
-            
+            DMLeague *league = objFromNode([DMLeague class], xleague);
             {
                 NSXMLNode *xsettings = [[xleague nodesForXPath:@"./settings" error:nil] lastObject];
                 NSDictionary *settingValues = [self dictForNode:xsettings];
-                settingValues = [league validateValuesForKeysWithDictionary:leagueValues error:nil];
+                settingValues = [league validateValuesForKeysWithDictionary:settingValues error:nil];
                 [league setValuesForKeysWithDictionary:settingValues];
                 {
                     NSMutableArray *positions = [NSMutableArray array];
                     for (NSXMLNode *xposition in [xsettings nodesForXPath:@"./roster_positions/roster_position" error:nil]) {
-                        DMPosition *position = [[[DMPosition alloc] init] autorelease];                
-                        NSDictionary *positionValues = [self dictForNode:xposition];
-                        positionValues = [position validateValuesForKeysWithDictionary:positionValues error:nil];
-                        [position setValuesForKeysWithDictionary:positionValues];
+                        DMPosition *position = objFromNode([DMPosition class], xposition);
+                        
                         [positions addObject:position];
                     }
                     [league setValue:positions forKey:@"positions"];
@@ -90,10 +89,8 @@ static NSDictionary *YFtoDM= nil;
                     NSMutableArray *stats = [NSMutableArray array];
                     for (NSXMLNode *xstat in [xsettings nodesForXPath:@"./stat_categories/stats/stat" error:nil]) {
                         if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
-                        DMStat *stat = [[[DMStat alloc] init] autorelease];
-                        NSDictionary *statValues = [self dictForNode:xstat];
-                        statValues = [stat validateValuesForKeysWithDictionary:statValues error:nil];
-                        [stat setValuesForKeysWithDictionary:statValues];
+                        DMStat *stat = objFromNode([DMStat class], xstat);
+
                         [stats addObject:stat];
                     }
                     [league setValue:stats forKey:@"stats"];
@@ -101,12 +98,8 @@ static NSDictionary *YFtoDM= nil;
             }
             
             {
-                DMTeam *userTeam = [[[DMTeam alloc] init] autorelease];
                 NSXMLNode *xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
-                
-                NSDictionary *teamValues = [self dictForNode:xteam];
-                teamValues = [userTeam validateValuesForKeysWithDictionary:teamValues error:nil];
-                [userTeam setValuesForKeysWithDictionary:teamValues];
+                DMTeam *userTeam = objFromNode([DMStat class], xteam);
                 
                 NSMutableArray *managers = [NSMutableArray array];
                 for (NSXMLNode *xmanager in [xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) {
