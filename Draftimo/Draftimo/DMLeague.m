@@ -126,7 +126,7 @@
     }
     
     if ([*ioValue isKindOfClass:[NSString class]]) {
-        *ioValue = [*ioValue isEqualToString:@"1"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO];
+        *ioValue = ([*ioValue isEqualToString:@"1"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO]);
         return YES;
     }
     

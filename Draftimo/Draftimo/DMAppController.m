@@ -164,8 +164,8 @@
                 {
                     NSMutableArray *stats = [NSMutableArray array];
                     for (NSXMLNode *xstat in [xsettings nodesForXPath:@"./stat_categories/stats/stat" error:nil]) {
-                        if ([xstat nodesForXPath:@"./is_only_display_stat" error:nil]) continue;
-                        DMPosition *stat = [[[DMPosition alloc] init] autorelease];
+                        if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
+                        DMStat *stat = [[[DMStat alloc] init] autorelease];
                         NSDictionary *statValues = [self dictForNode:xstat];
                         statValues = [stat validateValuesForKeysWithDictionary:statValues error:nil];
                         [stat setValuesForKeysWithDictionary:statValues];
