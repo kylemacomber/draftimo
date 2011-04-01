@@ -10,7 +10,9 @@
 #import "DMConstants.h"
 #import "DMWelcomeWindowController.h"
 #import "DMAuthSheetController.h"
-#import <JSON/JSON.h>
+#import "DMLeague.h"
+#import "YFXMLParser.h"
+
 
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) DMOAuthController *oauthController;
@@ -108,28 +110,9 @@
 
 #pragma mark Private Methods
 
-- (void)performedMethodLoadForURL:(NSURL *)method withResponseBody:(NSString *)responseBody
-{
-    NSDictionary *response = [responseBody JSONValue];
-    DLog(@"%@", response);
-    //[[[[[[[response valueForKeyPath:@"fantasy_content.users.0.user"] lastObject] valueForKeyPath:@"games.0.game"] lastObject] valueForKeyPath:@"leagues.0.league"] lastObject] valueForKeyPath:@"teams.0.team"]
-    
-    NSDictionary *const games = [[[response valueForKeyPath:@"fantasy_content.users.0.user"] lastObject] valueForKey:@"games"];
-    for (NSString *gameKey in [games allKeys]) {
-        if (gameKey == @"count") continue;
-        NSDictionary *const game = [games objectForKey:gameKey];
-        for (NSDictionary *resource in game) {
-            //metadata => leagues
-                //for each league settings and userTeam
-        }
-        
-        [[games objectForKey:gameKey] valueForKeyPath:@"game"];
-    }
-}
-
 - (void)getUserGames
 {
-    [self.oauthController performYFMethod:YFUserLeaguesMethod withParameters:nil withTarget:self andAction:@selector(performedMethodLoadForURL:withResponseBody:)];
+    [self.oauthController performYFMethod:YFUserLeaguesMethod withParameters:nil withTarget:[YFXMLParser class] andAction:@selector(parseYFXMLMethod:withResponseBody:)];
 }
 
 @end

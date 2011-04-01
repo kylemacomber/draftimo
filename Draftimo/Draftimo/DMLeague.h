@@ -46,7 +46,7 @@
 @property (nonatomic, copy) NSArray *positions; //league/settings/roster_positions an array of DMPosition(s)
 @property (nonatomic, copy) NSArray *stats; //league/settings/stat_categories an array of DMStat(s)
 @property (nonatomic, copy) NSArray *teams; //an array of DMTeam(s), need separate webservice call to get this
-@property (nonatomic, copy) DMTeam *userTeam; //team
+@property (nonatomic, retain) DMTeam *userTeam; //team
 
 @property (nonatomic, copy) NSArray *players; //an array of DMPlayer(s)
 @end
@@ -66,7 +66,7 @@
 
 @property (nonatomic, copy) NSString *name; //league/settings/stat_categories/stats/stat/display_name //ex: ERA
 @property (nonatomic, copy) NSString *longName; //league/settings/stat_categories/stats/stat/name         //ex: Earned Run Average
-@property (nonatomic, assign) NSUInteger positionType; //league/settings/stat_categories/stats/stat/position_type //for baseball it is B or P... end up loading this from plist
+@property (nonatomic, copy) NSString *positionType; //league/settings/stat_categories/stats/stat/position_type //for baseball it is B or P... end up loading this from plist
 @property (nonatomic, assign) BOOL increasing; //league/settings/stat_categories/stats/sort_order 1=increasing, 0=decreasing //also probably end up loading this from plist
 //@property (nonatomic, assign) BOOL ratio;
 //@property (nonatomic, assign) ???? equation;
@@ -77,7 +77,7 @@
 
 @property (nonatomic, copy) NSString *name; //team/name
 @property (nonatomic, copy) NSString *teamID; //team/team_id
-@property (nonatomic, copy) NSArray *managerNames; //team/managers/manager/nickname //an array of NSString(s)
+@property (nonatomic, copy) NSArray *managers; //team/managers/manager/nickname //an array of NSString(s)
 @property (nonatomic, copy) NSArray *players; //stores players in order they have been added to this team
 @property (nonatomic, copy) NSDictionary *roster; //stores current layout of teamView (might need to make it a retained NSMutableDictionary)
 @property (nonatomic, assign) NSDecimal dollars;
