@@ -65,55 +65,50 @@ static NSDictionary *YFtoDM= nil;
     };
     
     NSMutableArray *games = [NSMutableArray array];
-    for (NSXMLNode *xgame in [doc nodesForXPath:@"./fantasy_content/users/user/games/game" error:nil]) {
-        DMGame *game = objFromNode([DMGame class], xgame);
-        
+    for (NSXMLNode *xgame in [doc nodesForXPath:@"./fantasy_content/users/user/games/game" error:nil]) {        
         NSMutableArray *leagues = [NSMutableArray array];
         for (NSXMLNode *xleague in [xgame nodesForXPath:@"./leagues/league" error:nil]) {
-            DMLeague *league = objFromNode([DMLeague class], xleague);
-            {
-                NSXMLNode *xsettings = [[xleague nodesForXPath:@"./settings" error:nil] lastObject];
-                NSDictionary *settingValues = [self dictForNode:xsettings];
-                settingValues = [league validateValuesForKeysWithDictionary:settingValues error:nil];
-                [league setValuesForKeysWithDictionary:settingValues];
-                {
-                    NSMutableArray *positions = [NSMutableArray array];
-                    for (NSXMLNode *xposition in [xsettings nodesForXPath:@"./roster_positions/roster_position" error:nil]) {
-                        DMPosition *position = objFromNode([DMPosition class], xposition);
-                        
-                        [positions addObject:position];
-                    }
-                    [league setValue:positions forKey:@"positions"];
-                }
-                {
-                    NSMutableArray *stats = [NSMutableArray array];
-                    for (NSXMLNode *xstat in [xsettings nodesForXPath:@"./stat_categories/stats/stat" error:nil]) {
-                        if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
-                        DMStat *stat = objFromNode([DMStat class], xstat);
+            NSXMLNode *xsettings = [[xleague nodesForXPath:@"./settings" error:nil] lastObject];
+            // Positions
+            NSMutableArray *positions = [NSMutableArray array];
+            for (NSXMLNode *xposition in [xsettings nodesForXPath:@"./roster_positions/roster_position" error:nil]) {
+                DMPosition *position = objFromNode([DMPosition class], xposition);
+                
+                [positions addObject:position];
+            }
+            // Stats
+            NSMutableArray *stats = [NSMutableArray array];
+            for (NSXMLNode *xstat in [xsettings nodesForXPath:@"./stat_categories/stats/stat" error:nil]) {
+                if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
+                DMStat *stat = objFromNode([DMStat class], xstat);
 
-                        [stats addObject:stat];
-                    }
-                    [league setValue:stats forKey:@"stats"];
-                }
+                [stats addObject:stat];
             }
+            // Team
+            NSXMLNode *xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
+            DMTeam *userTeam = objFromNode([DMStat class], xteam);
+            NSMutableArray *managers = [NSMutableArray array];
+            for (NSXMLNode *xmanager in [xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) {
+                [managers addObject:[xmanager objectValue]];
+            }
+            [userTeam setValue:managers forKey:@"managers"];
+            // League
+            DMLeague *league = objFromNode([DMLeague class], xleague);
+            NSDictionary *settingValues = [self dictForNode:xsettings];
+            settingValues = [league validateValuesForKeysWithDictionary:settingValues error:nil];
             
-            {
-                NSXMLNode *xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
-                DMTeam *userTeam = objFromNode([DMStat class], xteam);
-                
-                NSMutableArray *managers = [NSMutableArray array];
-                for (NSXMLNode *xmanager in [xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) {
-                    [managers addObject:[xmanager objectValue]];
-                }
-                
-                [userTeam setValue:managers forKey:@"managers"];
-                [league setValue:userTeam forKey:@"userTeam"];
-            }
+            [league setValuesForKeysWithDictionary:settingValues];
+            [league setValue:positions forKey:@"positions"];
+            [league setValue:userTeam forKey:@"userTeam"];
+            [league setValue:stats forKey:@"stats"];
             [leagues addObject:league];
         }
+        DMGame *game = objFromNode([DMGame class], xgame);
         [game setValue:leagues forKey:@"leagues"];
         [games addObject:game];
     }
+    
+    [doc release];
 }
 
 @end
