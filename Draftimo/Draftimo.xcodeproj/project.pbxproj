@@ -15,6 +15,8 @@
 		A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
 		A37498C61339494100EC7841 /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37498C51339494100EC7841 /* DMOAuthController.m */; };
+		A38F16D2134589B1002A9B67 /* YFtoDMMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */; };
+		A38F16D513459DB9002A9B67 /* NSKeyValueCoding-Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F16D413459DB9002A9B67 /* NSKeyValueCoding-Additions.m */; };
 		A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */; };
 		A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A2067D1342E92600FFC800 /* DMLeague.m */; };
 		A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */; };
@@ -72,6 +74,9 @@
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A37498C41339494100EC7841 /* DMOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOAuthController.h; sourceTree = "<group>"; };
 		A37498C51339494100EC7841 /* DMOAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMOAuthController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = YFtoDMMap.plist; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFtoDMMap.plist; sourceTree = "<group>"; };
+		A38F16D313459DB9002A9B67 /* NSKeyValueCoding-Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSKeyValueCoding-Additions.h"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSKeyValueCoding-Additions.h"; sourceTree = "<group>"; };
+		A38F16D413459DB9002A9B67 /* NSKeyValueCoding-Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSKeyValueCoding-Additions.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSKeyValueCoding-Additions.m"; sourceTree = "<group>"; };
 		A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSplashScreenButtonCell.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.h; sourceTree = "<group>"; };
 		A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSplashScreenButtonCell.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.m; sourceTree = "<group>"; };
 		A3A2067C1342E92600FFC800 /* DMLeague.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeague.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.h; sourceTree = "<group>"; };
@@ -156,6 +161,8 @@
 			children = (
 				A32A41C7133D156A00596879 /* NSDictionary-Utilities.h */,
 				A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */,
+				A38F16D313459DB9002A9B67 /* NSKeyValueCoding-Additions.h */,
+				A38F16D413459DB9002A9B67 /* NSKeyValueCoding-Additions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 				A3EA27741327461C0072AC66 /* main.m */,
 				A3EA27761327461C0072AC66 /* Credits.rtf */,
 				A313E608132F1131006DDE67 /* Localizable.strings */,
+				A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -366,6 +374,7 @@
 				A3BF8BB413302A1D0084DFAE /* Status_Conflict.png in Resources */,
 				A3E6F65B133171770016E6B9 /* DMWelcomeWindow.xib in Resources */,
 				A3C5D7F0133BFA7500589FF1 /* Alert.png in Resources */,
+				A38F16D2134589B1002A9B67 /* YFtoDMMap.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +399,7 @@
 				A3F426BC134161030072607C /* DMMapTransformer.m in Sources */,
 				A3F426C2134165000072607C /* DMBoolTransformer.m in Sources */,
 				A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */,
+				A38F16D513459DB9002A9B67 /* NSKeyValueCoding-Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

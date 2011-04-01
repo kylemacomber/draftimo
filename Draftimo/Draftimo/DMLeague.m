@@ -35,8 +35,43 @@
 @end
 
 @implementation DMLeague
-@synthesize drafted; //league/draft_status <- if there is only predraft and postdraft, then keep as a bool, but if there is indraft or something like that then make into enum
-@synthesize numTeams; //league/num_teams
+@synthesize drafted;
+- (BOOL)validateDrafted:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        *ioValue = [*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO];
+        return YES;
+    }
+    
+    return NO;
+}
+
+@synthesize numTeams;
+- (BOOL)validateNumTeams:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        const NSInteger value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
 @synthesize name; //league/name
 @synthesize leagueID; //league/league_id formate is game_id.l.league_id
 
@@ -52,6 +87,26 @@
 @implementation DMPosition
 @synthesize name; //league/settings/roster_positions/roster_positions/position
 @synthesize numStarters; //league/settings/roster_positions/roster_positions/count
+- (BOOL)validateNumStarters:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        const NSInteger value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
 @synthesize definition; //load from plist
 
 //- (BOOL)accepts:(DMPosition *)otherPosition; //checks if otherPosition is in its definition set
@@ -63,6 +118,20 @@
 @synthesize longName; //league/settings/stat_categories/stats/stat/name         //ex: Earned Run Average
 @synthesize positionType; //league/settings/stat_categories/stats/stat/position_type //for baseball it is B or P... probably end up doing this differently -- load from plist which positions respond to which stats
 @synthesize increasing; //league/settings/stat_categories/stats/sort_order 1=increasing, 0=decreasing //also probably end up loading this from plist
+- (BOOL)validateIncreasing:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        *ioValue = [*ioValue isEqualToString:@"1"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO];
+        return YES;
+    }
+    
+    return NO;
+}
 @end
 
 @implementation DMTeam
