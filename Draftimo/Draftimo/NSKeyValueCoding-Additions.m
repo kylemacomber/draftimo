@@ -10,15 +10,27 @@
 
 
 @implementation NSObject (NSKeyValueCoding_Additions)
-- (NSDictionary *)validateValuesForKeysWithDictionary:(NSDictionary *)keyedValues error:(NSError **)outError
+
+- (NSDictionary *)validateValuesForKeysWithDictionary:(NSDictionary *)keyedValues errors:(NSArray **)outErrors
 {
     NSMutableDictionary *newKeyedValues = [NSMutableDictionary dictionary];
+    
+    NSMutableArray *errors = [NSMutableArray array];
     for (NSString *key in keyedValues) {
         id obj = [keyedValues objectForKey:key];
-        if (![self validateValue:&obj forKey:key error:outError]) continue;
+        NSError *error;
+        if (![self validateValue:&obj forKey:key error:&error]) {
+            [errors addObject:error];
+            continue;
+        }
         [newKeyedValues setObject:obj forKey:key];
+    }
+    
+    if ([errors count]) {
+        *outErrors = [[errors copy] autorelease];
     }
     
     return [[newKeyedValues copy] autorelease];
 }
+
 @end

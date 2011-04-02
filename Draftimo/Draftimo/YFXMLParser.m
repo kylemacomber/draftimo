@@ -13,23 +13,21 @@
 
 
 @interface YFXMLParser ()
+static inline NSDictionary *dictForNode(NSXMLNode *node);
 + (void)parseYFXMLUserLeagues:(NSString *)responseBody;
 @end
 
 @implementation YFXMLParser
 
-static NSDictionary *YFtoDM= nil;
-+ (void)initialize
-{
-    if (!YFtoDM) {
-        YFtoDM = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YFtoDMMap" ofType:@"plist"]];
-    }
-}
-
 #pragma mark API
+static NSDictionary *YFtoDM = nil;
 + (void)parseYFXMLMethod:(NSURL *)method withResponseBody:(NSString *)responseBody
 {
     DLog(@"%@", method);
+    if (!YFtoDM) {
+        YFtoDM = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YFtoDMMap" ofType:@"plist"]];
+    }
+    
     if ([[method relativeString] isEqualToString:YFUserLeaguesMethod]) {
         [self parseYFXMLUserLeagues:responseBody];
     }    
@@ -37,7 +35,7 @@ static NSDictionary *YFtoDM= nil;
 
 #pragma mark Private Methods
 
-+ (NSDictionary *)dictForNode:(NSXMLNode *)node
+static inline NSDictionary *dictForNode(NSXMLNode *node)
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     for (NSXMLNode *child in [node children]) {
@@ -58,8 +56,8 @@ static NSDictionary *YFtoDM= nil;
     
     id(^objFromNode)(Class, NSXMLNode *) = ^(Class class, NSXMLNode *xml) {
         id obj = [[[class alloc] init] autorelease];
-        NSDictionary *values = [self dictForNode:xml];
-        values = [obj validateValuesForKeysWithDictionary:values error:nil];
+        NSDictionary *values = dictForNode(xml);
+        values = [obj validateValuesForKeysWithDictionary:values errors:nil];
         [obj setValuesForKeysWithDictionary:values];
         return obj;
     };
@@ -86,7 +84,7 @@ static NSDictionary *YFtoDM= nil;
             }
             // Team
             NSXMLNode *xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
-            DMTeam *userTeam = objFromNode([DMStat class], xteam);
+            DMTeam *userTeam = objFromNode([DMTeam class], xteam);
             NSMutableArray *managers = [NSMutableArray array];
             for (NSXMLNode *xmanager in [xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) {
                 [managers addObject:[xmanager objectValue]];
@@ -94,8 +92,8 @@ static NSDictionary *YFtoDM= nil;
             [userTeam setValue:managers forKey:@"managers"];
             // League
             DMLeague *league = objFromNode([DMLeague class], xleague);
-            NSDictionary *settingValues = [self dictForNode:xsettings];
-            settingValues = [league validateValuesForKeysWithDictionary:settingValues error:nil];
+            NSDictionary *settingValues = dictForNode(xsettings);
+            settingValues = [league validateValuesForKeysWithDictionary:settingValues errors:nil];
             
             [league setValuesForKeysWithDictionary:settingValues];
             [league setValue:positions forKey:@"positions"];
