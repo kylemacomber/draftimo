@@ -16,6 +16,44 @@
 
 
 @implementation DMLeague
+
+- (BOOL)validateDrafted:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        *ioValue = [*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)validateNumTeams:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        const NSInteger value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
+#pragma Generated
+
 @dynamic scoringType;
 @dynamic numTeams;
 @dynamic drafted;

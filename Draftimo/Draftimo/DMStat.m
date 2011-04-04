@@ -12,6 +12,24 @@
 
 
 @implementation DMStat
+
+- (BOOL)validateIncreasing:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        *ioValue = [NSNumber numberWithBool:[*ioValue boolValue]];
+        return YES;
+    }
+    
+    return NO;
+}
+
+#pragma Generated
+
 @dynamic longName;
 @dynamic increasing;
 @dynamic ratio;

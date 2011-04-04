@@ -14,6 +14,29 @@
 
 
 @implementation DMPosition
+
+- (BOOL)validateCount:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        const NSInteger value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
+#pragma Generated
+
 @dynamic count;
 @dynamic name;
 @dynamic league;
