@@ -14,6 +14,13 @@
 		A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */; };
 		A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */; };
 		A362A79D134A492300C24B10 /* DMLeagueOld.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A79B134A492300C24B10 /* DMLeagueOld.m */; };
+		A362A7A0134A499F00C24B10 /* DMGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A79F134A499F00C24B10 /* DMGame.m */; };
+		A362A7A3134A49A000C24B10 /* DMDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7A2134A49A000C24B10 /* DMDraft.m */; };
+		A362A7A6134A49A000C24B10 /* DMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7A5134A49A000C24B10 /* DMStat.m */; };
+		A362A7A9134A49A000C24B10 /* DMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7A8134A49A000C24B10 /* DMPosition.m */; };
+		A362A7AF134A49A000C24B10 /* DMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7AE134A49A000C24B10 /* DMTeam.m */; };
+		A362A7B2134A49A000C24B10 /* DMAuctionDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7B1134A49A000C24B10 /* DMAuctionDraft.m */; };
+		A362A7B5134A49A000C24B10 /* DMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A7B4134A49A000C24B10 /* DMPlayer.m */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
 		A37498C61339494100EC7841 /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37498C51339494100EC7841 /* DMOAuthController.m */; };
 		A38F16D2134589B1002A9B67 /* YFtoDMMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */; };
@@ -46,6 +53,7 @@
 		A3EEA584132C4BF2006655E5 /* SplashScreenButtonRight.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EEA581132C4BF2006655E5 /* SplashScreenButtonRight.png */; };
 		A3F426BC134161030072607C /* DMMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F426BB134161030072607C /* DMMapTransformer.m */; };
 		A3F426C2134165000072607C /* DMBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F426C1134165000072607C /* DMBoolTransformer.m */; };
+		A3F65E73134A49EC00C6EBB3 /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F65E71134A49EC00C6EBB3 /* DMLeague.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +82,20 @@
 		A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMOAuthStateMapTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.m; sourceTree = "<group>"; };
 		A362A79B134A492300C24B10 /* DMLeagueOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMLeagueOld.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeagueOld.m; sourceTree = "<group>"; };
 		A362A79C134A492300C24B10 /* DMLeagueOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeagueOld.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeagueOld.h; sourceTree = "<group>"; };
+		A362A79E134A499F00C24B10 /* DMGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMGame.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMGame.h; sourceTree = "<group>"; };
+		A362A79F134A499F00C24B10 /* DMGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMGame.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMGame.m; sourceTree = "<group>"; };
+		A362A7A1134A49A000C24B10 /* DMDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMDraft.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMDraft.h; sourceTree = "<group>"; };
+		A362A7A2134A49A000C24B10 /* DMDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMDraft.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMDraft.m; sourceTree = "<group>"; };
+		A362A7A4134A49A000C24B10 /* DMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMStat.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMStat.h; sourceTree = "<group>"; };
+		A362A7A5134A49A000C24B10 /* DMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMStat.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMStat.m; sourceTree = "<group>"; };
+		A362A7A7134A49A000C24B10 /* DMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPosition.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMPosition.h; sourceTree = "<group>"; };
+		A362A7A8134A49A000C24B10 /* DMPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPosition.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMPosition.m; sourceTree = "<group>"; };
+		A362A7AD134A49A000C24B10 /* DMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTeam.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMTeam.h; sourceTree = "<group>"; };
+		A362A7AE134A49A000C24B10 /* DMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTeam.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMTeam.m; sourceTree = "<group>"; };
+		A362A7B0134A49A000C24B10 /* DMAuctionDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMAuctionDraft.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMAuctionDraft.h; sourceTree = "<group>"; };
+		A362A7B1134A49A000C24B10 /* DMAuctionDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMAuctionDraft.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMAuctionDraft.m; sourceTree = "<group>"; };
+		A362A7B3134A49A000C24B10 /* DMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPlayer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMPlayer.h; sourceTree = "<group>"; };
+		A362A7B4134A49A000C24B10 /* DMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPlayer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMPlayer.m; sourceTree = "<group>"; };
 		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A37498C41339494100EC7841 /* DMOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOAuthController.h; sourceTree = "<group>"; };
@@ -121,6 +143,8 @@
 		A3F426BB134161030072607C /* DMMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMapTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMMapTransformer.m; sourceTree = "<group>"; };
 		A3F426C0134165000072607C /* DMBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMBoolTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMBoolTransformer.h; sourceTree = "<group>"; };
 		A3F426C1134165000072607C /* DMBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBoolTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMBoolTransformer.m; sourceTree = "<group>"; };
+		A3F65E71134A49EC00C6EBB3 /* DMLeague.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMLeague.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.m; sourceTree = "<group>"; };
+		A3F65E72134A49EC00C6EBB3 /* DMLeague.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeague.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +214,9 @@
 		A3A2067A1342E8F400FFC800 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A3F65E74134A4A1F00C6EBB3 /* Core Data */,
 				A362A79B134A492300C24B10 /* DMLeagueOld.m */,
 				A362A79C134A492300C24B10 /* DMLeagueOld.h */,
-				A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */,
 				A38F16E21345AD87002A9B67 /* YFXMLParser.h */,
 				A38F16E31345AD87002A9B67 /* YFXMLParser.m */,
 			);
@@ -318,6 +342,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3F65E74134A4A1F00C6EBB3 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */,
+				A362A7B3134A49A000C24B10 /* DMPlayer.h */,
+				A362A7B4134A49A000C24B10 /* DMPlayer.m */,
+				A362A7B0134A49A000C24B10 /* DMAuctionDraft.h */,
+				A362A7B1134A49A000C24B10 /* DMAuctionDraft.m */,
+				A362A7AD134A49A000C24B10 /* DMTeam.h */,
+				A362A7AE134A49A000C24B10 /* DMTeam.m */,
+				A3F65E71134A49EC00C6EBB3 /* DMLeague.m */,
+				A3F65E72134A49EC00C6EBB3 /* DMLeague.h */,
+				A362A7A7134A49A000C24B10 /* DMPosition.h */,
+				A362A7A8134A49A000C24B10 /* DMPosition.m */,
+				A362A7A4134A49A000C24B10 /* DMStat.h */,
+				A362A7A5134A49A000C24B10 /* DMStat.m */,
+				A362A7A1134A49A000C24B10 /* DMDraft.h */,
+				A362A7A2134A49A000C24B10 /* DMDraft.m */,
+				A362A79E134A499F00C24B10 /* DMGame.h */,
+				A362A79F134A499F00C24B10 /* DMGame.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,6 +458,14 @@
 				A38F16E41345AD87002A9B67 /* YFXMLParser.m in Sources */,
 				A39915601349874100F79FDC /* Draftimo.xcdatamodeld in Sources */,
 				A362A79D134A492300C24B10 /* DMLeagueOld.m in Sources */,
+				A362A7A0134A499F00C24B10 /* DMGame.m in Sources */,
+				A362A7A3134A49A000C24B10 /* DMDraft.m in Sources */,
+				A362A7A6134A49A000C24B10 /* DMStat.m in Sources */,
+				A362A7A9134A49A000C24B10 /* DMPosition.m in Sources */,
+				A362A7AF134A49A000C24B10 /* DMTeam.m in Sources */,
+				A362A7B2134A49A000C24B10 /* DMAuctionDraft.m in Sources */,
+				A362A7B5134A49A000C24B10 /* DMPlayer.m in Sources */,
+				A3F65E73134A49EC00C6EBB3 /* DMLeague.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
