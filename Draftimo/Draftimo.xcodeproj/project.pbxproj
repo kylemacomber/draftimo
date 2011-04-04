@@ -18,6 +18,7 @@
 		A38F16D2134589B1002A9B67 /* YFtoDMMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */; };
 		A38F16D513459DB9002A9B67 /* NSKeyValueCoding-Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F16D413459DB9002A9B67 /* NSKeyValueCoding-Additions.m */; };
 		A38F16E41345AD87002A9B67 /* YFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F16E31345AD87002A9B67 /* YFXMLParser.m */; };
+		A39915601349874100F79FDC /* Draftimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */; };
 		A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */; };
 		A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A2067D1342E92600FFC800 /* DMLeague.m */; };
 		A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */; };
@@ -80,6 +81,7 @@
 		A38F16D413459DB9002A9B67 /* NSKeyValueCoding-Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSKeyValueCoding-Additions.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSKeyValueCoding-Additions.m"; sourceTree = "<group>"; };
 		A38F16E21345AD87002A9B67 /* YFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFXMLParser.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParser.h; sourceTree = "<group>"; };
 		A38F16E31345AD87002A9B67 /* YFXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFXMLParser.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParser.m; sourceTree = "<group>"; };
+		A399155F1349874100F79FDC /* Draftimo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Draftimo.xcdatamodel; sourceTree = "<group>"; };
 		A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSplashScreenButtonCell.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.h; sourceTree = "<group>"; };
 		A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSplashScreenButtonCell.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.m; sourceTree = "<group>"; };
 		A3A2067C1342E92600FFC800 /* DMLeague.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeague.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		A3A2067A1342E8F400FFC800 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */,
 				A3A2067C1342E92600FFC800 /* DMLeague.h */,
 				A3A2067D1342E92600FFC800 /* DMLeague.m */,
 				A38F16E21345AD87002A9B67 /* YFXMLParser.h */,
@@ -406,6 +409,7 @@
 				A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */,
 				A38F16D513459DB9002A9B67 /* NSKeyValueCoding-Additions.m in Sources */,
 				A38F16E41345AD87002A9B67 /* YFXMLParser.m in Sources */,
+				A39915601349874100F79FDC /* Draftimo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +535,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A399155F1349874100F79FDC /* Draftimo.xcdatamodel */,
+			);
+			currentVersion = A399155F1349874100F79FDC /* Draftimo.xcdatamodel */;
+			name = Draftimo.xcdatamodeld;
+			path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Draftimo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A3EA275A1327461C0072AC66 /* Project object */;
 }
