@@ -13,6 +13,7 @@
 		A3145D55133F74B20080C768 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3145D54133F74B20080C768 /* Reachability.m */; };
 		A32A41C9133D156A00596879 /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */; };
 		A32A41D8133D538400596879 /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */; };
+		A362A79D134A492300C24B10 /* DMLeagueOld.m in Sources */ = {isa = PBXBuildFile; fileRef = A362A79B134A492300C24B10 /* DMLeagueOld.m */; };
 		A36647B51327E9E600052F6D /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A36647B41327E9E600052F6D /* DMConstants.m */; };
 		A37498C61339494100EC7841 /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37498C51339494100EC7841 /* DMOAuthController.m */; };
 		A38F16D2134589B1002A9B67 /* YFtoDMMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = A38F16D1134589B1002A9B67 /* YFtoDMMap.plist */; };
@@ -20,7 +21,6 @@
 		A38F16E41345AD87002A9B67 /* YFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F16E31345AD87002A9B67 /* YFXMLParser.m */; };
 		A39915601349874100F79FDC /* Draftimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */; };
 		A39E30F7132BD045007E0323 /* DMSplashScreenButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */; };
-		A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A2067D1342E92600FFC800 /* DMLeague.m */; };
 		A3A8C5F613280C0F00FDB229 /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */; };
 		A3A8C5FE13280CD800FDB229 /* DMAuthSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */; };
 		A3AE807613274EF9005A18B0 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AE807513274EF9005A18B0 /* JSON.framework */; };
@@ -72,6 +72,8 @@
 		A32A41C8133D156A00596879 /* NSDictionary-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary-Utilities.m"; path = "../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/NSDictionary-Utilities.m"; sourceTree = "<group>"; };
 		A32A41D6133D538400596879 /* DMOAuthStateMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMOAuthStateMapTransformer.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.h; sourceTree = "<group>"; };
 		A32A41D7133D538400596879 /* DMOAuthStateMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMOAuthStateMapTransformer.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMOAuthStateMapTransformer.m; sourceTree = "<group>"; };
+		A362A79B134A492300C24B10 /* DMLeagueOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMLeagueOld.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeagueOld.m; sourceTree = "<group>"; };
+		A362A79C134A492300C24B10 /* DMLeagueOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeagueOld.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeagueOld.h; sourceTree = "<group>"; };
 		A36647B31327E9E600052F6D /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMConstants.h; sourceTree = "<group>"; };
 		A36647B41327E9E600052F6D /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMConstants.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A37498C41339494100EC7841 /* DMOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOAuthController.h; sourceTree = "<group>"; };
@@ -84,8 +86,6 @@
 		A399155F1349874100F79FDC /* Draftimo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Draftimo.xcdatamodel; sourceTree = "<group>"; };
 		A39E30F5132BD042007E0323 /* DMSplashScreenButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSplashScreenButtonCell.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.h; sourceTree = "<group>"; };
 		A39E30F6132BD043007E0323 /* DMSplashScreenButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSplashScreenButtonCell.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSplashScreenButtonCell.m; sourceTree = "<group>"; };
-		A3A2067C1342E92600FFC800 /* DMLeague.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMLeague.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.h; sourceTree = "<group>"; };
-		A3A2067D1342E92600FFC800 /* DMLeague.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMLeague.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMLeague.m; sourceTree = "<group>"; };
 		A3A8C5F413280C0F00FDB229 /* DMAuthSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAuthSheetController.h; sourceTree = "<group>"; };
 		A3A8C5F513280C0F00FDB229 /* DMAuthSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMAuthSheetController.m; sourceTree = "<group>"; };
 		A3A8C5FD13280CD800FDB229 /* DMAuthSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthSheet.xib; sourceTree = "<group>"; };
@@ -190,9 +190,9 @@
 		A3A2067A1342E8F400FFC800 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A362A79B134A492300C24B10 /* DMLeagueOld.m */,
+				A362A79C134A492300C24B10 /* DMLeagueOld.h */,
 				A399155E1349874100F79FDC /* Draftimo.xcdatamodeld */,
-				A3A2067C1342E92600FFC800 /* DMLeague.h */,
-				A3A2067D1342E92600FFC800 /* DMLeague.m */,
 				A38F16E21345AD87002A9B67 /* YFXMLParser.h */,
 				A38F16E31345AD87002A9B67 /* YFXMLParser.m */,
 			);
@@ -406,10 +406,10 @@
 				A3145D55133F74B20080C768 /* Reachability.m in Sources */,
 				A3F426BC134161030072607C /* DMMapTransformer.m in Sources */,
 				A3F426C2134165000072607C /* DMBoolTransformer.m in Sources */,
-				A3A2067E1342E92600FFC800 /* DMLeague.m in Sources */,
 				A38F16D513459DB9002A9B67 /* NSKeyValueCoding-Additions.m in Sources */,
 				A38F16E41345AD87002A9B67 /* YFXMLParser.m in Sources */,
 				A39915601349874100F79FDC /* Draftimo.xcdatamodeld in Sources */,
+				A362A79D134A492300C24B10 /* DMLeagueOld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
