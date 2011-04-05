@@ -57,22 +57,10 @@ static inline id entityFromNode(NSString *entityName, NSXMLNode *node)
     NSEntityDescription *const entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:[DMAppController sharedAppController].managedObjectContext];
     NSDictionary *const attributesMap = [entityDescription userInfo];
     
-//    for (NSString *attributeName in [[entityDescription attributesByName] allKeys]) {
-//        id value = [[[node nodesForXPath:[attributesMap objectForKey:attributeName] error:nil] lastObject] objectValue];
-//        if (!value) continue;
-//        
-//        NSError *error;
-//        if (![entity validateValue:&value forKey:attributeName error:&error]) {
-//            ALog(@"%@", error);
-//        }
-//        [entity setValue:value forKey:attributeName];
-//    }
-    
-    for (NSString *YFKey in attributesMap) {
-        id value = [[[node nodesForXPath:[NSString stringWithFormat:@"./%@", YFKey] error:nil] lastObject] objectValue];
+    for (NSString *attributeName in [[entityDescription attributesByName] allKeys]) {
+        id value = [[[node nodesForXPath:[attributesMap objectForKey:attributeName] error:nil] lastObject] objectValue];
         if (!value) continue;
         
-        NSString *const attributeName = [attributesMap objectForKey:YFKey];
         NSError *error;
         if (![entity validateValue:&value forKey:attributeName error:&error]) {
             ALog(@"%@", error);
@@ -85,6 +73,7 @@ static inline id entityFromNode(NSString *entityName, NSXMLNode *node)
 
 + (void)parseYFXMLUserLeagues:(NSString *)responseBody
 {
+    DLog(@"%@", responseBody);
     NSError *error;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:responseBody options:NSXMLDocumentValidate error:&error];
     if (!doc) {
