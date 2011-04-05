@@ -14,8 +14,13 @@
 #import "YFXMLParser.h"
 
 
+static NSString *const DMStoreFilename = @"Drafts.xml";
+
 @interface DMAppController ()
 @property (nonatomic, retain, readwrite) DMOAuthController *oauthController;
+@property (nonatomic, retain, readwrite) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readwrite) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readwrite) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain) DMWelcomeWindowController *welcomeWindowController;
 @property (nonatomic, retain) DMAuthSheetController *authSheetController;
 
@@ -25,12 +30,18 @@
 
 @implementation DMAppController
 @synthesize oauthController;
+@synthesize managedObjectModel;
+@synthesize managedObjectContext;
+@synthesize persistentStoreCoordinator;
 @synthesize welcomeWindowController;
 @synthesize authSheetController;
 
 - (void)dealloc
 {
     self.oauthController = nil;
+    self.managedObjectModel = nil;
+    self.managedObjectContext = nil;
+    self.persistentStoreCoordinator = nil;
     self.welcomeWindowController = nil;
     self.authSheetController = nil;
     [super dealloc];
@@ -56,8 +67,38 @@
     DLog(@"%@", url);
 }
 
+// Returns a NSURL to ~/Library/Application\ Support/Draftimo/ and mkdir -p if it doesn't exist
+static inline NSURL *appDirectory() {
+    NSError *error;
+    NSURL *appDirectory = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+    if (!appDirectory) {
+        ALog(@"%@, %@", error, [error userInfo]);
+        return nil;
+    }
+    
+    appDirectory = [appDirectory URLByAppendingPathComponent:@"Draftimo"];
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:[appDirectory path] withIntermediateDirectories:YES attributes:nil error:&error]) {
+        ALog(@"%@", error);
+        return nil;
+    }
+
+    return appDirectory;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    self.persistentStoreCoordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel] autorelease];
+    self.managedObjectContext = [[[NSManagedObjectContext alloc] init] autorelease];
+    [self.managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    
+    NSURL *storeURL = [appDirectory() URLByAppendingPathComponent:DMStoreFilename];
+	NSError *error;
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+		ALog(@"%@, %@", error, [error userInfo]);
+    }
+    ZAssert(self.managedObjectModel && self.persistentStoreCoordinator && self.managedObjectContext, @"");
+    
     self.oauthController = [[[DMOAuthController alloc] init] autorelease];
     [self showWelcomeWindow];
 }
