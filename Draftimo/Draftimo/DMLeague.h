@@ -26,4 +26,25 @@
 @property (nonatomic, retain) NSSet* players;
 @property (nonatomic, retain) DMDraft * draft;
 
+- (void)addStatsObject:(DMStat *)value;
+- (void)removeStatsObject:(DMStat *)value;
+- (void)addStats:(NSSet *)value;
+- (void)removeStats:(NSSet *)value;
+
+- (void)addTeamsObject:(DMTeam *)value;
+- (void)removeTeamsObject:(DMTeam *)value;
+- (void)addTeams:(NSSet *)value;
+- (void)removeTeams:(NSSet *)value;
+
+- (void)addPositionsObject:(DMPosition *)value;
+- (void)removePositionsObject:(DMPosition *)value;
+- (void)addPositions:(NSSet *)value;
+- (void)removePositions:(NSSet *)value;
+
+
+- (void)addPlayersObject:(DMPlayer *)value;
+- (void)removePlayersObject:(DMPlayer *)value;
+- (void)addPlayers:(NSSet *)value;
+- (void)removePlayers:(NSSet *)value;
+
 @end

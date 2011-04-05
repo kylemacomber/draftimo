@@ -21,4 +21,9 @@
 @property (nonatomic, retain) NSString * game;
 @property (nonatomic, retain) NSSet* leagues;
 
+- (void)addLeaguesObject:(DMLeague *)value;
+- (void)removeLeaguesObject:(DMLeague *)value;
+- (void)addLeagues:(NSSet *)value;
+- (void)removeLeagues:(NSSet *)value;
+
 @end

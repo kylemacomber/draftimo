@@ -7,9 +7,13 @@
 //
 
 #import "YFXMLParser.h"
+#import "DMAppController.h"
 #import "DMConstants.h"
+#import "DMGame.h"
 #import "DMLeague.h"
-#import "NSKeyValueCoding-Additions.h"
+#import "DMTeam.h"
+#import "DMPosition.h"
+#import "DMStat.h"
 
 
 @interface YFXMLParser ()
@@ -20,13 +24,9 @@ static inline NSDictionary *dictForNode(NSXMLNode *node);
 @implementation YFXMLParser
 
 #pragma mark API
-static NSDictionary *YFtoDM = nil;
 + (void)parseYFXMLMethod:(NSURL *)method withResponseBody:(NSString *)responseBody
 {
     DLog(@"%@", method);
-    if (!YFtoDM) {
-        YFtoDM = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YFtoDMMap" ofType:@"plist"]];
-    }
     
     if ([[method relativeString] isEqualToString:YFUserLeaguesMethod]) {
         [self parseYFXMLUserLeagues:responseBody];
@@ -35,77 +35,88 @@ static NSDictionary *YFtoDM = nil;
 
 #pragma mark Private Methods
 
-static inline NSDictionary *dictForNode(NSXMLNode *node)
+// Returns pattern: nil or "name1" or "name1 & name2" or "name1, ... , nameN-1 & nameN"
+static inline NSString *managersString(NSArray *nodes)
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    for (NSXMLNode *child in [node children]) {
-        NSString *const dmKey = [YFtoDM valueForKeyPath:[NSString stringWithFormat:@"%@.%@", [node name], [child name]]];
-        if (!dmKey) continue;
-        [dict setObject:[child objectValue] forKey:dmKey];
+    NSMutableArray *managers = [NSMutableArray array];
+    for (NSXMLNode *xmanager in nodes) {
+        [managers addObject:[xmanager objectValue]];
     }
-    return dict;
+    
+    NSString *last = [managers lastObject];
+    if ([managers count] <= 1) return last;
+    [managers removeLastObject];
+    return [[managers componentsJoinedByString:@","] stringByAppendingFormat:@"& %@", last];
 }
+
+// All ManagedObject have a userInfo where the key is an XPath and the value is the attribute name
+// This method initializes an entity from an appropriate XML node using this mapping
+static inline id entityFromNode(NSString *entityName, NSXMLNode *node)
+{
+    id entity = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:[DMAppController sharedAppController].managedObjectContext];
+    NSEntityDescription *const entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:[DMAppController sharedAppController].managedObjectContext];
+    NSDictionary *const attributesMap = [entityDescription userInfo];
+    
+//    for (NSString *attributeName in [[entityDescription attributesByName] allKeys]) {
+//        id value = [[[node nodesForXPath:[attributesMap objectForKey:attributeName] error:nil] lastObject] objectValue];
+//        if (!value) continue;
+//        
+//        NSError *error;
+//        if (![entity validateValue:&value forKey:attributeName error:&error]) {
+//            ALog(@"%@", error);
+//        }
+//        [entity setValue:value forKey:attributeName];
+//    }
+    
+    for (NSString *YFKey in attributesMap) {
+        id value = [[[node nodesForXPath:[NSString stringWithFormat:@"./%@", YFKey] error:nil] lastObject] objectValue];
+        if (!value) continue;
+        
+        NSString *const attributeName = [attributesMap objectForKey:YFKey];
+        NSError *error;
+        if (![entity validateValue:&value forKey:attributeName error:&error]) {
+            ALog(@"%@", error);
+        }
+        [entity setValue:value forKey:attributeName];
+    }
+    
+    return entity;
+};
 
 + (void)parseYFXMLUserLeagues:(NSString *)responseBody
 {
     NSError *error;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:responseBody options:NSXMLDocumentValidate error:&error];
-    if (error) {
-        ALog(@""); //maybe find a way to call getUserGames or whatever method
+    if (!doc) {
+        ALog(@"%@", error); //maybe find a way to call web service again
     }
     
-    id(^objFromNode)(Class, NSXMLNode *) = ^(Class class, NSXMLNode *xml) {
-        id obj = [[[class alloc] init] autorelease];
-        NSDictionary *values = dictForNode(xml);
-        values = [obj validateValuesForKeysWithDictionary:values errors:nil];
-        [obj setValuesForKeysWithDictionary:values];
-        return obj;
-    };
-    
-    NSMutableArray *games = [NSMutableArray array];
-    for (NSXMLNode *xgame in [doc nodesForXPath:@"./fantasy_content/users/user/games/game" error:nil]) {        
-        NSMutableArray *leagues = [NSMutableArray array];
+    NSMutableSet *games = [NSMutableSet set];
+    for (NSXMLNode *xgame in [doc nodesForXPath:@"./fantasy_content/users/user/games/game" error:nil]) {
+        DMGame *game = entityFromNode(@"DMGame", xgame);
+        [games addObject:game];
+        //Leagues
         for (NSXMLNode *xleague in [xgame nodesForXPath:@"./leagues/league" error:nil]) {
-            NSXMLNode *xsettings = [[xleague nodesForXPath:@"./settings" error:nil] lastObject];
+            DMLeague *league = entityFromNode(@"DMLeague", xleague);
+            [game addLeaguesObject:league];
             // Positions
-            NSMutableArray *positions = [NSMutableArray array];
-            for (NSXMLNode *xposition in [xsettings nodesForXPath:@"./roster_positions/roster_position" error:nil]) {
-                DMPosition *position = objFromNode([DMPosition class], xposition);
-                
-                [positions addObject:position];
+            for (NSXMLNode *xposition in [xleague nodesForXPath:@"./settings/roster_positions/roster_position" error:nil]) {
+                [league addPositionsObject:entityFromNode(@"DMPosition", xposition)];
             }
             // Stats
-            NSMutableArray *stats = [NSMutableArray array];
-            for (NSXMLNode *xstat in [xsettings nodesForXPath:@"./stat_categories/stats/stat" error:nil]) {
+            for (NSXMLNode *xstat in [xleague nodesForXPath:@"./settings/stat_categories/stats/stat" error:nil]) {
                 if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
-                DMStat *stat = objFromNode([DMStat class], xstat);
-
-                [stats addObject:stat];
+                [league addPositionsObject:entityFromNode(@"DMStat", xstat)];
             }
             // Team
-            NSXMLNode *xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
-            DMTeam *userTeam = objFromNode([DMTeam class], xteam);
-            NSMutableArray *managers = [NSMutableArray array];
-            for (NSXMLNode *xmanager in [xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) {
-                [managers addObject:[xmanager objectValue]];
-            }
-            [userTeam setValue:managers forKey:@"managers"];
-            // League
-            DMLeague *league = objFromNode([DMLeague class], xleague);
-            NSDictionary *settingValues = dictForNode(xsettings);
-            settingValues = [league validateValuesForKeysWithDictionary:settingValues errors:nil];
-            
-            [league setValuesForKeysWithDictionary:settingValues];
-            [league setValue:positions forKey:@"positions"];
-            [league setValue:userTeam forKey:@"userTeam"];
-            [league setValue:stats forKey:@"stats"];
-            [leagues addObject:league];
+            NSXMLNode *const xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
+            DMTeam *userTeam = entityFromNode(@"DMTeam", xteam);
+            [userTeam setValue:[NSNumber numberWithBool:YES] forKey:@"userTeam"];
+            [userTeam setValue:managersString([xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) forKey:@"managers"];
+            [league addTeamsObject:userTeam];
         }
-        DMGame *game = objFromNode([DMGame class], xgame);
-        [game setValue:leagues forKey:@"leagues"];
-        [games addObject:game];
     }
-    
+    DLog(@"%@", games);
     [doc release];
 }
 

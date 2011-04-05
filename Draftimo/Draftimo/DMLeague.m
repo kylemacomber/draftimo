@@ -25,7 +25,7 @@
     }
     
     if ([*ioValue isKindOfClass:[NSString class]]) {
-        *ioValue = [*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO];
+        *ioValue = ([*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO]);
         return YES;
     }
     

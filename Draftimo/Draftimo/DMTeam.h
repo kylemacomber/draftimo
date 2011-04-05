@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString * teamID;
 @property (nonatomic, retain) NSDecimalNumber * budget;
 @property (nonatomic, retain) NSNumber * userTeam;
-@property (nonatomic, retain) id managers;
+@property (nonatomic, retain) NSString * managers;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) DMLeague * league;
 @property (nonatomic, retain) NSSet* players;
