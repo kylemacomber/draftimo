@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
+		A3632CE31351140B00E8E84F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3632CE11351140B00E8E84F /* InfoPlist.strings */; };
+		A3632CE61351140B00E8E84F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632CE51351140B00E8E84F /* main.m */; };
+		A3632CE91351140B00E8E84F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A3632CE71351140B00E8E84F /* Credits.rtf */; };
+		A3632CEC1351140B00E8E84F /* DMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632CEB1351140B00E8E84F /* DMDocument.m */; };
+		A3632CF21351140B00E8E84F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632CF01351140B00E8E84F /* MainMenu.xib */; };
+		A3632CF51351140B00E8E84F /* DMDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */; };
+		A3632CFC1351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
+		A3632D041351140B00E8E84F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3632D021351140B00E8E84F /* InfoPlist.strings */; };
+		A3632D071351140B00E8E84F /* DraftimoTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A3632D061351140B00E8E84F /* DraftimoTests.h */; };
+		A3632D091351140B00E8E84F /* DraftimoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D081351140B00E8E84F /* DraftimoTests.m */; };
+		A3632D1C1351148A00E8E84F /* DMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D1B1351148A00E8E84F /* DMDocumentWindowController.m */; };
+		A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3632CFD1351140B00E8E84F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3632CCB1351140B00E8E84F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3632CD31351140B00E8E84F;
+			remoteInfo = Draftimo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A3632CD41351140B00E8E84F /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3632CD81351140B00E8E84F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A3632CDB1351140B00E8E84F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A3632CDC1351140B00E8E84F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A3632CDD1351140B00E8E84F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3632CE01351140B00E8E84F /* Draftimo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Draftimo-Info.plist"; sourceTree = "<group>"; };
+		A3632CE21351140B00E8E84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3632CE41351140B00E8E84F /* Draftimo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Draftimo-Prefix.pch"; sourceTree = "<group>"; };
+		A3632CE51351140B00E8E84F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3632CE81351140B00E8E84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A3632CEA1351140B00E8E84F /* DMDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMDocument.h; sourceTree = "<group>"; };
+		A3632CEB1351140B00E8E84F /* DMDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMDocument.m; sourceTree = "<group>"; };
+		A3632CF11351140B00E8E84F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A3632CF41351140B00E8E84F /* DMDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMDocument.xcdatamodel; sourceTree = "<group>"; };
+		A3632CFB1351140B00E8E84F /* DraftimoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DraftimoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3632D011351140B00E8E84F /* DraftimoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DraftimoTests-Info.plist"; sourceTree = "<group>"; };
+		A3632D031351140B00E8E84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3632D051351140B00E8E84F /* DraftimoTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DraftimoTests-Prefix.pch"; sourceTree = "<group>"; };
+		A3632D061351140B00E8E84F /* DraftimoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DraftimoTests.h; sourceTree = "<group>"; };
+		A3632D081351140B00E8E84F /* DraftimoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DraftimoTests.m; sourceTree = "<group>"; };
+		A3632D1A1351148A00E8E84F /* DMDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDocumentWindowController.h; sourceTree = "<group>"; };
+		A3632D1B1351148A00E8E84F /* DMDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDocumentWindowController.m; sourceTree = "<group>"; };
+		A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMDocumentWindowController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3632CD11351140B00E8E84F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3632CF71351140B00E8E84F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632CFC1351140B00E8E84F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3632CC91351140B00E8E84F = {
+			isa = PBXGroup;
+			children = (
+				A3632CDE1351140B00E8E84F /* Draftimo */,
+				A3632CFF1351140B00E8E84F /* DraftimoTests */,
+				A3632CD71351140B00E8E84F /* Frameworks */,
+				A3632CD51351140B00E8E84F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3632CD51351140B00E8E84F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3632CD41351140B00E8E84F /* Draftimo.app */,
+				A3632CFB1351140B00E8E84F /* DraftimoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3632CD71351140B00E8E84F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3632CD81351140B00E8E84F /* Cocoa.framework */,
+				A3632CDA1351140B00E8E84F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3632CDA1351140B00E8E84F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3632CDB1351140B00E8E84F /* AppKit.framework */,
+				A3632CDC1351140B00E8E84F /* CoreData.framework */,
+				A3632CDD1351140B00E8E84F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A3632CDE1351140B00E8E84F /* Draftimo */ = {
+			isa = PBXGroup;
+			children = (
+				A3632CEA1351140B00E8E84F /* DMDocument.h */,
+				A3632CEB1351140B00E8E84F /* DMDocument.m */,
+				A3632D1A1351148A00E8E84F /* DMDocumentWindowController.h */,
+				A3632D1B1351148A00E8E84F /* DMDocumentWindowController.m */,
+				A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */,
+				A3632CF01351140B00E8E84F /* MainMenu.xib */,
+				A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */,
+				A3632CDF1351140B00E8E84F /* Supporting Files */,
+			);
+			path = Draftimo;
+			sourceTree = "<group>";
+		};
+		A3632CDF1351140B00E8E84F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3632CE01351140B00E8E84F /* Draftimo-Info.plist */,
+				A3632CE11351140B00E8E84F /* InfoPlist.strings */,
+				A3632CE41351140B00E8E84F /* Draftimo-Prefix.pch */,
+				A3632CE51351140B00E8E84F /* main.m */,
+				A3632CE71351140B00E8E84F /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3632CFF1351140B00E8E84F /* DraftimoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A3632D061351140B00E8E84F /* DraftimoTests.h */,
+				A3632D081351140B00E8E84F /* DraftimoTests.m */,
+				A3632D001351140B00E8E84F /* Supporting Files */,
+			);
+			path = DraftimoTests;
+			sourceTree = "<group>";
+		};
+		A3632D001351140B00E8E84F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3632D011351140B00E8E84F /* DraftimoTests-Info.plist */,
+				A3632D021351140B00E8E84F /* InfoPlist.strings */,
+				A3632D051351140B00E8E84F /* DraftimoTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3632CD31351140B00E8E84F /* Draftimo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3632D0C1351140B00E8E84F /* Build configuration list for PBXNativeTarget "Draftimo" */;
+			buildPhases = (
+				A3632CD01351140B00E8E84F /* Sources */,
+				A3632CD11351140B00E8E84F /* Frameworks */,
+				A3632CD21351140B00E8E84F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Draftimo;
+			productName = Draftimo;
+			productReference = A3632CD41351140B00E8E84F /* Draftimo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3632CFA1351140B00E8E84F /* DraftimoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3632D0F1351140B00E8E84F /* Build configuration list for PBXNativeTarget "DraftimoTests" */;
+			buildPhases = (
+				A3632CF61351140B00E8E84F /* Sources */,
+				A3632CF71351140B00E8E84F /* Frameworks */,
+				A3632CF81351140B00E8E84F /* Resources */,
+				A3632CF91351140B00E8E84F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3632CFE1351140B00E8E84F /* PBXTargetDependency */,
+			);
+			name = DraftimoTests;
+			productName = DraftimoTests;
+			productReference = A3632CFB1351140B00E8E84F /* DraftimoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3632CCB1351140B00E8E84F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A3632CCE1351140B00E8E84F /* Build configuration list for PBXProject "Draftimo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A3632CC91351140B00E8E84F;
+			productRefGroup = A3632CD51351140B00E8E84F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3632CD31351140B00E8E84F /* Draftimo */,
+				A3632CFA1351140B00E8E84F /* DraftimoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3632CD21351140B00E8E84F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632CE31351140B00E8E84F /* InfoPlist.strings in Resources */,
+				A3632CE91351140B00E8E84F /* Credits.rtf in Resources */,
+				A3632CF21351140B00E8E84F /* MainMenu.xib in Resources */,
+				A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3632CF81351140B00E8E84F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632D041351140B00E8E84F /* InfoPlist.strings in Resources */,
+				A3632D071351140B00E8E84F /* DraftimoTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3632CF91351140B00E8E84F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3632CD01351140B00E8E84F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632CE61351140B00E8E84F /* main.m in Sources */,
+				A3632CEC1351140B00E8E84F /* DMDocument.m in Sources */,
+				A3632CF51351140B00E8E84F /* DMDocument.xcdatamodeld in Sources */,
+				A3632D1C1351148A00E8E84F /* DMDocumentWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3632CF61351140B00E8E84F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3632D091351140B00E8E84F /* DraftimoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3632CFE1351140B00E8E84F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3632CD31351140B00E8E84F /* Draftimo */;
+			targetProxy = A3632CFD1351140B00E8E84F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3632CE11351140B00E8E84F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3632CE21351140B00E8E84F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A3632CE71351140B00E8E84F /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3632CE81351140B00E8E84F /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		A3632CF01351140B00E8E84F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3632CF11351140B00E8E84F /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A3632D021351140B00E8E84F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3632D031351140B00E8E84F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3632D0A1351140B00E8E84F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A3632D0B1351140B00E8E84F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A3632D0D1351140B00E8E84F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Draftimo/Draftimo-Prefix.pch";
+				INFOPLIST_FILE = "Draftimo/Draftimo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A3632D0E1351140B00E8E84F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Draftimo/Draftimo-Prefix.pch";
+				INFOPLIST_FILE = "Draftimo/Draftimo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A3632D101351140B00E8E84F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Draftimo.app/Contents/MacOS/Draftimo";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DraftimoTests/DraftimoTests-Prefix.pch";
+				INFOPLIST_FILE = "DraftimoTests/DraftimoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A3632D111351140B00E8E84F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Draftimo.app/Contents/MacOS/Draftimo";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DraftimoTests/DraftimoTests-Prefix.pch";
+				INFOPLIST_FILE = "DraftimoTests/DraftimoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3632CCE1351140B00E8E84F /* Build configuration list for PBXProject "Draftimo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3632D0A1351140B00E8E84F /* Debug */,
+				A3632D0B1351140B00E8E84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3632D0C1351140B00E8E84F /* Build configuration list for PBXNativeTarget "Draftimo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3632D0D1351140B00E8E84F /* Debug */,
+				A3632D0E1351140B00E8E84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A3632D0F1351140B00E8E84F /* Build configuration list for PBXNativeTarget "DraftimoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3632D101351140B00E8E84F /* Debug */,
+				A3632D111351140B00E8E84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A3632CF41351140B00E8E84F /* DMDocument.xcdatamodel */,
+			);
+			currentVersion = A3632CF41351140B00E8E84F /* DMDocument.xcdatamodel */;
+			path = DMDocument.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A3632CCB1351140B00E8E84F /* Project object */;
+}

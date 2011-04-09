@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'DraftimoTests' target in the 'DraftimoTests' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
