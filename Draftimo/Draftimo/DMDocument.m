@@ -24,7 +24,7 @@
 
 - (void)makeWindowControllers
 {
-    [self addWindowController:[[[DMDocumentWindowController alloc] init] autorelease]];
+    [self addWindowController:[[DMDocumentWindowController alloc] init]];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
