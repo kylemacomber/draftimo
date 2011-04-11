@@ -22,6 +22,8 @@
 		A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */; };
 		A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D281352890800E8E84F /* DMSetupWindowController.m */; };
 		A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */; };
+		A3632D371352D28900E8E84F /* DMUnauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D351352D28900E8E84F /* DMUnauthViewController.m */; };
+		A3632D381352D28900E8E84F /* DMUnauthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D361352D28900E8E84F /* DMUnauthViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		A3632D271352890800E8E84F /* DMSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSetupWindowController.h; sourceTree = "<group>"; };
 		A3632D281352890800E8E84F /* DMSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSetupWindowController.m; sourceTree = "<group>"; };
 		A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSetupWindowController.xib; sourceTree = "<group>"; };
+		A3632D341352D28900E8E84F /* DMUnauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUnauthViewController.h; sourceTree = "<group>"; };
+		A3632D351352D28900E8E84F /* DMUnauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUnauthViewController.m; sourceTree = "<group>"; };
+		A3632D361352D28900E8E84F /* DMUnauthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMUnauthViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,9 @@
 				A3632D271352890800E8E84F /* DMSetupWindowController.h */,
 				A3632D281352890800E8E84F /* DMSetupWindowController.m */,
 				A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */,
+				A3632D341352D28900E8E84F /* DMUnauthViewController.h */,
+				A3632D351352D28900E8E84F /* DMUnauthViewController.m */,
+				A3632D361352D28900E8E84F /* DMUnauthViewController.xib */,
 				A3632CF01351140B00E8E84F /* MainMenu.xib */,
 				A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */,
 				A3632CDF1351140B00E8E84F /* Supporting Files */,
@@ -243,6 +251,7 @@
 				A3632CF21351140B00E8E84F /* MainMenu.xib in Resources */,
 				A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */,
 				A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */,
+				A3632D381352D28900E8E84F /* DMUnauthViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +292,7 @@
 				A3632CF51351140B00E8E84F /* DMDocument.xcdatamodeld in Sources */,
 				A3632D1C1351148A00E8E84F /* DMDocumentWindowController.m in Sources */,
 				A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */,
+				A3632D371352D28900E8E84F /* DMUnauthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
