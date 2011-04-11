@@ -7,7 +7,12 @@
 //
 
 #import "DMSetupWindowController.h"
+#import "DMWelcomeViewController.h"
 
+
+@interface DMSetupWindowController ()
+
+@end
 
 @implementation DMSetupWindowController
 
@@ -19,16 +24,28 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+#pragma mark IBActions
+
+- (IBAction)cancelButtonClicked:(id)sender
+{
+    DLog(@"");
+    [[NSApplication sharedApplication] endSheet:self.window returnCode:NSCancelButton];
+}
+
+- (IBAction)previousButtonClicked:(id)sender
+{
+    DLog(@"");
+}
+
+- (IBAction)nextButtonClicked:(id)sender
+{
+    DLog(@"");
+    [[NSApplication sharedApplication] endSheet:self.window returnCode:NSOKButton];
 }
 
 @end

@@ -11,7 +11,11 @@
 
 @interface DMSetupWindowController : NSWindowController {
 @private
-    
+
 }
+
+- (IBAction)cancelButtonClicked:(id)sender;
+- (IBAction)previousButtonClicked:(id)sender;
+- (IBAction)nextButtonClicked:(id)sender;
 
 @end

@@ -15,22 +15,15 @@
 - (id)init
 {
     self = [super init];
-    if (self) {
-        // Add your subclass-specific initialization here.
-        // If an error occurs here, send a [self release] message and return nil.
-    }
+    if (!self) return nil;
+
     return self;
 }
 
 - (void)makeWindowControllers
 {
+    [super makeWindowControllers];
     [self addWindowController:[[DMDocumentWindowController alloc] init]];
-}
-
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
-    [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
 }
 
 @end
