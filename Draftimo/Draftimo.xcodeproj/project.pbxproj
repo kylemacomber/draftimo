@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34816C3135387F800F11448 /* DMWelcomeViewController.m */; };
+		A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34816C5135387F800F11448 /* DMWelcomeViewController.xib */; };
 		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
 		A3632CE31351140B00E8E84F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3632CE11351140B00E8E84F /* InfoPlist.strings */; };
 		A3632CE61351140B00E8E84F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632CE51351140B00E8E84F /* main.m */; };
@@ -22,8 +24,6 @@
 		A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */; };
 		A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D281352890800E8E84F /* DMSetupWindowController.m */; };
 		A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */; };
-		A3632D371352D28900E8E84F /* DMUnauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D351352D28900E8E84F /* DMUnauthViewController.m */; };
-		A3632D381352D28900E8E84F /* DMUnauthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D361352D28900E8E84F /* DMUnauthViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A34816C3135387F800F11448 /* DMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.m; sourceTree = "<group>"; };
+		A34816C4135387F800F11448 /* DMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.h; sourceTree = "<group>"; };
+		A34816C5135387F800F11448 /* DMWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.xib; sourceTree = "<group>"; };
 		A3632CD41351140B00E8E84F /* Draftimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draftimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3632CD81351140B00E8E84F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3632CDB1351140B00E8E84F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,9 +66,6 @@
 		A3632D271352890800E8E84F /* DMSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSetupWindowController.h; sourceTree = "<group>"; };
 		A3632D281352890800E8E84F /* DMSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSetupWindowController.m; sourceTree = "<group>"; };
 		A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSetupWindowController.xib; sourceTree = "<group>"; };
-		A3632D341352D28900E8E84F /* DMUnauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUnauthViewController.h; sourceTree = "<group>"; };
-		A3632D351352D28900E8E84F /* DMUnauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUnauthViewController.m; sourceTree = "<group>"; };
-		A3632D361352D28900E8E84F /* DMUnauthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMUnauthViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +137,9 @@
 				A3632D271352890800E8E84F /* DMSetupWindowController.h */,
 				A3632D281352890800E8E84F /* DMSetupWindowController.m */,
 				A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */,
-				A3632D341352D28900E8E84F /* DMUnauthViewController.h */,
-				A3632D351352D28900E8E84F /* DMUnauthViewController.m */,
-				A3632D361352D28900E8E84F /* DMUnauthViewController.xib */,
+				A34816C3135387F800F11448 /* DMWelcomeViewController.m */,
+				A34816C4135387F800F11448 /* DMWelcomeViewController.h */,
+				A34816C5135387F800F11448 /* DMWelcomeViewController.xib */,
 				A3632CF01351140B00E8E84F /* MainMenu.xib */,
 				A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */,
 				A3632CDF1351140B00E8E84F /* Supporting Files */,
@@ -251,7 +251,7 @@
 				A3632CF21351140B00E8E84F /* MainMenu.xib in Resources */,
 				A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */,
 				A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */,
-				A3632D381352D28900E8E84F /* DMUnauthViewController.xib in Resources */,
+				A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +292,7 @@
 				A3632CF51351140B00E8E84F /* DMDocument.xcdatamodeld in Sources */,
 				A3632D1C1351148A00E8E84F /* DMDocumentWindowController.m in Sources */,
 				A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */,
-				A3632D371352D28900E8E84F /* DMUnauthViewController.m in Sources */,
+				A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +477,7 @@
 				A3632D0E1351140B00E8E84F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3632D0F1351140B00E8E84F /* Build configuration list for PBXNativeTarget "DraftimoTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +486,7 @@
 				A3632D111351140B00E8E84F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
