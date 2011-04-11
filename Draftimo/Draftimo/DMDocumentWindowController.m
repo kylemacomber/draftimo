@@ -31,6 +31,8 @@
     DLog(@"");
 }
 
+#pragma mark NSWindowController
+
 - (void)showWindow:(id)sender
 {
     [super showWindow:sender];
@@ -40,6 +42,14 @@
         self.setupWindowController = [[DMSetupWindowController alloc] init];
         [[NSApplication sharedApplication] beginSheet:self.setupWindowController.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(setupSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
+}
+
+- (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
+{
+    const BOOL newDraft = !([[self document] fileURL]);
+    if (newDraft) return @"";
+    
+    return [super windowTitleForDocumentDisplayName:displayName];
 }
 
 #pragma mark Setup Window Modal Delegate
