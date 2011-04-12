@@ -11,10 +11,13 @@
 
 
 @interface DMSetupWindowController ()
-
+@property (retain) DMWelcomeViewController *welcomeViewController;
 @end
 
 @implementation DMSetupWindowController
+@synthesize box = __box;
+@synthesize boxTitleTextField = __boxTitleTextField;
+@synthesize welcomeViewController = __welcomeViewController;
 
 - (id)init
 {
@@ -27,6 +30,11 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    const BOOL needsAuth = YES;
+    if (needsAuth) {
+        self.welcomeViewController = [[DMWelcomeViewController alloc] init];
+        [self.box setContentView:self.welcomeViewController.view];
+    }
 }
 
 #pragma mark IBActions

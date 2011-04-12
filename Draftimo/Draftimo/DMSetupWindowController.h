@@ -14,6 +14,9 @@
 
 }
 
+@property (retain) IBOutlet NSBox *box;
+@property (retain) IBOutlet NSTextField *boxTitleTextField;
+
 - (IBAction)cancelButtonClicked:(id)sender;
 - (IBAction)previousButtonClicked:(id)sender;
 - (IBAction)nextButtonClicked:(id)sender;
