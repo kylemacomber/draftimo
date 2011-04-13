@@ -56,4 +56,21 @@
     [[NSApplication sharedApplication] endSheet:self.window returnCode:NSOKButton];
 }
 
+#pragma mark DMWelcomeViewController Actions
+
+- (IBAction)welcomeTryButtonClicked:(id)sender
+{
+    DLog(@"");
+}
+
+- (IBAction)welcomeAuthButtonClicked:(id)sender
+{
+    DLog(@"");
+}
+
+- (IBAction)welcomeLearnButtonClicked:(id)sender
+{
+    DLog(@"");
+}
+
 @end

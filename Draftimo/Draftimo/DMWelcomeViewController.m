@@ -19,9 +19,4 @@
     return self;
 }
 
-- (void)awakeFromNib
-{
-    
-}
-
 @end

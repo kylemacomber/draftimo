@@ -40,7 +40,7 @@
 					<object class="NSButton" id="659642414">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{478, 56}, {178, 65}}</string>
+						<string key="NSFrame">{{487, 62}, {161, 46}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -71,6 +71,128 @@
 							<int key="NSPeriodicInterval">75</int>
 						</object>
 					</object>
+					<object class="NSTextField" id="698654806">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{471, 185}, {192, 68}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="827162434"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="855074751">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">138412032</int>
+							<string key="NSContents">Watch tutorial videos which will teach you how to master Draftimo and dominate your fantasy draft.</string>
+							<object class="NSFont" key="NSSupport" id="371814990">
+								<string key="NSName">LucidaGrande</string>
+								<double key="NSSize">13</double>
+								<int key="NSfFlags">1044</int>
+							</object>
+							<reference key="NSControlView" ref="698654806"/>
+							<bool key="NSDrawsBackground">YES</bool>
+							<object class="NSColor" key="NSBackgroundColor" id="862680651">
+								<int key="NSColorSpace">6</int>
+								<string key="NSCatalogName">System</string>
+								<string key="NSColorName">controlColor</string>
+								<object class="NSColor" key="NSColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+								</object>
+							</object>
+							<object class="NSColor" key="NSTextColor" id="832634117">
+								<int key="NSColorSpace">6</int>
+								<string key="NSCatalogName">System</string>
+								<string key="NSColorName">controlTextColor</string>
+								<object class="NSColor" key="NSColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MAA</bytes>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="NSTextField" id="621101968">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{471, 302}, {192, 58}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="732128570"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="698690319">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">138674176</int>
+							<string key="NSContents">Learn Draftimo</string>
+							<reference key="NSSupport" ref="176559891"/>
+							<reference key="NSControlView" ref="621101968"/>
+							<bool key="NSDrawsBackground">YES</bool>
+							<reference key="NSBackgroundColor" ref="862680651"/>
+							<reference key="NSTextColor" ref="832634117"/>
+						</object>
+					</object>
+					<object class="NSButton" id="628558327">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{260, 62}, {161, 46}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="659642414"/>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSButtonCell" key="NSCell" id="218977576">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">134217728</int>
+							<string key="NSContents">Authorize</string>
+							<reference key="NSSupport" ref="176559891"/>
+							<reference key="NSControlView" ref="628558327"/>
+							<int key="NSButtonFlags">139215103</int>
+							<int key="NSButtonFlags2">130</int>
+							<reference key="NSNormalImage" ref="724124533"/>
+							<reference key="NSAlternateImage" ref="473412264"/>
+							<string key="NSAlternateContents"/>
+							<string key="NSKeyEquivalent"/>
+							<int key="NSPeriodicDelay">400</int>
+							<int key="NSPeriodicInterval">75</int>
+						</object>
+					</object>
+					<object class="NSTextField" id="475133766">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{244, 185}, {192, 68}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="32362359"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="1010237097">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">138412032</int>
+							<string key="NSContents">Link Draftimo with your Yahoo! account to create drafts for any of your Yahoo! fantasy leagues.</string>
+							<reference key="NSSupport" ref="371814990"/>
+							<reference key="NSControlView" ref="475133766"/>
+							<reference key="NSBackgroundColor" ref="862680651"/>
+							<reference key="NSTextColor" ref="832634117"/>
+						</object>
+					</object>
+					<object class="NSTextField" id="852574887">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{244, 302}, {192, 58}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="621101968"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="710087518">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">138674176</int>
+							<string key="NSContents">Authorize Draftimo</string>
+							<reference key="NSSupport" ref="176559891"/>
+							<reference key="NSControlView" ref="852574887"/>
+							<reference key="NSBackgroundColor" ref="862680651"/>
+							<reference key="NSTextColor" ref="832634117"/>
+						</object>
+					</object>
 					<object class="NSButton" id="827162434">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
@@ -95,143 +217,21 @@
 							<int key="NSPeriodicInterval">75</int>
 						</object>
 					</object>
-					<object class="NSButton" id="628558327">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{251, 56}, {178, 65}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="659642414"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="218977576">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Authorize</string>
-							<reference key="NSSupport" ref="176559891"/>
-							<reference key="NSControlView" ref="628558327"/>
-							<int key="NSButtonFlags">139215103</int>
-							<int key="NSButtonFlags2">130</int>
-							<reference key="NSNormalImage" ref="724124533"/>
-							<reference key="NSAlternateImage" ref="473412264"/>
-							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
-							<int key="NSPeriodicDelay">400</int>
-							<int key="NSPeriodicInterval">75</int>
-						</object>
-					</object>
 					<object class="NSTextField" id="732128570">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 185}, {192, 68}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="609161189"/>
+						<reference key="NSNextKeyView" ref="475133766"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="516939053">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">138412032</int>
 							<string key="NSContents">Get accustomed to Draftimo by experimenting with an example draft for your preferred fantasy sport.</string>
-							<object class="NSFont" key="NSSupport" id="371814990">
-								<string key="NSName">LucidaGrande</string>
-								<double key="NSSize">13</double>
-								<int key="NSfFlags">1044</int>
-							</object>
+							<reference key="NSSupport" ref="371814990"/>
 							<reference key="NSControlView" ref="732128570"/>
-							<object class="NSColor" key="NSBackgroundColor" id="862680651">
-								<int key="NSColorSpace">6</int>
-								<string key="NSCatalogName">System</string>
-								<string key="NSColorName">controlColor</string>
-								<object class="NSColor" key="NSColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
-								</object>
-							</object>
-							<object class="NSColor" key="NSTextColor" id="832634117">
-								<int key="NSColorSpace">6</int>
-								<string key="NSCatalogName">System</string>
-								<string key="NSColorName">controlTextColor</string>
-								<object class="NSColor" key="NSColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MAA</bytes>
-								</object>
-							</object>
-						</object>
-					</object>
-					<object class="NSTextField" id="475133766">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{244, 185}, {192, 68}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="32362359"/>
-						<int key="NSViewLayerContentsRedrawPolicy">2</int>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="1010237097">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">138412032</int>
-							<string key="NSContents">Link Draftimo with your Yahoo! account to create drafts for any of your Yahoo! fantasy leagues.</string>
-							<reference key="NSSupport" ref="371814990"/>
-							<reference key="NSControlView" ref="475133766"/>
-							<reference key="NSBackgroundColor" ref="862680651"/>
-							<reference key="NSTextColor" ref="832634117"/>
-						</object>
-					</object>
-					<object class="NSTextField" id="698654806">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{471, 185}, {192, 68}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="827162434"/>
-						<int key="NSViewLayerContentsRedrawPolicy">2</int>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="855074751">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">138412032</int>
-							<string key="NSContents">Watch tutorial videos which will teach you how to master Draftimo and dominate your fantasy draft.</string>
-							<reference key="NSSupport" ref="371814990"/>
-							<reference key="NSControlView" ref="698654806"/>
-							<bool key="NSDrawsBackground">YES</bool>
-							<reference key="NSBackgroundColor" ref="862680651"/>
-							<reference key="NSTextColor" ref="832634117"/>
-						</object>
-					</object>
-					<object class="NSTextField" id="621101968">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{471, 302}, {192, 58}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="698654806"/>
-						<int key="NSViewLayerContentsRedrawPolicy">2</int>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="698690319">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">138674176</int>
-							<string key="NSContents">Learn Draftimo</string>
-							<reference key="NSSupport" ref="176559891"/>
-							<reference key="NSControlView" ref="621101968"/>
-							<bool key="NSDrawsBackground">YES</bool>
-							<reference key="NSBackgroundColor" ref="862680651"/>
-							<reference key="NSTextColor" ref="832634117"/>
-						</object>
-					</object>
-					<object class="NSTextField" id="852574887">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{244, 302}, {192, 58}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="475133766"/>
-						<int key="NSViewLayerContentsRedrawPolicy">2</int>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="710087518">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">138674176</int>
-							<string key="NSContents">Authorize Draftimo</string>
-							<reference key="NSSupport" ref="176559891"/>
-							<reference key="NSControlView" ref="852574887"/>
 							<reference key="NSBackgroundColor" ref="862680651"/>
 							<reference key="NSTextColor" ref="832634117"/>
 						</object>
@@ -242,7 +242,7 @@
 						<string key="NSFrame">{{17, 302}, {192, 58}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="732128570"/>
+						<reference key="NSNextKeyView" ref="609161189"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="520878966">
@@ -261,7 +261,7 @@
 						<string key="NSFrame">{{451, 40}, {5, 340}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="621101968"/>
+						<reference key="NSNextKeyView" ref="698654806"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSOffsets">{0, 0}</string>
 						<object class="NSTextFieldCell" key="NSTitleCell">
@@ -321,48 +321,6 @@
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSClassName">NSView</string>
 			</object>
-			<object class="NSButton" id="534052061">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">268</int>
-				<string key="NSFrameSize">{205, 165}</string>
-				<bool key="NSEnabled">YES</bool>
-				<object class="NSButtonCell" key="NSCell" id="392421169">
-					<int key="NSCellFlags">-2080244224</int>
-					<int key="NSCellFlags2">134217728</int>
-					<string key="NSContents">Gradient Button</string>
-					<reference key="NSSupport" ref="371814990"/>
-					<reference key="NSControlView" ref="534052061"/>
-					<int key="NSButtonFlags">-2033434369</int>
-					<int key="NSButtonFlags2">162</int>
-					<string key="NSAlternateContents"/>
-					<string key="NSKeyEquivalent"/>
-					<int key="NSPeriodicDelay">400</int>
-					<int key="NSPeriodicInterval">75</int>
-				</object>
-			</object>
-			<object class="NSButton" id="475438790">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">268</int>
-				<string key="NSFrameSize">{187, 19}</string>
-				<bool key="NSEnabled">YES</bool>
-				<object class="NSButtonCell" key="NSCell" id="919309744">
-					<int key="NSCellFlags">-2080244224</int>
-					<int key="NSCellFlags2">134217728</int>
-					<string key="NSContents">Hello</string>
-					<object class="NSFont" key="NSSupport">
-						<string key="NSName">LucidaGrande</string>
-						<double key="NSSize">12</double>
-						<int key="NSfFlags">16</int>
-					</object>
-					<reference key="NSControlView" ref="475438790"/>
-					<int key="NSButtonFlags">-2038152961</int>
-					<int key="NSButtonFlags2">164</int>
-					<string key="NSAlternateContents"/>
-					<string key="NSKeyEquivalent"/>
-					<int key="NSPeriodicDelay">400</int>
-					<int key="NSPeriodicInterval">75</int>
-				</object>
-			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -375,20 +333,28 @@
 					<int key="connectionID">2</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">description</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="698654806"/>
+					<object class="IBActionConnection" key="connection">
+						<string key="label">welcomeTryButtonClicked:</string>
+						<reference key="source" ref="1003"/>
+						<reference key="destination" ref="827162434"/>
 					</object>
-					<int key="connectionID">62</int>
+					<int key="connectionID">91</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">title</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="621101968"/>
+					<object class="IBActionConnection" key="connection">
+						<string key="label">welcomeAuthButtonClicked:</string>
+						<reference key="source" ref="1003"/>
+						<reference key="destination" ref="628558327"/>
 					</object>
-					<int key="connectionID">63</int>
+					<int key="connectionID">92</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">welcomeLearnButtonClicked:</string>
+						<reference key="source" ref="1003"/>
+						<reference key="destination" ref="659642414"/>
+					</object>
+					<int key="connectionID">93</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -424,14 +390,14 @@
 							<reference ref="609161189"/>
 							<reference ref="32362359"/>
 							<reference ref="621101968"/>
-							<reference ref="732128570"/>
-							<reference ref="475133766"/>
 							<reference ref="852574887"/>
 							<reference ref="768393301"/>
 							<reference ref="698654806"/>
-							<reference ref="628558327"/>
 							<reference ref="659642414"/>
+							<reference ref="732128570"/>
+							<reference ref="475133766"/>
 							<reference ref="827162434"/>
+							<reference ref="628558327"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -452,6 +418,7 @@
 							<reference ref="520878966"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Try Header</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
@@ -465,6 +432,7 @@
 							<reference ref="710087518"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Authorize Header</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
@@ -478,6 +446,7 @@
 							<reference ref="698690319"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Learn Header</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
@@ -491,6 +460,7 @@
 							<reference ref="855074751"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Learn Body</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
@@ -504,6 +474,7 @@
 							<reference ref="1010237097"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Authorize Body</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
@@ -517,37 +488,12 @@
 							<reference ref="516939053"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Try Body</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
 						<reference key="object" ref="516939053"/>
 						<reference key="parent" ref="732128570"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">34</int>
-						<reference key="object" ref="534052061"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="392421169"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">35</int>
-						<reference key="object" ref="392421169"/>
-						<reference key="parent" ref="534052061"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">64</int>
-						<reference key="object" ref="475438790"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="919309744"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">65</int>
-						<reference key="object" ref="919309744"/>
-						<reference key="parent" ref="475438790"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">74</int>
@@ -556,6 +502,7 @@
 							<reference ref="218977576"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Authorize Button</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">75</int>
@@ -569,6 +516,7 @@
 							<reference ref="646401491"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Try Button</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">81</int>
@@ -582,6 +530,7 @@
 							<reference ref="658124540"/>
 						</array>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Learn Button</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">83</int>
@@ -612,10 +561,6 @@
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="27.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="64.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="65.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="75.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -627,30 +572,42 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">87</int>
+			<int key="maxID">93</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">DMWelcomeViewController</string>
 					<string key="superclassName">NSViewController</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="descrip">NSTextField</string>
-						<string key="title">NSTextField</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="descrip">
-							<string key="name">descrip</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="title">
-							<string key="name">title</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/DMWelcomeViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">FirstResponder</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="welcomeAuthButtonClicked:">id</string>
+						<string key="welcomeLearnButtonClicked:">id</string>
+						<string key="welcomeTryButtonClicked:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="welcomeAuthButtonClicked:">
+							<string key="name">welcomeAuthButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="welcomeLearnButtonClicked:">
+							<string key="name">welcomeLearnButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="welcomeTryButtonClicked:">
+							<string key="name">welcomeTryButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 			</array>
