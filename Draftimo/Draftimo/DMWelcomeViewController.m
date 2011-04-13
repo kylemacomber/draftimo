@@ -19,9 +19,9 @@
     return self;
 }
 
-- (void)dealloc
+- (void)awakeFromNib
 {
-    [super dealloc];
+    
 }
 
 @end

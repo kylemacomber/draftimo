@@ -11,7 +11,7 @@
 
 @interface DMWelcomeViewController : NSViewController {
 @private
-    
+
 }
 
 @end

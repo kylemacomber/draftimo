@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33BC5181354FF8200935996 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = A33BC5171354FF8200935996 /* button.png */; };
+		A33BC51A135508D200935996 /* button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A33BC519135508D200935996 /* button_pressed.png */; };
 		A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34816C3135387F800F11448 /* DMWelcomeViewController.m */; };
 		A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34816C5135387F800F11448 /* DMWelcomeViewController.xib */; };
 		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A33BC5171354FF8200935996 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		A33BC519135508D200935996 /* button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pressed.png; sourceTree = "<group>"; };
 		A34816C3135387F800F11448 /* DMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.m; sourceTree = "<group>"; };
 		A34816C4135387F800F11448 /* DMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.h; sourceTree = "<group>"; };
 		A34816C5135387F800F11448 /* DMWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.xib; sourceTree = "<group>"; };
@@ -88,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A34816D21353DC5100F11448 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A33BC519135508D200935996 /* button_pressed.png */,
+				A33BC5171354FF8200935996 /* button.png */,
+			);
+			name = Resources;
+			path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Resources;
+			sourceTree = "<group>";
+		};
 		A3632CC91351140B00E8E84F = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +156,7 @@
 				A34816C5135387F800F11448 /* DMWelcomeViewController.xib */,
 				A3632CF01351140B00E8E84F /* MainMenu.xib */,
 				A3632CF31351140B00E8E84F /* DMDocument.xcdatamodeld */,
+				A34816D21353DC5100F11448 /* Resources */,
 				A3632CDF1351140B00E8E84F /* Supporting Files */,
 			);
 			path = Draftimo;
@@ -252,6 +267,8 @@
 				A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */,
 				A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */,
 				A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */,
+				A33BC5181354FF8200935996 /* button.png in Resources */,
+				A33BC51A135508D200935996 /* button_pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

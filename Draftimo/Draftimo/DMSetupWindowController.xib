@@ -62,10 +62,9 @@
 							<string key="NSFrame">{{612, 12}, {96, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="675816620">
-								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags">604110336</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Next</string>
 								<object class="NSFont" key="NSSupport" id="334198783">
@@ -91,7 +90,7 @@
 							<reference key="NSNextKeyView" ref="150596269"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="534443331">
-								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags">604110336</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Previous</string>
 								<reference key="NSSupport" ref="334198783"/>
