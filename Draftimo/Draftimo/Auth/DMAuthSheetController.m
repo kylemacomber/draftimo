@@ -55,12 +55,6 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
     [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"HelpButtonEnabled"];
 }
 
-- (void)dealloc
-{
-    [[DMOAuthController sharedOAuthController] removeObserver:self forKeyPath:@"oauthStateMask"];
-    [super dealloc];
-}
-
 - (id)init
 {
     self = [super initWithWindowNibName:@"DMAuthSheet"];

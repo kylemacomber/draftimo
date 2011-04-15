@@ -21,13 +21,6 @@
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
-- (void)dealloc
-{
-    self.yesObject = nil;
-    self.noObject = nil;
-    [super dealloc];
-}
-
 + (id)boolTransformerWithYesObject:(id)yesObject noObject:(id)noObject 
 {
     return [[[self alloc] initWithYesObject:yesObject noObject:noObject] autorelease];

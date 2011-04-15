@@ -19,12 +19,6 @@
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
-- (void)dealloc
-{
-    self.map = nil;
-    [super dealloc];
-}
-
 + (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[[self alloc] initWithMap:aMap] autorelease]; }
 
 - (id)initWithMap:(NSDictionary *)aMap

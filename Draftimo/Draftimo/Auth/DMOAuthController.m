@@ -54,43 +54,17 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @synthesize waitingOperations;
 @synthesize userAuthURL;
 
-- (void)dealloc
-{
-    self.oauthStateMask = 0;
-    self.verifierCode = nil;
-    self.oauthAPI = nil;
-    self.cachedRequestToken = nil;
-    self.cachedRequestTokenSecret = nil;
-    self.YAuthReachable = nil;
-    self.YFReachable = nil;
-    self.waitingOperations = nil;
-    self.userAuthURL = nil;
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super dealloc];
-}
-
 + (DMOAuthController *)sharedOAuthController
 {
     static DMOAuthController *__sharedOAuthController = nil;
     
-    @synchronized(self) {
-        if (__sharedOAuthController == nil) {
+    @synchronized (self) {
+        if (!__sharedOAuthController) {
             __sharedOAuthController = [[super allocWithZone:NULL] init];
         }
     }
     
     return __sharedOAuthController;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [[self sharedOAuthController] retain];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
 }
 
 - (id)init
@@ -348,10 +322,4 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @synthesize reachability;
 @synthesize waitingForAuth;
 
-- (void)dealloc
-{
-    self.reachability = nil;
-    self.waitingForAuth = 0;
-    [super dealloc];
-}
 @end
