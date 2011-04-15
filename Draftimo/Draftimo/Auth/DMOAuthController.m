@@ -98,7 +98,7 @@ static DMOAuthController *__sharedOAuthController = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:notificationSEL name:MPOAuthNotificationAccessTokenRefreshed object:nil];
     
     NSDictionary *const credentials = [NSDictionary dictionaryWithObjectsAndKeys:DMOAuthConsumerKey, kMPOAuthCredentialConsumerKey, DMOAuthConsumerSecret, kMPOAuthCredentialConsumerSecret, nil];
-    self.oauthAPI = [[[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL]  andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO] autorelease]; // I don't know what authentication URL is. This is what MPOAuth does internal so I copied it.
+    self.oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials authenticationURL:[NSURL URLWithString:YAuthBaseURL]  andBaseURL:[NSURL URLWithString:YAuthBaseURL] autoStart:NO]; // I don't know what authentication URL is. This is what MPOAuth does internal so I copied it.
     
     self.cachedRequestToken = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestToken];
     self.cachedRequestTokenSecret = [self.oauthAPI credentialNamed:kMPOAuthCredentialRequestTokenSecret];

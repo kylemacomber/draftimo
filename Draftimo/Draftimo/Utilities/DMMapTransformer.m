@@ -19,7 +19,7 @@
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
-+ (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[[self alloc] initWithMap:aMap] autorelease]; }
++ (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[self alloc] initWithMap:aMap]; }
 
 - (id)initWithMap:(NSDictionary *)aMap
 {

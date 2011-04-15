@@ -23,7 +23,7 @@
 
 + (id)boolTransformerWithYesObject:(id)yesObject noObject:(id)noObject 
 {
-    return [[[self alloc] initWithYesObject:yesObject noObject:noObject] autorelease];
+    return [[self alloc] initWithYesObject:yesObject noObject:noObject];
 }
 
 - (id)initWithYesObject:(id)theYesObject noObject:(id)theNoObject
