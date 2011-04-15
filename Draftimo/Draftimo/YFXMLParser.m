@@ -52,8 +52,9 @@ static inline NSString *managersString(NSArray *nodes)
 // This method initializes an entity from an appropriate XML node using this mapping
 static inline id entityFromNode(NSString *entityName, NSXMLNode *node)
 {
-    id entity = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:[DMAppController sharedAppController].managedObjectContext];
-    NSEntityDescription *const entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:[DMAppController sharedAppController].managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = nil; //!!!:INCORRECT REPLACE WITH POINTER TO ACTUAL MANAGED OBJECT CONTEXT
+    id entity = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:managedObjectContext];
+    NSEntityDescription *const entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
     NSDictionary *const attributesMap = [entityDescription userInfo];
     
     for (NSString *attributeName in [[entityDescription attributesByName] allKeys]) {

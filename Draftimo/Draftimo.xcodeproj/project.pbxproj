@@ -49,6 +49,7 @@
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
 		A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
 		A39EF91B1357D6D1009433C2 /* MPOAuth.framework in Resources */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
+		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
 		A39EF9181357D6AC009433C2 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
+		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +142,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */,
 				A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */,
+				A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */,
+				A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +205,7 @@
 				A3632CDB1351140B00E8E84F /* AppKit.framework */,
 				A3632CDC1351140B00E8E84F /* CoreData.framework */,
 				A3632CDD1351140B00E8E84F /* Foundation.framework */,
+				A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */,
 			);
 			name = "Apple Frameworks";
 			sourceTree = "<group>";
