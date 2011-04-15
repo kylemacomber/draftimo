@@ -54,21 +54,30 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @synthesize waitingOperations;
 @synthesize userAuthURL;
 
+static DMOAuthController *__sharedOAuthController = nil;
 + (DMOAuthController *)sharedOAuthController
 {
-    static DMOAuthController *__sharedOAuthController = nil;
-    
     @synchronized (self) {
         if (!__sharedOAuthController) {
-            __sharedOAuthController = [[super allocWithZone:NULL] init];
+            __sharedOAuthController = [[super alloc] init];
         }
     }
     
     return __sharedOAuthController;
 }
 
++ (id)alloc
+{
+    return [self sharedOAuthController];
+}
+
 - (id)init
 {
+    DLog(@"");
+    if (__sharedOAuthController) {
+        return __sharedOAuthController;
+    }
+    
     self = [super init];
     if (!self) return nil;
     
