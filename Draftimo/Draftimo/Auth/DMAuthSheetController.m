@@ -92,7 +92,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 - (IBAction)cancelButtonClicked:(id)sender
 {
     DLog(@"");
-    [[NSApplication sharedApplication] endSheet:[self window] returnCode:DMAuthCancel];
+    [[NSApplication sharedApplication] endSheet:[self window] returnCode:NSCancelButton];
 }
 
 - (IBAction)helpButtonClicked:(id)sender
@@ -104,7 +104,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 - (void)endSheetWithSuccess
 {
-    [[NSApplication sharedApplication] endSheet:self.window returnCode:DMAuthSuccess];
+    [[NSApplication sharedApplication] endSheet:self.window returnCode:NSOKButton];
 }
 
 @end

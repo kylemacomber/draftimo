@@ -88,7 +88,7 @@
 - (void)authSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     DLog(@"");
-    if (returnCode == DMAuthCancel) {
+    if (returnCode == NSCancelButton) {
         [sheet orderOut:self];
         return;
     }

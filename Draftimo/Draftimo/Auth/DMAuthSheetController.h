@@ -9,12 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 
-enum {
-    DMAuthSuccess,
-    DMAuthCancel
-};
-typedef NSInteger DMAuthReturnCode;
-
 @interface DMAuthSheetController : NSWindowController {
 @private
 
