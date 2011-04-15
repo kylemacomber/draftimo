@@ -10,11 +10,13 @@
 #import "DMWelcomeViewController.h"
 #import "DMOAuthController.h"
 #import "DMAuthSheetController.h"
+#import "DMSelectDraftViewController.h"
 
 
 @interface DMSetupWindowController ()
 @property (retain) DMWelcomeViewController *welcomeViewController;
 @property (retain) DMAuthSheetController *authSheetController;
+@property (retain) DMSelectDraftViewController *selectDraftViewController;
 
 - (void)showSelectDraftView;
 @end
@@ -24,6 +26,7 @@
 @synthesize boxTitleTextField = __boxTitleTextField;
 @synthesize welcomeViewController = __welcomeViewController;
 @synthesize authSheetController = __authSheetController;
+@synthesize selectDraftViewController = __selectDraftViewController;
 
 - (id)init
 {
@@ -103,6 +106,8 @@
 - (void)showSelectDraftView
 {
     DLog(@"");
+    self.selectDraftViewController = [[DMSelectDraftViewController alloc] init];
+    [self.box setContentView:self.selectDraftViewController.view];
 }
 
 @end

@@ -53,6 +53,8 @@
 		A38CFCAD1356298000206919 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCAC1356298000206919 /* Localizable.strings */; };
 		A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCBF1356E04600206919 /* welcome_button_pressed.png */; };
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
+		A390575E135821D1009D61DD /* DMSelectDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A390575C135821D1009D61DD /* DMSelectDraftViewController.m */; };
+		A390575F135821D1009D61DD /* DMSelectDraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */; };
 		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +157,9 @@
 		A38CFCAC1356298000206919 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
+		A390575B135821D1009D61DD /* DMSelectDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSelectDraftViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.h; sourceTree = "<group>"; };
+		A390575C135821D1009D61DD /* DMSelectDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSelectDraftViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.m; sourceTree = "<group>"; };
+		A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMSelectDraftViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.xib; sourceTree = "<group>"; };
 		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -358,6 +363,9 @@
 				A34816C4135387F800F11448 /* DMWelcomeViewController.h */,
 				A34816C3135387F800F11448 /* DMWelcomeViewController.m */,
 				A34816C5135387F800F11448 /* DMWelcomeViewController.xib */,
+				A390575B135821D1009D61DD /* DMSelectDraftViewController.h */,
+				A390575C135821D1009D61DD /* DMSelectDraftViewController.m */,
+				A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 				A31350741357F23700FFF529 /* Status_Accepted.png in Resources */,
 				A31350751357F23700FFF529 /* Alert.png in Resources */,
 				A31350781357F2CA00FFF529 /* DMAuthSheetController.xib in Resources */,
+				A390575F135821D1009D61DD /* DMSelectDraftViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +524,7 @@
 				A37E0BF81357AF04001BAF1A /* DMOAuthStateMapTransformer.m in Sources */,
 				A37E0BFC1357AF9D001BAF1A /* DMConstants.m in Sources */,
 				A37E0BFF1357AFAD001BAF1A /* YFXMLParser.m in Sources */,
+				A390575E135821D1009D61DD /* DMSelectDraftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
