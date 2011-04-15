@@ -2,58 +2,18 @@
 //  DMLeague.m
 //  Draftimo
 //
-//  Created by Kyle Macomber on 4/4/11.
+//  Created by Kyle Macomber on 4/15/11.
 //  Copyright (c) 2011 Kyle Macomber. All rights reserved.
 //
 
 #import "DMLeague.h"
-#import "DMDraft.h"
 #import "DMGame.h"
-#import "DMPlayer.h"
 #import "DMPosition.h"
 #import "DMStat.h"
 #import "DMTeam.h"
 
 
 @implementation DMLeague
-
-- (BOOL)validateDrafted:(id *)ioValue error:(NSError **)outError
-{
-    DLog(@"");
-    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
-        return YES;
-    }
-    
-    if ([*ioValue isKindOfClass:[NSString class]]) {
-        *ioValue = ([*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO]);
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (BOOL)validateNumTeams:(id *)ioValue error:(NSError **)outError
-{
-    DLog(@"");
-    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
-        return YES;
-    }
-    
-    if ([*ioValue isKindOfClass:[NSString class]]) {
-        const NSInteger value = [(NSString *)*ioValue integerValue];
-        if (value < 1) {
-            return NO;
-        }
-        
-        *ioValue = [NSNumber numberWithInteger:value];
-        return YES;
-    }
-    
-    return NO;
-}
-
-#pragma Generated
-
 @dynamic scoringType;
 @dynamic numTeams;
 @dynamic drafted;
@@ -63,8 +23,6 @@
 @dynamic stats;
 @dynamic teams;
 @dynamic positions;
-@dynamic players;
-@dynamic draft;
 
 
 - (void)addStatsObject:(DMStat *)value {    
@@ -152,36 +110,6 @@
     [[self primitiveValueForKey:@"positions"] minusSet:value];
     [self didChangeValueForKey:@"positions" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
-
-
-- (void)addPlayersObject:(DMPlayer *)value {    
-    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
-    [self willChangeValueForKey:@"players" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [[self primitiveValueForKey:@"players"] addObject:value];
-    [self didChangeValueForKey:@"players" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
-}
-
-- (void)removePlayersObject:(DMPlayer *)value {
-    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
-    [self willChangeValueForKey:@"players" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [[self primitiveValueForKey:@"players"] removeObject:value];
-    [self didChangeValueForKey:@"players" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
-}
-
-- (void)addPlayers:(NSSet *)value {    
-    [self willChangeValueForKey:@"players" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
-    [[self primitiveValueForKey:@"players"] unionSet:value];
-    [self didChangeValueForKey:@"players" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
-}
-
-- (void)removePlayers:(NSSet *)value {
-    [self willChangeValueForKey:@"players" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
-    [[self primitiveValueForKey:@"players"] minusSet:value];
-    [self didChangeValueForKey:@"players" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
-}
-
 
 
 @end

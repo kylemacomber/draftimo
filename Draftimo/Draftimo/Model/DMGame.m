@@ -2,7 +2,7 @@
 //  DMGame.m
 //  Draftimo
 //
-//  Created by Kyle Macomber on 4/4/11.
+//  Created by Kyle Macomber on 4/15/11.
 //  Copyright (c) 2011 Kyle Macomber. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 
 @implementation DMGame
 @dynamic gameID;
-@dynamic gameType;
-@dynamic season;
 @dynamic code;
-@dynamic game;
+@dynamic season;
+@dynamic name;
+@dynamic type;
 @dynamic leagues;
 
 - (void)addLeaguesObject:(DMLeague *)value {    
