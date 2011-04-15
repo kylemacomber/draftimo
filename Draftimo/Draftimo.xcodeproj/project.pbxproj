@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31350621357E9E200FFF529 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
+		A31350651357EA3000FFF529 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
 		A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34816C3135387F800F11448 /* DMWelcomeViewController.m */; };
 		A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34816C5135387F800F11448 /* DMWelcomeViewController.xib */; };
 		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
@@ -47,8 +49,6 @@
 		A38CFCAD1356298000206919 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCAC1356298000206919 /* Localizable.strings */; };
 		A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCBF1356E04600206919 /* welcome_button_pressed.png */; };
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
-		A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
-		A39EF91B1357D6D1009433C2 /* MPOAuth.framework in Resources */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
 		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A31350641357EA2000FFF529 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A31350651357EA3000FFF529 /* MPOAuth.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A31350611357E9E200FFF529 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
 		A34816C3135387F800F11448 /* DMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.m; sourceTree = "<group>"; };
 		A34816C4135387F800F11448 /* DMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.h; sourceTree = "<group>"; };
 		A34816C5135387F800F11448 /* DMWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.xib; sourceTree = "<group>"; };
@@ -133,7 +147,6 @@
 		A38CFCAC1356298000206919 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
-		A39EF9181357D6AC009433C2 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
 		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -142,9 +155,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31350621357E9E200FFF529 /* MPOAuth.framework in Frameworks */,
 				A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */,
 				A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */,
-				A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +353,7 @@
 		A39EF91C1357D6F0009433C2 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A39EF9181357D6AC009433C2 /* MPOAuth.framework */,
+				A31350611357E9E200FFF529 /* MPOAuth.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -355,6 +368,7 @@
 				A3632CD01351140B00E8E84F /* Sources */,
 				A3632CD11351140B00E8E84F /* Frameworks */,
 				A3632CD21351140B00E8E84F /* Resources */,
+				A31350641357EA2000FFF529 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -425,7 +439,6 @@
 				A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */,
 				A38CFCC21356E04600206919 /* welcome_button.png in Resources */,
 				A37E0BF51357AF04001BAF1A /* DMAuthSheet.xib in Resources */,
-				A39EF91B1357D6D1009433C2 /* MPOAuth.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
