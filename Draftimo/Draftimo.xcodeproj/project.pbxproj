@@ -13,6 +13,7 @@
 		A31350731357F23700FFF529 /* Status_Conflict.png in Resources */ = {isa = PBXBuildFile; fileRef = A313506F1357F23700FFF529 /* Status_Conflict.png */; };
 		A31350741357F23700FFF529 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A31350701357F23700FFF529 /* Status_Accepted.png */; };
 		A31350751357F23700FFF529 /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = A31350711357F23700FFF529 /* Alert.png */; };
+		A31350781357F2CA00FFF529 /* DMAuthSheetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31350771357F2CA00FFF529 /* DMAuthSheetController.xib */; };
 		A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34816C3135387F800F11448 /* DMWelcomeViewController.m */; };
 		A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34816C5135387F800F11448 /* DMWelcomeViewController.xib */; };
 		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
@@ -44,7 +45,6 @@
 		A37E0BE61357AEAF001BAF1A /* DMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BDA1357AEAF001BAF1A /* DMStat.m */; };
 		A37E0BE71357AEAF001BAF1A /* DMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BDC1357AEAF001BAF1A /* DMTeam.m */; };
 		A37E0BE81357AEAF001BAF1A /* Draftimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BDD1357AEAF001BAF1A /* Draftimo.xcdatamodeld */; };
-		A37E0BF51357AF04001BAF1A /* DMAuthSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37E0BEE1357AF04001BAF1A /* DMAuthSheet.xib */; };
 		A37E0BF61357AF04001BAF1A /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */; };
 		A37E0BF71357AF04001BAF1A /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF21357AF04001BAF1A /* DMOAuthController.m */; };
 		A37E0BF81357AF04001BAF1A /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF41357AF04001BAF1A /* DMOAuthStateMapTransformer.m */; };
@@ -85,6 +85,7 @@
 		A313506F1357F23700FFF529 /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
 		A31350701357F23700FFF529 /* Status_Accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Accepted.png; sourceTree = "<group>"; };
 		A31350711357F23700FFF529 /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alert.png; sourceTree = "<group>"; };
+		A31350771357F2CA00FFF529 /* DMAuthSheetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthSheetController.xib; sourceTree = "<group>"; };
 		A34816C3135387F800F11448 /* DMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.m; sourceTree = "<group>"; };
 		A34816C4135387F800F11448 /* DMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.h; sourceTree = "<group>"; };
 		A34816C5135387F800F11448 /* DMWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.xib; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		A37E0BDB1357AEAF001BAF1A /* DMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTeam.h; sourceTree = "<group>"; };
 		A37E0BDC1357AEAF001BAF1A /* DMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTeam.m; sourceTree = "<group>"; };
 		A37E0BDE1357AEAF001BAF1A /* Draftimo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Draftimo.xcdatamodel; sourceTree = "<group>"; };
-		A37E0BEE1357AF04001BAF1A /* DMAuthSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthSheet.xib; sourceTree = "<group>"; };
 		A37E0BEF1357AF04001BAF1A /* DMAuthSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAuthSheetController.h; sourceTree = "<group>"; };
 		A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMAuthSheetController.m; sourceTree = "<group>"; };
 		A37E0BF11357AF04001BAF1A /* DMOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOAuthController.h; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 		A37E0BED1357AF04001BAF1A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				A37E0BEE1357AF04001BAF1A /* DMAuthSheet.xib */,
+				A31350771357F2CA00FFF529 /* DMAuthSheetController.xib */,
 				A37E0BEF1357AF04001BAF1A /* DMAuthSheetController.h */,
 				A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */,
 				A37E0BF11357AF04001BAF1A /* DMOAuthController.h */,
@@ -450,11 +450,11 @@
 				A38CFCAD1356298000206919 /* Localizable.strings in Resources */,
 				A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */,
 				A38CFCC21356E04600206919 /* welcome_button.png in Resources */,
-				A37E0BF51357AF04001BAF1A /* DMAuthSheet.xib in Resources */,
 				A31350721357F23700FFF529 /* Status_Declined.png in Resources */,
 				A31350731357F23700FFF529 /* Status_Conflict.png in Resources */,
 				A31350741357F23700FFF529 /* Status_Accepted.png in Resources */,
 				A31350751357F23700FFF529 /* Alert.png in Resources */,
+				A31350781357F2CA00FFF529 /* DMAuthSheetController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

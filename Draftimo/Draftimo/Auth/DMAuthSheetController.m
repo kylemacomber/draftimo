@@ -57,7 +57,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 - (id)init
 {
-    self = [super initWithWindowNibName:@"DMAuthSheet"];
+    self = [super initWithWindowNibName:NSStringFromClass([self class])];
     if (!self) return nil;
     
     self.browserLaunched = (([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable) > DMOAuthRequestTokenRecieved);
