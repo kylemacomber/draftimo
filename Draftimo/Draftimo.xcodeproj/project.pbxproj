@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A31350621357E9E200FFF529 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
 		A31350651357EA3000FFF529 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
+		A31350721357F23700FFF529 /* Status_Declined.png in Resources */ = {isa = PBXBuildFile; fileRef = A313506E1357F23700FFF529 /* Status_Declined.png */; };
+		A31350731357F23700FFF529 /* Status_Conflict.png in Resources */ = {isa = PBXBuildFile; fileRef = A313506F1357F23700FFF529 /* Status_Conflict.png */; };
+		A31350741357F23700FFF529 /* Status_Accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = A31350701357F23700FFF529 /* Status_Accepted.png */; };
+		A31350751357F23700FFF529 /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = A31350711357F23700FFF529 /* Alert.png */; };
 		A34816C6135387F800F11448 /* DMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34816C3135387F800F11448 /* DMWelcomeViewController.m */; };
 		A34816C7135387F800F11448 /* DMWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34816C5135387F800F11448 /* DMWelcomeViewController.xib */; };
 		A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3632CD81351140B00E8E84F /* Cocoa.framework */; };
@@ -77,6 +81,10 @@
 
 /* Begin PBXFileReference section */
 		A31350611357E9E200FFF529 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
+		A313506E1357F23700FFF529 /* Status_Declined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Declined.png; sourceTree = "<group>"; };
+		A313506F1357F23700FFF529 /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
+		A31350701357F23700FFF529 /* Status_Accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Accepted.png; sourceTree = "<group>"; };
+		A31350711357F23700FFF529 /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alert.png; sourceTree = "<group>"; };
 		A34816C3135387F800F11448 /* DMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWelcomeViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.m; sourceTree = "<group>"; };
 		A34816C4135387F800F11448 /* DMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWelcomeViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.h; sourceTree = "<group>"; };
 		A34816C5135387F800F11448 /* DMWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMWelcomeViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMWelcomeViewController.xib; sourceTree = "<group>"; };
@@ -175,6 +183,10 @@
 		A34816D21353DC5100F11448 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A313506E1357F23700FFF529 /* Status_Declined.png */,
+				A313506F1357F23700FFF529 /* Status_Conflict.png */,
+				A31350701357F23700FFF529 /* Status_Accepted.png */,
+				A31350711357F23700FFF529 /* Alert.png */,
 				A38CFCBF1356E04600206919 /* welcome_button_pressed.png */,
 				A38CFCC01356E04600206919 /* welcome_button.png */,
 				A38CFCAC1356298000206919 /* Localizable.strings */,
@@ -439,6 +451,10 @@
 				A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */,
 				A38CFCC21356E04600206919 /* welcome_button.png in Resources */,
 				A37E0BF51357AF04001BAF1A /* DMAuthSheet.xib in Resources */,
+				A31350721357F23700FFF529 /* Status_Declined.png in Resources */,
+				A31350731357F23700FFF529 /* Status_Conflict.png in Resources */,
+				A31350741357F23700FFF529 /* Status_Accepted.png in Resources */,
+				A31350751357F23700FFF529 /* Alert.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
