@@ -10,12 +10,6 @@
 
 extern NSString * const MPOAuthAccessTokenURLKey;
 
-extern NSString * const MPOAuthAuthenticationErrorDomain;
-
-enum {
-    MPOAuthAuthenticationErrorUnknown
-};
-
 @class MPOAuthAPI;
 
 @interface MPOAuthAuthenticationMethod : NSObject {
@@ -29,7 +23,7 @@ enum {
 
 - (id)initWithAPI:(MPOAuthAPI *)inAPI forURL:(NSURL *)inURL;
 - (id)initWithAPI:(MPOAuthAPI *)inAPI forURL:(NSURL *)inURL withConfiguration:(NSDictionary *)inConfig;
-- (void)beginAuthentication;
+- (void)authenticate;
 
 - (void)setTokenRefreshInterval:(NSTimeInterval)inTimeInterval;
 - (void)refreshAccessToken;

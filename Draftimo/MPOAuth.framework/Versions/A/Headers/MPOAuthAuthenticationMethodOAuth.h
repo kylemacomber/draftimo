@@ -33,7 +33,7 @@ extern NSString * const MPOAuthNotificationRequestTokenRejected;
 @property (nonatomic, readwrite, retain) NSURL *oauthRequestTokenURL;
 @property (nonatomic, readwrite, retain) NSURL *oauthAuthorizeTokenURL;
 
-- (void)beginAuthentication;
+- (void)authenticate;
 
 @end
 

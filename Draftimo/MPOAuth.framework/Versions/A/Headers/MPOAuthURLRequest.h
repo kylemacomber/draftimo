@@ -29,6 +29,4 @@
 
 - (NSURLRequest  *)urlRequestSignedWithSecret:(NSString *)inSecret usingMethod:(NSString *)inScheme;
 
-+ (NSString *)authorizationHeaderValueFromParameterString:(NSString*)parameterString;
-
 @end
