@@ -73,7 +73,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 
 - (id)init
 {
-    DLog(@"");
+    // Don't allow full init except for the sharedInstance
     if (__sharedOAuthController) {
         return __sharedOAuthController;
     }
