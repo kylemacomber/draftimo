@@ -7,10 +7,10 @@
 //
 
 #import "DMAuthSheetController.h"
-#import "DMAppController.h"
 #import "DMOAuthStateMapTransformer.h"
 #import "DMBoolTransformer.h"
 #import "NSDictionary-Utilities.h"
+#import "DMOAuthController.h"
 
 
 static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
@@ -57,7 +57,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 - (void)dealloc
 {
-    [[DMAppController sharedAppController].oauthController removeObserver:self forKeyPath:@"oauthStateMask"];
+    [[DMOAuthController sharedOAuthController] removeObserver:self forKeyPath:@"oauthStateMask"];
     [super dealloc];
 }
 
@@ -66,8 +66,8 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
     self = [super initWithWindowNibName:@"DMAuthSheet"];
     if (!self) return nil;
     
-    self.browserLaunched = (([DMAppController sharedAppController].oauthController.oauthStateMask & ~DMOAuthUnreachable) > DMOAuthRequestTokenRecieved);
-    [[DMAppController sharedAppController].oauthController addObserver:self forKeyPath:@"oauthStateMask" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
+    self.browserLaunched = (([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable) > DMOAuthRequestTokenRecieved);
+    [[DMOAuthController sharedOAuthController] addObserver:self forKeyPath:@"oauthStateMask" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
     
     return self;
 }
@@ -78,10 +78,10 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 {
     DLog(@"%d->%d", [[change objectForKey:NSKeyValueChangeOldKey] unsignedIntegerValue], [[change objectForKey:NSKeyValueChangeNewKey] unsignedIntegerValue]);
     
-    const DMOAuthState reachableState = ([DMAppController sharedAppController].oauthController.oauthStateMask & ~DMOAuthUnreachable);
+    const DMOAuthState reachableState = ([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable);
     self.browserLaunched = ((reachableState == DMOAuthRequestTokenRecieved && self.browserLaunched) || reachableState > DMOAuthRequestTokenRecieved);
 
-    if ([DMAppController sharedAppController].oauthController.oauthStateMask == DMOAuthAuthenticated) {
+    if ([DMOAuthController sharedOAuthController].oauthStateMask == DMOAuthAuthenticated) {
         [self performSelector:@selector(endSheetWithSuccess) withObject:nil afterDelay:DMAuthSheetSuccessDismissDelay];
     }
 }
@@ -92,7 +92,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 {
     DLog(@"");
     self.browserLaunched = YES;
-    [[NSWorkspace sharedWorkspace] openURL:[DMAppController sharedAppController].oauthController.userAuthURL];
+    [[NSWorkspace sharedWorkspace] openURL:[DMOAuthController sharedOAuthController].userAuthURL];
 }
 
 - (IBAction)cancelButtonClicked:(id)sender

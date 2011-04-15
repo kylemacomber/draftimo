@@ -70,6 +70,29 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     [super dealloc];
 }
 
++ (DMOAuthController *)sharedOAuthController
+{
+    static DMOAuthController *__sharedOAuthController = nil;
+    
+    @synchronized(self) {
+        if (__sharedOAuthController == nil) {
+            __sharedOAuthController = [[super allocWithZone:NULL] init];
+        }
+    }
+    
+    return __sharedOAuthController;
+}
+
++ (id)allocWithZone:(NSZone *)zone
+{
+    return [[self sharedOAuthController] retain];
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
 - (id)init
 {
     self = [super init];

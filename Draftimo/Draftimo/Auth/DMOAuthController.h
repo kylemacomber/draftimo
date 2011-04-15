@@ -27,6 +27,8 @@ typedef NSUInteger DMOAuthState;
 
 @interface DMOAuthController : NSObject <MPOAuthAuthenticationMethodOAuthDelegate> {}
 
++ (DMOAuthController *)sharedOAuthController;
+
 @property (nonatomic, assign, readonly) DMOAuthState oauthStateMask;
 @property (nonatomic, copy, readonly) NSURL *userAuthURL;
 @property (nonatomic, copy) NSString *verifierCode;
