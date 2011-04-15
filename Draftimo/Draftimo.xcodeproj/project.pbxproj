@@ -47,6 +47,8 @@
 		A38CFCAD1356298000206919 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCAC1356298000206919 /* Localizable.strings */; };
 		A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCBF1356E04600206919 /* welcome_button_pressed.png */; };
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
+		A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
+		A39EF91B1357D6D1009433C2 /* MPOAuth.framework in Resources */ = {isa = PBXBuildFile; fileRef = A39EF9181357D6AC009433C2 /* MPOAuth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,7 @@
 		A38CFCAC1356298000206919 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
+		A39EF9181357D6AC009433C2 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39EF9191357D6AC009433C2 /* MPOAuth.framework in Frameworks */,
 				A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,20 +189,21 @@
 		A3632CD71351140B00E8E84F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3632CD81351140B00E8E84F /* Cocoa.framework */,
-				A3632CDA1351140B00E8E84F /* Other Frameworks */,
+				A3632CDA1351140B00E8E84F /* Apple Frameworks */,
+				A39EF91C1357D6F0009433C2 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A3632CDA1351140B00E8E84F /* Other Frameworks */ = {
+		A3632CDA1351140B00E8E84F /* Apple Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3632CD81351140B00E8E84F /* Cocoa.framework */,
 				A3632CDB1351140B00E8E84F /* AppKit.framework */,
 				A3632CDC1351140B00E8E84F /* CoreData.framework */,
 				A3632CDD1351140B00E8E84F /* Foundation.framework */,
 			);
-			name = "Other Frameworks";
+			name = "Apple Frameworks";
 			sourceTree = "<group>";
 		};
 		A3632CDE1351140B00E8E84F /* Draftimo */ = {
@@ -328,6 +333,14 @@
 			name = Setup;
 			sourceTree = "<group>";
 		};
+		A39EF91C1357D6F0009433C2 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A39EF9181357D6AC009433C2 /* MPOAuth.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,6 +421,7 @@
 				A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */,
 				A38CFCC21356E04600206919 /* welcome_button.png in Resources */,
 				A37E0BF51357AF04001BAF1A /* DMAuthSheet.xib in Resources */,
+				A39EF91B1357D6D1009433C2 /* MPOAuth.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +576,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Active/Development/ObjectiveC/draftimo/Draftimo\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -579,6 +597,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Active/Development/ObjectiveC/draftimo/Draftimo\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
