@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DMGame, DMPosition, DMStat, DMTeam;
+enum {
+    DMScoringTypeH2H,
+    DMScoringTypeRoto
+};
+typedef NSUInteger DMScoringType;
 
+@class DMGame, DMPosition, DMStat, DMTeam;
 @interface DMLeague : NSManagedObject {
 @private
+    
 }
 @property (nonatomic, retain) NSNumber * scoringType;
 @property (nonatomic, retain) NSNumber * numTeams;

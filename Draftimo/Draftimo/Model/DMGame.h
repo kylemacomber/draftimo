@@ -9,8 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DMLeague;
 
+enum {
+    DMGameTypeFull
+};
+typedef NSUInteger DMGameType;
+
+enum {
+    DMGameCodeNFL,
+    DMGameCodeMLB,
+    DMGameCodeNBA,
+    DMGameCodeNHL
+};
+typedef NSUInteger DMGameCode;
+
+@class DMLeague;
 @interface DMGame : NSManagedObject {
 @private
 }

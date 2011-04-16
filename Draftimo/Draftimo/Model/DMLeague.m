@@ -14,6 +14,89 @@
 
 
 @implementation DMLeague
+
+- (BOOL)validateScoringType:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        DMScoringType value;
+        if ([*ioValue isEqualToString:@"roto"]) {
+            value = DMScoringTypeRoto;
+        } else if ([*ioValue isEqualToString:@"head"]) {
+            value = DMScoringTypeH2H;
+        } else {
+            ALog(@"%@", *ioValue);
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithUnsignedInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)validateNumTeams:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        NSInteger const value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            ALog(@"%d", value);
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)validateDrafted:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        *ioValue = ([*ioValue isEqualToString:@"postdraft"] ? [NSNumber numberWithBool:YES] : [NSNumber numberWithBool:NO]);
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)validateLeagueID:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    if (!(*ioValue) || [*ioValue isKindOfClass:[NSNumber class]]) {
+        return YES;
+    }
+    
+    if ([*ioValue isKindOfClass:[NSString class]]) {
+        const NSInteger value = [(NSString *)*ioValue integerValue];
+        if (value < 1) {
+            ALog(@"%d", value);
+            return NO;
+        }
+        
+        *ioValue = [NSNumber numberWithInteger:value];
+        return YES;
+    }
+    
+    return NO;
+}
+
 @dynamic scoringType;
 @dynamic numTeams;
 @dynamic drafted;
