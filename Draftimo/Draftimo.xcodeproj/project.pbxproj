@@ -40,7 +40,6 @@
 		A37E0BF71357AF04001BAF1A /* DMOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF21357AF04001BAF1A /* DMOAuthController.m */; };
 		A37E0BF81357AF04001BAF1A /* DMOAuthStateMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF41357AF04001BAF1A /* DMOAuthStateMapTransformer.m */; };
 		A37E0BFC1357AF9D001BAF1A /* DMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BFA1357AF9D001BAF1A /* DMConstants.m */; };
-		A37E0BFF1357AFAD001BAF1A /* YFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BFD1357AFAD001BAF1A /* YFXMLParser.m */; };
 		A38CFCAD1356298000206919 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCAC1356298000206919 /* Localizable.strings */; };
 		A38CFCC11356E04600206919 /* welcome_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCBF1356E04600206919 /* welcome_button_pressed.png */; };
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
@@ -131,8 +130,6 @@
 		A37E0BF41357AF04001BAF1A /* DMOAuthStateMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMOAuthStateMapTransformer.m; sourceTree = "<group>"; };
 		A37E0BFA1357AF9D001BAF1A /* DMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMConstants.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMConstants.m; sourceTree = "<group>"; };
 		A37E0BFB1357AF9D001BAF1A /* DMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMConstants.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMConstants.h; sourceTree = "<group>"; };
-		A37E0BFD1357AFAD001BAF1A /* YFXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFXMLParser.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParser.m; sourceTree = "<group>"; };
-		A37E0BFE1357AFAD001BAF1A /* YFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFXMLParser.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParser.h; sourceTree = "<group>"; };
 		A38CFCAC1356298000206919 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
@@ -245,8 +242,6 @@
 				A3632CF01351140B00E8E84F /* MainMenu.xib */,
 				A37E0BFB1357AF9D001BAF1A /* DMConstants.h */,
 				A37E0BFA1357AF9D001BAF1A /* DMConstants.m */,
-				A37E0BFE1357AFAD001BAF1A /* YFXMLParser.h */,
-				A37E0BFD1357AFAD001BAF1A /* YFXMLParser.m */,
 				A34816D21353DC5100F11448 /* Resources */,
 				A3632CDF1351140B00E8E84F /* Supporting Files */,
 			);
@@ -497,7 +492,6 @@
 				A37E0BF71357AF04001BAF1A /* DMOAuthController.m in Sources */,
 				A37E0BF81357AF04001BAF1A /* DMOAuthStateMapTransformer.m in Sources */,
 				A37E0BFC1357AF9D001BAF1A /* DMConstants.m in Sources */,
-				A37E0BFF1357AFAD001BAF1A /* YFXMLParser.m in Sources */,
 				A390575E135821D1009D61DD /* DMSelectDraftViewController.m in Sources */,
 				A3E159601358C17A001BC63D /* DMTeam.m in Sources */,
 				A3E159631358C17A001BC63D /* DMPosition.m in Sources */,

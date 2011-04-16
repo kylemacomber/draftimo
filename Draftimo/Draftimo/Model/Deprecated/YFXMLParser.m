@@ -86,23 +86,23 @@ static inline id entityFromNode(NSString *entityName, NSXMLNode *node)
         [games addObject:game];
         //Leagues
         for (NSXMLNode *xleague in [xgame nodesForXPath:@"./leagues/league" error:nil]) {
-            DMLeague *league = entityFromNode(@"DMLeague", xleague);
-            [game addLeaguesObject:league];
+            //DMLeague *league = entityFromNode(@"DMLeague", xleague);
+            //[game addLeaguesObject:league];
             // Positions
             for (NSXMLNode *xposition in [xleague nodesForXPath:@"./settings/roster_positions/roster_position" error:nil]) {
-                [league addPositionsObject:entityFromNode(@"DMPosition", xposition)];
+                //[league addPositionsObject:entityFromNode(@"DMPosition", xposition)];
             }
             // Stats
             for (NSXMLNode *xstat in [xleague nodesForXPath:@"./settings/stat_categories/stats/stat" error:nil]) {
                 if ([[xstat nodesForXPath:@"./is_only_display_stat" error:nil] count]) continue; //skip non scoring stats
-                [league addPositionsObject:entityFromNode(@"DMStat", xstat)];
+                //[league addPositionsObject:entityFromNode(@"DMStat", xstat)];
             }
             // Team
             NSXMLNode *const xteam = [[xleague nodesForXPath:@"./teams/team" error:nil] lastObject];
             DMTeam *userTeam = entityFromNode(@"DMTeam", xteam);
             [userTeam setValue:[NSNumber numberWithBool:YES] forKey:@"userTeam"];
             [userTeam setValue:managersString([xteam nodesForXPath:@"./managers/manager/nickname" error:nil]) forKey:@"managers"];
-            [league addTeamsObject:userTeam];
+            //[league addTeamsObject:userTeam];
         }
     }
     DLog(@"%@", games);
