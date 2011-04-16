@@ -40,6 +40,8 @@
     const BOOL newDraft = !([[self document] fileURL]);
     if (newDraft) {
         self.setupWindowController = [[DMSetupWindowController alloc] init];
+        //[self.setupWindowController setDocument:[self document]];
+        self.setupWindowController.document = self.document;
         [[NSApplication sharedApplication] beginSheet:self.setupWindowController.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(setupSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
 }

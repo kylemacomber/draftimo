@@ -8,16 +8,25 @@
 
 #import "DMSetupWindowController.h"
 #import "DMWelcomeViewController.h"
+#import "DMOAuthController.h"
+#import "DMAuthSheetController.h"
+#import "DMSelectDraftViewController.h"
 
 
 @interface DMSetupWindowController ()
 @property (retain) DMWelcomeViewController *welcomeViewController;
+@property (retain) DMAuthSheetController *authSheetController;
+@property (retain) DMSelectDraftViewController *selectDraftViewController;
+
+- (void)showSelectDraftView;
 @end
 
 @implementation DMSetupWindowController
 @synthesize box = __box;
 @synthesize boxTitleTextField = __boxTitleTextField;
 @synthesize welcomeViewController = __welcomeViewController;
+@synthesize authSheetController = __authSheetController;
+@synthesize selectDraftViewController = __selectDraftViewController;
 
 - (id)init
 {
@@ -30,10 +39,12 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    const BOOL needsAuth = YES;
+    const BOOL needsAuth = ![[DMOAuthController sharedOAuthController] oauthStateMaskMatches:DMOAuthAuthenticated] && ![[DMOAuthController sharedOAuthController] oauthStateMaskMatches:DMOAuthAccessTokenRefreshing];
     if (needsAuth) {
         self.welcomeViewController = [[DMWelcomeViewController alloc] init];
         [self.box setContentView:self.welcomeViewController.view];
+    } else {
+        [self showSelectDraftView];
     }
 }
 
@@ -66,11 +77,37 @@
 - (IBAction)welcomeAuthButtonClicked:(id)sender
 {
     DLog(@"");
+    self.authSheetController = [[DMAuthSheetController alloc] init];
+    [[NSApplication sharedApplication] beginSheet:self.authSheetController.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(authSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 }
 
 - (IBAction)welcomeLearnButtonClicked:(id)sender
 {
     DLog(@"");
+}
+
+#pragma mark AuthWindow ModalDelegate
+
+- (void)authSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    DLog(@"");
+    if (returnCode == NSCancelButton) {
+        [sheet orderOut:self];
+        return;
+    }
+    
+    [sheet orderOut:self];
+    self.authSheetController = nil;
+    [self showSelectDraftView];
+}
+
+#pragma mark Private Methods
+
+- (void)showSelectDraftView
+{
+    DLog(@"");
+    self.selectDraftViewController = [[DMSelectDraftViewController alloc] init];
+    [self.box setContentView:self.selectDraftViewController.view];
 }
 
 @end

@@ -9,9 +9,14 @@
 #import <Cocoa/Cocoa.h>
 
 
+@class DMWelcomeViewController, DMAuthSheetController, DMSelectDraftViewController;
 @interface DMSetupWindowController : NSWindowController {
 @private
-
+    NSBox *__box;
+    NSTextField *__boxTitleTextField;
+    DMWelcomeViewController *__welcomeViewController;
+    DMAuthSheetController *__authSheetController;
+    DMSelectDraftViewController *__selectDraftViewController;
 }
 
 @property (retain) IBOutlet NSBox *box;
