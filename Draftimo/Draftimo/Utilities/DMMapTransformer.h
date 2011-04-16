@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface DMMapTransformer : NSValueTransformer {}
+@interface DMMapTransformer : NSValueTransformer {
+@private
+    NSDictionary *__map;
+}
 + (id)authStateTransformerWithMap:(NSDictionary *)map;
 @property (nonatomic, copy, readonly) NSDictionary *map;
 @end

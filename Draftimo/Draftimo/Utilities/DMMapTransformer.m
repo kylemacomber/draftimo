@@ -15,7 +15,7 @@
 @end
 
 @implementation DMMapTransformer
-@synthesize map;
+@synthesize map = __map;
 
 + (Class)transformedValueClass { return [NSObject class]; }
 

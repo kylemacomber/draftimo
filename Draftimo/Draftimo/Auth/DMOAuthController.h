@@ -25,7 +25,20 @@ enum {
 typedef NSUInteger DMOAuthState;
 // All DMOAuthStates are mutually exclusive *except* DMOAuthUnreachable. DMOAuthUnreachable may be combined with any other state, trumping it until the connection resumes.
 
-@interface DMOAuthController : NSObject <MPOAuthAuthenticationMethodOAuthDelegate> {}
+@class Reachability;
+@interface DMOAuthController : NSObject <MPOAuthAuthenticationMethodOAuthDelegate> {
+@private
+    DMOAuthState __oauthStateMask;
+    NSURL *__userAuthURL;
+    NSString *__verifierCode;
+    
+    MPOAuthAPI *__oauthAPI;
+    Reachability *__YAuthReachable;
+    Reachability *__YFReachable;
+    NSMutableArray *__waitingOperations;
+    NSString *__cachedRequestToken;
+    NSString *__cachedRequestTokenSecret;
+}
 
 + (DMOAuthController *)sharedOAuthController;
 

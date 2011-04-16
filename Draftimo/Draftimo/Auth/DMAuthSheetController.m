@@ -23,7 +23,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 @implementation DMAuthSheetController
 //** Private
-@synthesize browserLaunched;
+@synthesize browserLaunched = __browserLaunched;
 
 + (void)initialize
 {

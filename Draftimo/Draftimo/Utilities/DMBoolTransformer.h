@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface DMBoolTransformer : NSValueTransformer {}
+@interface DMBoolTransformer : NSValueTransformer {
+@private
+    id __yesObject;
+    id __noObject;
+}
 + (id)boolTransformerWithYesObject:(id)yesObject noObject:(id)noObject;
 @property (nonatomic, retain, readonly) id yesObject;
 @property (nonatomic, retain, readonly) id noObject;

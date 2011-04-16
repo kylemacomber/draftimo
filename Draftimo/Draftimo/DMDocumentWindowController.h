@@ -9,9 +9,10 @@
 #import <Cocoa/Cocoa.h>
 
 
+@class DMSetupWindowController;
 @interface DMDocumentWindowController : NSWindowController {
 @private
-    
+    DMSetupWindowController *__setupWindowController;
 }
 
 @end

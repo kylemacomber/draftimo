@@ -11,7 +11,7 @@
 
 @interface DMAuthSheetController : NSWindowController {
 @private
-
+    BOOL __browserLaunched;
 }
 
 @property (nonatomic, assign, readonly) BOOL browserLaunched;

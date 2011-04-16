@@ -15,7 +15,11 @@
 
 static NSTimeInterval const authTimeoutInterval = 5.0;
 
-@interface DMDelayedBlockOperation :  NSBlockOperation {}
+@interface DMDelayedBlockOperation :  NSBlockOperation {
+@private
+    Reachability *__reachability;
+    BOOL __waitingForAuth;
+}
 @property (nonatomic, retain) Reachability *reachability;
 @property (nonatomic, assign) BOOL waitingForAuth;
 @end
@@ -43,16 +47,16 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 
 @implementation DMOAuthController
 //** Public
-@synthesize oauthStateMask;
-@synthesize verifierCode;
+@synthesize oauthStateMask = __oauthStateMask;
+@synthesize verifierCode = __verifierCode;
+@synthesize userAuthURL = __userAuthURL;
 //** Private
-@synthesize oauthAPI;
-@synthesize cachedRequestToken;
-@synthesize cachedRequestTokenSecret;
-@synthesize YAuthReachable;
-@synthesize YFReachable;
-@synthesize waitingOperations;
-@synthesize userAuthURL;
+@synthesize oauthAPI = __oauthAPI;
+@synthesize cachedRequestToken = __cachedRequestToken;
+@synthesize cachedRequestTokenSecret = __cachedRequestTokenSecret;
+@synthesize YAuthReachable = __YAuthReachable;
+@synthesize YFReachable = __YFReachable;
+@synthesize waitingOperations = __waitingOperations;
 
 static DMOAuthController *__sharedOAuthController = nil;
 + (DMOAuthController *)sharedOAuthController
@@ -133,10 +137,10 @@ static DMOAuthController *__sharedOAuthController = nil;
 - (void)setVerifierCode:(NSString *)newVerifierCode
 {  
     newVerifierCode = [newVerifierCode copy];
-    [verifierCode release];
-    verifierCode = newVerifierCode;
+    [__verifierCode release];
+    __verifierCode = newVerifierCode;
 
-    if (!verifierCode) {
+    if (!__verifierCode) {
         self.oauthStateMask = DMOAuthRequestTokenRecieved;
         return; //we need to be able to blank the verifierCode w/o spawning an authentication   
     }
@@ -231,12 +235,12 @@ static DMOAuthController *__sharedOAuthController = nil;
     
     [self willChangeValueForKey:@"oauthStateMask"];
     if ([self oauthStateMaskMatches:DMOAuthUnreachable]) {
-        oauthStateMask = DMOAuthUnreachable;
+        __oauthStateMask = DMOAuthUnreachable;
     } else {
-        oauthStateMask = 0;
+        __oauthStateMask = 0;
     }
     
-    oauthStateMask |= newStateMask;
+    __oauthStateMask |= newStateMask;
     [self didChangeValueForKey:@"oauthStateMask"];
 }
 
@@ -245,9 +249,9 @@ static DMOAuthController *__sharedOAuthController = nil;
     [self willChangeValueForKey:@"oauthStateMask"];
     
     if (reachable) {
-        oauthStateMask &= ~DMOAuthUnreachable;
+        __oauthStateMask &= ~DMOAuthUnreachable;
     } else {
-        oauthStateMask |= DMOAuthUnreachable;
+        __oauthStateMask |= DMOAuthUnreachable;
     }
     
     [self didChangeValueForKey:@"oauthStateMask"];
@@ -328,7 +332,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 #pragma mark Private Classes
 
 @implementation DMDelayedBlockOperation
-@synthesize reachability;
-@synthesize waitingForAuth;
+@synthesize reachability = __reachability;
+@synthesize waitingForAuth = __waitingForAuth;
 
 @end

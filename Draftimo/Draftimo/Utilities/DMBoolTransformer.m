@@ -16,8 +16,8 @@
 @end
 
 @implementation DMBoolTransformer
-@synthesize yesObject;
-@synthesize noObject;
+@synthesize yesObject = __yesObject;
+@synthesize noObject = __noObject;
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
