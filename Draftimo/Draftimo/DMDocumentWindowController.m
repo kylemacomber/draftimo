@@ -12,6 +12,8 @@
 
 @interface DMDocumentWindowController ()
 @property (retain) DMSetupWindowController *setupWindowController;
+
+- (void)setupSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 @end
 
 @implementation DMDocumentWindowController
@@ -28,7 +30,6 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    DLog(@"");
 }
 
 #pragma mark NSWindowController
@@ -36,7 +37,6 @@
 - (void)showWindow:(id)sender
 {
     [super showWindow:sender];
-    DLog(@"");
     const BOOL newDraft = !([[self document] fileURL]);
     if (newDraft) {
         self.setupWindowController = [[DMSetupWindowController alloc] init];
