@@ -21,7 +21,7 @@
 
 - (id)init
 {
-    self = [self initWithWindowNibName:NSStringFromClass([self class])];
+    self = [self initWithWindowNibName:ClassKey(DMDocumentWindowController)];
     if (!self) return nil;
     
     return self;

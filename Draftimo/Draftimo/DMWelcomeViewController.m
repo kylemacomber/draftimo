@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil];
+    self = [super initWithNibName:ClassKey(DMWelcomeViewController) bundle:nil];
     if (!self) return nil;
     
     return self;

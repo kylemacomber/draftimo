@@ -18,3 +18,11 @@
 #endif
 
 #define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
+
+#if DEBUG
+    #define SelKey(key)     NSStringFromSelector(@selector(key))
+    #define ClassKey(key)   NSStringFromClass([key class])
+#else
+    #define SelKey(key)     @#key
+    #define ClassKey(key)   @#key
+#endif

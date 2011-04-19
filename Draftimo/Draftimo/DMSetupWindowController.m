@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    self = [super initWithWindowNibName:NSStringFromClass([self class])];
+    self = [super initWithWindowNibName:ClassKey(DMSetupWindowController)];
     if (!self) return nil;
     
     return self;

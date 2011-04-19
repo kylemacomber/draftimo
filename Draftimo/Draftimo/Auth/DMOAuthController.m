@@ -236,7 +236,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 {
     if (newStateMask == DMOAuthUnreachable) { ALog(@"use -setOAuthStateMaskReachable: to set the oauthStateMask reachable or unreachable"); }
     
-    [self willChangeValueForKey:@"oauthStateMask"];
+    [self willChangeValueForKey:SelKey(oauthStateMask)];
     if ([self oauthStateMaskMatches:DMOAuthUnreachable]) {
         __oauthStateMask = DMOAuthUnreachable;
     } else {
@@ -244,12 +244,12 @@ static DMOAuthController *__sharedOAuthController = nil;
     }
     
     __oauthStateMask |= newStateMask;
-    [self didChangeValueForKey:@"oauthStateMask"];
+    [self didChangeValueForKey:SelKey(oauthStateMask)];
 }
 
 - (void)setOAuthStateMaskReachable:(BOOL)reachable
 {
-    [self willChangeValueForKey:@"oauthStateMask"];
+    [self willChangeValueForKey:SelKey(oauthStateMask)];
     
     if (reachable) {
         __oauthStateMask &= ~DMOAuthUnreachable;
@@ -257,7 +257,7 @@ static DMOAuthController *__sharedOAuthController = nil;
         __oauthStateMask |= DMOAuthUnreachable;
     }
     
-    [self didChangeValueForKey:@"oauthStateMask"];
+    [self didChangeValueForKey:SelKey(oauthStateMask)];
 }
 
 - (void)accessTimeout
