@@ -19,8 +19,6 @@
 
 + (Class)transformedValueClass { return [NSObject class]; }
 
-+ (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[self alloc] initWithMap:aMap]; }
-
 - (id)initWithMap:(NSDictionary *)aMap
 {
     self = [super init];
@@ -32,6 +30,13 @@
 }
 
 + (BOOL)allowsReverseTransformation { return NO; }
+
+- (id)transformedValue:(id)value
+{
+    if (!value) return nil;
+    
+    return [self.map objectForKey:value];
+}
 
 @end
 

@@ -11,4 +11,5 @@
 
 
 @interface DMOAuthStateMapTransformer : DMMapTransformer {}
++ (id)authStateTransformerWithMap:(NSDictionary *)aMap;
 @end
