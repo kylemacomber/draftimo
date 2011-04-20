@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30007CD135D1C3200F7C4D5 /* DMUnboxTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30007CC135D1C3200F7C4D5 /* DMUnboxTransformer.m */; };
 		A31350621357E9E200FFF529 /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
 		A31350651357EA3000FFF529 /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31350611357E9E200FFF529 /* MPOAuth.framework */; };
 		A31350721357F23700FFF529 /* Status_Declined.png in Resources */ = {isa = PBXBuildFile; fileRef = A313506E1357F23700FFF529 /* Status_Declined.png */; };
@@ -46,7 +47,13 @@
 		A38CFCC21356E04600206919 /* welcome_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A38CFCC01356E04600206919 /* welcome_button.png */; };
 		A390575E135821D1009D61DD /* DMSelectDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A390575C135821D1009D61DD /* DMSelectDraftViewController.m */; };
 		A390575F135821D1009D61DD /* DMSelectDraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */; };
+		A3941103135A29210012A795 /* DMLeaguesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3941101135A29210012A795 /* DMLeaguesCollectionViewController.m */; };
+		A3941104135A29210012A795 /* DMLeaguesCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3941102135A29210012A795 /* DMLeaguesCollectionViewController.xib */; };
+		A3941108135A299C0012A795 /* DMLeagueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */; };
+		A3941109135A299C0012A795 /* DMLeagueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */; };
 		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
+		A3D88358135BCE9900C14FB8 /* DMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D88357135BCE9900C14FB8 /* DMListViewController.m */; };
+		A3D8835C135BCECD00C14FB8 /* DMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D8835A135BCECD00C14FB8 /* DMViewController.m */; };
 		A3E159601358C17A001BC63D /* DMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E1595F1358C17A001BC63D /* DMTeam.m */; };
 		A3E159631358C17A001BC63D /* DMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159621358C17A001BC63D /* DMPosition.m */; };
 		A3E159661358C17A001BC63D /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159651358C17A001BC63D /* DMLeague.m */; };
@@ -78,6 +85,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A30007CB135D1C3200F7C4D5 /* DMUnboxTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUnboxTransformer.h; sourceTree = "<group>"; };
+		A30007CC135D1C3200F7C4D5 /* DMUnboxTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUnboxTransformer.m; sourceTree = "<group>"; };
 		A31350611357E9E200FFF529 /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/MPOAuth.framework; sourceTree = "<group>"; };
 		A313506E1357F23700FFF529 /* Status_Declined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Declined.png; sourceTree = "<group>"; };
 		A313506F1357F23700FFF529 /* Status_Conflict.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_Conflict.png; sourceTree = "<group>"; };
@@ -136,10 +145,20 @@
 		A38CFCAC1356298000206919 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38CFCBF1356E04600206919 /* welcome_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button_pressed.png; sourceTree = "<group>"; };
 		A38CFCC01356E04600206919 /* welcome_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_button.png; sourceTree = "<group>"; };
-		A390575B135821D1009D61DD /* DMSelectDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMSelectDraftViewController.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.h; sourceTree = "<group>"; };
-		A390575C135821D1009D61DD /* DMSelectDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSelectDraftViewController.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.m; sourceTree = "<group>"; };
-		A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMSelectDraftViewController.xib; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/DMSelectDraftViewController.xib; sourceTree = "<group>"; };
+		A390575B135821D1009D61DD /* DMSelectDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSelectDraftViewController.h; sourceTree = "<group>"; };
+		A390575C135821D1009D61DD /* DMSelectDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSelectDraftViewController.m; sourceTree = "<group>"; };
+		A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSelectDraftViewController.xib; sourceTree = "<group>"; };
+		A3941100135A29210012A795 /* DMLeaguesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMLeaguesCollectionViewController.h; sourceTree = "<group>"; };
+		A3941101135A29210012A795 /* DMLeaguesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLeaguesCollectionViewController.m; sourceTree = "<group>"; };
+		A3941102135A29210012A795 /* DMLeaguesCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMLeaguesCollectionViewController.xib; sourceTree = "<group>"; };
+		A3941105135A299B0012A795 /* DMLeagueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMLeagueDetailViewController.h; sourceTree = "<group>"; };
+		A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLeagueDetailViewController.m; sourceTree = "<group>"; };
+		A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMLeagueDetailViewController.xib; sourceTree = "<group>"; };
+		A394110A135B61690012A795 /* DMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMListViewController.h; sourceTree = "<group>"; };
 		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3D88357135BCE9900C14FB8 /* DMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMListViewController.m; sourceTree = "<group>"; };
+		A3D88359135BCECD00C14FB8 /* DMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMViewController.h; sourceTree = "<group>"; };
+		A3D8835A135BCECD00C14FB8 /* DMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMViewController.m; sourceTree = "<group>"; };
 		A3E1595E1358C17A001BC63D /* DMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTeam.h; sourceTree = "<group>"; };
 		A3E1595F1358C17A001BC63D /* DMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTeam.m; sourceTree = "<group>"; };
 		A3E159611358C17A001BC63D /* DMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPosition.h; sourceTree = "<group>"; };
@@ -292,12 +311,18 @@
 				A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */,
 				A37E0BBD1357AEA0001BAF1A /* DMMapTransformer.h */,
 				A37E0BBE1357AEA0001BAF1A /* DMMapTransformer.m */,
+				A30007CB135D1C3200F7C4D5 /* DMUnboxTransformer.h */,
+				A30007CC135D1C3200F7C4D5 /* DMUnboxTransformer.m */,
 				A37E0BBF1357AEA0001BAF1A /* NSDictionary-Utilities.h */,
 				A37E0BC01357AEA0001BAF1A /* NSDictionary-Utilities.m */,
 				A377D70F135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.h */,
 				A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */,
 				A37E0BC31357AEA0001BAF1A /* Reachability.h */,
 				A37E0BC41357AEA0001BAF1A /* Reachability.m */,
+				A3D88359135BCECD00C14FB8 /* DMViewController.h */,
+				A3D8835A135BCECD00C14FB8 /* DMViewController.m */,
+				A394110A135B61690012A795 /* DMListViewController.h */,
+				A3D88357135BCE9900C14FB8 /* DMListViewController.m */,
 			);
 			name = Utilities;
 			path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Utilities;
@@ -340,17 +365,31 @@
 		A37E0BF91357AF61001BAF1A /* Setup */ = {
 			isa = PBXGroup;
 			children = (
+				A39410FE135A28D60012A795 /* SelectDraft */,
 				A3632D271352890800E8E84F /* DMSetupWindowController.h */,
 				A3632D281352890800E8E84F /* DMSetupWindowController.m */,
 				A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */,
 				A34816C4135387F800F11448 /* DMWelcomeViewController.h */,
 				A34816C3135387F800F11448 /* DMWelcomeViewController.m */,
 				A34816C5135387F800F11448 /* DMWelcomeViewController.xib */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
+		A39410FE135A28D60012A795 /* SelectDraft */ = {
+			isa = PBXGroup;
+			children = (
 				A390575B135821D1009D61DD /* DMSelectDraftViewController.h */,
 				A390575C135821D1009D61DD /* DMSelectDraftViewController.m */,
 				A390575D135821D1009D61DD /* DMSelectDraftViewController.xib */,
+				A3941100135A29210012A795 /* DMLeaguesCollectionViewController.h */,
+				A3941101135A29210012A795 /* DMLeaguesCollectionViewController.m */,
+				A3941102135A29210012A795 /* DMLeaguesCollectionViewController.xib */,
+				A3941105135A299B0012A795 /* DMLeagueDetailViewController.h */,
+				A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */,
+				A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */,
 			);
-			name = Setup;
+			name = SelectDraft;
 			sourceTree = "<group>";
 		};
 		A39EF91C1357D6F0009433C2 /* Other Frameworks */ = {
@@ -447,6 +486,8 @@
 				A31350751357F23700FFF529 /* Alert.png in Resources */,
 				A31350781357F2CA00FFF529 /* DMAuthSheetController.xib in Resources */,
 				A390575F135821D1009D61DD /* DMSelectDraftViewController.xib in Resources */,
+				A3941104135A29210012A795 /* DMLeaguesCollectionViewController.xib in Resources */,
+				A3941109135A299C0012A795 /* DMLeagueDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +545,11 @@
 				A3E1596C1358C17A001BC63D /* DMGame.m in Sources */,
 				A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */,
 				A377D711135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m in Sources */,
+				A3941103135A29210012A795 /* DMLeaguesCollectionViewController.m in Sources */,
+				A3941108135A299C0012A795 /* DMLeagueDetailViewController.m in Sources */,
+				A3D88358135BCE9900C14FB8 /* DMListViewController.m in Sources */,
+				A3D8835C135BCECD00C14FB8 /* DMViewController.m in Sources */,
+				A30007CD135D1C3200F7C4D5 /* DMUnboxTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +618,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
@@ -587,6 +634,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;

@@ -12,6 +12,7 @@
 #import "DMAuthSheetController.h"
 #import "DMSelectDraftViewController.h"
 #import "DMConstants.h"
+#import "DMDocument.h"
 
 
 @interface DMSetupWindowController ()

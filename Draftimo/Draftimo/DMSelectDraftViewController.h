@@ -9,9 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 
+@class DMLeaguesCollectionViewController, DMLeagueDetailViewController;
 @interface DMSelectDraftViewController : NSViewController {
 @private
-    
+    NSView *__leaguesCollectionView;
+    NSView *__leagueDetailView;
+    DMLeaguesCollectionViewController *__leaguesCollectionViewController;
+    DMLeagueDetailViewController *__leagueDetailViewController;
 }
 
+@property (retain) IBOutlet NSView *leaguesCollectionView;
+@property (retain) IBOutlet NSView *leagueDetailView;
 @end
