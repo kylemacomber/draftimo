@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Draftimo
+
+  Created by Kyle Macomber on 3/14/11.
+  Copyright 2011 Kyle Macomber. All rights reserved.
+*/
+
+/* DMOAuthController */
+"DMOAuthUnreachable" = "Yahoo! is unreachable. Please check your internet connection.";
+"Error" = "Error.";
