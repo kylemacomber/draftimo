@@ -13,6 +13,6 @@
 @private
     NSDictionary *__map;
 }
-+ (id)authStateTransformerWithMap:(NSDictionary *)map;
+- (id)initWithMap:(NSDictionary *)aMap;
 @property (nonatomic, copy, readonly) NSDictionary *map;
 @end

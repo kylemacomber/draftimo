@@ -1,5 +1,5 @@
 //
-//  DMAuthWindowController.m
+//  DMAuthSheetController.m
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/9/11.
@@ -57,7 +57,7 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 - (id)init
 {
-    self = [super initWithWindowNibName:NSStringFromClass([self class])];
+    self = [super initWithWindowNibName:ClassKey(DMAuthSheetController)];
     if (!self) return nil;
     
     self.browserLaunched = (([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable) > DMOAuthRequestTokenRecieved);

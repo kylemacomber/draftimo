@@ -12,6 +12,8 @@
 
 @implementation DMOAuthStateMapTransformer
 
++ (id)authStateTransformerWithMap:(NSDictionary *)aMap { return [[self alloc] initWithMap:aMap]; }
+
 - (id)transformedValue:(id)value
 {
     if (!value) return nil;

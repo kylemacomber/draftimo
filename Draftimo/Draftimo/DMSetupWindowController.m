@@ -18,6 +18,7 @@
 @property (retain) DMAuthSheetController *authSheetController;
 @property (retain) DMSelectDraftViewController *selectDraftViewController;
 
+- (void)authSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 - (void)showSelectDraftView;
 @end
 
@@ -30,7 +31,7 @@
 
 - (id)init
 {
-    self = [super initWithWindowNibName:NSStringFromClass([self class])];
+    self = [super initWithWindowNibName:ClassKey(DMSetupWindowController)];
     if (!self) return nil;
     
     return self;
@@ -105,7 +106,6 @@
 
 - (void)showSelectDraftView
 {
-    DLog(@"");
     self.selectDraftViewController = [[DMSelectDraftViewController alloc] init];
     [self.box setContentView:self.selectDraftViewController.view];
 }

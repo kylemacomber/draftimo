@@ -37,6 +37,9 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
 @property (nonatomic, copy) NSString *cachedRequestToken;
 @property (nonatomic, copy) NSString *cachedRequestTokenSecret;
 
+- (void)reachabilityChanged:(NSNotification *)notification;
+- (void)oauthStateChanged:(NSNotification *)notification;
+
 - (void)setOAuthStateMaskReachable:(BOOL)reachable;
 - (void)accessTimeout;
 - (DMOAuthState)nextOAuthState;
@@ -189,7 +192,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 
 - (void)reachabilityChanged:(NSNotification *)notification
 {
-    DLog(@"%@, %d", notification, [(Reachability *)[notification object] currentReachabilityStatus]);
+    //DLog(@"%@, %d", notification, [(Reachability *)[notification object] currentReachabilityStatus]);
     [self setOAuthStateMaskReachable:([self.YAuthReachable currentReachabilityStatus] != NotReachable)];
     [self launchReadyOperations];
 }
@@ -198,7 +201,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 
 - (void)oauthStateChanged:(NSNotification *)notification
 {
-    DLog(@"%@", notification);
+    //DLog(@"%@", notification);
 
     NSString *const notificationKey = [notification name];
     //** Success
@@ -233,7 +236,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 {
     if (newStateMask == DMOAuthUnreachable) { ALog(@"use -setOAuthStateMaskReachable: to set the oauthStateMask reachable or unreachable"); }
     
-    [self willChangeValueForKey:@"oauthStateMask"];
+    [self willChangeValueForKey:SelKey(oauthStateMask)];
     if ([self oauthStateMaskMatches:DMOAuthUnreachable]) {
         __oauthStateMask = DMOAuthUnreachable;
     } else {
@@ -241,12 +244,12 @@ static DMOAuthController *__sharedOAuthController = nil;
     }
     
     __oauthStateMask |= newStateMask;
-    [self didChangeValueForKey:@"oauthStateMask"];
+    [self didChangeValueForKey:SelKey(oauthStateMask)];
 }
 
 - (void)setOAuthStateMaskReachable:(BOOL)reachable
 {
-    [self willChangeValueForKey:@"oauthStateMask"];
+    [self willChangeValueForKey:SelKey(oauthStateMask)];
     
     if (reachable) {
         __oauthStateMask &= ~DMOAuthUnreachable;
@@ -254,7 +257,7 @@ static DMOAuthController *__sharedOAuthController = nil;
         __oauthStateMask |= DMOAuthUnreachable;
     }
     
-    [self didChangeValueForKey:@"oauthStateMask"];
+    [self didChangeValueForKey:SelKey(oauthStateMask)];
 }
 
 - (void)accessTimeout
@@ -283,7 +286,7 @@ static DMOAuthController *__sharedOAuthController = nil;
 
 - (void)authenticate
 {
-    DLog(@"%@, %d", self.oauthAPI, self.oauthStateMask);    
+    //DLog(@"%@, %d", self.oauthAPI, self.oauthStateMask);    
     
     // If Yahoo! unreachable, add -authenticate to queue to execute when connection returns    
     if ([self.YAuthReachable currentReachabilityStatus] == NotReachable) {

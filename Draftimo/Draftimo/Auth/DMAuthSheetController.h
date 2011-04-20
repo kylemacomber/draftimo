@@ -1,5 +1,5 @@
 //
-//  DMAuthWindowController.h
+//  DMAuthSheetController.h
 //  Draftimo
 //
 //  Created by Kyle Macomber on 3/9/11.
