@@ -20,22 +20,22 @@ static NSTimeInterval const authTimeoutInterval = 5.0;
     Reachability *__reachability;
     BOOL __waitingForAuth;
 }
-@property (nonatomic, retain) Reachability *reachability;
-@property (nonatomic, assign) BOOL waitingForAuth;
+@property (retain) Reachability *reachability;
+@property (assign) BOOL waitingForAuth;
 @end
 
 @interface DMOAuthController ()
-@property (nonatomic, assign, readwrite, setter = setOAuthStateMask:) DMOAuthState oauthStateMask;
-@property (nonatomic, copy, readwrite) NSURL *userAuthURL;
+@property (assign, readwrite, setter = setOAuthStateMask:) DMOAuthState oauthStateMask;
+@property (copy, readwrite) NSURL *userAuthURL;
 
-@property (nonatomic, retain) MPOAuthAPI *oauthAPI;
-@property (nonatomic, retain) Reachability *YAuthReachable;
-@property (nonatomic, retain) Reachability *YFReachable;
-@property (nonatomic, retain) NSMutableArray *waitingOperations;
+@property (retain) MPOAuthAPI *oauthAPI;
+@property (retain) Reachability *YAuthReachable;
+@property (retain) Reachability *YFReachable;
+@property (retain) NSMutableArray *waitingOperations;
 
 // If user enters verifier code before clicking agree, get requestTokenRejected response and MPOAuth nukes valid request token. I cache it to prevent that.
-@property (nonatomic, copy) NSString *cachedRequestToken;
-@property (nonatomic, copy) NSString *cachedRequestTokenSecret;
+@property (copy) NSString *cachedRequestToken;
+@property (copy) NSString *cachedRequestTokenSecret;
 
 - (void)reachabilityChanged:(NSNotification *)notification;
 - (void)oauthStateChanged:(NSNotification *)notification;

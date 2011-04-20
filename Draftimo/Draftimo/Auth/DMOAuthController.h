@@ -42,9 +42,9 @@ typedef NSUInteger DMOAuthState;
 
 + (DMOAuthController *)sharedOAuthController;
 
-@property (nonatomic, assign, readonly) DMOAuthState oauthStateMask;
-@property (nonatomic, copy, readonly) NSURL *userAuthURL;
-@property (nonatomic, copy) NSString *verifierCode;
+@property (assign, readonly) DMOAuthState oauthStateMask;
+@property (copy, readonly) NSURL *userAuthURL;
+@property (copy) NSString *verifierCode;
 
 - (BOOL)oauthStateMaskMatches:(DMOAuthState)state; //returns (self.oauthStateMask & state) == state
 - (void)performYFMethod:(NSString *)theMethod withParameters:(NSDictionary *)theParameters withTarget:(id)theTarget andAction:(SEL)theAction;
