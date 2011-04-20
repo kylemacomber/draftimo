@@ -11,6 +11,7 @@
 #import "DMOAuthController.h"
 #import "DMAuthSheetController.h"
 #import "DMSelectDraftViewController.h"
+#import "DMConstants.h"
 
 
 @interface DMSetupWindowController ()
@@ -45,6 +46,7 @@
         self.welcomeViewController = [[DMWelcomeViewController alloc] init];
         [self.box setContentView:self.welcomeViewController.view];
     } else {
+        [[DMOAuthController sharedOAuthController] performYFMethod:YFUserLeaguesMethod withParameters:nil withTarget:[self document] andAction:@selector(parseYFXMLMethod:withResponseBody:)];
         [self showSelectDraftView];
     }
 }

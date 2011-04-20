@@ -10,7 +10,8 @@
 
 @interface DMDocument : NSPersistentDocument {
 @private
-
+    NSOperationQueue *__YFParseOperationQueue;
 }
 
+- (void)parseYFXMLMethod:(NSURL *)method withResponseBody:(NSString *)responseBody;
 @end

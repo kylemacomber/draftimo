@@ -30,6 +30,7 @@
 		A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */; };
 		A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D281352890800E8E84F /* DMSetupWindowController.m */; };
 		A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */; };
+		A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */; };
 		A37E0BC51357AEA0001BAF1A /* DMBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */; };
 		A37E0BC61357AEA0001BAF1A /* DMMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BBE1357AEA0001BAF1A /* DMMapTransformer.m */; };
 		A37E0BC71357AEA0001BAF1A /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BC01357AEA0001BAF1A /* NSDictionary-Utilities.m */; };
@@ -111,6 +112,8 @@
 		A3632D271352890800E8E84F /* DMSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSetupWindowController.h; sourceTree = "<group>"; };
 		A3632D281352890800E8E84F /* DMSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSetupWindowController.m; sourceTree = "<group>"; };
 		A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSetupWindowController.xib; sourceTree = "<group>"; };
+		A377D709135E6D8600179FCF /* YFXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFXMLParseOperation.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.h; sourceTree = "<group>"; };
+		A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFXMLParseOperation.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.m; sourceTree = "<group>"; };
 		A37E0BBB1357AEA0001BAF1A /* DMBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBoolTransformer.h; sourceTree = "<group>"; };
 		A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBoolTransformer.m; sourceTree = "<group>"; };
 		A37E0BBD1357AEA0001BAF1A /* DMMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMapTransformer.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				A37E0BBA1357AEA0001BAF1A /* Utilities */,
 				A3632CEA1351140B00E8E84F /* DMDocument.h */,
 				A3632CEB1351140B00E8E84F /* DMDocument.m */,
+				A377D709135E6D8600179FCF /* YFXMLParseOperation.h */,
+				A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */,
 				A3632D1A1351148A00E8E84F /* DMDocumentWindowController.h */,
 				A3632D1B1351148A00E8E84F /* DMDocumentWindowController.m */,
 				A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */,
@@ -498,6 +503,7 @@
 				A3E159661358C17A001BC63D /* DMLeague.m in Sources */,
 				A3E159691358C17A001BC63D /* DMStat.m in Sources */,
 				A3E1596C1358C17A001BC63D /* DMGame.m in Sources */,
+				A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
