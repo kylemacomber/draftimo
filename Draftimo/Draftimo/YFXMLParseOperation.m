@@ -48,12 +48,12 @@
         NSSet *games = [self parseNode:doc forEntityNamed:ClassKey(DMGame)];
         // For YFUserLeaguesMethod, the only teams returned are the user's teams, we must set them as such
         [games setValue:[NSNumber numberWithBool:YES] forKeyPath:@"leagues.teams.userTeam"];
+        DLog(@"%@", games);
     }
 }
 
 - (NSSet *)parseNode:(NSXMLNode *)root forEntityNamed:(NSString *)entityName
 {
-    DLog(@"%@", entityName);
     NSMutableSet *entities = [NSMutableSet set];
     NSEntityDescription *const entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
     NSString *const absEntityPath = [[entityDescription userInfo] objectForKey:self.YFKey];
@@ -82,7 +82,6 @@
             
             id value = [[[node nodesForXPath:absAttributePath error:nil] lastObject] objectValue];
             if (!value) continue;
-            DLog(@"%@ %@", attributeName, value);
             
             NSError *error;
             if (![entity validateValue:&value forKey:attributeName error:&error]) { ALog(@"%@", error); }
@@ -90,7 +89,6 @@
         }
         
         NSDictionary *const relationshipsByName = [entityDescription relationshipsByName];
-        DLog(@"%@", relationshipsByName);
         for (NSString *const relationshipName in relationshipsByName) {
             NSRelationshipDescription *const relationshipDescription = [relationshipsByName objectForKey:relationshipName];
             NSEntityDescription *const relationshipEntityDescription = [relationshipDescription destinationEntity];
