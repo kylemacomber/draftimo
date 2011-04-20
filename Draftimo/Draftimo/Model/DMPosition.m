@@ -8,6 +8,7 @@
 
 #import "DMPosition.h"
 #import "DMLeague.h"
+#import "NSKeyValueCoding-DMAdditions.h"
 
 
 @implementation DMPosition
@@ -15,5 +16,10 @@
 @dynamic name;
 @dynamic league;
 
+- (BOOL)validateCount:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    return [self validateIntegerValue:ioValue error:outError];
+}
 
 @end

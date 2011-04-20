@@ -8,6 +8,7 @@
 
 #import "DMTeam.h"
 #import "DMLeague.h"
+#import "NSKeyValueCoding-DMAdditions.h"
 
 
 @implementation DMTeam
@@ -17,5 +18,10 @@
 @dynamic budget;
 @dynamic league;
 
+- (BOOL)validateTeamID:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    return [self validateIntegerValue:ioValue error:outError];
+}
 
 @end

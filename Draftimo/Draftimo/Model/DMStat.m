@@ -8,6 +8,7 @@
 
 #import "DMStat.h"
 #import "DMLeague.h"
+#import "NSKeyValueCoding-DMAdditions.h"
 
 
 @implementation DMStat
@@ -19,5 +20,16 @@
 @dynamic equation;
 @dynamic league;
 
+- (BOOL)validateStatID:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    return [self validateIntegerValue:ioValue error:outError];
+}
+
+- (BOOL)validateIncreasing:(id *)ioValue error:(NSError **)outError
+{
+    DLog(@"");
+    return [self validateBoolValue:ioValue error:outError];
+}
 
 @end

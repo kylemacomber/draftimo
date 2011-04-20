@@ -31,10 +31,10 @@
 		A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D281352890800E8E84F /* DMSetupWindowController.m */; };
 		A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */; };
 		A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */; };
+		A377D711135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */; };
 		A37E0BC51357AEA0001BAF1A /* DMBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */; };
 		A37E0BC61357AEA0001BAF1A /* DMMapTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BBE1357AEA0001BAF1A /* DMMapTransformer.m */; };
 		A37E0BC71357AEA0001BAF1A /* NSDictionary-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BC01357AEA0001BAF1A /* NSDictionary-Utilities.m */; };
-		A37E0BC81357AEA0001BAF1A /* NSKeyValueCoding-Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BC21357AEA0001BAF1A /* NSKeyValueCoding-Additions.m */; };
 		A37E0BC91357AEA0001BAF1A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BC41357AEA0001BAF1A /* Reachability.m */; };
 		A37E0BE01357AEAF001BAF1A /* DMDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BCD1357AEAF001BAF1A /* DMDocument.xcdatamodeld */; };
 		A37E0BF61357AF04001BAF1A /* DMAuthSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */; };
@@ -114,14 +114,14 @@
 		A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSetupWindowController.xib; sourceTree = "<group>"; };
 		A377D709135E6D8600179FCF /* YFXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFXMLParseOperation.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.h; sourceTree = "<group>"; };
 		A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFXMLParseOperation.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.m; sourceTree = "<group>"; };
+		A377D70F135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSKeyValueCoding-DMAdditions.h"; sourceTree = "<group>"; };
+		A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSKeyValueCoding-DMAdditions.m"; sourceTree = "<group>"; };
 		A37E0BBB1357AEA0001BAF1A /* DMBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBoolTransformer.h; sourceTree = "<group>"; };
 		A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBoolTransformer.m; sourceTree = "<group>"; };
 		A37E0BBD1357AEA0001BAF1A /* DMMapTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMapTransformer.h; sourceTree = "<group>"; };
 		A37E0BBE1357AEA0001BAF1A /* DMMapTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMapTransformer.m; sourceTree = "<group>"; };
 		A37E0BBF1357AEA0001BAF1A /* NSDictionary-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-Utilities.h"; sourceTree = "<group>"; };
 		A37E0BC01357AEA0001BAF1A /* NSDictionary-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-Utilities.m"; sourceTree = "<group>"; };
-		A37E0BC11357AEA0001BAF1A /* NSKeyValueCoding-Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSKeyValueCoding-Additions.h"; sourceTree = "<group>"; };
-		A37E0BC21357AEA0001BAF1A /* NSKeyValueCoding-Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSKeyValueCoding-Additions.m"; sourceTree = "<group>"; };
 		A37E0BC31357AEA0001BAF1A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A37E0BC41357AEA0001BAF1A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A37E0BCE1357AEAF001BAF1A /* DMDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMDocument.xcdatamodel; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 				A37E0BBE1357AEA0001BAF1A /* DMMapTransformer.m */,
 				A37E0BBF1357AEA0001BAF1A /* NSDictionary-Utilities.h */,
 				A37E0BC01357AEA0001BAF1A /* NSDictionary-Utilities.m */,
-				A37E0BC11357AEA0001BAF1A /* NSKeyValueCoding-Additions.h */,
-				A37E0BC21357AEA0001BAF1A /* NSKeyValueCoding-Additions.m */,
+				A377D70F135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.h */,
+				A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */,
 				A37E0BC31357AEA0001BAF1A /* Reachability.h */,
 				A37E0BC41357AEA0001BAF1A /* Reachability.m */,
 			);
@@ -490,7 +490,6 @@
 				A37E0BC51357AEA0001BAF1A /* DMBoolTransformer.m in Sources */,
 				A37E0BC61357AEA0001BAF1A /* DMMapTransformer.m in Sources */,
 				A37E0BC71357AEA0001BAF1A /* NSDictionary-Utilities.m in Sources */,
-				A37E0BC81357AEA0001BAF1A /* NSKeyValueCoding-Additions.m in Sources */,
 				A37E0BC91357AEA0001BAF1A /* Reachability.m in Sources */,
 				A37E0BE01357AEAF001BAF1A /* DMDocument.xcdatamodeld in Sources */,
 				A37E0BF61357AF04001BAF1A /* DMAuthSheetController.m in Sources */,
@@ -504,6 +503,7 @@
 				A3E159691358C17A001BC63D /* DMStat.m in Sources */,
 				A3E1596C1358C17A001BC63D /* DMGame.m in Sources */,
 				A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */,
+				A377D711135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
