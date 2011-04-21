@@ -32,8 +32,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KTMacros.h"
-
-#import "KTViewProtocol.h"
 #import "KTController.h"
 
 KT_EXPORT NSString *const KTViewControllerViewControllersKey;
