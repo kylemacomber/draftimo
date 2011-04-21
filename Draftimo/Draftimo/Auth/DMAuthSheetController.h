@@ -7,18 +7,25 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KTWindowController.h"
+#import "DMOAuthController.h"
 
 
-@interface DMAuthSheetController : NSWindowController {
+@class KTViewController;
+@interface DMAuthSheetController : KTWindowController {
 @private
+    NSBox *__box;
     BOOL __browserLaunched;
+    KTViewController *__requestErrorViewController;
+    KTViewController *__requestingViewController;
+    KTViewController *__verifierViewController;
 }
 
-@property (nonatomic, assign, readonly) BOOL browserLaunched;
+@property (retain) IBOutlet NSBox *box;
+@property (assign, readonly) BOOL browserLaunched;
 
 - (id)init;
 - (IBAction)launchBrowserButtonClicked:(id)sender;
 - (IBAction)helpButtonClicked:(id)sender;
 - (IBAction)cancelButtonClicked:(id)sender;
-
 @end

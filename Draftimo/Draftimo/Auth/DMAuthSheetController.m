@@ -11,19 +11,29 @@
 #import "DMBoolTransformer.h"
 #import "NSDictionary-Utilities.h"
 #import "DMOAuthController.h"
+#import "KTViewController.h"
 
 
 static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 
 @interface DMAuthSheetController ()
-@property (nonatomic, assign, readwrite) BOOL browserLaunched;
+@property (assign, readwrite) BOOL browserLaunched;
 
+@property (retain) KTViewController *requestErrorViewController;
+@property (retain) KTViewController *requestingViewController;
+@property (retain) KTViewController *verifierViewController;
+
+- (NSView *)contentViewForState:(DMOAuthState)state;
 - (void)endSheetWithSuccess;
 @end
 
 @implementation DMAuthSheetController
+@synthesize box = __box;
 //** Private
 @synthesize browserLaunched = __browserLaunched;
+@synthesize requestErrorViewController = __requestErrorViewController;
+@synthesize requestingViewController = __requestingViewController;
+@synthesize verifierViewController = __verifierViewController;
 
 + (void)initialize
 {
@@ -31,15 +41,9 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
     
     [NSValueTransformer setValueTransformer:[DMBoolTransformer boolTransformerWithYesObject:[NSColor textColor] noObject:[NSColor disabledControlTextColor]] forName:@"VerifierInstructionLabelTextColor"];
     
-    map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestProgressIndicatorAnimateTransformer"];
-    map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:~(DMOAuthUnreachable)]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestErrorViewHiddenTransformer"];
     map = [NSDictionary dictionaryWithObject:NSLocalizedString(@"DMOAuthUnreachable", nil) forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable]];
     [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"RequestErrorLabelValue"];
     
-    map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthUnreachable|DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting]];
-    [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierViewHiddenTransformer"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthRequestTokenRecieved|DMOAuthAccessTokenRequesting|DMOAuthAccessTokenTimeout]];
     [NSValueTransformer setValueTransformer:[DMOAuthStateMapTransformer authStateTransformerWithMap:map] forName:@"VerifierTextFieldEnabled"];
     map = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:[NSNumber numberWithUnsignedInteger:DMOAuthAccessTokenRequesting]];
@@ -61,9 +65,23 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
     if (!self) return nil;
     
     self.browserLaunched = (([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable) > DMOAuthRequestTokenRecieved);
+    
+    self.requestErrorViewController = [[KTViewController alloc] initWithNibName:@"DMAuthRequestErrorViewController" bundle:nil];
+    self.requestingViewController = [[KTViewController alloc] initWithNibName:@"DMAuthRequestingViewController" bundle:nil];
+    self.verifierViewController = [[KTViewController alloc] initWithNibName:@"DMAuthVerifierViewController" bundle:nil];
+    [self addViewController:self.requestErrorViewController];
+    [self addViewController:self.requestingViewController];
+    [self addViewController:self.verifierViewController];
+    
     [[DMOAuthController sharedOAuthController] addObserver:self forKeyPath:@"oauthStateMask" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
     
     return self;
+}
+
+- (void)awakeFromNib
+{
+    DMOAuthState const state = [DMOAuthController sharedOAuthController].oauthStateMask;
+    [self.box setContentView:[self contentViewForState:state]];
 }
 
 #pragma KVO
@@ -72,10 +90,16 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 {
     DLog(@"%d->%d", [[change objectForKey:NSKeyValueChangeOldKey] unsignedIntegerValue], [[change objectForKey:NSKeyValueChangeNewKey] unsignedIntegerValue]);
     
-    const DMOAuthState reachableState = ([DMOAuthController sharedOAuthController].oauthStateMask & ~DMOAuthUnreachable);
+    DMOAuthState const state = [DMOAuthController sharedOAuthController].oauthStateMask;
+    NSView *const newContentView = [self contentViewForState:state];
+    if ([self.box contentView] != newContentView) {
+        [self.box setContentView:newContentView];
+    }
+    
+    DMOAuthState const reachableState = (state & ~DMOAuthUnreachable);
     self.browserLaunched = ((reachableState == DMOAuthRequestTokenRecieved && self.browserLaunched) || reachableState > DMOAuthRequestTokenRecieved);
 
-    if ([DMOAuthController sharedOAuthController].oauthStateMask == DMOAuthAuthenticated) {
+    if (state == DMOAuthAuthenticated) {
         [self performSelector:@selector(endSheetWithSuccess) withObject:nil afterDelay:DMAuthSheetSuccessDismissDelay];
     }
 }
@@ -101,6 +125,19 @@ static NSTimeInterval const DMAuthSheetSuccessDismissDelay = 2.0;
 }
 
 #pragma mark Private Methods
+
+- (NSView *)contentViewForState:(DMOAuthState)state
+{
+    if ((state & DMOAuthUnreachable) == DMOAuthUnreachable) {
+        return [self.requestErrorViewController view];
+    }
+    
+    if ((state & (DMOAuthUnauthenticated|DMOAuthRequestTokenRequesting)) == state) {
+        return [self.requestingViewController view];
+    }
+    
+    return [self.verifierViewController view];
+}
 
 - (void)endSheetWithSuccess
 {

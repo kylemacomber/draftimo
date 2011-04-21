@@ -60,6 +60,9 @@
 		A3FFD1F9135FED6C00B5EBBC /* KTLayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFD1F3135FED6C00B5EBBC /* KTLayerController.m */; };
 		A3FFD1FA135FED6C00B5EBBC /* KTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFD1F6135FED6C00B5EBBC /* KTViewController.m */; };
 		A3FFD1FB135FED6C00B5EBBC /* KTWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFD1F8135FED6C00B5EBBC /* KTWindowController.m */; };
+		A3FFD200135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FFD1FE135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib */; };
+		A3FFD205135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FFD203135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib */; };
+		A3FFD20B135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FFD209135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +177,9 @@
 		A3FFD1F6135FED6C00B5EBBC /* KTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTViewController.m; sourceTree = "<group>"; };
 		A3FFD1F7135FED6C00B5EBBC /* KTWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWindowController.h; sourceTree = "<group>"; };
 		A3FFD1F8135FED6C00B5EBBC /* KTWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWindowController.m; sourceTree = "<group>"; };
+		A3FFD1FE135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthRequestErrorViewController.xib; sourceTree = "<group>"; };
+		A3FFD203135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthRequestingViewController.xib; sourceTree = "<group>"; };
+		A3FFD209135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMAuthVerifierViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,13 +358,16 @@
 		A37E0BED1357AF04001BAF1A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				A31350771357F2CA00FFF529 /* DMAuthSheetController.xib */,
-				A37E0BEF1357AF04001BAF1A /* DMAuthSheetController.h */,
-				A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */,
 				A37E0BF11357AF04001BAF1A /* DMOAuthController.h */,
 				A37E0BF21357AF04001BAF1A /* DMOAuthController.m */,
 				A37E0BF31357AF04001BAF1A /* DMOAuthStateMapTransformer.h */,
 				A37E0BF41357AF04001BAF1A /* DMOAuthStateMapTransformer.m */,
+				A37E0BEF1357AF04001BAF1A /* DMAuthSheetController.h */,
+				A37E0BF01357AF04001BAF1A /* DMAuthSheetController.m */,
+				A31350771357F2CA00FFF529 /* DMAuthSheetController.xib */,
+				A3FFD1FE135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib */,
+				A3FFD203135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib */,
+				A3FFD209135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib */,
 			);
 			name = Auth;
 			path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Auth;
@@ -506,6 +515,9 @@
 				A390575F135821D1009D61DD /* DMSelectDraftViewController.xib in Resources */,
 				A3941104135A29210012A795 /* DMLeaguesCollectionViewController.xib in Resources */,
 				A3941109135A299C0012A795 /* DMLeagueDetailViewController.xib in Resources */,
+				A3FFD200135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib in Resources */,
+				A3FFD205135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib in Resources */,
+				A3FFD20B135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
