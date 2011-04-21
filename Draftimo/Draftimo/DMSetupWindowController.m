@@ -7,7 +7,6 @@
 //
 
 #import "DMSetupWindowController.h"
-#import "DMWelcomeViewController.h"
 #import "DMOAuthController.h"
 #import "DMAuthSheetController.h"
 #import "DMSelectDraftViewController.h"
@@ -16,7 +15,7 @@
 
 
 @interface DMSetupWindowController ()
-@property (retain) DMWelcomeViewController *welcomeViewController;
+@property (retain) KTViewController *welcomeViewController;
 @property (retain) DMAuthSheetController *authSheetController;
 @property (retain) DMSelectDraftViewController *selectDraftViewController;
 
@@ -41,10 +40,10 @@
 
 - (void)windowDidLoad
 {
-    [super windowDidLoad];
     const BOOL needsAuth = ![[DMOAuthController sharedOAuthController] oauthStateMaskMatches:DMOAuthAuthenticated] && ![[DMOAuthController sharedOAuthController] oauthStateMaskMatches:DMOAuthAccessTokenRefreshing];
     if (needsAuth) {
-        self.welcomeViewController = [[DMWelcomeViewController alloc] init];
+        self.welcomeViewController = [[KTViewController alloc] initWithNibName:@"DMWelcomeViewController" bundle:nil];
+        [self addViewController:self.welcomeViewController];
         [self.box setContentView:self.welcomeViewController.view];
     } else {
         [[DMOAuthController sharedOAuthController] performYFMethod:YFUserLeaguesMethod withParameters:nil withTarget:[self document] andAction:@selector(parseYFXMLMethod:withResponseBody:)];
@@ -110,6 +109,7 @@
 - (void)showSelectDraftView
 {
     self.selectDraftViewController = [[DMSelectDraftViewController alloc] init];
+    [self addViewController:self.selectDraftViewController];
     [self.box setContentView:self.selectDraftViewController.view];
 }
 

@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KTViewController.h"
 
 
 @class DMLeaguesCollectionViewController, DMLeagueDetailViewController;
-@interface DMSelectDraftViewController : NSViewController {
+@interface DMSelectDraftViewController : KTViewController {
 @private
     NSView *__leaguesCollectionView;
     NSView *__leagueDetailView;

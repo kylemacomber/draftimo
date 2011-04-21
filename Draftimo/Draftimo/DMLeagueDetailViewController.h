@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "DMViewController.h"
+#import "KTViewController.h"
 
 
-@interface DMLeagueDetailViewController : DMViewController {
+@interface DMLeagueDetailViewController : KTViewController {
 @private
 
 }

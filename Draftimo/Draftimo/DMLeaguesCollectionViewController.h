@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "DMListViewController.h"
+#import "KTViewController.h"
 
 
-@interface DMLeaguesCollectionViewController : DMListViewController {
+@interface DMLeaguesCollectionViewController : KTViewController {
 @private
-
+    NSArrayController *__arrayController;
 }
 
+@property (retain) IBOutlet NSArrayController *arrayController;
 @end

@@ -7,14 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KTWindowController.h"
 
 
-@class DMWelcomeViewController, DMAuthSheetController, DMSelectDraftViewController;
-@interface DMSetupWindowController : NSWindowController {
+@class DMAuthSheetController, DMSelectDraftViewController;
+@interface DMSetupWindowController : KTWindowController {
 @private
     NSBox *__box;
     NSTextField *__boxTitleTextField;
-    DMWelcomeViewController *__welcomeViewController;
+    KTViewController *__welcomeViewController;
     DMAuthSheetController *__authSheetController;
     DMSelectDraftViewController *__selectDraftViewController;
 }

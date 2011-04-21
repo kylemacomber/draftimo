@@ -181,8 +181,9 @@
 					<string>league</string>
 					<string>team</string>
 				</array>
-				<bool key="NSEditable">YES</bool>
-				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
+				<object class="_NSManagedProxy" key="_NSManagedProxy">
+					<string key="NSEntityName">DMLeague</string>
+				</object>
 				<bool key="_NSIsUsingManagedProxy">YES</bool>
 				<bool key="NSAvoidsEmptySelection">YES</bool>
 				<bool key="NSPreservesSelection">YES</bool>
@@ -216,62 +217,6 @@
 						<reference key="destination" ref="3437671"/>
 					</object>
 					<int key="connectionID">12</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">listController</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="813882908"/>
-					</object>
-					<int key="connectionID">14</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">contentArray: representedObject</string>
-						<reference key="source" ref="813882908"/>
-						<reference key="destination" ref="1001"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="813882908"/>
-							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">contentArray: representedObject</string>
-							<string key="NSBinding">contentArray</string>
-							<string key="NSKeyPath">representedObject</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">18</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: representedObject.league</string>
-						<reference key="source" ref="597590675"/>
-						<reference key="destination" ref="607029707"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="597590675"/>
-							<reference key="NSDestination" ref="607029707"/>
-							<string key="NSLabel">value: representedObject.league</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">representedObject.league</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">24</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: representedObject.team</string>
-						<reference key="source" ref="344093017"/>
-						<reference key="destination" ref="607029707"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="344093017"/>
-							<reference key="NSDestination" ref="607029707"/>
-							<string key="NSLabel">value: representedObject.team</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">representedObject.team</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">26</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -345,6 +290,62 @@
 						</object>
 					</object>
 					<int key="connectionID">40</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: representedObject.name</string>
+						<reference key="source" ref="597590675"/>
+						<reference key="destination" ref="607029707"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="597590675"/>
+							<reference key="NSDestination" ref="607029707"/>
+							<string key="NSLabel">value: representedObject.name</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">representedObject.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">45</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: representedObject.leagueID</string>
+						<reference key="source" ref="344093017"/>
+						<reference key="destination" ref="607029707"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="344093017"/>
+							<reference key="NSDestination" ref="607029707"/>
+							<string key="NSLabel">value: representedObject.leagueID</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">representedObject.leagueID</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">managedObjectContext: windowController.document.managedObjectContext</string>
+						<reference key="source" ref="813882908"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="813882908"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">managedObjectContext: windowController.document.managedObjectContext</string>
+							<string key="NSBinding">managedObjectContext</string>
+							<string key="NSKeyPath">windowController.document.managedObjectContext</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">arrayController</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="813882908"/>
+					</object>
+					<int key="connectionID">49</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -471,43 +472,35 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">40</int>
+			<int key="maxID">49</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">DMLeaguesCollectionViewController</string>
-					<string key="superclassName">DMListViewController</string>
+					<string key="superclassName">KTViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">arrayController</string>
+						<string key="NS.object.0">NSArrayController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">arrayController</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">arrayController</string>
+							<string key="candidateClassName">NSArrayController</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/DMLeaguesCollectionViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">DMListViewController</string>
-					<string key="superclassName">DMViewController</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">listController</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">listController</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">listController</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DMListViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">DMViewController</string>
+					<string key="className">KTViewController</string>
 					<string key="superclassName">NSViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DMViewController.h</string>
+						<string key="minorKey">./Classes/KTViewController.h</string>
 					</object>
 				</object>
 			</array>

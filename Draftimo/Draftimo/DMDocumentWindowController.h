@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KTWindowController.h"
 
 
 @class DMSetupWindowController;
-@interface DMDocumentWindowController : NSWindowController {
+@interface DMDocumentWindowController : KTWindowController {
 @private
     DMSetupWindowController *__setupWindowController;
 }
