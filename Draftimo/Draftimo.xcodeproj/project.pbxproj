@@ -52,8 +52,8 @@
 		A3941108135A299C0012A795 /* DMLeagueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */; };
 		A3941109135A299C0012A795 /* DMLeagueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */; };
 		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
-		A3D88358135BCE9900C14FB8 /* DMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D88357135BCE9900C14FB8 /* DMListViewController.m */; };
-		A3D8835C135BCECD00C14FB8 /* DMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D8835A135BCECD00C14FB8 /* DMViewController.m */; };
+		A3AAF49D135F6909005EC374 /* KTUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AAF49C135F6909005EC374 /* KTUIKit.framework */; };
+		A3AAF49F135F690E005EC374 /* KTUIKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3AAF49C135F6909005EC374 /* KTUIKit.framework */; };
 		A3E159601358C17A001BC63D /* DMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E1595F1358C17A001BC63D /* DMTeam.m */; };
 		A3E159631358C17A001BC63D /* DMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159621358C17A001BC63D /* DMPosition.m */; };
 		A3E159661358C17A001BC63D /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159651358C17A001BC63D /* DMLeague.m */; };
@@ -79,6 +79,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A31350651357EA3000FFF529 /* MPOAuth.framework in CopyFiles */,
+				A3AAF49F135F690E005EC374 /* KTUIKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,11 +155,8 @@
 		A3941105135A299B0012A795 /* DMLeagueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMLeagueDetailViewController.h; sourceTree = "<group>"; };
 		A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLeagueDetailViewController.m; sourceTree = "<group>"; };
 		A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMLeagueDetailViewController.xib; sourceTree = "<group>"; };
-		A394110A135B61690012A795 /* DMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMListViewController.h; sourceTree = "<group>"; };
 		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A3D88357135BCE9900C14FB8 /* DMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMListViewController.m; sourceTree = "<group>"; };
-		A3D88359135BCECD00C14FB8 /* DMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMViewController.h; sourceTree = "<group>"; };
-		A3D8835A135BCECD00C14FB8 /* DMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMViewController.m; sourceTree = "<group>"; };
+		A3AAF49C135F6909005EC374 /* KTUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KTUIKit.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/KTUIKit.framework; sourceTree = "<group>"; };
 		A3E1595E1358C17A001BC63D /* DMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTeam.h; sourceTree = "<group>"; };
 		A3E1595F1358C17A001BC63D /* DMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTeam.m; sourceTree = "<group>"; };
 		A3E159611358C17A001BC63D /* DMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPosition.h; sourceTree = "<group>"; };
@@ -177,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A31350621357E9E200FFF529 /* MPOAuth.framework in Frameworks */,
+				A3AAF49D135F6909005EC374 /* KTUIKit.framework in Frameworks */,
 				A3632CD91351140B00E8E84F /* Cocoa.framework in Frameworks */,
 				A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -319,10 +318,6 @@
 				A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */,
 				A37E0BC31357AEA0001BAF1A /* Reachability.h */,
 				A37E0BC41357AEA0001BAF1A /* Reachability.m */,
-				A3D88359135BCECD00C14FB8 /* DMViewController.h */,
-				A3D8835A135BCECD00C14FB8 /* DMViewController.m */,
-				A394110A135B61690012A795 /* DMListViewController.h */,
-				A3D88357135BCE9900C14FB8 /* DMListViewController.m */,
 			);
 			name = Utilities;
 			path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/Utilities;
@@ -396,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				A31350611357E9E200FFF529 /* MPOAuth.framework */,
+				A3AAF49C135F6909005EC374 /* KTUIKit.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -547,8 +543,6 @@
 				A377D711135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m in Sources */,
 				A3941103135A29210012A795 /* DMLeaguesCollectionViewController.m in Sources */,
 				A3941108135A299C0012A795 /* DMLeagueDetailViewController.m in Sources */,
-				A3D88358135BCE9900C14FB8 /* DMListViewController.m in Sources */,
-				A3D8835C135BCECD00C14FB8 /* DMViewController.m in Sources */,
 				A30007CD135D1C3200F7C4D5 /* DMUnboxTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
