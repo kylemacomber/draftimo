@@ -91,6 +91,7 @@ NSString *const KTWindowControllerViewControllersKey = @"viewControllers";
 	if (theViewController == nil) return;
 	NSParameterAssert(![[self primitiveViewControllers] containsObject:theViewController]);
 	[[self mutableArrayValueForKey:KTWindowControllerViewControllersKey] addObject:theViewController];
+    theViewController.windowController = self;
 	[self _patchResponderChain];
 }
 
@@ -100,6 +101,7 @@ NSString *const KTWindowControllerViewControllersKey = @"viewControllers";
 	[theViewController retain];
 	{
 		[[self mutableArrayValueForKey:KTWindowControllerViewControllersKey] removeObject:theViewController];
+        theViewController.windowController = nil;
 		[theViewController removeObservations];
 	}
 	[theViewController release];
@@ -111,6 +113,7 @@ NSString *const KTWindowControllerViewControllersKey = @"viewControllers";
 	NSArray *aViewControllers = [[self viewControllers] retain];
 	{
 		[[self mutableArrayValueForKey:KTWindowControllerViewControllersKey] removeAllObjects];
+        [aViewControllers makeObjectsPerformSelector:@selector(setWindowController:) withObject:nil];
 		[aViewControllers makeObjectsPerformSelector:@selector(removeObservations)];
 	}
 	[aViewControllers release];

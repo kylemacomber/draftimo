@@ -51,15 +51,6 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 @synthesize parentViewController = wParentViewController;
 @synthesize hidden = mHidden;
 
-
-- (id)initWithNibName:(NSString *)theNibName bundle:(NSBundle *)theBundle windowController:(KTWindowController *)theWindowController;
-{
-	if ((self = [super initWithNibName:theNibName bundle:theBundle])) {
-		wWindowController = theWindowController;
-	}
-	return self;
-}
-
 - (void)dealloc;
 {
 	[mPrimitiveViewControllers release];
@@ -150,6 +141,7 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 	NSParameterAssert(![[self primitiveViewControllers] containsObject:theViewController]);
 	[[self mutableArrayValueForKey:KTViewControllerViewControllersKey] addObject:theViewController];
 	[theViewController _setParentViewController:self];
+    [theViewController setWindowController:[self windowController]];
 	[[self windowController] _patchResponderChain];
 }
 

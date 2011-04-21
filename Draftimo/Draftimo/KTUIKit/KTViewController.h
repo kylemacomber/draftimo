@@ -51,10 +51,8 @@ KT_EXPORT NSString *const KTViewControllerLayerControllersKey;
 	BOOL mHidden;
 }
 
-@property (readwrite, nonatomic, assign) KTWindowController *windowController;
+@property (readonly, nonatomic, assign) KTWindowController *windowController;
 @property (readonly, nonatomic, assign) KTViewController *parentViewController;
-
-- (id)initWithNibName:(NSString *)theName bundle:(NSBundle *)theBundle windowController:(KTWindowController *)windowController;
 
 #pragma mark View Controllers
 
@@ -72,6 +70,7 @@ KT_EXPORT NSString *const KTViewControllerLayerControllersKey;
 @end
 
 @interface KTViewController (KTPrivate)
+@property (readwrite, nonatomic, assign) KTWindowController *windowController;
 - (void)_setHidden:(BOOL)theHidden patchResponderChain:(BOOL)thePatch;
 KT_EXPORT void _KTViewControllerEnumerateSubControllers(KTViewController *theViewController, _KTControllerEnumerationOptions theOptions, BOOL *theStopFlag, _KTControllerEnumeratorCallBack theCallBackFunction, void *theContext);
 - (void)_enumerateSubControllers:(_KTControllerEnumeratorCallBack)theCallBackFunction context:(void *)theContext;
