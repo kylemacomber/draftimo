@@ -49,64 +49,12 @@ KT_EXPORT NSString *const KTViewControllerLayerControllersKey;
 	NSMutableArray *mPrimitiveLayerControllers;
 
 	BOOL mHidden;
-
-	NSArray *mTopLevelNibObjects;
-	
-	BOOL mViewLoaded;
 }
 
 @property (readwrite, nonatomic, assign) KTWindowController *windowController;
 @property (readonly, nonatomic, assign) KTViewController *parentViewController;
 
-//@property (readwrite, nonatomic, assign) BOOL hidden;
-
-/**
-	Can be used to determine if the view for this view contorller is loaded or not. It is important to note the order of setup here. This is set to yet after the view itself is loaded (after [super loadView] returns), but directly before |-viewDidLoad| is called. This ordering ensures that calls to |viewLoaded| inside |-viewDidLoad| return YES.
- */
-@property (nonatomic, readonly, getter = isViewLoaded) BOOL viewLoaded;
-
-
-/*!
- @method     viewControllerWithWindowController:
- @abstract   Returns an autoreleased view controller
- @discussion The default implementation of this method calls both +[KSViewController nibName] and +[KSViewController nibBundle], both of which may return nil.
- */
-+ (id)viewControllerWithWindowController:(KTWindowController *)theWindowController;
-
 - (id)initWithNibName:(NSString *)theName bundle:(NSBundle *)theBundle windowController:(KTWindowController *)windowController;
-- (BOOL)loadNibNamed:(NSString *)theNibName bundle:(NSBundle *)theBundle;
-
-#pragma mark View Loading
-
-/*!
- @method     nibName
- @abstract   Returns the nib name for the view controller's |view| property.
- @discussion The default implementation returns nil. Subclasses can override this behaviour, but this is only necessary when a nib is used (when not creating the view manually in -[KSViewController loadView]).
- */
-+ (NSString *)nibName;
-
-/*!
- @method     nibBundle
- @abstract   Returns the bundle in which the nib can be found.
- @discussion By default this returns +[NSBundle bundleForClass:self]. Subclasses can override this method to deviate from default behaviour.
- */
-+ (NSBundle *)nibBundle;
-
-/**
- @method viewClass
- @abstract Returns the NSView class, or a subclass thereof, that will be loaded if the view controller cannot determine a nibName to load.
- @discussion NSView, or a subclass thereof.
- */
-+ (Class)viewClass;
-
-
-/*!
- @method     viewWillLoad/viewDidLoad
- @abstract   Called before/after the view is loaded
- @discussion This class overrides -[NSViewController loadView] to load its view, calling -viewWillLoad and -viewDidLoad during its implementation. If -loadView is overridden in a subclass, then these methods will have to be manually invoked and |viewLoaded| must be set beofre -loadView returns. The default implementations do nothing.
- */
-- (void)viewWillLoad;
-- (void)viewDidLoad;
 
 #pragma mark View Controllers
 

@@ -30,20 +30,6 @@
 // If you use it, acknowledgement in an About Page or other appropriate place would be nice.
 // For example, "Contains "View Controllers" by Jonathan Dann and Cathy Shive" will do.
 
-
-/*
-	(Cathy 11/10/08) NOTE:
-	I've made the following changes that need to be documented:
-	• When a child is removed, its view is removed from its superview and it is sent a "removeObservations" message
-	• Added 'removeChild:(KTViewController*)theChild' method to remove specific subcontrollers
-	• Added 'loadNibNamed' and 'releaseNibObjects' to support loading more than one nib per view controller.  These take care
-	of releasing the top level nib objects for those nib files. Users have to unbind any bindings in those nibs in the view
-	controller's removeObservations method.
-	• Added class method, 'viewControllerWithWindowController'
-	• I'm considering overriding 'view' and 'setView:' so that the view controller only deals with KTViews.
-*/
-
-
 #import "KTViewController.h"
 #import "KTWindowController.h"
 #import "KTLayerController.h"
@@ -57,28 +43,14 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 @property (readonly, nonatomic) NSMutableArray *primitiveViewControllers;
 @property (readonly, nonatomic) NSMutableArray *primitiveLayerControllers;
 
-@property (readwrite, nonatomic, copy) NSArray *topLevelObjects;
-
-@property (nonatomic, getter = isViewLoaded) BOOL viewLoaded;
-
 - (void)_setHidden:(BOOL)theHiddenFlag patchResponderChain:(BOOL)thePatchFlag;
 @end
 
 @implementation KTViewController
-
 @synthesize windowController = wWindowController;
 @synthesize parentViewController = wParentViewController;
-
 @synthesize hidden = mHidden;
 
-@synthesize topLevelObjects = mTopLevelNibObjects;
-
-@synthesize viewLoaded = mViewLoaded;
-
-+ (id)viewControllerWithWindowController:(KTWindowController *)theWindowController
-{
-	return [[[self alloc] initWithNibName:[self nibName] bundle:[self nibBundle] windowController:theWindowController] autorelease];
-}
 
 - (id)initWithNibName:(NSString *)theNibName bundle:(NSBundle *)theBundle windowController:(KTWindowController *)theWindowController;
 {
@@ -88,22 +60,10 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 	return self;
 }
 
-- (id)initWithNibName:(NSString *)theName bundle:(NSBundle *)theBundle;
-{
-	[NSException raise:@"KTViewControllerException" format:@"An instance of an KTViewController concrete subclass was initialized using the NSViewController method -initWithNibName:bundle: all view controllers in the enusing tree will have no reference to an KTWindowController object and cannot be automatically added to the responder chain"];
-	return nil;
-}
-
-// On 10.6 NSObject implements -awakeFromNib. It's a very common mistake to call super when compiling for 10.5+, we implement -awakeFromNib here so subclasses can safely call super.
-- (void)awakeFromNib;
-{}
-
 - (void)dealloc;
 {
 	[mPrimitiveViewControllers release];
 	[mPrimitiveLayerControllers release];
-
-	[mTopLevelNibObjects release];
 	
 	[super dealloc];
 }
@@ -111,15 +71,9 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 #pragma mark -
 #pragma mark Accessors
 
-// -hidden is deprecated in favour of -isHidden
-- (BOOL)hidden;
-{
-	return [self isHidden];
-}
-
 - (NSString *)description;
 {
-	return [NSString stringWithFormat:@"%@ hidden:%@ viewLoaded:%@", [super description], [self isHidden] ? @"YES" : @"NO", [self isViewLoaded] ? @"YES" : @"NO"];
+	return [NSString stringWithFormat:@"%@ hidden:%@", [super description], [self isHidden] ? @"YES" : @"NO"];
 }
 
 - (void)setWindowController:(KTWindowController *)theWindowController;
@@ -151,59 +105,6 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 	if (thePatch) {
 		[[self windowController] _patchResponderChain];			
 	}
-}
-
-#pragma mark -
-#pragma mark View Loading
-
-+ (Class)viewClass;
-{
-	return [NSView class]; // Note that out of the box, KTViewController should work correctly with NSViews, not KTViews.
-}
-
-+ (NSString *)nibName;
-{
-	return nil;
-}
-
-+ (NSBundle *)nibBundle;
-{
-	return [NSBundle bundleForClass:self];
-}
-
-- (BOOL)_shouldLoadDefaultView;
-{
-	return ([[self class] nibName] == nil && [self nibName] == nil);
-}
-
-- (void)loadView;
-{		
-	NSParameterAssert([self isViewLoaded] == NO);
-	[self viewWillLoad];
-	
-	if ([self _shouldLoadDefaultView]) {
-		Class aDefaultViewClass = [[self class] viewClass];
-		NSParameterAssert(aDefaultViewClass != Nil);
-		NSView *aView = [[[aDefaultViewClass alloc] initWithFrame:NSZeroRect] autorelease];
-		[self setView:aView];
-	} else {
-		[super loadView];
-	}
-	
-	[self setViewLoaded:YES];
-	NSAutoreleasePool *aPool = [[NSAutoreleasePool alloc] init];
-	[self viewDidLoad];
-	[aPool drain];
-}
-
-- (void)viewWillLoad;
-{
-	// Intetionally does nothing.
-}
-
-- (void)viewDidLoad;
-{
-	// Intetionally does nothing.
 }
 
 #pragma mark View Controllers
@@ -410,21 +311,6 @@ void _KTViewControllerEnumerateSubControllers(KTViewController *theViewControlle
 {
 	[[self viewControllers] makeObjectsPerformSelector:@selector(removeObservations)];
 	[[self layerControllers] makeObjectsPerformSelector:@selector(removeObservations)];
-}
-
-#pragma mark -
-#pragma mark Nib Management
-
-- (BOOL)loadNibNamed:(NSString*)theNibName bundle:(NSBundle*)theBundle
-{
-	NSNib *aNib = [[NSNib alloc] initWithNibNamed:theNibName bundle:theBundle];
-	NSArray *aTopLevelObjects = nil;
-	BOOL aSuccess = NO;
-	if ((aSuccess = [aNib instantiateNibWithOwner:self topLevelObjects:&aTopLevelObjects])) {
-		[self setTopLevelObjects:aTopLevelObjects];
-	}
-	[aNib release];
-	return aSuccess;
 }
 
 @end

@@ -24,7 +24,6 @@ typedef NSUInteger _KTControllerEnumerationOptions;
 - (NSArray *)descendants;
 - (void)removeObservations;
 @property (readwrite, nonatomic, assign, getter = isHidden) BOOL hidden;
-- (BOOL)hidden DEPRECATED_ATTRIBUTE;
 
 - (void)_enumerateSubControllers:(_KTControllerEnumeratorCallBack)theCallBackFunction context:(void *)theContext;
 @end
