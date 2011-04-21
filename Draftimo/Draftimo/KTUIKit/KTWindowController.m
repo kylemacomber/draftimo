@@ -117,38 +117,7 @@ NSString *const KTWindowControllerViewControllersKey = @"viewControllers";
 	[self _patchResponderChain];
 }
 
-#pragma mark Deprecated API
-
-- (void)setViewControllers:(NSArray *)theViewControllers
-{
-	[theViewControllers retain];
-	{
-		[self removeAllViewControllers];
-		[[self mutableArrayValueForKey:KTViewControllerViewControllersKey] addObjectsFromArray:theViewControllers];
-	}
-	[theViewControllers release];
-	[self _patchResponderChain];
-}
-
 #pragma mark Descendants
-
-//- (NSArray *)_descendants;
-//{	
-//	CFMutableArrayRef aMutableDescendants = CFArrayCreateMutable(kCFAllocatorDefault, 0, &kCFTypeArrayCallBacks);
-//	for (KTViewController *aSubViewController in [self viewControllers]) {
-//		CFArrayAppendValue(aMutableDescendants, aSubViewController);
-//		NSArray *aSubDescendants = [aSubViewController descendants];
-//		if (aSubDescendants != nil) {
-//			CFIndex aDescendantsCount = CFArrayGetCount((CFArrayRef)aSubDescendants);
-//			if (aDescendantsCount > 0) {
-//				CFArrayAppendArray(aMutableDescendants, (CFArrayRef)aSubDescendants, CFRangeMake(0, aDescendantsCount));
-//			}
-//		}
-//	}
-//	CFArrayRef aDescendants = CFArrayCreateCopy(kCFAllocatorDefault, aMutableDescendants);
-//	CFRelease(aMutableDescendants);
-//	return [NSMakeCollectable(aDescendants) autorelease];
-//}
 
 - (void)_enumerateSubControllers:(_KTControllerEnumeratorCallBack)theCallBackFunction context:(void *)theContext;
 {
@@ -206,23 +175,6 @@ void _KTPatchResponderChainEnumeratorCallBack(NSResponder <KTController> *theCon
 	[self _enumerateSubControllers:&_KTPatchResponderChainEnumeratorCallBack context:&aContext];	
 	[self setNextResponder:aContext.firstController]; // |firstController| is the first controller for which |hidden| returned NO.
 	[aPool drain];
-}
-
-#pragma mark -
-#pragma mark Experimental
-
-- (NSViewController <KTController> *)owningViewControllerForView:(NSView *)theView;
-{
-	NSParameterAssert(theView != nil);
-	// Do a depth-first search of our view controllers and find the deepest root view controller who's view's heirarchy contains |theView|.
-	NSViewController *anOwningViewController = nil;
-	for (NSViewController <KTController> *aViewController in [self viewControllers]) {
-		if ([anOwningViewController isKindOfClass:[KTViewController class]]) {
-			anOwningViewController = [(KTViewController *)aViewController owningViewControllerForView:theView];			
-		}
-		if (anOwningViewController != nil) break;
-	}
-	return anOwningViewController;
 }
 
 @end

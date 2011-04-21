@@ -44,7 +44,6 @@ KT_EXPORT NSString *const KTWindowControllerViewControllersKey;
 } 
 @property (readonly, nonatomic) NSArray *viewControllers;
 
-- (void)setViewControllers:(NSArray *)theViewControllers DEPRECATED_ATTRIBUTE;
 - (void)addViewController:(KTViewController *)theViewController;
 - (void)removeViewController:(KTViewController *)theViewController;
 - (void)removeAllViewControllers;
@@ -53,8 +52,4 @@ KT_EXPORT NSString *const KTWindowControllerViewControllersKey;
 
 @interface KTWindowController (KTPrivate)
 - (void)_patchResponderChain;
-@end
-
-@interface KTWindowController (KTExperimental)
-- (NSViewController <KTController> *)owningViewControllerForView:(NSView *)theView;
 @end

@@ -126,7 +126,7 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 {
 	if (wWindowController == theWindowController) return;
 	wWindowController = theWindowController;
-	[[self subcontrollers] makeObjectsPerformSelector:@selector(setWindowController:) withObject:theWindowController];
+	[[self viewControllers] makeObjectsPerformSelector:@selector(setWindowController:) withObject:theWindowController];
 	[theWindowController _patchResponderChain];
 }
 
@@ -140,7 +140,7 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 	if (mHidden == theHidden) return;
 	mHidden = theHidden;	
 	
-	for (KTViewController *aViewController in [self subcontrollers]) {
+	for (KTViewController *aViewController in [self viewControllers]) {
 		[aViewController _setHidden:theHidden patchResponderChain:NO];
 	}
 	
@@ -276,40 +276,6 @@ NSString *const KTViewControllerLayerControllersKey = @"layerControllers";
 	}
 	[aViewControllers release];
 	[[self windowController] _patchResponderChain];
-}
-
-#pragma mark Old Subcontroller API
-// TODO: These methods should be deprecated in favour of the "viewController" variants
-- (NSArray *)subcontrollers;
-{
-	return [self viewControllers];
-}
-
-- (void)setSubcontrollers:(NSArray *)theSubcontrollers;
-{
-	[theSubcontrollers retain];
-	{
-		[self removeAllViewControllers];
-		[[self mutableArrayValueForKey:KTViewControllerViewControllersKey] addObjectsFromArray:theSubcontrollers];
-		[theSubcontrollers makeObjectsPerformSelector:@selector(_setParentViewController:) withObject:self];		
-	}
-	[theSubcontrollers release];
-	[[self windowController] _patchResponderChain];
-}
-
-- (void)addSubcontroller:(KTViewController *)theViewController;
-{
-	[self addViewController:theViewController];
-}
-
-- (void)removeSubcontroller:(KTViewController *)theViewController;
-{
-	[self removeViewController:theViewController];
-}
-
-- (void)removeAllSubcontrollers
-{
-	[self removeAllViewControllers];
 }
 
 #pragma mark Layer Controllers
@@ -459,46 +425,6 @@ void _KTViewControllerEnumerateSubControllers(KTViewController *theViewControlle
 	}
 	[aNib release];
 	return aSuccess;
-}
-
-#pragma mark -
-#pragma mark Experimental
-
-- (BOOL)viewHierarchyContainsView:(NSView *)theView;
-{
-	NSParameterAssert(theView != nil);
-	if (![self isViewLoaded]) return NO;
-	NSView *aView = [self view];
-	return [theView isDescendantOf:aView]; // Also returns YES if [theView isEqual:aView];
-}
-
-struct __KTOwningViewControllerContext {
-	NSView *view;
-	NSViewController <KTController> *owningController;
-};
-typedef struct __KTOwningViewControllerContext _KTOwningViewControllerContext;
-
-static void _KTOwningViewControllerCallBack(id <KTController> theController, BOOL *theStopFlag, void *theContext) {
-	_KTOwningViewControllerContext *aContext = (_KTOwningViewControllerContext *)theContext;
-	NSCParameterAssert([theController isKindOfClass:[KTViewController class]]);
-	NSCParameterAssert([theController conformsToProtocol:@protocol(KTController)]);
-	if ([theController isKindOfClass:[KTViewController class]]) {
-		KTViewController <KTController> *aController = (KTViewController <KTController> *)theController;
-		BOOL anIsPartOfControllersViewHierarchy = [aController viewHierarchyContainsView:(aContext->view)];
-		if (anIsPartOfControllersViewHierarchy) {
-			aContext->owningController = aController;			
-		}
-		// The trick here is not to break by setting |theStopFlag| to YES. If we did that, we may return when testing the left-branch of the controller heirarchy when the view is a subview of the right branch. We enumerate the whole view controller tree for the window, therefore the final view controller that is assigned to |theContext->owningController| is the last one which reported that it had anything to do with the view in question.
-	}
-}
-
-- (NSViewController <KTController> *)owningViewControllerForView:(NSView *)theView;
-{
-	NSParameterAssert(theView != nil);
-	if (![self viewHierarchyContainsView:theView]) return nil;
-	_KTOwningViewControllerContext aContext = (_KTOwningViewControllerContext){.view = theView, .owningController = nil};
-	[self _enumerateSubControllersWithOptions:(_KTControllerEnumerationOptionsIgnoreLayerControllers) callBack:&_KTOwningViewControllerCallBack context:&aContext]; // On return aContext.owningController contains the deepest view controller in the view controller tree that reported the view as its view or one of its subviews.
-	return aContext.owningController;
 }
 
 @end

@@ -121,16 +121,6 @@ KT_EXPORT NSString *const KTViewControllerLayerControllersKey;
 - (void)addLayerController:(KTLayerController *)theLayerController;
 - (void)removeLayerController:(KTLayerController *)theLayerController;
 
-
-// This API will be deprecated in the near-future, use the "viewController"-based methods instead.
-#pragma mark Subcontrollers
-
-@property (readonly, nonatomic, copy) NSArray *subcontrollers;
-- (void)setSubcontrollers:(NSArray *)theSubcontrollers DEPRECATED_ATTRIBUTE;
-- (void)addSubcontroller:(KTViewController *)viewController;
-- (void)removeSubcontroller:(KTViewController *)viewController;
-- (void)removeAllSubcontrollers;
-
 @end
 
 @interface KTViewController (KTPrivate)
@@ -138,9 +128,4 @@ KT_EXPORT NSString *const KTViewControllerLayerControllersKey;
 KT_EXPORT void _KTViewControllerEnumerateSubControllers(KTViewController *theViewController, _KTControllerEnumerationOptions theOptions, BOOL *theStopFlag, _KTControllerEnumeratorCallBack theCallBackFunction, void *theContext);
 - (void)_enumerateSubControllers:(_KTControllerEnumeratorCallBack)theCallBackFunction context:(void *)theContext;
 - (void)_enumerateSubControllersWithOptions:(_KTControllerEnumerationOptions)theOptions callBack:(_KTControllerEnumeratorCallBack)theCallBackFunction context:(void *)theContext;
-@end
-
-@interface KTViewController (KTExperimental)
-- (BOOL)viewHierarchyContainsView:(NSView *)theView;
-- (NSViewController <KTController> *)owningViewControllerForView:(NSView *)theView;
 @end
