@@ -53,12 +53,6 @@ NSString *const KTLayerControllerLayerControllersKey = @"layerControllers";
 #pragma mark -
 #pragma mark Accessors
 
-// -hidden is deprecated in favour of -isHidden
-- (BOOL)hidden;
-{
-	return [self isHidden];
-}
-
 - (void)setHidden:(BOOL)theHidden;
 {
 	[self _setHidden:theHidden patchResponderChain:YES];
@@ -69,7 +63,7 @@ NSString *const KTLayerControllerLayerControllersKey = @"layerControllers";
 	if (mHidden == theHidden) return;
 	mHidden = theHidden;	
 	
-	for (KTLayerController *aLayerController in [self subcontrollers]) {
+	for (KTLayerController *aLayerController in [self layerControllers]) {
 		[aLayerController _setHidden:theHidden patchResponderChain:NO];
 	}
 	
@@ -161,23 +155,6 @@ NSString *const KTLayerControllerLayerControllersKey = @"layerControllers";
 	}
 	[aLayerControllers release];
 	[[self _windowController] _patchResponderChain];
-}
-
-#pragma mark Old Subcontroller API
-
-- (NSArray *)subcontrollers;
-{
-	return [self layerControllers];
-}
-
-- (void)addSubcontroller:(KTLayerController*)theSubcontroller;
-{
-	[self addLayerController:theSubcontroller];
-}
-
-- (void)removeSubcontroller:(KTLayerController*)theSubcontroller;
-{
-	[self removeLayerController:theSubcontroller];
 }
 
 #pragma mark -

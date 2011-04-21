@@ -33,8 +33,6 @@ KT_EXPORT NSString *const KTLayerControllerLayerControllersKey;
 @property (readwrite, nonatomic, retain) id layer;
 @property (readwrite, nonatomic, retain) id representedObject;
 
-//@property (readwrite, nonatomic, assign) BOOL hidden;
-
 + (id)layerControllerWithViewController:(KTViewController*)theViewController;
 - (id)initWithViewController:(KTViewController*)theViewController;
 
@@ -43,12 +41,6 @@ KT_EXPORT NSString *const KTLayerControllerLayerControllersKey;
 - (void)addLayerController:(KTLayerController *)theLayerController;
 - (void)removeLayerController:(KTLayerController *)theLayerController;
 - (void)removeAllLayerControllers;
-
-// This API will be deprecated in the near-future, use the "layerController" variants instead
-#pragma mark Subcontrollers
-@property (readonly, nonatomic, retain) NSArray *subcontrollers;
-- (void)addSubcontroller:(KTLayerController *)theSubcontroller;
-- (void)removeSubcontroller:(KTLayerController *)theSubcontroller;
 
 @end
 
