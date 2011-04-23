@@ -64,10 +64,12 @@
     DLog(@"");
 }
 
-- (IBAction)nextButtonClicked:(id)sender
+- (IBAction)setupNextButtonClicked:(id)sender
 {
     DLog(@"");
-    [[NSApplication sharedApplication] endSheet:self.window returnCode:NSOKButton];
+    if (![[self nextResponder] tryToPerform:@selector(setupNextButtonClicked:) with:sender]) {
+        [[NSApplication sharedApplication] endSheet:self.window returnCode:NSOKButton];
+    }
 }
 
 #pragma mark DMWelcomeViewController Actions

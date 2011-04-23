@@ -11,6 +11,7 @@
 #import "DMLeaguesCollectionViewController.h"
 #import "DMLeagueDetailViewController.h"
 #import "DMUnboxTransformer.h"
+#import "DMDraft.h"
 
 
 @interface DMSelectDraftViewController ()
@@ -55,6 +56,24 @@
 - (void)managedObjectContextDidChange:(NSNotification *)notification
 {
     [self.leaguesCollectionViewController.arrayController fetch:nil];
+}
+
+#pragma mark Responder Chain
+
+- (IBAction)setupNextButtonClicked:(id)sender
+{
+    NSManagedObjectContext *managedObjectContext = [[[self windowController] document] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"DMDraft" inManagedObjectContext:managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    NSArray *array = [managedObjectContext executeFetchRequest:request error:&error];
+    ZAssert([array count] == 1, @"Fetch doesn't return one DMDraft %@", error);
+    
+    DMDraft *draft = [array lastObject];
+    draft.league = [self.leaguesCollectionViewController.arrayController.selectedObjects lastObject];
+    DLog(@"%@", draft);
 }
 
 @end
