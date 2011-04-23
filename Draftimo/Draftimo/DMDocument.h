@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "YFXMLParseOperation.h"
 
-@interface DMDocument : NSPersistentDocument {
+@interface DMDocument : NSPersistentDocument <YFXMLParseOperationDelegate> {
 @private
     NSOperationQueue *__YFParseOperationQueue;
 }

@@ -12,43 +12,55 @@
 
 
 @interface YFXMLParseOperation ()
+@property (retain, readwrite) NSManagedObjectContext *managedObjectContext;
 @property (copy) NSString *YFKey;
 
+- (void)managedObjectContextDidSave:(NSNotification *)notification;
 - (NSSet *)parseNode:(NSXMLNode *)node forEntityNamed:(NSString *)entityName;
 @end
 
 @implementation YFXMLParseOperation
 @synthesize managedObjectContext = __managedObjextContext;
+@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize method = __method;
 @synthesize responseBody = __responseBody;
+@synthesize delegate = __delegate;
 @synthesize YFKey = __YFKey;
-
-- (id)init
-{
-    self = [super init];
-    if (!self) return nil;
-    
-    return self;
-}
 
 - (void)main
 {
-    ZAssert(self.managedObjectContext, @"");
     DLog(@"%@", self.method);
+    self.managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [self.managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(YFXMLParseOperation:didSave:)]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:self.managedObjectContext];
+    }
     
     if ([[self.method relativeString] isEqualToString:YFUserLeaguesMethod]) {
         self.YFKey = @"YFUserLeaguesMethod";
         
         NSError *error;
         NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:self.responseBody options:NSXMLDocumentValidate error:&error];
-        if (!doc) {
-            ALog(@"%@", error); //maybe find a way to call web service again
-        }
+        if (!doc) { ALog(@"%@", error); }
         
         NSSet *games = [self parseNode:doc forEntityNamed:ClassKey(DMGame)];
         // For YFUserLeaguesMethod, the only teams returned are the user's teams, we must set them as such
         [games setValue:[NSNumber numberWithBool:YES] forKeyPath:@"leagues.teams.userTeam"];
-        DLog(@"%@", games);
+    } else {
+        ALog(@"Unrecognized Method %@", self.method);
+    }
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) { ALog(@"%@", error); }
+}
+
+- (void)managedObjectContextDidSave:(NSNotification *)notification
+{
+    if ([NSThread isMainThread]) {
+        [self.delegate YFXMLParseOperation:self didSave:notification];
+    } else {
+        [self performSelectorOnMainThread:@selector(managedObjectContextDidSave:) withObject:notification waitUntilDone:NO];
     }
 }
 
