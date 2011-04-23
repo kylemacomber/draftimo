@@ -30,6 +30,7 @@
 		A3632D26135114D400E8E84F /* DMDocumentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D25135114D400E8E84F /* DMDocumentWindowController.xib */; };
 		A3632D291352890900E8E84F /* DMSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632D281352890800E8E84F /* DMSetupWindowController.m */; };
 		A3632D2B1352893100E8E84F /* DMSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */; };
+		A36866E3136256FB0036499D /* DMDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = A36866E2136256FB0036499D /* DMDraft.m */; };
 		A377D70B135E6D8600179FCF /* YFXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */; };
 		A377D711135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A377D710135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.m */; };
 		A37E0BC51357AEA0001BAF1A /* DMBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E0BBC1357AEA0001BAF1A /* DMBoolTransformer.m */; };
@@ -122,6 +123,8 @@
 		A3632D271352890800E8E84F /* DMSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSetupWindowController.h; sourceTree = "<group>"; };
 		A3632D281352890800E8E84F /* DMSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSetupWindowController.m; sourceTree = "<group>"; };
 		A3632D2A1352893100E8E84F /* DMSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMSetupWindowController.xib; sourceTree = "<group>"; };
+		A36866E1136256FB0036499D /* DMDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDraft.h; sourceTree = "<group>"; };
+		A36866E2136256FB0036499D /* DMDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDraft.m; sourceTree = "<group>"; };
 		A377D709135E6D8600179FCF /* YFXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFXMLParseOperation.h; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.h; sourceTree = "<group>"; };
 		A377D70A135E6D8600179FCF /* YFXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFXMLParseOperation.m; path = ../../../../../../Active/Development/ObjectiveC/draftimo/Draftimo/Draftimo/YFXMLParseOperation.m; sourceTree = "<group>"; };
 		A377D70F135ED38D00179FCF /* NSKeyValueCoding-DMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSKeyValueCoding-DMAdditions.h"; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				A37E0BCD1357AEAF001BAF1A /* DMDocument.xcdatamodeld */,
+				A36866E1136256FB0036499D /* DMDraft.h */,
+				A36866E2136256FB0036499D /* DMDraft.m */,
 				A3E1596A1358C17A001BC63D /* DMGame.h */,
 				A3E1596B1358C17A001BC63D /* DMGame.m */,
 				A3E159641358C17A001BC63D /* DMLeague.h */,
@@ -575,6 +580,7 @@
 				A3FFD1F9135FED6C00B5EBBC /* KTLayerController.m in Sources */,
 				A3FFD1FA135FED6C00B5EBBC /* KTViewController.m in Sources */,
 				A3FFD1FB135FED6C00B5EBBC /* KTWindowController.m in Sources */,
+				A36866E3136256FB0036499D /* DMDraft.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

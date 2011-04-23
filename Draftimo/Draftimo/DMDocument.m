@@ -8,6 +8,7 @@
 
 #import "DMDocument.h"
 #import "DMDocumentWindowController.h"
+#import "DMDraft.h"
 
 
 @interface DMDocument ()
@@ -19,12 +20,12 @@
 @implementation DMDocument
 @synthesize YFParseOperationQueue = __YFParseOperationQueue;
 
+// Shared init
 - (id)init
 {
     self = [super init];
     if (!self) return nil;
     
-    DLog(@"");
     self.YFParseOperationQueue = [[NSOperationQueue alloc] init];
 
     return self;
@@ -32,22 +33,20 @@
 
 #pragma mark NSDocument
 
-// The init invoked to create a new document
+// Invoked when creating a new document
 - (id)initWithType:(NSString *)typeName error:(NSError **)outError
 {
     self = [super initWithType:typeName error:outError];
     if (!self) return nil;
     
-    DLog(@"");
-    // When opening a new document
+    // When opening a new document, we create a temporary persistentStore in memory, until the user specifies a save location
     [[[self managedObjectContext] persistentStoreCoordinator] addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
-    //DMDraft
-    // Create DMDraft and insert into managedObjectContext
+    [NSEntityDescription insertNewObjectForEntityForName:@"DMDraft" inManagedObjectContext:[self managedObjectContext]];
     
     return self;
 }
 
-// The init invoked to open existing documents
+// Invoked when opening existing documents
 - (id)initWithContentsOfURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
 {
     self = [super initWithContentsOfURL:absoluteURL ofType:typeName error:outError];
@@ -81,13 +80,16 @@
 
 - (void)YFXMLParseOperation:(YFXMLParseOperation *)operation didSave:(NSNotification *)notification
 {
+    ZAssert([NSThread isMainThread], @"only access Document's managedObjectContext from the main thread");
+    
     [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"DMLeague" inManagedObjectContext:[self managedObjectContext]];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    NSError *error;
-    NSArray *array = [[self managedObjectContext] executeFetchRequest:request error:&error];
-    DLog(@"%@ %@", array, error);
+    
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"DMLeague" inManagedObjectContext:[self managedObjectContext]];
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entityDescription];
+//    NSError *error;
+//    NSArray *array = [[self managedObjectContext] executeFetchRequest:request error:&error];
+//    DLog(@"%@ %@", array, error);
 }
 
 @end
