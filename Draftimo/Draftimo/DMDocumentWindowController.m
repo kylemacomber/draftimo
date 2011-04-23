@@ -40,8 +40,7 @@
     const BOOL newDraft = !([[self document] fileURL]);
     if (newDraft) {
         self.setupWindowController = [[DMSetupWindowController alloc] init];
-        //[self.setupWindowController setDocument:[self document]];
-        self.setupWindowController.document = self.document;
+        self.setupWindowController.document = self.document; // Because DMSetupWindowController is not added in DMDocument's makeWindowControllers it does not automatically recieve a pointer to the document
         [[NSApplication sharedApplication] beginSheet:self.setupWindowController.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(setupSheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
 }
