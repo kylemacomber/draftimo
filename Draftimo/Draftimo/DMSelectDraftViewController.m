@@ -16,6 +16,8 @@
 @interface DMSelectDraftViewController ()
 @property (retain) DMLeaguesCollectionViewController *leaguesCollectionViewController;
 @property (retain) DMLeagueDetailViewController *leagueDetailViewController;
+
+- (void)managedObjectContextDidChange:(NSNotification *)notification;
 @end
 
 @implementation DMSelectDraftViewController
@@ -34,6 +36,8 @@
     self.leagueDetailViewController = [[DMLeagueDetailViewController alloc] initWithNibName:@"DMLeagueDetailViewController" bundle:nil];
     [self addViewController:self.leagueDetailViewController];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextDidChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[[self windowController] document] managedObjectContext]];
+    
     return self;
 }
 
@@ -46,6 +50,11 @@
     [self.leagueDetailView addSubview:[self.leagueDetailViewController view]];
     
     [self.leagueDetailViewController bind:@"representedObject" toObject:self.leaguesCollectionViewController.arrayController withKeyPath:@"selectedObjects" options:[NSDictionary dictionaryWithObjectsAndKeys:@"DMUnboxTransformer", NSValueTransformerNameBindingOption, nil]];
+}
+
+- (void)managedObjectContextDidChange:(NSNotification *)notification
+{
+    [self.leaguesCollectionViewController.arrayController fetch:nil];
 }
 
 @end
