@@ -20,3 +20,6 @@ NSString *const YUserAuthURL = @"https://api.login.yahoo.com/oauth/v2/request_au
 NSString *const YFHostName = @"fantasysports.yahooapis.com";
 NSString *const YFBaseURL = @"http://fantasysports.yahooapis.com/fantasy/v2/";
 NSString *const YFUserLeaguesMethod = @"users;use_login=1/games;game_keys=nfl,mlb,nba,nhl/leagues;out=settings,teams";
+
+// Draftimo Server
+NSString *const DMBaseURL = @"http://dl.dropbox.com/u/27277008/Draftimo/";

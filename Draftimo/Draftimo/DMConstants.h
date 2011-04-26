@@ -20,3 +20,6 @@ extern NSString *const YUserAuthURL;
 extern NSString *const YFHostName;
 extern NSString *const YFBaseURL;
 extern NSString *const YFUserLeaguesMethod;
+
+// Draftimo Server
+extern NSString *const DMBaseURL;
