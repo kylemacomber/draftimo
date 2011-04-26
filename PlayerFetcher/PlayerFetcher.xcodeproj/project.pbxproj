@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3A899FB1366315E000154A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A899FA1366315E000154A1 /* Foundation.framework */; };
+		A3A899FE1366315E000154A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A899FD1366315E000154A1 /* main.m */; };
+		A3A89A1113663448000154A1 /* PlayerFetcherOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A89A1013663448000154A1 /* PlayerFetcherOperation.m */; };
+		A3A89A1413663EC2000154A1 /* NSURLResponse+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A89A1313663EC2000154A1 /* NSURLResponse+Encoding.m */; };
+		A3FAAC3E13669E43007A8B5A /* MPOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FAAC3D13669E43007A8B5A /* MPOAuth.framework */; };
+		A3FAAC4D13669E55007A8B5A /* MPOAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3FAAC3D13669E43007A8B5A /* MPOAuth.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3A899F41366315E000154A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A3A89A0A13663305000154A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A3FAAC4D13669E55007A8B5A /* MPOAuth.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A3A899F61366315E000154A1 /* PlayerFetcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PlayerFetcher; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A899FA1366315E000154A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3A899FD1366315E000154A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3A89A001366315E000154A1 /* PlayerFetcher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlayerFetcher-Prefix.pch"; sourceTree = "<group>"; };
+		A3A89A011366315E000154A1 /* PlayerFetcher.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PlayerFetcher.1; sourceTree = "<group>"; };
+		A3A89A0F13663448000154A1 /* PlayerFetcherOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerFetcherOperation.h; sourceTree = "<group>"; };
+		A3A89A1013663448000154A1 /* PlayerFetcherOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerFetcherOperation.m; sourceTree = "<group>"; };
+		A3A89A1213663EC2000154A1 /* NSURLResponse+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+Encoding.h"; sourceTree = "<group>"; };
+		A3A89A1313663EC2000154A1 /* NSURLResponse+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+Encoding.m"; sourceTree = "<group>"; };
+		A3FAAC3D13669E43007A8B5A /* MPOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPOAuth.framework; path = ../../../../../Active/Development/ObjectiveC/draftimo/PlayerFetcher/MPOAuth.framework; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3A899F31366315E000154A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A899FB1366315E000154A1 /* Foundation.framework in Frameworks */,
+				A3FAAC3E13669E43007A8B5A /* MPOAuth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3A899EB1366315E000154A1 = {
+			isa = PBXGroup;
+			children = (
+				A3A899FC1366315E000154A1 /* PlayerFetcher */,
+				A3A899F91366315E000154A1 /* Frameworks */,
+				A3A899F71366315E000154A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3A899F71366315E000154A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3A899F61366315E000154A1 /* PlayerFetcher */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3A899F91366315E000154A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3FAAC3D13669E43007A8B5A /* MPOAuth.framework */,
+				A3A899FA1366315E000154A1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3A899FC1366315E000154A1 /* PlayerFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				A3A899FD1366315E000154A1 /* main.m */,
+				A3A89A011366315E000154A1 /* PlayerFetcher.1 */,
+				A3A899FF1366315E000154A1 /* Supporting Files */,
+				A3A89A0F13663448000154A1 /* PlayerFetcherOperation.h */,
+				A3A89A1013663448000154A1 /* PlayerFetcherOperation.m */,
+				A3A89A1213663EC2000154A1 /* NSURLResponse+Encoding.h */,
+				A3A89A1313663EC2000154A1 /* NSURLResponse+Encoding.m */,
+			);
+			path = PlayerFetcher;
+			sourceTree = "<group>";
+		};
+		A3A899FF1366315E000154A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3A89A001366315E000154A1 /* PlayerFetcher-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3A899F51366315E000154A1 /* PlayerFetcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3A89A041366315E000154A1 /* Build configuration list for PBXNativeTarget "PlayerFetcher" */;
+			buildPhases = (
+				A3A899F21366315E000154A1 /* Sources */,
+				A3A899F31366315E000154A1 /* Frameworks */,
+				A3A899F41366315E000154A1 /* CopyFiles */,
+				A3A89A0A13663305000154A1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayerFetcher;
+			productName = PlayerFetcher;
+			productReference = A3A899F61366315E000154A1 /* PlayerFetcher */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3A899ED1366315E000154A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Kyle Macomber";
+			};
+			buildConfigurationList = A3A899F01366315E000154A1 /* Build configuration list for PBXProject "PlayerFetcher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A3A899EB1366315E000154A1;
+			productRefGroup = A3A899F71366315E000154A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3A899F51366315E000154A1 /* PlayerFetcher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3A899F21366315E000154A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A899FE1366315E000154A1 /* main.m in Sources */,
+				A3A89A1113663448000154A1 /* PlayerFetcherOperation.m in Sources */,
+				A3A89A1413663EC2000154A1 /* NSURLResponse+Encoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A3A89A021366315E000154A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		A3A89A031366315E000154A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					"$(ARCHS_STANDARD_32_64_BIT)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		A3A89A051366315E000154A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../../../../../Active/Development/ObjectiveC/draftimo/PlayerFetcher\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlayerFetcher/PlayerFetcher-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A3A89A061366315E000154A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../../../../../Active/Development/ObjectiveC/draftimo/PlayerFetcher\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlayerFetcher/PlayerFetcher-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3A899F01366315E000154A1 /* Build configuration list for PBXProject "PlayerFetcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3A89A021366315E000154A1 /* Debug */,
+				A3A89A031366315E000154A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3A89A041366315E000154A1 /* Build configuration list for PBXNativeTarget "PlayerFetcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3A89A051366315E000154A1 /* Debug */,
+				A3A89A061366315E000154A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3A899ED1366315E000154A1 /* Project object */;
+}
