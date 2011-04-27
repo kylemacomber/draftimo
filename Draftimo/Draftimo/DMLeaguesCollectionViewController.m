@@ -12,14 +12,17 @@
 
 @implementation DMLeaguesCollectionViewController
 @synthesize arrayController = __arrayController;
+@synthesize docImageView = __docImageView;
 
 + (void)initialize
 {
-    [NSValueTransformer setValueTransformer:[DMBoolTransformer boolTransformerWithYesObject:[NSColor textColor] noObject:[NSColor disabledControlTextColor]] forName:@"CollectionItemLabelTextColor"];
+    [NSValueTransformer setValueTransformer:[DMBoolTransformer boolTransformerWithYesObject:[NSImage imageNamed:@"CollectionViewSelection.png"] noObject:nil] forName:@"CollectionItemSelectedImage"];
 }
 
 - (void)awakeFromNib
 {
+    [self.docImageView setImage:[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericDocumentIcon)]];
+    
     [self.arrayController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:NULL];
     [self.arrayController setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"leagueID" ascending:YES]]];
 }

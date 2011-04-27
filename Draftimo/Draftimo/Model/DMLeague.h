@@ -30,4 +30,5 @@ typedef NSUInteger DMScoringType;
 @property (nonatomic, retain) NSSet* teams;
 @property (nonatomic, retain) NSSet* positions;
 
+@property (retain, readonly) DMTeam *userTeam;
 @end

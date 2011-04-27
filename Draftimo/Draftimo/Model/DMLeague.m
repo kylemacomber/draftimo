@@ -55,6 +55,15 @@
     return [self validateIntegerValue:ioValue error:outError];
 }
 
+- (DMTeam *)userTeam
+{
+    NSSet *userTeams = [self.teams objectsPassingTest:^BOOL(id team, BOOL *stop) {
+        return [[(DMTeam *)team userTeam] boolValue];
+    }];
+    ZAssert([userTeams count] == 1, @"More than 1 User Team");
+    return [userTeams anyObject];
+}
+
 #pragma mark Generated Methods
 
 - (void)addStatsObject:(DMStat *)value {    

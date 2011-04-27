@@ -52,6 +52,7 @@
 		A3941108135A299C0012A795 /* DMLeagueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */; };
 		A3941109135A299C0012A795 /* DMLeagueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */; };
 		A39EF91E1357DD7A009433C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */; };
+		A3BCB3F61367E0A000657560 /* CollectionViewSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BCB3F51367E0A000657560 /* CollectionViewSelection.png */; };
 		A3E159601358C17A001BC63D /* DMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E1595F1358C17A001BC63D /* DMTeam.m */; };
 		A3E159631358C17A001BC63D /* DMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159621358C17A001BC63D /* DMPosition.m */; };
 		A3E159661358C17A001BC63D /* DMLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E159651358C17A001BC63D /* DMLeague.m */; };
@@ -159,6 +160,7 @@
 		A3941106135A299C0012A795 /* DMLeagueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLeagueDetailViewController.m; sourceTree = "<group>"; };
 		A3941107135A299C0012A795 /* DMLeagueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMLeagueDetailViewController.xib; sourceTree = "<group>"; };
 		A39EF91D1357DD7A009433C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3BCB3F51367E0A000657560 /* CollectionViewSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CollectionViewSelection.png; sourceTree = "<group>"; };
 		A3E1595E1358C17A001BC63D /* DMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTeam.h; sourceTree = "<group>"; };
 		A3E1595F1358C17A001BC63D /* DMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTeam.m; sourceTree = "<group>"; };
 		A3E159611358C17A001BC63D /* DMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPosition.h; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		A34816D21353DC5100F11448 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3BCB3F51367E0A000657560 /* CollectionViewSelection.png */,
 				A313506E1357F23700FFF529 /* Status_Declined.png */,
 				A313506F1357F23700FFF529 /* Status_Conflict.png */,
 				A31350701357F23700FFF529 /* Status_Accepted.png */,
@@ -518,6 +521,7 @@
 				A3FFD200135FFA7F00B5EBBC /* DMAuthRequestErrorViewController.xib in Resources */,
 				A3FFD205135FFA9D00B5EBBC /* DMAuthRequestingViewController.xib in Resources */,
 				A3FFD20B135FFAEC00B5EBBC /* DMAuthVerifierViewController.xib in Resources */,
+				A3BCB3F61367E0A000657560 /* CollectionViewSelection.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,9 @@
 @interface DMLeaguesCollectionViewController : KTViewController {
 @private
     NSArrayController *__arrayController;
+    NSImageView *__docImageView;
 }
 
 @property (retain) IBOutlet NSArrayController *arrayController;
+@property (retain) IBOutlet NSImageView *docImageView;
 @end
