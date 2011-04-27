@@ -25,6 +25,5 @@
 
 - (IBAction)cancelButtonClicked:(id)sender;
 - (IBAction)previousButtonClicked:(id)sender;
-- (IBAction)nextButtonClicked:(id)sender;
 
 @end
